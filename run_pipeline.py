@@ -240,10 +240,10 @@ if __name__ == "__main__":
     
     
     run_transformation(
-        input_xml_path=os.path.join(data_dir, "FReSH-43597-fr.xml"), 
+        input_xml_path=os.path.join(data_dir, "FReSH-PEF60139-fr.xml"), 
         mapping_csv_path=os.path.join("mappings", "entity_wise_corres_table.csv"),
         xsd_schema_path=os.path.join("mappings", "fresh-schema_v3.xsd"),
-        output_xml_path=os.path.join(output_dir, "FReSH-43597-fr_fresh_clean.xml"),
+        output_xml_path=os.path.join(output_dir, "FReSH-PEF60139-fr_fresh_clean.xml"),
         logs_path=logs_dir
     )
 # %%
