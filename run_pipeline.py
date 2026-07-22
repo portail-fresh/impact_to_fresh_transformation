@@ -182,9 +182,9 @@ class HierarchicalExtractor:
 
         return final_dict
 
-def run_transformation(api_xml_path, mapping_csv_path, xsd_schema_path, output_xml_path):
+def run_transformation(input_xml_path, mapping_csv_path, xsd_schema_path, output_xml_path, logs_path=None):
     print("1. Parsing and Hierarchical Extraction...")
-    extractor = HierarchicalExtractor(api_xml_path, mapping_csv_path)
+    extractor = HierarchicalExtractor(input_xml_path, mapping_csv_path)
     nested_data = extractor.process()
     
     print("2. Building and Saving Target XML...")
@@ -197,35 +197,53 @@ def run_transformation(api_xml_path, mapping_csv_path, xsd_schema_path, output_x
     print("\n3. Validating Generated XML against XSD Schema...")
     is_valid, error_log = validate_xml_against_xsd(output_xml_path, xsd_schema_path)
 
+
     if is_valid:
         print("   [SUCCESS] Le fichier XML généré est 100% conforme au schéma XSD !")
     else:
         print("   [CRITICAL] Échec de la validation XSD.")
         print(error_log)
 
+    # print and save validation results
+    # get file name without extension
+    file_name = os.path.splitext(os.path.basename(input_xml_path))[0]
+    
+    if logs_path:
+        os.makedirs(logs_path, exist_ok=True)
+        validation_report_path = os.path.join(logs_path, f"{file_name}_validation_report.txt")
+        with open(validation_report_path, "w", encoding="utf-8") as f:
+            if is_valid:
+                f.write("Le fichier XML généré est 100% conforme au schéma XSD !\n")
+            else:
+                f.write("Échec de la validation XSD.\n")
+                f.write(error_log) # pyright: ignore[reportArgumentType]
+        print(f"   Rapport de validation écrit dans : {validation_report_path}")
     unmatched_vocab = extractor.unmatched_vocab + builder.unmatched_vocab
+    
     if unmatched_vocab:
         print(f"\n4. [WARNING] {len(unmatched_vocab)} valeur(s) sans correspondance dans les vocabulaires contrôlés :")
         for field_name, raw_value in unmatched_vocab:
             print(f"   - {field_name}: {raw_value!r}")
 
-        report_path = os.path.splitext(output_xml_path)[0] + "_unmatched_vocab.csv"
-        with open(report_path, "w", encoding="utf-8-sig", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(["field", "raw_value"])
-            writer.writerows(unmatched_vocab)
-        print(f"   Rapport écrit dans : {report_path}")
+    # write logs
+    report_path = os.path.join(logs_path, f"{file_name}_unmatched_vocab.csv") # pyright: ignore[reportArgumentType, reportCallIssue]
+    with open(report_path, "w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["field", "raw_value"])
+        writer.writerows(unmatched_vocab)
+    print(f"   Rapport de vocabulaires écrit dans : {report_path}")
 
 if __name__ == "__main__":
-    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\xml_files_from_API"
-    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\xml_files_out_IH_to_FRESH"
-    
+    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\xml_files_from_IH_API"
+    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
+    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
     
     
     run_transformation(
-        api_xml_path=os.path.join(data_dir, "FReSH-43597-fr.xml"), 
+        input_xml_path=os.path.join(data_dir, "FReSH-43597-fr.xml"), 
         mapping_csv_path=os.path.join("mappings", "entity_wise_corres_table.csv"),
         xsd_schema_path=os.path.join("mappings", "fresh-schema_v3.xsd"),
-        output_xml_path=os.path.join(output_dir, "FReSH-43597-fr_fresh_clean.xml")
+        output_xml_path=os.path.join(output_dir, "FReSH-43597-fr_fresh_clean.xml"),
+        logs_path=logs_dir
     )
 # %%
