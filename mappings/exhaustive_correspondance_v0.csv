@@ -1,0 +1,73 @@
+source_xpath,target_xpath,comment
+/xml/dataset/repositoryid,TechnicalInfo/StudyId/IDSchema,Direct string map
+/xml/dataset/id,TechnicalInfo/StudyId/Identifier,Direct string map
+/xml/dataset/metadata/additional/status,TechnicalInfo/Status,Direct string map
+/xml/dataset/metadata/additional/versionLang,TechnicalInfo/VersionLang,Direct string map
+/xml/dataset/metadata/additional/originLang,TechnicalInfo/OriginLang,Direct string map
+/xml/dataset/created,TechnicalInfo/CreationDate,Needs datetime to date string conversion in Python
+/xml/dataset/metadata/additional/lastUpdatedAuto,TechnicalInfo/LastUpdatedAuto,Direct string map
+/xml/dataset/metadata/additional/lastUpdatedManual,TechnicalInfo/LastUpdatedManual,Direct string map
+/xml/dataset/metadata/additional/autoTranslation,TechnicalInfo/AutoTranslation,Boolean string (0/1)
+/xml/dataset/title,StudyRelatedInfo/StudyOverview/Title,Direct string map
+/xml/dataset/metadata/study_desc/title_statement/alternate_title,StudyRelatedInfo/StudyOverview/Acronym,Direct string map
+/xml/dataset/metadata/study_desc/study_info/abstract,StudyRelatedInfo/StudyOverview/Summary,Direct string map
+/xml/dataset/metadata/study_desc/study_info/purpose,StudyRelatedInfo/StudyOverview/Purpose,Direct string map
+/xml/dataset/metadata/study_desc/study_info/keywords/keyword/keyword,StudyRelatedInfo/StudyOverview/Keyword,ARRAY: Simple list (No zipping needed)
+/xml/dataset/metadata/additional/isHealthTheme,StudyRelatedInfo/Theme/IsHealthTheme,Boolean string (0/1)
+/xml/dataset/metadata/additional/topicsHealthDeterminant/values/value,StudyRelatedInfo/Theme/HealthDeterminant,ARRAY: Simple list
+/xml/dataset/metadata/study_desc/study_info/topics/topic/topic,StudyRelatedInfo/Theme/Pathology/value,ARRAY: Complex Type. Will need logic to extract URI if vocab='cim-11'
+/xml/dataset/metadata/additional/rareDiseases/values,StudyRelatedInfo/Theme/RareDiseases,Boolean string ("Oui"/"Non")
+/xml/dataset/metadata/additional/universe/level_type_clusion_I,StudyRelatedInfo/Population/PopulationType,Direct string map
+/xml/dataset/metadata/additional/universe/sexe/item,StudyRelatedInfo/Population/DemographicInfo/Sex/value,ARRAY: Simple list
+/xml/dataset/metadata/additional/universe/level_age_clusion_I/level_age_clusion_i,StudyRelatedInfo/Population/DemographicInfo/Age/value,ARRAY: Simple list
+/xml/dataset/metadata/additional/universe/clusion_I,StudyRelatedInfo/Population/OtherClusion/InclusionCriterion,Direct string map
+/xml/dataset/metadata/additional/universe/clusion_E,StudyRelatedInfo/Population/OtherClusion/ExclusionCriterion,Direct string map
+/xml/dataset/nation/item/name,StudyRelatedInfo/Population/GeographicalCoverage/Nation/value,ARRAY: Simple list
+/xml/dataset/metadata/additional/geogCoverage/values/value,StudyRelatedInfo/Population/GeographicalCoverage/FranceRegion,ARRAY: Simple list
+/xml/dataset/metadata/additional/geographicalCoverage/geoDetail,StudyRelatedInfo/Population/GeographicalCoverage/GeoDetail,Direct string map
+/xml/dataset/metadata/additional/regulatoryRequirements/conformityDeclaration,AdministrativeInformation/RegulatoryRequirements/ConformityDeclaration,Direct string map
+/xml/dataset/metadata/study_desc/study_authorization/agency/item/name,AdministrativeInformation/RegulatoryRequirements/ObtainedAuthorization/AuthorizingAgency,ARRAY: Simple list
+/xml/dataset/metadata/additional/isContributorPI,AdministrativeInformation/IsContributorPI,Boolean string (0/1)
+/xml/dataset/metadata/study_desc/authoring_entity/item/name,AdministrativeInformation/PrimaryInvestigator/PIName,ARRAY: PARALLEL. Needs zipping with PIMail/PILabo.
+/xml/dataset/metadata/study_desc/authoring_entity/item/email,AdministrativeInformation/PrimaryInvestigator/PIMail,ARRAY: PARALLEL. 
+/xml/dataset/metadata/study_desc/authoring_entity/item/PILabo,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/PILabo,ARRAY: PARALLEL.
+/xml/dataset/metadata/study_desc/authoring_entity/item/affiliationName,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationName,ARRAY: PARALLEL.
+/xml/dataset/metadata/additional/addTeamMember,AdministrativeInformation/AddTeamMember,Boolean string (0/1)
+/xml/dataset/metadata/study_desc/distribution_statement/contact/item/name,AdministrativeInformation/ContactPoint/ContactName,ARRAY: PARALLEL. Needs zipping with EMail.
+/xml/dataset/metadata/study_desc/distribution_statement/contact/item/email,AdministrativeInformation/ContactPoint/EMail,ARRAY: PARALLEL.
+/xml/dataset/metadata/study_desc/production_statement/funding_agencies/funding_agency/name,AdministrativeInformation/FundingAgent/FundingAgentName,ARRAY: PARALLEL. Needs zipping with FundingAgentType.
+/xml/dataset/metadata/additional/fundingAgent/fundingAgentType/fundingagenttype,AdministrativeInformation/FundingAgent/FundingAgentType,ARRAY: PARALLEL.
+/xml/dataset/metadata/additional/sponsorName/values/value,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorName,ARRAY: PARALLEL. Needs zipping with SponsorType.
+/xml/dataset/metadata/additional/sponsorType/values/value,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorType,ARRAY: PARALLEL.
+/xml/dataset/metadata/additional/governance/committee,AdministrativeInformation/OrganisationGovernance/Governance/Committee,Boolean string (0/1)
+/xml/dataset/metadata/additional/collaborations/networkConsortium,AdministrativeInformation/OrganisationGovernance/Collaborations/NetworkConsortium,Boolean string (0/1)
+/xml/dataset/metadata/study_desc/method/analysis_unit,StudyMethodology/AnalysisUnit,Direct string map
+/xml/dataset/metadata/additional/researchType/values/value,StudyMethodology/ResearchType,Direct string map
+/xml/dataset/metadata/additional/interventionalStudy/isClinicalTrial,StudyMethodology/InterventionalStudy/IsClinicalTrial,Boolean string (0/1)
+/xml/dataset/metadata/additional/trialPhase/values/value,StudyMethodology/InterventionalStudy/TrialPhase,Direct string map
+/xml/dataset/metadata/additional/interventionalStudy/interventionalStudyModel,StudyMethodology/InterventionalStudy/InterventionalStudyModel,Direct string map
+/xml/dataset/metadata/additional/observationalStudy/values,StudyMethodology/ObservationalStudy/ObservationalStudyDesign,Direct string map
+/xml/dataset/metadata/additional/isInclusionGroups,StudyMethodology/IsInclusionGroups,Boolean string (0/1)
+/xml/dataset/metadata/additional/inclusionGroups/inclusiongroup/name,StudyMethodology/InclusionGroup/GroupName,ARRAY: PARALLEL. Needs zipping with GroupDescription.
+/xml/dataset/metadata/additional/inclusionGroups/inclusiongroup/description,StudyMethodology/InclusionGroup/GroupDescription,ARRAY: PARALLEL.
+/xml/dataset/metadata/additional/intervention/item/name,StudyMethodology/Intervention/InterventionName,ARRAY: PARALLEL. Needs zipping with InterventionType.
+/xml/dataset/metadata/additional/intervention/item/type,StudyMethodology/Intervention/InterventionType,ARRAY: PARALLEL.
+/xml/dataset/metadata/additional/targetSampleSize/values/value,DataCollectionAccess/DataCollectionIntegration/SampleSize/PlannedSampleSize,Direct string map
+/xml/dataset/metadata/study_desc/method/data_collection/response_rate,DataCollectionAccess/DataCollectionIntegration/SampleSize/FinalSampleSize,Direct string map
+/xml/dataset/metadata/additional/collectionStartDate/values/value,DataCollectionAccess/DataCollectionIntegration/CollectionChronology/CollectionStart,Direct string map
+/xml/dataset/metadata/additional/collectionEndDate/values/value,DataCollectionAccess/DataCollectionIntegration/CollectionChronology/CollectionEnd,Direct string map
+/xml/dataset/metadata/study_desc/method/data_collection/frequency,DataCollectionAccess/DataCollectionIntegration/CollectionChronology/CollectionFrequency,Direct string map
+/xml/dataset/metadata/additional/collectionProcess/collectionModeDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeDetails,Direct string map
+/xml/dataset/metadata/study_desc/method/data_collection/sample_frame/frame_unit/unit_type,DataCollectionAccess/DataCollectionIntegration/DataCollection/RecruitmentSource,API returns stringified JSON list; Extractor needs to parse this.
+/xml/dataset/metadata/additional/activeFollowUp/isActiveFollowUp,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/IsActiveFollowUp,Boolean string (0/1)
+/xml/dataset/metadata/additional/dataCollectionIntegration/isDataIntegration,DataCollectionAccess/DataCollectionIntegration/DataCollectionIntegration/IsDataIntegration,Boolean string (0/1)
+/xml/dataset/metadata/additional/dataKind/values/value,DataCollectionAccess/DataCollectionIntegration/DataTypes/DataType,ARRAY: Simple list
+/xml/dataset/metadata/additional/dataTypes/clinicalDataDetails,DataCollectionAccess/DataCollectionIntegration/DataTypes/ClinicalDataDetails,Direct string map
+/xml/dataset/metadata/additional/dataTypes/biologicalDataDetails,DataCollectionAccess/DataCollectionIntegration/DataTypes/BiologicalDataDetails,Direct string map
+/xml/dataset/metadata/additional/dataTypes/isDataInBiobank,DataCollectionAccess/DataCollectionIntegration/DataTypes/isDataInBiobank,Boolean string (0/1)
+/xml/dataset/metadata/additional/dataTypes/biobankContent/biobankcontent,DataCollectionAccess/DataCollectionIntegration/DataTypes/BiobankContent,ARRAY: Simple list
+/xml/dataset/metadata/additional/dataTypes/otherLiquidsDetails,DataCollectionAccess/DataCollectionIntegration/DataTypes/OtherLiquidsDetails,Direct string map
+/xml/dataset/metadata/study_desc/data_access/dataset_availability/access_place,DataCollectionAccess/DataAccess/DatasetAvailability/AccessPlace,Direct string map
+/xml/dataset/metadata/additional/avlStatus/values,DataCollectionAccess/DataAccess/DatasetAvailability/Status/value,Direct string map
+/xml/dataset/metadata/study_desc/data_access/dataset_use/conditions,DataCollectionAccess/DataAccess/UseStatement/AccessConditions,Direct string map
+/xml/dataset/metadata/study_desc/data_access/dataset_use/conf_dec/item/txt,DataCollectionAccess/DataAccess/UseStatement/NonDisclosureAgreement,Direct string map

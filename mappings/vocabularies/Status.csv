@@ -1,0 +1,9 @@
+﻿Terme français,Terme anglais,Description en français,Description en anglais
+Envoyée pour publication,Awaiting validation,Fiche finalisée par le contributeur. ,Record finalized by the contributor.
+Mise à jour manuellement,Updated manually,Fiche initialement importée et mise à jour par l'investigateur principal.,Record initially imported and updated by the principal investigator.
+Publiée,Published,Fiche publiée par l’administrateur.,Record published by the administrator.
+Brouillon,Draft,"Fiche en cours de création ou modification, avant la validation par le contributeur.","Record in the process of being created or modified, before validation by the contributor."
+Importée,Imported,Fiche importée depuis une source tierce.,Record imported from a third-party source.
+Mise à jour automatiquement,Updated automatically,Fiche initialement importée et mise à jour automatiquement à partir d’une source tierce.,Record initially imported and automatically updated from a third-party source.
+Modifications requises ,Returned,Fiche retournée vers le contributeur par l’administrateur pour modification.,Record returned to the contributor by the administrator for modification.
+Rejetée,Rejected,Fiche dont la publication est refusée définitivement par l’administrateur.,Record whose publication is definitively refused by the administrator.

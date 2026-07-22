@@ -1,0 +1,2363 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="pp" vc:minVersion="1.1"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+
+    <!-- root element-->
+    <xsd:annotation>
+        <xsd:documentation xml:lang="fr">Description du bras</xsd:documentation>
+        <xsd:documentation xml:lang="en">Blinded masking, details</xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="FreshSchema">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="fr"> Schema Métadonnées FReSH </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <!-- to say that the element contains other elements-->
+            <xsd:sequence>
+                <!-- ensures child elements appear in a defined order -->
+                <xsd:element name="TechnicalInfo">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="fr">Métadonnées techniques de la fiche</xsd:documentation>
+                        <xsd:documentation xml:lang="en">Technical metadata</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element maxOccurs="1" minOccurs="1" name="StudyId"
+                                type="DatasetIDType">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Identifiant de l'étude</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Study ID</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="Provenance" default="PEF" minOccurs="0">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Provenance </xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Provenance</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="clinicaltrials.gov" />
+                                        <xsd:enumeration value="CTIS" />
+                                        <xsd:enumeration value="PROGEDO" />
+                                        <xsd:enumeration value="ECLAIRE" />
+                                        <xsd:enumeration value="PEF" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element default="fr" name="VersionLang">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Langue de la version</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Version language</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="fr" />
+                                        <xsd:enumeration value="en" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element default="fr" name="OriginLang">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Langue d'origine</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Original language</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="fr" />
+                                        <xsd:enumeration value="en" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="CreationDate" type="xsd:date">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Date du 1er enregistrement</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">First record date</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="LastUpdatedAuto" type="xsd:date">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Date de la dernière MAJ
+                                        automatique</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Last automatic update date</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="LastUpdatedManual" type="xsd:date">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Date de la dernière MAJ
+                                        manuelle</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Last manual update date</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="RespValidation" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Completion/validation par le
+                                        responsable</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Completion/validation by the
+                                        responsible person</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="AutoTranslation" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Traduction automatique</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Automatic translation</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="Status">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Status</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Status</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="Brouillon" />
+                                        <xsd:enumeration value="En attente de validation" />
+                                        <xsd:enumeration value="Retournée" />
+                                        <xsd:enumeration value="Rejetée" />
+                                        <xsd:enumeration value="Publiée" />
+                                        <xsd:enumeration value="Importée" />
+                                        <xsd:enumeration value="Mise à jour automatiquement" />
+                                        <xsd:enumeration value="Mise à jour manuellement" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="MetadataContributor">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Contributeur de la fiche de
+                                        métadonnées</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Metadata Contributor</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="ContributorName" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Prénom NOM</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Last name – First
+                                                    name</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="ContributorAffiliation">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Affiliation</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Affiliation</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="StudyRelatedInfo">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="fr">Informations relatives à l'étude</xsd:documentation>
+                        <xsd:documentation xml:lang="en">Study related information</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="StudyOverview">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Présentation de l'étude</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">StudyOverview</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element maxOccurs="1" minOccurs="1" name="Title"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Titre de l'étude</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Study title</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="Acronym" type="xsd:string" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Acronyme de l'étude</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Study acronym</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="StudyStatus">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Statut actuel de
+                                                    l'étude</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Current study
+                                                    status</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="Etude active" />
+                                                    <xsd:enumeration value="Etude completée" />
+                                                    <xsd:enumeration value="Etude arretée" />
+                                                    <xsd:enumeration value="Incunnu" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="Purpose" type="xsd:string" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Objectifs de
+                                                    l'étude</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Study objectives</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="1" minOccurs="1" name="Summary"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Résumé de l'étude</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Study summary </xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="Keyword" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Mot-clés libres</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Free keywords</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="Theme">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Thématique</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Theme</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element minOccurs="1" name="IsHealthTheme"
+                                            type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">L'étude
+                                                    porte-t-elle sur une ou plusieurs spécialité(s)
+                                                    médicale(s) ?</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Does the study
+                                                    cover one or more medical speciality(ies)?</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="HealthTheme" type="CvIdType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Spécialité(s)
+                                                    médicale(s) concernée(s)</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Medical
+                                                    speciality(ies) concerned</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="OtherHealthTheme"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autre spécialité
+                                                    médicale, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other medical
+                                                    specialty, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="HealthDeterminant" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Déterminants de
+                                                    santé</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Health determinants</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="OtherSocioDemoDeterminant"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autres déterminants
+                                                    socio-démographiques et économiques, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other
+                                                    socio-demographic and economic determinants,
+                                                    details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0"
+                                            name="OtherEnvironmentalDemoDeterminant"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autres déterminants
+                                                    environnementaux, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other environmental
+                                                    determinants, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0"
+                                            name="OtherHealthcarSystemDeterminant" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autres déterminants
+                                                    liés au système de santé, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other healthcare
+                                                    system determinants, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0"
+                                            name="OtherBehaviouralDeterminant" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autres déterminants
+                                                    comportementaux, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other behavioral
+                                                    determinants, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="OtherBiologicalDeterminant"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autres déterminants
+                                                    biologiques, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other biological
+                                                    determinants, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="OtherDeterminant"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+
+                                                <xsd:documentation xml:lang="fr">Autres
+                                                    déterminants, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other determinants,
+                                                    details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="Pathology" type="CvIdType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Pathologie(s),
+                                                    affection(s) ou diagnostic(s) ciblé(s) par
+                                                    l’étude</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Pathology(ies),
+                                                    condition(s) or diagnose(s) targeted by the
+                                                    study</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="RareDiseases" type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">L'étude
+                                                    porte-t-elle sur une ou plusieurs maladie(s)
+                                                    rare(s) ? </xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Does the study
+                                                    cover one or more rare disease(s)? </xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="Population">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Population de l'étude</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Study population</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="PopulationType" maxOccurs="unbounded"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Type de population</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="OtherPopulationType" type="xsd:string"
+                                            minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="en">Other population
+                                                    type, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="DemographicInfo">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Caractéristiques
+                                                    démographiques</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Demographic
+                                                    characteristics</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="Sex" maxOccurs="unbounded"
+                                                        minOccurs="1" type="CvIdType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Sexe</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Sex</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="Age" maxOccurs="unbounded"
+                                                        type="CvIdType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Age</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Age</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="OtherClusion">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autres critères
+                                                    d'éligibilité</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other eligibility
+                                                    criteria</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                        name="InclusionCriterion" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Critère
+                                                                d'inclusion</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Inclusion
+                                                                criterion</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                        name="ExclusionCriterion" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Critère
+                                                                d'exclusion</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Exclusion
+                                                                criterion</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="GeographicalCoverage">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Champ géographique</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Geographical
+                                                    coverage</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element maxOccurs="unbounded" minOccurs="1"
+                                                        name="Nation" type="CvIdType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Pays
+                                                                concerné(s) </xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Country(ies)
+                                                                concerned</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                        name="FranceRegion" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Région(s)
+                                                                française(s) concernée(s)</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">French
+                                                                region(s) concerned</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="GeoDetail" type="xsd:string"
+                                                        minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Champ
+                                                                géographique, précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Geographical
+                                                                coverage details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="AdministrativeInformation">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="fr">Renseignements administratifs</xsd:documentation>
+                        <xsd:documentation xml:lang="en">Administrative information</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="RegulatoryRequirements" minOccurs="0">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Pré-requis réglementaires</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Regulatory requirements</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="ObtainedAuthorization"
+                                            maxOccurs="unbounded" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autorisation(s) ou
+                                                    avi(s) obtenu(s)</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Authorisation(s) or
+                                                    approval(s) obtained</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="AuthorizingAgency">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autorité
+                                                                compétente ayant délivré
+                                                                l'autorisation ou l'avis de validité
+                                                                de l'étude</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Competent
+                                                                authority that issued the
+                                                                authorisation or notice of validity
+                                                                for the study</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration value="ANSM" />
+                                                                <xsd:enumeration value="CNIL" />
+                                                                <xsd:enumeration value="CESREES" />
+                                                                <xsd:enumeration value="Autre" />
+                                                                <xsd:enumeration value="CPP" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element name="OtherAuthorizingAgency"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autre
+                                                                autorité compétente, précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Other
+                                                                competent authority, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="IsContributorPI" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Etes-vous l'investigateur
+                                        principal (PI) de l'étude ?</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Are you the Principal
+                                        Investigator (PI) of the study ?</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element maxOccurs="unbounded" name="PrimaryInvestigator">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Investigateur principale</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Principal Investigator</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="PIName" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Prénom NOM de
+                                                    l'investigateur principal</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">First name LAST
+                                                    NAME of the principal investigator</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="PIMail" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Email de
+                                                    l'investigateur principal</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Principal
+                                                    investigator's email</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="PIORCID" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">ORCID de
+                                                    l'investigateur principal</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Principal
+                                                    investigator's ORCID</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="PIIdRef" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Identifiant IdRef</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">IdRef Identifier</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="PIAffiliation">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Affiliation(s) de
+                                                    l'investigateur principal</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Principal
+                                                    investigator affiliation(s)</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="OrganisationName"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Nom
+                                                                Organisme d'affiliation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Identifiant
+                                                                de l'organisme d'affiliation</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="OrganisationPID"
+                                                        type="OrganisationPIDType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identifiant
+                                                                de l'organisme d'affiliation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Identifiant
+                                                                d'organisme d'affiliation</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0" name="PILabo"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Affiliation(s),
+                                                                précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Affiliation(s),
+                                                                details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0" name="PILaboId"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identifiant
+                                                                RNSR du laboratoire d'appartenance</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Affiliated
+                                                                laboratory RNSR identifier</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="IsPIContact"
+                                            type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">L'investigateur
+                                                    principal est-il un point de contact ?</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Is the principal
+                                                    investigator a contact point?</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="AddTeamMember" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">D'autres équipes sont-elles
+                                        impliquées dans cette étude ? </xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Are other teams involved in
+                                        this study?</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element maxOccurs="unbounded" name="TeamMember" minOccurs="0">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Responsable de l'équipe
+                                        partenaire</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Partner team leader</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="TeamMemberName" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Prénom NOM du
+                                                    responsable de l'équipe</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">First name LAST
+                                                    NAME of the team leader</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="TeamMemberORCID"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">ORCID du
+                                                    responsable de l'équipe</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Team leader's ORCID</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="TeamMemberIdRef"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Identifiant IdRef</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">IdRef Identifier</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="TeamMemberAffiliation">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Affiliation(s) du
+                                                    responsable de l'équipe</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Team leader
+                                                    affiliation(s)</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="OrganisationName"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Nom
+                                                                Organisme d'affiliation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Identifiant
+                                                                de l'organisme d'affiliation</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="OrganisationPID"
+                                                        type="OrganisationPIDType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identifiant
+                                                                de l'organisme d'affiliation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Identifiant
+                                                                d'organisme d'affiliation</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0" name="TeamMemberLabo"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Affiliation(s),
+                                                                précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Affiliation(s),
+                                                                details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0"
+                                                        name="TeamMemberLaboId"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identifiant
+                                                                RNSR du laboratoire d'appartenance</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Affiliated
+                                                                laboratory RNSR identifier</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="IsTeamMemberContact"
+                                            type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Le responsable de
+                                                    l'équipe est-il un point de contact ?</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Is the team leader
+                                                    a contact point ?</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element maxOccurs="unbounded" minOccurs="0" name="ContactPoint">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Point(s) de contact</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Contact point(s)</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="ContactName" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Prénom NOM du
+                                                    contact</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">First name LAST
+                                                    NAME of the contact</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="EMail" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Email du contact</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Contact email</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="ContactPointAffiliation">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Affiliation(s) du
+                                                    contact</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Contact
+                                                    affiliation(s)</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="OrganisationName"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Nom de
+                                                                l'organisation d'affiliation
+                                                                principale</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Main
+                                                                affiliated organisation name</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="OrganisationPID"
+                                                        type="OrganisationPIDType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identifiant
+                                                                de l'organisme d'affiliation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Identifiant
+                                                                d'organisme d'affiliation</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0"
+                                                        name="ContactPointLabo"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Affiliation(s),
+                                                                précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Affiliation(s),
+                                                                details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0"
+                                                        name="ContactPointLaboId" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identifiant
+                                                                RNSR du laboratoire d'appartenance</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Affiliated
+                                                                laboratory RNSR identifier</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="FundingAgent" maxOccurs="unbounded" minOccurs="0">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Financeur</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Funder</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="FundingAgentName" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Nom du financeur</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Funder name</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="FundingAgentType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Type de financeur</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Funder type</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="Public (France)" />
+                                                    <xsd:enumeration value="Public (Europe)" />
+                                                    <xsd:enumeration value="Industrie" />
+                                                    <xsd:enumeration
+                                                        value="Privé à but non lucratif" />
+                                                    <xsd:enumeration value="Autre" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="OtherFundingAgentType"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autre type de
+                                                    financeur, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other funder type,
+                                                    details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="FundingAgentPID"
+                                            type="OrganisationPIDType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Identification du
+                                                    financeur</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Funder
+                                                    identification</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="OrganisationGovernance">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Organisation et gouvernance</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Organisation and governance</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="Sponsor">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Promoteur de
+                                                    l'étude (Organisation responsable)</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Sponsor
+                                                    (Responsible organisation)</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="SponsorName"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Nom du
+                                                                promoteur</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Spoonsor
+                                                                name</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="SponsorType"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Type
+                                                                Promoteur</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Sponsor
+                                                                type</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0"
+                                                        name="OtherSponsorType"
+                                                        type="xsd:string" />
+                                                    <xsd:element name="SponsorPID"
+                                                        type="OrganisationPIDType" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identification
+                                                                du promoteur</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Sponsor
+                                                                identification</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="Governance" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Gouvernance</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Governance</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="Committee" type="xsd:boolean">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Comité
+                                                                scientifique ou pilotage</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Scientific
+                                                                or steering committee</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="CommitteeDetail"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Comité,
+                                                                précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Committee
+                                                                details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="OtherGovernance"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autre
+                                                                modalité de gouvernance, précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Other
+                                                                form of gouvernance, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="Collaborations" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Collaborations</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Collaborations</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="NetworkConsortium"
+                                                        type="xsd:boolean">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Réseaux,
+                                                                consortiums</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Networks,
+                                                                consortia</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="CollaborationsDetail"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Collaboration(s)
+                                                                impliquée(s), précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Collaboration(s)
+                                                                involved, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element maxOccurs="unbounded" minOccurs="0" name="OtherStudyId"
+                                type="DatasetIDType">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Autre(s) identifiant(s) de
+                                        l'étude</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Other(s) identifier(s) for the
+                                        study</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="StudyMethodology">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="fr">Méthodologie de l'étude</xsd:documentation>
+                        <xsd:documentation xml:lang="en">Study methodology</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="AnalysisUnit" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Unité de collecte</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Collection unit</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="ResearchType">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Modèle d'étude</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Study type</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="Observationnelle" />
+                                        <xsd:enumeration value="Interventionnelle (expérimentale)" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="InterventionalStudy" minOccurs="0">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Etude interventionnelle
+                                        (expérimentale)</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Interventional study</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="IsClinicalTrial" type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">S'agit-il d'un
+                                                    essai clinique?</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Is this a clinical
+                                                    trial?</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="TrialPhase" maxOccurs="unbounded"
+                                            minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Phase d'essai</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Stduy phase</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="Phase 1" />
+                                                    <xsd:enumeration value="Phase 2" />
+                                                    <xsd:enumeration value="Phase 3" />
+                                                    <xsd:enumeration value="Phase 4" />
+                                                    <xsd:enumeration value="N/A" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="ResearchPurpose" maxOccurs="unbounded">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Objet principal de
+                                                    la recherche</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Primary research
+                                                    purpose</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="Traitement" />
+                                                    <xsd:enumeration
+                                                        value="Recherche sur les services de santé" />
+                                                    <xsd:enumeration value="Prévention" />
+                                                    <xsd:enumeration value="Recherche fondamentale" />
+                                                    <xsd:enumeration value="Diagnostic" />
+                                                    <xsd:enumeration
+                                                        value="Faisabilité des dispositifs" />
+                                                    <xsd:enumeration value="Soins de soutien" />
+                                                    <xsd:enumeration value="Dépistage" />
+                                                    <xsd:enumeration value="Autre" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="1" minOccurs="0"
+                                            name="OtherResearchPurpose" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autre objectif
+                                                    principal, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other research
+                                                    purpose, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="IsInclusionGroups" type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">L'étude
+                                                    comporte-t-elle plusieurs groupes définis dès
+                                                    l'inclusion ? </xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Does the study
+                                                    include several groups defined at the time of
+                                                    inclusion ? </xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="InclusionGroup" type="InclusionGroupType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Groupe à
+                                                    l'inclusion </xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Enrollment group</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="InterventionalStudyModel">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Schema
+                                                    d'intervention</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Intervention model</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="Simple bras / Mono-bras" />
+                                                    <xsd:enumeration value="Groupes parallèles" />
+                                                    <xsd:enumeration
+                                                        value="Schema croisé / Etudes croisées" />
+                                                    <xsd:enumeration value="Plan factoriel" />
+                                                    <xsd:enumeration value="Séquentiel" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="Allocation">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Allocation</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Allocation</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="AllocationMode">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Mode
+                                                                d'allocation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Allocation
+                                                                type</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration value="Randomisé" />
+                                                                <xsd:enumeration
+                                                                    value="Non randomisé" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element name="AllocationUnit">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Unité
+                                                                d'allocation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Allocation
+                                                                unit</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration
+                                                                    value="Individuelle" />
+                                                                <xsd:enumeration value="Cluster" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="Masking">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Insu</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Masking</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="MaskingType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Mode
+                                                                d'insu</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Masking
+                                                                type</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration value="En aveugle" />
+                                                                <xsd:enumeration value="En ouvert" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element name="BlindedMaskingDetail"
+                                                        maxOccurs="unbounded">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Groupe(s)
+                                                                avec insu (en aveugle)</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Blinded
+                                                                masking group(s)</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration value="Patient" />
+                                                                <xsd:enumeration
+                                                                    value="Equipe soignante" />
+                                                                <xsd:enumeration
+                                                                    value="Evaluateur des résultats" />
+                                                                <xsd:enumeration
+                                                                    value="Equipe de recherche" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="Arm">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Bras (ou
+                                                    sous-groupe de participants)</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Arm (or subgroup of
+                                                    participants)</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="ArmName" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation>Nom du bras </xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="ArmType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Type du
+                                                                bras</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Type de
+                                                                bras</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="ExperimentalArm"
+                                                                    type="xsd:boolean">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">
+                                                                            Expérimental</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="ActiveComparatorArm"
+                                                                    type="xsd:boolean">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Comparateur
+                                                                            actif</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="PlaceboComparatorArm"
+                                                                    type="xsd:boolean">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Comparateur
+                                                                            placebo</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="SharmComparatorArm"
+                                                                    type="xsd:boolean">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Comparateur
+                                                                            fictif</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="NoInterventionArm"
+                                                                    type="xsd:boolean">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Sans
+                                                                            intervention</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0" name="ArmTypeOther"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autre
+                                                                type de bras, précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Other
+                                                                arm type, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="ArmDescription"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Description
+                                                                du bras </xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="Intervention" type="InterventionType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Facteur, processus
+                                                    ou exposition étudié</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Studied factor,
+                                                    process, or exposure</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="ObservationalStudy" minOccurs="0">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Observationnelle</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Observational study</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="ObservationalStudyDesign">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Modèle de l'étude
+                                                    observationnelle</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Observational study
+                                                    design</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="Registres" />
+                                                    <xsd:enumeration
+                                                        value="Longitudinale ou cohorte" />
+                                                    <xsd:enumeration value="Etudes transversales" />
+                                                    <xsd:enumeration value="Etudes cas-temoin" />
+                                                    <xsd:enumeration value="Autres" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="OtherResearchTypeDetails"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Autre type d'étude
+                                                    observationnelle, précisions</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Other research
+                                                    type, details</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="TimePerspective" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Perspective
+                                                    temporelle</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Time perspective</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="IsInclusionGroups" type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">L'étude
+                                                    comporte-t-elle plusieurs groupes définis dès
+                                                    l'inclusion ? </xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Does the study
+                                                    include several groups defined at the time of
+                                                    inclusion ? </xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="InclusionGroup" type="InclusionGroupType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Groupe à
+                                                    l'inclusion </xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Enrollment group</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="Intervention" type="InterventionType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Facteur, processus
+                                                    ou exposition étudié</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Studied factor,
+                                                    process, or exposure</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="Outcomes">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Critères d'évaluation (de
+                                        jugement)</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Health-related outcomes</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="PrimaryOutcomes" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Critère
+                                                    d'évaluation (de jugement) principal</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Primary Outcome</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="SecondaryOutcomes" type="xsd:string"
+                                            minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Critère(s)
+                                                    d'évaluation (de jugement) secondaire(s)</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Secondary
+                                                    Outcome(s)</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="DataCollectionAccess">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="fr">Collecte et accès aux données</xsd:documentation>
+                        <xsd:documentation xml:lang="en">Data collection and access</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="DataCollectionIntegration">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Collecte et réutilisation de
+                                        données</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Data collection and reuse</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="SampleSize">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Nombre de
+                                                    participants</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Number of
+                                                    participants</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="PlannedSampleSize"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Nombre
+                                                                prévu de participants</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Target
+                                                                number of participants</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="FinalSampleSize"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Nombre
+                                                                actuel de participants</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Actual
+                                                                number of participants</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="CollectionChronology">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Chronologie de la
+                                                    collecte</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Collection
+                                                    chronology</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="CollectionStart"
+                                                        type="xsd:date">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Date de
+                                                                début de la collecte (recrutement du
+                                                                premier participant)</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Collection
+                                                                start date (recruitment of the first
+                                                                participant)</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="CollectionEnd"
+                                                        type="xsd:date">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Date de
+                                                                fin de la collecte (dernier suivi du
+                                                                dernier participant)</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Collection
+                                                                end date (last follow-up of the last
+                                                                participant)</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="CollectionFrequency"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Fréquence
+                                                                de la collecte</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Collection
+                                                                frequency</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="DataCollection">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Informations
+                                                    concernant les données collectées auprès des
+                                                    participants dans le cadre de l'étude</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Information
+                                                    concerning data collected from participants
+                                                    during the study</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="CollectionProcess">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Procedure
+                                                                de collecte</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Collection
+                                                                procedure</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="CollectionMode"
+                                                                    maxOccurs="unbounded"
+                                                                    minOccurs="1"
+                                                                    type="CvIdType">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Mode de
+                                                                            collecte</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Collection
+                                                                            mode</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element minOccurs="0"
+                                                                    name="CollectionModeOther"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Autre mode
+                                                                            de collecte, précisions</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Other
+                                                                            collection mode, details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element minOccurs="0"
+                                                                    name="CollectionModeDetails"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Mode de
+                                                                            collecte, précisions</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Collection
+                                                                            mode, details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="RecruitmentSource"
+                                                        maxOccurs="unbounded" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Source
+                                                                du recrutement des participants </xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Participant
+                                                                recruitment source</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0"
+                                                        name="RecruitmentSourceOther"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autre
+                                                                source de recrutement, précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Other
+                                                                recruitment source, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="ActiveFollowUp" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Suivi
+                                                                actif des participants</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Active
+                                                                follow up</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="IsActiveFollowUp"
+                                                                    type="xsd:boolean">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Un suivi
+                                                                            actif des participants
+                                                                            est-il réalisé ?</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">It is an
+                                                                            active follow-up?</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element name="FollowUpMode"
+                                                                    maxOccurs="unbounded"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Modalité
+                                                                            de suivi</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Follow-up
+                                                                            method</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element minOccurs="0"
+                                                                    name="FollowUpModeOther"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Autre
+                                                                            modalité de suivi,
+                                                                            précisions</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Other
+                                                                            follow-up mode, details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="DataTypes">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Types
+                                                                de données</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Data
+                                                                types</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element maxOccurs="unbounded"
+                                                                    minOccurs="1"
+                                                                    name="DataType"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Type de
+                                                                            données</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Data type</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="ClinicalDataDetails"
+                                                                    type="xsd:string" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Données
+                                                                            cliniques, précisions</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Clinical
+                                                                            data details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="ParaclinicalDataDetails"
+                                                                    type="xsd:string" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Autres
+                                                                            données paracliniques
+                                                                            (hors biologiques),
+                                                                            précisions</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Other
+                                                                            paraclinical data
+                                                                            (non-biological),
+                                                                            details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="BiologicalDataDetails"
+                                                                    type="xsd:string" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Données
+                                                                            biologiques, précisions</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Biological
+                                                                            data details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element name="isDataInBiobank"
+                                                                    type="xsd:boolean" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Présence
+                                                                            des échantillons dans
+                                                                            une biobanque</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Presence
+                                                                            of biological data
+                                                                            samples in a biobank ?</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element name="BiobankContent"
+                                                                    maxOccurs="unbounded"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Nature des
+                                                                            échantillons</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Nature of
+                                                                            samples</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element minOccurs="0"
+                                                                    name="BiobankContentOther"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Autre
+                                                                            échantillon, précisions</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Other
+                                                                            sample, details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element minOccurs="0"
+                                                                    name="OtherLuiquidsDetails"
+                                                                    type="xsd:string" />
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="InclusionStrategy"
+                                                        maxOccurs="unbounded">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Stratégie
+                                                                d’inclusion</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Inclusion
+                                                                strategy</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration
+                                                                    value="Inclusion par exposition/facteur (selon une ou des variables individuelles d'intérêt)" />
+                                                                <xsd:enumeration
+                                                                    value="Inclusion basée sur une caractéristique individuelle (critère clinique, comportemental ou socio-démographique)" />
+                                                                <xsd:enumeration
+                                                                    value="Inclusion fondée sur un événement passé (de santé, de parcours, d'une étape de vie...) ou critère de jugement (outcome-based)" />
+                                                                <xsd:enumeration
+                                                                    value="Inclusion par appartenance à un cadre externe : contexte organisationnel ou territorial (Personnes vivant dans un lieu, appartenant à une situation organisationnelle donnée, usagers d’un service)" />
+                                                                <xsd:enumeration
+                                                                    value="Inclusion par participation volontaire" />
+                                                                <xsd:enumeration value="Autre" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0"
+                                                        name="InclusionStrategyOther"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autre
+                                                                strategie d'inclusion</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Other
+                                                                inclusion strategy, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="SamplingMode"
+                                                        maxOccurs="unbounded" type="CvIdType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Procédure
+                                                                d'échantillonnage à l'inclusion</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Sampling
+                                                                procedure at inclusion</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0"
+                                                        name="SamplingModeOther" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autre
+                                                                procedure d'échantillonnage,
+                                                                précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Other
+                                                                sampling procedure, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="IsDataIntegration" type="xsd:boolean">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Des données
+                                                    individuelles provenant d'autres sources
+                                                    sont-elles réutilisées dans le cadre de cette
+                                                    étude ?</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Are individual data
+                                                    from other sources reused in this study?</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element name="ConformityDeclaration">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Declaration de
+                                                    conformité</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Declaration of
+                                                    conformity</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="MR001" />
+                                                    <xsd:enumeration value="MR002" />
+                                                    <xsd:enumeration value="MR003" />
+                                                    <xsd:enumeration value="MR004" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="ThirdPartySource">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Informations
+                                                    concernant les données réutilisées pour l'étude </xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Information
+                                                    concerning data reused for the study </xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="SourceName" type="xsd:string"
+                                                        minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Information
+                                                                concerning data reused for the study </xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Source
+                                                                description</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element minOccurs="0" name="SourceId"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Identifiant
+                                                                de la source</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Source
+                                                                identifier</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="SourceType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Type de
+                                                                source</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Souce
+                                                                type</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration
+                                                                    value="Sources cliniques" />
+                                                                <xsd:enumeration
+                                                                    value="Sources paracliniques (hors biologiques)" />
+                                                                <xsd:enumeration value="Biobanques" />
+                                                                <xsd:enumeration
+                                                                    value="Registres de morbidité" />
+                                                                <xsd:enumeration
+                                                                    value="Sources administratives" />
+                                                                <xsd:enumeration
+                                                                    value="Données de recherche" />
+                                                                <xsd:enumeration value="Autres" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element name="SourcePurpose">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Objectif
+                                                                de l'integration de la source</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Source
+                                                                integration purpose</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                                <xsd:enumeration
+                                                                    value="Ajout d'individus" />
+                                                                <xsd:enumeration
+                                                                    value="Enrichissement par croisement" />
+                                                                <xsd:enumeration
+                                                                    value="Suivi passif des participants" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element name="OtherSourceType"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Autre
+                                                                type de source, précisions</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Other
+                                                                sourcetype, details</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="DataAccess">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Accès aux données</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Data access</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="DataQuality">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Qualité des données</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Data quality</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="UsedStandards"
+                                                        maxOccurs="unbounded" minOccurs="0"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Standard(s)
+                                                                ou nomenclature(s) employé(s)</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Standard(s)
+                                                                or nomenclature(s) used</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                        name="QualityProcedure" type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Procédure
+                                                                qualité utilisée</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Quality
+                                                                procedure used</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="DataAvailability">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Disponibilité du
+                                                    jeu de données</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Data availability</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="IndividualDataAccess"
+                                                        type="CvIdType">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Accès
+                                                                aux données individuelles</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Access
+                                                                to individual data</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="AggregatedDataAccess"
+                                                        minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Modalités
+                                                                de mise à disposition des données
+                                                                agrégées</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Conditions
+                                                                under which the aggregated data are
+                                                                made available</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element name="DataAccessRequestTool"
+                                                        minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Outil
+                                                                de demande d'accès aux données</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Data
+                                                                access request tool</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element
+                                                                    name="DataAccessRequestToolAvailable"
+                                                                    type="xsd:boolean" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Existe-t-il
+                                                                            un outil de demande
+                                                                            d'accès aux données ?</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">A data
+                                                                            access request tool is
+                                                                            it available ?</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element
+                                                                    name="DataAccessRequestToolLocation"
+                                                                    type="xsd:anyURI" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Lien vers
+                                                                            l'outil de demande
+                                                                            d'accès</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Link to
+                                                                            the data access request
+                                                                            tool</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="DataFileCompleteness"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Complétude
+                                                                des fichiers des données</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Data
+                                                                file completeness</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="DataLocation"
+                                                        type="xsd:string"
+                                                        minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Localisation
+                                                                des données</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Data
+                                                                location</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="UseStatement">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Conditions d'usage</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Use conditions</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="AccessConditions"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Condition
+                                                                d'accès aux données</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Data
+                                                                access conditions</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="AccessRestrictions"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Restrictions
+                                                                d'accès</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Access
+                                                                restrictions</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="AdditionalDataAccessLink"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Lien
+                                                                vers le plan de partage des données
+                                                                ou vers une documentation relative à
+                                                                l'accès aux données</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Link to
+                                                                sharing plan or to documentation
+                                                                relating to data access.</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="NonDisclosureAgreement"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Accord
+                                                                de confidentialité</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Non-disclosure
+                                                                agreement</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="DataInformationContact"
+                                                        maxOccurs="unbounded" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Personnes
+                                                                à contacter pour obtenir les
+                                                                renseignements concernant les
+                                                                données</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Contact
+                                                                person for data information</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="DIContactName"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Prénom NOM
+                                                                            du contact</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">First name
+                                                                            LAST NAME of the contact</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element name="DIContactMail"
+                                                                    type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="fr">Email du
+                                                                            contact</xsd:documentation>
+                                                                        <xsd:documentation
+                                                                            xml:lang="en">Contact
+                                                                            email</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="DataCitation" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Obligations liées à
+                                                    l’usage des donnée</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Obligations
+                                                    rerlated to data use</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="DataCitationRequirement"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="en">Reporting
+                                                                requirement</xsd:documentation>
+                                                            <xsd:documentation xml:lang="fr">Obligation
+                                                                de transmission des travaux </xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="DataCitationStatement"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Obligation
+                                                                de citation</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Citation
+                                                                requirement</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="VariableDictionnary" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Dictionnaire des
+                                                    variables</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Data dictionary</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="VariableDictionnaryAvailable"
+                                                        type="xsd:boolean">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Existe-t-il
+                                                                un dictionnaire des variables ?</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">A data
+                                                                dictionary is it available ?</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="VariableDictionnaryDetails"
+                                                        type="xsd:string" minOccurs="0">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Lien
+                                                                vers le dictionnaire des variables</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Link to
+                                                                the data dictionary</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="MockSample" minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Echantillon fictif</xsd:documentation>
+                                                <xsd:documentation>Mock sample</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="MockSampleAvailable"
+                                                        type="xsd:boolean">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Un
+                                                                échantillon fictif du jeu de données
+                                                                est-il disponible ?</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">A mock
+                                                                sample is it available ?</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                    <xsd:element name="MockSampleLocation"
+                                                        type="xsd:string">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Lien
+                                                                vers l'échantillon fictif ou vers
+                                                                les renseignements pour y accéder</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Link to
+                                                                the sample of to information on how
+                                                                to access it</xsd:documentation>
+                                                        </xsd:annotation>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="OtherDocumentation" type="xsd:string"
+                                            minOccurs="0">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Documentation
+                                                    complémentaire sur les données</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Additional
+                                                    documentation on data</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="DatasetPID" type="DatasetIDType">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Identifiant pérenne
+                                                    du recueil de données </xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Persistent
+                                                    identifier of the dataset</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="RelatedDocument" minOccurs="0" maxOccurs="unbounded">
+                                <xsd:annotation>
+                                    <xsd:documentation xml:lang="fr">Documents connexes</xsd:documentation>
+                                    <xsd:documentation xml:lang="en">Related documents</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element minOccurs="0" name="DocumentType"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Type de document</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Document type</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="DocumentTitle"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Titre du document</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Document title</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="DocumentLink"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation xml:lang="fr">Lien vers le
+                                                    document</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Document link</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="InclusionGroupType">
+        <xsd:sequence>
+            <xsd:element name="GroupName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Nom du groupe</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Groupe name</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="GroupDescription" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Description du groupe</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Group description</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="InterventionType">
+        <xsd:sequence>
+            <xsd:element name="InterventionName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Nom de l'intervention/exposition</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Intervention/exposition name</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InterventionType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Type d'intervention </xsd:documentation>
+                    <xsd:documentation xml:lang="en">Intervention/exposition type</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="Medicament" />
+                        <xsd:enumeration value="Dispositif medical" />
+                        <xsd:enumeration value="Biologique/vaccin" />
+                        <xsd:enumeration value="Procédure/chirurgie" />
+                        <xsd:enumeration value="Radiation" />
+                        <xsd:enumeration value="Comportamentale" />
+                        <xsd:enumeration value="Génétique" />
+                        <xsd:enumeration value="Complement alimentaire" />
+                        <xsd:enumeration value="Test diagnostique" />
+                        <xsd:enumeration value="Combinaison" />
+                        <xsd:enumeration value="Santé publique" />
+                        <xsd:enumeration value="Autres" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="InterventionTypeOther" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Autre type d'intervention/exposition,
+                        précisions</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Other intervention/exposition type, details</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InterventionDescritption" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Description</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Intervention/exposition description</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CvIdType">
+        <xsd:sequence>
+            <xsd:element default="" name="value" type="xsd:string" />
+            <xsd:element name="URI" type="xsd:anyURI" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="PersonPIDType">
+        <xsd:sequence>
+            <xsd:element name="URI" type="xsd:anyURI" />
+            <xsd:element name="PIDSchema">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="ORCID" />
+                        <xsd:enumeration value="IdRef" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OrganisationPIDType">
+        <xsd:sequence>
+            <xsd:element name="PIDSchema">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Type d'identifiant organisme (ROR, SIRENE,
+                        RNSR)</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Organisation identifier type (ROR, SIRENE,
+                        RNSR)</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="ROR" />
+                        <xsd:enumeration value="RNSR" />
+                        <xsd:enumeration value="SIRENE" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="URI" type="xsd:anyURI">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">URI organisme</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Organisation identifier URI</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DatasetIDType">
+        <xsd:sequence>
+            <xsd:element name="IDSchema" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Type d'identifiant de l'étude</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Identifiant de l'étude</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Identifier" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="fr">Code de l'identifiant</xsd:documentation>
+                    <xsd:documentation xml:lang="en">ID code</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+
+    </xsd:complexType>
+</xsd:schema>

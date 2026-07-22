@@ -1,0 +1,208 @@
+source_xpath,target_xpath,comment
+/xml/dataset/repositoryid,TechnicalInfo/StudyId/IDSchema,"Chaîne brute directe."
+/xml/dataset/id,TechnicalInfo/StudyId/Identifier,"Chaîne brute directe."
+/xml/dataset/metadata/additional/status,TechnicalInfo/Status,"Chaîne brute directe."
+/xml/dataset/metadata/additional/versionLang,TechnicalInfo/VersionLang,"Chaîne brute directe."
+/xml/dataset/metadata/additional/originLang,TechnicalInfo/OriginLang,"Chaîne brute directe."
+/xml/dataset/created,TechnicalInfo/CreationDate,"Date ISO brute à nettoyer au format YYYY-MM-DD."
+/xml/dataset/metadata/additional/lastUpdatedAuto,TechnicalInfo/LastUpdatedAuto,"Date ISO brute à nettoyer au format YYYY-MM-DD."
+/xml/dataset/metadata/additional/lastUpdatedManual,TechnicalInfo/LastUpdatedManual,"Date ISO brute à nettoyer au format YYYY-MM-DD."
+/xml/dataset/metadata/additional/autoTranslation,TechnicalInfo/AutoTranslation,"Chaîne booléenne (0/1)."
+/xml/dataset/title,StudyRelatedInfo/StudyOverview/Title,"Chaîne brute directe."
+/xml/dataset/metadata/study_desc/title_statement/alternate_title,StudyRelatedInfo/StudyOverview/Acronym,"Chaîne brute directe."
+/xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus,"Statut de l'étude"
+/xml/dataset/metadata/study_desc/study_info/purpose,StudyRelatedInfo/StudyOverview/Purpose,"Chaîne brute directe."
+/xml/dataset/metadata/study_desc/study_info/abstract,StudyRelatedInfo/StudyOverview/Summary,"Chaîne brute directe."
+
+/xml/dataset/metadata/study_desc/study_info/keywords/keyword/keyword,StudyRelatedInfo/StudyOverview/Keyword,"TABLEAU : Liste simple plate."
+
+/xml/dataset/metadata/additional/isHealthTheme,StudyRelatedInfo/Theme/IsHealthTheme,"Chaîne booléenne (0/1)."
+
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='health determinant']/topic,StudyRelatedInfo/Theme/HealthDeterminant,"TABLEAU : FILTRE CONDITIONNEL."
+
+ROOT:/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab!='health determinant'],StudyRelatedInfo/Theme/Pathology,"Boucle Pathologies"
+./topic,StudyRelatedInfo/Theme/Pathology/value,"Nom Pathologie"
+./extLink/extlink/uri,StudyRelatedInfo/Theme/Pathology/URI,"URI Pathologie"
+
+/xml/dataset/metadata/additional/rareDiseases/values,StudyRelatedInfo/Theme/RareDiseases,"Conversion booléenne"
+/xml/dataset/metadata/additional/universe/level_type_clusion_I,StudyRelatedInfo/Population/PopulationType,"Chaîne brute directe."
+
+ROOT:/xml/dataset/metadata/additional/universe/sexe/item,StudyRelatedInfo/Population/DemographicInfo/Sex,"Boucle Sexe"
+./text(),StudyRelatedInfo/Population/DemographicInfo/Sex/value,"Valeur du sexe"
+
+ROOT:/xml/dataset/metadata/additional/universe/level_age_clusion_I/level_age_clusion_i,StudyRelatedInfo/Population/DemographicInfo/Age,"Boucle Age"
+./text(),StudyRelatedInfo/Population/DemographicInfo/Age/value,"Valeur de l'age"
+
+/xml/dataset/metadata/additional/universe/clusion_I,StudyRelatedInfo/Population/OtherClusion/InclusionCriterion,"Chaîne brute directe."
+/xml/dataset/metadata/additional/universe/clusion_E,StudyRelatedInfo/Population/OtherClusion/ExclusionCriterion,"Chaîne brute directe."
+
+ROOT:/xml/dataset/metadata/study_desc/study_info/nation/item,StudyRelatedInfo/Population/GeographicalCoverage/Nation,"Boucle Nation corrigée"
+./name,StudyRelatedInfo/Population/GeographicalCoverage/Nation/value,"Valeur de la nation"
+./extLink/vocabURI,StudyRelatedInfo/Population/GeographicalCoverage/Nation/URI,"URI de la nation (ISO)"
+
+/xml/dataset/metadata/additional/geogCoverage/values/value,StudyRelatedInfo/Population/GeographicalCoverage/FranceRegion,"TABLEAU : Liste simple."
+/xml/dataset/metadata/additional/geographicalCoverage/geoDetail,StudyRelatedInfo/Population/GeographicalCoverage/GeoDetail,"Chaîne brute directe."
+
+/xml/dataset/metadata/study_desc/study_authorization/agency/item/name,AdministrativeInformation/RegulatoryRequirements/AgencyRaw,"Agences brutes"
+/xml/dataset/metadata/additional/obtainedAuthorization/otherAuthorizingAgency/otherauthorizingagency,AdministrativeInformation/RegulatoryRequirements/OtherAgencyRaw,"Précisions agences brutes"
+/xml/dataset/metadata/additional/isContributorPI,AdministrativeInformation/IsContributorPI,"Chaîne booléenne (0/1)."
+
+ROOT:/xml/dataset/metadata/study_desc/authoring_entity/item,AdministrativeInformation/PrimaryInvestigator,"--- DEBUT BOUCLE INVESTIGATEURS ---"
+./name,AdministrativeInformation/PrimaryInvestigator/PIName,"Nom PI"
+./email,AdministrativeInformation/PrimaryInvestigator/PIMail,"Mail PI"
+./extlink/item[title='ORCID']/uri,AdministrativeInformation/PrimaryInvestigator/PIORCID,"ORCID"
+./extlink/item[title='IdRef']/uri,AdministrativeInformation/PrimaryInvestigator/PIIdRef,"IdRef"
+./affiliationName,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationName,"Nom orga PI"
+./PILabo,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/PILabo,"Nom Labo"
+./extlink/item[title='RNSR']/uri,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/PILaboId,"URI Labo RNSR"
+./isContact,AdministrativeInformation/PrimaryInvestigator/IsPIContact,"PI est contact ?"
+ARRAY:./extlink/item[role='organisation id'],AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationPID,"--- SOUS-BOUCLE PIDS ---"
+./title,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationPID/PIDSchema,"Schema PID"
+./uri,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationPID/URI,"URI du PID"
+
+/xml/dataset/metadata/additional/addTeamMember,AdministrativeInformation/AddTeamMember,"Chaîne booléenne (0/1)."
+
+ROOT:/xml/dataset/metadata/study_desc/distribution_statement/contact/item,AdministrativeInformation/ContactPoint,"--- DEBUT BOUCLE CONTACTS ---"
+./name,AdministrativeInformation/ContactPoint/ContactName,"Nom Contact"
+./email,AdministrativeInformation/ContactPoint/EMail,"Mail Contact"
+./affiliationName,AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationName,"Nom Orga Contact"
+./contactPointLabo,AdministrativeInformation/ContactPoint/ContactPointAffiliation/ContactPointLabo,"Nom Labo Contact"
+./extlink/item[title='RNSR']/uri,AdministrativeInformation/ContactPoint/ContactPointAffiliation/ContactPointLaboId,"URI Labo RNSR Contact"
+ARRAY:./extlink/item[role='organisation id'],AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationPID,"--- SOUS-BOUCLE PIDS ---"
+./title,AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationPID/PIDSchema,"Schema PID"
+./uri,AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationPID/URI,"URI du PID"
+
+ROOT:/xml/dataset/metadata/study_desc/production_statement/funding_agencies/funding_agency,AdministrativeInformation/FundingAgent,"--- DEBUT BOUCLE FINANCEURS ---"
+./name,AdministrativeInformation/FundingAgent/FundingAgentName,"Nom Funder"
+./fundingAgentType/fundingagenttype,AdministrativeInformation/FundingAgent/FundingAgentType,"Type Funder"
+ARRAY:./extlink/item[role='organisation id'],AdministrativeInformation/FundingAgent/FundingAgentPID,"--- SOUS-BOUCLE PIDS ---"
+./title,AdministrativeInformation/FundingAgent/FundingAgentPID/PIDSchema,"Schema PID"
+./uri,AdministrativeInformation/FundingAgent/FundingAgentPID/URI,"URI PID"
+
+ROOT:/xml/dataset/metadata/study_desc/production_statement/producers/producer,AdministrativeInformation/OrganisationGovernance/Sponsor,"--- DEBUT BOUCLE PROMOTEURS ---"
+./name,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorName,"Nom Sponsor"
+./sponsorType/sponsortype,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorType,"Type Sponsor"
+ARRAY:./extlink/item[role='organisation id'],AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorPID,"--- SOUS-BOUCLE PIDS ---"
+./title,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorPID/PIDSchema,"Schema PID"
+./uri,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorPID/URI,"URI PID"
+
+/xml/dataset/metadata/additional/governance/committee,AdministrativeInformation/OrganisationGovernance/Governance/Committee,"Chaîne booléenne (0/1)."
+/xml/dataset/metadata/additional/collaborations/networkConsortium,AdministrativeInformation/OrganisationGovernance/Collaborations/NetworkConsortium,"Chaîne booléenne (0/1)."
+/xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus,"Statut de l'étude (Etude en cours -> Etude active)"
+/xml/dataset/metadata/study_desc/study_info/analysis_unit,StudyMethodology/AnalysisUnit,"Unité d'analyse (ex: Individus)"
+/xml/dataset/metadata/additional/researchType/values,StudyMethodology/ResearchType,"Valeur Type de recherche"
+
+# ... [Previous mappings for StudyOverview ...
+
+# --- INTERVENTIONAL STUDY BLOCK ---
+/xml/dataset/metadata/additional/interventionalStudy/isClinicalTrial,StudyMethodology/InterventionalStudy/IsClinicalTrial,"Chaîne booléenne (0/1)."
+
+# Trial Phase and Research Purpose (from the dedicated interventionalStudy block)
+/xml/dataset/metadata/additional/interventionalStudy/trialPhase/trialphase,StudyMethodology/InterventionalStudy/TrialPhase,"Phase de l'essai"
+/xml/dataset/metadata/additional/interventionalStudy/researchPurpose/researchpurpose,StudyMethodology/InterventionalStudy/ResearchPurpose,"Objectif Principal"
+/xml/dataset/metadata/additional/interventionalStudy/otherResearchPurpose,StudyMethodology/InterventionalStudy/OtherResearchPurpose,"Autre Objectif Principal"
+
+# Inclusion Groups
+/xml/dataset/metadata/additional/isInclusionGroups,StudyMethodology/InterventionalStudy/IsInclusionGroups,"Chaîne booléenne (0/1)."
+ROOT:/xml/dataset/metadata/additional/inclusionGroups/inclusiongroup,StudyMethodology/InterventionalStudy/InclusionGroup,"Boucle Groupe Inclusion"
+./name,StudyMethodology/InterventionalStudy/InclusionGroup/GroupName,"Nom Groupe"
+./description,StudyMethodology/InterventionalStudy/InclusionGroup/GroupDescription,"Desc Groupe"
+
+# Intervention Model
+/xml/dataset/metadata/additional/interventionalStudy/interventionalStudyModel,StudyMethodology/InterventionalStudy/InterventionalStudyModel,"Schéma d’intervention"
+
+# Allocation
+/xml/dataset/metadata/additional/allocation/allocationMode,StudyMethodology/InterventionalStudy/Allocation/AllocationMode,"Mode d'allocation"
+/xml/dataset/metadata/additional/allocation/allocationUnit,StudyMethodology/InterventionalStudy/Allocation/AllocationUnit,"Unité d'allocation"
+
+# Masking
+/xml/dataset/metadata/additional/masking/maskingType,StudyMethodology/InterventionalStudy/Masking/MaskingType,"Mode d'insu"
+ROOT:/xml/dataset/metadata/additional/masking/blindedMaskingDetails/item,StudyMethodology/InterventionalStudy/Masking/BlindedMaskingDetails,"Boucle Détails Insu"
+./text(),StudyMethodology/InterventionalStudy/Masking/BlindedMaskingDetails/value,"Valeur Détail Insu"
+
+# Arms (if present)
+ROOT:/xml/dataset/metadata/additional/arms/item,StudyMethodology/InterventionalStudy/Arm,"Boucle Bras"
+./name,StudyMethodology/InterventionalStudy/Arm/ArmName,"Nom du bras"
+./type,StudyMethodology/InterventionalStudy/Arm/ArmType,"Type de bras"
+./typeOther,StudyMethodology/InterventionalStudy/Arm/ArmTypeOther,"Autre type de bras"
+./description,StudyMethodology/InterventionalStudy/Arm/ArmDescription,"Description du bras"
+
+# Interventions
+ROOT:/xml/dataset/metadata/additional/intervention/item,StudyMethodology/InterventionalStudy/Intervention,"Boucle Intervention"
+./name,StudyMethodology/InterventionalStudy/Intervention/InterventionName,"Nom Intervention"
+./type,StudyMethodology/InterventionalStudy/Intervention/InterventionType,"Type Intervention"
+./typeOther,StudyMethodology/InterventionalStudy/Intervention/InterventionTypeOther,"Autre Type Intervention"
+
+# Outcomes
+/xml/dataset/metadata/study_desc/study_development/development_activity/item[activity_type='primary evaluation']/activity_description,StudyMethodology/Outcomes/PrimaryOutcomes,"Critère d'évaluation principal"
+/xml/dataset/metadata/study_desc/study_development/development_activity/item[activity_type='secondary evaluation']/activity_description,StudyMethodology/Outcomes/SecondaryOutcomes,"Critère(s) d'évaluation secondaire(s)"
+
+# ... [Rest of the mappings for DataCollectionAccess] ...
+
+/xml/dataset/metadata/study_desc/method/data_collection/target_sample_size,DataCollectionAccess/DataCollectionIntegration/SampleSize/PlannedSampleSize,"Taille d'échantillon cible"
+/xml/dataset/metadata/study_desc/method/data_collection/response_rate,DataCollectionAccess/DataCollectionIntegration/SampleSize/FinalSampleSize,"Taille d'échantillon final"
+
+/xml/dataset/metadata/study_desc/study_info/coll_dates/coll_date/start,DataCollectionAccess/DataCollectionIntegration/CollectionChronology/CollectionStart,"Date début collecte"
+/xml/dataset/metadata/study_desc/study_info/coll_dates/coll_date/end,DataCollectionAccess/DataCollectionIntegration/CollectionChronology/CollectionEnd,"Date fin collecte"
+/xml/dataset/metadata/study_desc/method/data_collection/frequency,DataCollectionAccess/DataCollectionIntegration/CollectionChronology/CollectionFrequency,"Fréquence"
+
+/xml/dataset/metadata/study_desc/method/data_collection/coll_mode/item,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeRaw,"JSON brut des modes de collecte"
+/xml/dataset/metadata/study_desc/method/data_collection/sampling_procedure,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/SamplingModeRaw,"JSON brut d'échantillonnage"
+
+/xml/dataset/metadata/study_desc/method/data_collection/sample_frame/frame_unit/unit_type,DataCollectionAccess/DataCollectionIntegration/DataCollection/RecruitmentSourceRaw,"Source recrutement (Liste parsée)"
+
+/xml/dataset/metadata/additional/activeFollowUp/isActiveFollowUp,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/IsActiveFollowUp,"Chaîne booléenne (0/1)."
+
+/xml/dataset/metadata/study_desc/method/notes/note[subject='follow-up']/values/value,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/FollowUpMode,"Valeur Suivi"
+
+/xml/dataset/metadata/additional/dataCollectionIntegration/isDataIntegration,DataCollectionAccess/DataCollectionIntegration/IsDataIntegration,"Chaîne booléenne (0/1)."
+/xml/dataset/metadata/additional/regulatoryRequirements/conformityDeclaration,DataCollectionAccess/DataCollectionIntegration/ConformityDeclaration,"ConformityDeclaration"
+
+/xml/dataset/metadata/study_desc/study_info/data_kind,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/DataTypeRaw,"Faux tableau brut des types de données"
+/xml/dataset/metadata/additional/dataTypes/dataTypeOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/DataTypeOther,"Autre type de données, précisions"
+/xml/dataset/metadata/additional/dataTypes/clinicalDataDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/ClinicalDataDetails,"Détails cliniques"
+/xml/dataset/metadata/additional/dataTypes/biologicalDataDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiologicalDataDetails,"Détails biologiques"
+/xml/dataset/metadata/additional/dataTypes/isDataInBiobank,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/isDataInBiobank,"Présence Biobanque"
+/xml/dataset/metadata/additional/dataTypes/biobankContent/biobankcontent,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiobankContent,"Contenu Biobanque"
+/xml/dataset/metadata/additional/dataTypes/otherLiquidsDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/OtherLiquidsDetails,"Chaîne brute directe."
+
+/xml/dataset/metadata/study_desc/study_info/quality_statement/standards/standard/name,DataCollectionAccess/DataAccess/DataQuality/UsedStandardsRaw,"Standard ou nomenclature employé"
+/xml/dataset/metadata/study_desc/study_info/quality_statement/other_quality_statement,DataCollectionAccess/DataAccess/DataQuality/QualityProcedureRaw,"Procédure qualité utilisée"
+
+/xml/dataset/metadata/study_desc/data_access/dataset_availability/status,DataCollectionAccess/DataAccess/DataAvailability/IndividualDataAccessRaw,"JSON brut pour IndividualDataAccess"
+/xml/dataset/metadata/study_desc/method/data_collection/research_instrument,DataCollectionAccess/DataAccess/DataAvailability/AggregatedDataAccess,"Modalités de mise à disposition des données agrégées"
+
+/xml/dataset/metadata/study_desc/data_access/dataset_use/spec_perm/item/required,DataCollectionAccess/DataAccess/DataAvailability/DataAccessRequestTool/DataAccessRequestToolAvailable,"Existe-t-il un outil de demande d'accès"
+/xml/dataset/metadata/study_desc/data_access/dataset_use/spec_perm/item/txt,DataCollectionAccess/DataAccess/DataAvailability/DataAccessRequestTool/DataAccessRequestToolLocation,"Lien vers l'outil"
+
+/xml/dataset/metadata/study_desc/data_access/dataset_availability/complete,DataCollectionAccess/DataAccess/DataAvailability/DataFileCompleteness,"Complétude des fichiers"
+/xml/dataset/metadata/study_desc/data_access/dataset_availability/access_place,DataCollectionAccess/DataAccess/DataAvailability/DataLocation ,"Localisation des données"
+
+
+/xml/dataset/metadata/study_desc/data_access/dataset_use/conditions,DataCollectionAccess/DataAccess/UseStatement/AccessConditions,"Conditions d'accès"
+/xml/dataset/metadata/study_desc/data_access/dataset_use/restrictions,DataCollectionAccess/DataAccess/UseStatement/AccessRestrictions,"Restrictions d'accès"
+/xml/dataset/metadata/study_desc/data_access/notes,DataCollectionAccess/DataAccess/UseStatement/AdditionalDataAccessLink,"Lien vers le plan de partage"
+/xml/dataset/metadata/study_desc/data_access/dataset_use/conf_dec/item/txt,DataCollectionAccess/DataAccess/UseStatement/NonDisclosureAgreement,"Accord de confidentialité"
+
+ROOT:/xml/dataset/metadata/study_desc/data_access/dataset_use/contact/item,DataCollectionAccess/DataAccess/UseStatement/DataInformationContact,"Boucle Contacts Données"
+./name,DataCollectionAccess/DataAccess/UseStatement/DataInformationContact/DIContactName,"Contact données - Nom"
+./email,DataCollectionAccess/DataAccess/UseStatement/DataInformationContact/DIContactMail,"Contact données - Email"
+
+/xml/dataset/metadata/study_desc/data_access/dataset_use/deposit_req,DataCollectionAccess/DataAccess/DataCitation/DataCitationRequirement,"Obligation de transmission"
+/xml/dataset/metadata/study_desc/data_access/dataset_use/cit_req,DataCollectionAccess/DataAccess/DataCitation/DataCitationStatement,"Obligation de citation"
+
+/xml/dataset/metadata/additional/variableDictionnary/variableDictionnaryAvailable,DataCollectionAccess/DataAccess/VariableDictionary/VariableDictionaryAvailable,"Dico des variables dispo"
+/xml/dataset/metadata/additional/variableDictionnary/variableDictionnaryLink,DataCollectionAccess/DataAccess/VariableDictionary/VariableDictionaryLink,"Lien vers le dico"
+
+/xml/dataset/metadata/additional/mockSample/mockSampleAvailable,DataCollectionAccess/DataAccess/MockSample/MockSampleAvailable,"Echantillon fictif dispo"
+/xml/dataset/metadata/additional/mockSample/mockSampleLocation,DataCollectionAccess/DataAccess/MockSample/MockSampleLocation,"Lien échantillon fictif"
+/xml/dataset/metadata/additional/dataQuality/otherDocumentation,DataCollectionAccess/DataAccess/OtherDocumentation,"Documentation complémentaire"
+
+ROOT:/xml/dataset/metadata/additional/fileDscr/fileTxt/fileCitation/titlStmt/IDno/idno,DataCollectionAccess/DataAccess/DatasetPID,"Boucle PID Jeu de données"
+./type,DataCollectionAccess/DataAccess/DatasetPID/DatasetPIDSchema,"Type ID pérenne"
+./uri,DataCollectionAccess/DataAccess/DatasetPID/URI,"Valeur ID pérenne"
+
+ROOT:/xml/dataset/metadata/additional/relatedDocument/relateddocument,DataCollectionAccess/RelatedDocument,"Boucle Documents Connexes"
+./type,DataCollectionAccess/RelatedDocument/DocumentType,"Doc connexe - Titre"
+./title,DataCollectionAccess/RelatedDocument/DocumentTitle,"Doc connexe - Type"
+./link,DataCollectionAccess/RelatedDocument/DocumentLink,"Doc connexe - Lien"

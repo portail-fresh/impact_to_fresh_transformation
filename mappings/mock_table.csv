@@ -1,0 +1,6 @@
+source_xpath,target_xpath
+/xml/dataset/id,TechnicalInfo/StudyId/Identifier
+/xml/dataset/status,TechnicalInfo/Status
+/xml/dataset/title,StudyRelatedInfo/StudyOverview/Title
+/xml/dataset/metadata/additional/sponsorName/value,AdministrativeInformation/Sponsor/SponsorName
+/xml/dataset/metadata/additional/sponsorType/value,AdministrativeInformation/Sponsor/SponsorType
