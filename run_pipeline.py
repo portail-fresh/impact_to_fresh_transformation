@@ -14,9 +14,12 @@ import json
 def _vocab_field_name(target_xpath):
     """Maps a target_xpath to the FReSH tag its controlled-vocabulary lookup
     should key on: the leaf tag itself, or its parent when the leaf is the
-    generic 'value'/'URI' child of a CvIdType-style field (e.g. Sex/value)."""
+    generic 'value' child of a CvIdType-style field (e.g. Sex/value). The
+    sibling 'URI' child holds a code/identifier (ISO code, PID...), never a
+    controlled-vocabulary term, so it's left keyed on its own leaf name,
+    which has no vocab table and passes through resolve_vocab_term unchanged."""
     parts = target_xpath.strip('/').split('/')
-    if parts[-1] in ('value', 'URI') and len(parts) >= 2:
+    if parts[-1] == 'value' and len(parts) >= 2:
         return parts[-2]
     return parts[-1]
 
