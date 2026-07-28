@@ -27,6 +27,13 @@ VOCAB_ALIASES = {
         "MaskingType": {"insu": "Avec insu (en aveugle)"},
         # Source sends ISO language codes; the ground-truth term is the full word.
         "OriginLang": {"fr": "Français", "en": "Anglais"},
+        # Source sends "Etude cas-témoins" (singular study, plural témoins); the
+        # ground-truth/XSD term flips both ("Etudes cas-temoin", no accent).
+        # Source also sends the short "Cohorte"; ground truth is the longer form.
+        "ObservationalStudyDesign": {
+            "etudecastemoins": "Etudes cas-temoin",
+            "cohorte": "Longitudinale ou cohorte",
+        },
     },
     "en": {
         "OriginLang": {"fr": "French", "en": "English"},

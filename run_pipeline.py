@@ -11,6 +11,15 @@ import re
 import json
 
 
+# Fields extracted from a separate, parallel flat list elsewhere in the source
+# document, matched to a sibling field by *position* (e.g. i-th AgencyRaw <->
+# i-th OtherAgencyRaw, paired by enumerate() in builder.py). For these, blank
+# entries must be preserved (not dropped) on both sides so the two lists stay
+# index-aligned -- see HierarchicalExtractor._extract_text_keep_blanks and the
+# matching exception in FReSHXMLBuilder._dict_to_xml.
+POSITIONAL_RAW_FIELDS = {"AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw"}
+
+
 def _vocab_field_name(target_xpath):
     """Maps a target_xpath to the FReSH tag its controlled-vocabulary lookup
     should key on: the leaf tag itself, or its parent when the leaf is the
@@ -51,6 +60,19 @@ class HierarchicalExtractor:
                 results.append(text)
         return results
 
+    def _extract_text_keep_blanks(self, elements):
+        """Like _extract_text, but keeps one entry per matched element (as ""
+        when blank) instead of dropping empties -- required for fields paired
+        by position with a sibling list (see POSITIONAL_RAW_FIELDS)."""
+        results = []
+        for elem in elements:
+            if isinstance(elem, str):
+                text = elem.strip()
+            else:
+                text = elem.text.strip() if elem.text else ""
+            results.append(text)
+        return results
+
     def _clean_value(self, target_xpath, value):
         if not value: return ""
         
@@ -65,8 +87,13 @@ class HierarchicalExtractor:
                 v_stripped = v.strip()
                 
                 
-                # --- NOUVEAU : On protège les balises brutes pour le post-processing ---
-                if "SamplingModeRaw" in target_xpath or "CollectionModeRaw" in target_xpath:
+                # --- On protège TOUTES les balises "*Raw" pour le post-processing ---
+                # (JSON ou faux-tableau ['a','b',...] décodé plus tard dans builder.py).
+                # Sans ça, le bloc bracket-unwrap plus bas tronque silencieusement les
+                # listes multi-éléments au premier élément dès que ast.literal_eval
+                # réussit à parser la chaîne (ce qui dépend juste de la présence ou non
+                # d'une apostrophe cassant le parsing -- comportement non déterministe).
+                if target_xpath.strip('/').split('/')[-1].endswith('Raw'):
                     return v_stripped
                 
                 
@@ -95,8 +122,14 @@ class HierarchicalExtractor:
             return v
 
         if isinstance(value, list):
-            # On nettoie la liste et on retire les éléments vides
-            cleaned_list = [clean_single(item) for item in value if item]
+            # On nettoie la liste et on retire les éléments vides, SAUF pour les
+            # champs positionnels (AgencyRaw/OtherAgencyRaw...) où un élément vide
+            # est un espace réservé nécessaire à l'alignement par index avec la
+            # liste soeur (voir POSITIONAL_RAW_FIELDS).
+            if target_xpath.strip('/').split('/')[-1] in POSITIONAL_RAW_FIELDS:
+                cleaned_list = [clean_single(item) for item in value]
+            else:
+                cleaned_list = [clean_single(item) for item in value if item]
             # On aplatit la liste si le JSON a généré des sous-listes
             flat_list = []
             for item in cleaned_list:
@@ -138,10 +171,16 @@ class HierarchicalExtractor:
             if source.startswith('/xml/'):
                 mode = "ABSOLUTE"
                 elements = self.tree.xpath(source, namespaces=self.namespaces)
-                extracted = self._extract_text(elements)
-                if extracted:
-                    val = extracted[0] if len(extracted) == 1 else extracted
-                    self._set_nested(final_dict, target, self._clean_value(target, val))
+                target_leaf = target.strip('/').split('/')[-1]
+                if target_leaf in POSITIONAL_RAW_FIELDS:
+                    extracted = self._extract_text_keep_blanks(elements)
+                    if extracted:
+                        self._set_nested(final_dict, target, self._clean_value(target, extracted))
+                else:
+                    extracted = self._extract_text(elements)
+                    if extracted:
+                        val = extracted[0] if len(extracted) == 1 else extracted
+                        self._set_nested(final_dict, target, self._clean_value(target, val))
                     
             elif source.startswith('ROOT:'):
                 mode = "ROOT"
@@ -189,7 +228,31 @@ class HierarchicalExtractor:
                                 val = extracted[0] if len(extracted) == 1 else extracted
                                 self._set_nested_relative(d, current_array_base_target, target, self._clean_value(target, val))
 
-        return final_dict
+        return self._prune_empty_dicts(final_dict)
+
+    def _prune_empty_dicts(self, data):
+        """Removes ROOT-loop dict entries that ended up with zero populated
+        fields (e.g. a <metadata_no><item> whose agency/code were both blank).
+        A dict is created upfront per matched source node, before any relative
+        sub-row gets a chance to fill it in -- if none ever did, it's a hollow
+        placeholder that would render as an empty element, which fails
+        validation whenever the target's own children are required (e.g.
+        OtherStudyId's IDSchema/Identifier)."""
+        if isinstance(data, dict):
+            for key in list(data.keys()):
+                data[key] = self._prune_empty_dicts(data[key])
+            return data
+        if isinstance(data, list):
+            pruned = []
+            for item in data:
+                if isinstance(item, dict):
+                    cleaned = self._prune_empty_dicts(item)
+                    if cleaned:
+                        pruned.append(cleaned)
+                else:
+                    pruned.append(item)
+            return pruned
+        return data
 
 def run_transformation(input_xml_path, mapping_csv_path, xsd_schema_path, output_xml_path, logs_path=None):
     print("1. Parsing and Hierarchical Extraction...")
@@ -248,11 +311,18 @@ if __name__ == "__main__":
     logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
     
     
-    fresh_id = "43597"
+    
+    # fresh_id = "43597"
     # lang = "fr"
-    lang = "en"
-    in_file_path = os.path.join(data_dir, f"FReSH-{fresh_id}-{lang}.xml")
-    out_file_path = os.path.join(output_dir, f"FReSH-{fresh_id}-{lang}_clean.xml")
+    # # lang = "en"
+    # in_file_path = os.path.join(data_dir, f"FReSH-{fresh_id}-{lang}.xml")
+    # out_file_path = os.path.join(output_dir, f"FReSH-{fresh_id}-{lang}_clean.xml")
+    
+    
+    in_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr.xml"
+    out_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr_clean.xml"
+        
+        
     run_transformation(
         input_xml_path=in_file_path,
         output_xml_path=out_file_path,

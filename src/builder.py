@@ -1,6 +1,31 @@
 import os
+import re
+import copy
 import xml.etree.ElementTree as ET
 from src.vocabularies import resolve_vocab_term
+
+# ArmType isn't a string enum: the schema models it as 5 required booleans (one
+# per arm-type category), so the CSV's raw ArmType.csv term has to be turned
+# into "this one flag is 1, the rest are 0" rather than emitted as text. Values
+# with no matching flag (e.g. "Autre") legitimately leave all 5 at "0" --
+# ArmTypeOther carries the free-text detail in that case.
+ARM_TYPE_BOOL_FIELDS = ["ExperimentalArm", "ActiveComparatorArm", "PlaceboComparatorArm", "SharmComparatorArm", "NoInterventionArm"]
+ARM_TYPE_BOOL_MAP = {
+    "fr": {
+        "Expérimental": "ExperimentalArm",
+        "Comparateur actif": "ActiveComparatorArm",
+        "Comparateur placebo": "PlaceboComparatorArm",
+        "Comparateur fictif": "SharmComparatorArm",
+        "Sans intervention": "NoInterventionArm",
+    },
+    "en": {
+        "Experimental": "ExperimentalArm",
+        "Active Comparator": "ActiveComparatorArm",
+        "Placebo Comparator": "PlaceboComparatorArm",
+        "Sham Comparator": "SharmComparatorArm",
+        "No intervention": "NoInterventionArm",
+    },
+}
 
 class FReSHXMLBuilder:
     def __init__(self, lang="fr"):
@@ -23,7 +48,7 @@ class FReSHXMLBuilder:
             "Population": ["PopulationType", "OtherPopulationType", "DemographicInfo", "OtherClusion", "GeographicalCoverage"],
             "DemographicInfo": ["Sex", "Age"],
             "GeographicalCoverage": ["Nation", "FranceRegion", "GeoDetail"],
-            "AdministrativeInformation": ["RegulatoryRequirements", "IsContributorPI", "PrimaryInvestigator", "AddTeamMember", "TeamMember", "ContactPoint", "FundingAgent", "OrganisationGovernance"],
+            "AdministrativeInformation": ["RegulatoryRequirements", "IsContributorPI", "PrimaryInvestigator", "AddTeamMember", "TeamMember", "ContactPoint", "FundingAgent", "OrganisationGovernance", "OtherStudyId"],
             "RegulatoryRequirements": ["ObtainedAuthorization"],
             "ObtainedAuthorization": ["AuthorizingAgency", "OtherAuthorizingAgency"],
             "PrimaryInvestigator": ["PIName", "PIMail", "PIORCID", "PIIdRef", "PIAffiliation", "IsPIContact"],
@@ -37,12 +62,15 @@ class FReSHXMLBuilder:
             "Sponsor": ["SponsorName", "SponsorType", "OtherSponsorType", "SponsorPID"],
             "Governance": ["Committee", "CommitteeDetail", "OtherGovernance"],
             "Collaborations": ["NetworkConsortium", "CollaborationsDetail"],
-            "StudyMethodology": ["AnalysisUnit", "ResearchType", "InterventionalStudy", "ObservationalStudy", "TimePerspective"],
+            "StudyMethodology": ["AnalysisUnit", "ResearchType", "InterventionalStudy", "ObservationalStudy"],
             "InterventionalStudy": ["IsClinicalTrial", "TrialPhase", "ResearchPurpose", "OtherResearchPurpose", "IsInclusionGroups", "InclusionGroup", "InterventionalStudyModel", "Allocation", "Masking", "Arm", "Intervention"],
+            "Arm": ["ArmName", "ArmType", "ArmTypeOther", "ArmDescription"],
+            "ObservationalStudy": ["ObservationalStudyDesign", "OtherResearchTypeDetails", "TimePerspective", "IsInclusionGroups", "InclusionGroup", "Intervention"],
             "InclusionGroup": ["GroupName", "GroupDescription"],
             "Intervention": ["InterventionName", "InterventionType", "InterventionTypeOther", "InterventionDescritption"],
             "DataCollectionAccess": ["DataCollectionIntegration", "DataAccess"],
-            "DataCollectionIntegration": ["SampleSize", "CollectionChronology", "DataCollection", "IsDataIntegration", "ConformityDeclaration", "ThirdPartySource", "SourcePurpose", "OtherSourceType"],
+            "DataCollectionIntegration": ["SampleSize", "CollectionChronology", "DataCollection", "IsDataIntegration", "ConformityDeclaration", "ThirdPartySource"],
+            "ThirdPartySource": ["SourceName", "SourceId", "SourceType", "SourcePurpose", "OtherSourceType"],
             "SampleSize": ["PlannedSampleSize", "FinalSampleSize"],
             "CollectionChronology": ["CollectionStart", "CollectionEnd", "CollectionFrequency"],
             "DataCollection": ["CollectionProcess", "RecruitmentSource", "RecruitmentSourceOther", "ActiveFollowUp", "DataTypes", "InclusionStrategy", "InclusionStrategyOther", "SamplingMode", "SamplingModeOther"],
@@ -110,7 +138,11 @@ class FReSHXMLBuilder:
                     
                 if isinstance(value, list):
                     for item in value:
-                        if item == "": continue
+                        # These "*Raw" fields keep blank placeholders: they're paired
+                        # by position (enumerate) further down, so dropping an empty
+                        # entry here would desync it from its sibling list.
+                        if item == "" and key not in ("AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw"):
+                            continue
                         child = ET.SubElement(parent_element, key)
                         self._dict_to_xml(child, item, key)
                 else:
@@ -122,7 +154,19 @@ class FReSHXMLBuilder:
 
     def _enforce_mandatory_dummy_nodes(self, root):
         """Comble les balises manquantes exigées par le schéma XSD en respectant l'ordre."""
-        
+
+        # 0. TeamMember fantôme : l'API source joint firstname+";"+lastname même
+        # quand les deux sont vides, ce qui donne un <name>;</name> littéral --
+        # non-vide pour notre pipeline, mais sans aucun contenu réel (pas
+        # d'affiliation, pas d'ORCID...). On le supprime plutôt que de fabriquer
+        # un TeamMemberAffiliation factice juste pour satisfaire le schéma.
+        for admin_info in root.iter('AdministrativeInformation'):
+            for tm in list(admin_info.findall('TeamMember')):
+                name_el = tm.find('TeamMemberName')
+                name_text = name_el.text.strip() if name_el is not None and name_el.text else ""
+                if re.fullmatch(r'[;,\s]*', name_text) and tm.find('TeamMemberAffiliation') is None:
+                    admin_info.remove(tm)
+
         # 1. Validation Responsable par défaut
         for tech in root.iter('TechnicalInfo'):
             if tech.find('RespValidation') is None:
@@ -137,7 +181,46 @@ class FReSHXMLBuilder:
                 mc = ET.SubElement(tech, 'MetadataContributor')
                 ET.SubElement(mc, 'ContributorName').text = "Inconnu"
 
-        # 3. Type de Financeur (Enumération obligatoire)
+        # 2.1 OtherClusion (obligatoire, même vide -- ses enfants InclusionCriterion/
+        # ExclusionCriterion sont optionnels, mais l'élément lui-même ne l'est pas)
+        for pop in root.iter('Population'):
+            if pop.find('OtherClusion') is None:
+                demo_el = pop.find('DemographicInfo')
+                idx = list(pop).index(demo_el) + 1 if demo_el is not None else len(pop)
+                pop.insert(idx, ET.Element('OtherClusion'))
+
+        # 2.5 FundingAgentType / SponsorType : listes PARALLELES (chemin séparé dans le
+        # XML source de l'API, sans lien de parenté avec funding_agency/producer),
+        # appariées par position avec FundingAgent / Sponsor respectivement.
+        for admin_info in root.iter('AdministrativeInformation'):
+            funders = admin_info.findall('FundingAgent')
+            type_raws = admin_info.findall('FundingAgentTypeRaw')
+            for i, funder in enumerate(funders):
+                if i < len(type_raws) and type_raws[i].text and type_raws[i].text.strip():
+                    type_val = resolve_vocab_term('FundingAgentType', type_raws[i].text.strip(), self.lang, self.unmatched_vocab)
+                    name_el = funder.find('FundingAgentName')
+                    idx = list(funder).index(name_el) + 1 if name_el is not None else 0
+                    el = ET.Element('FundingAgentType')
+                    el.text = type_val
+                    funder.insert(idx, el)
+            for raw in type_raws:
+                admin_info.remove(raw)
+
+            for governance in admin_info.iter('OrganisationGovernance'):
+                sponsors = governance.findall('Sponsor')
+                sponsor_type_raws = governance.findall('SponsorTypeRaw')
+                for i, sponsor in enumerate(sponsors):
+                    if i < len(sponsor_type_raws) and sponsor_type_raws[i].text and sponsor_type_raws[i].text.strip():
+                        type_val = resolve_vocab_term('SponsorType', sponsor_type_raws[i].text.strip(), self.lang, self.unmatched_vocab)
+                        name_el = sponsor.find('SponsorName')
+                        idx = list(sponsor).index(name_el) + 1 if name_el is not None else 0
+                        el = ET.Element('SponsorType')
+                        el.text = type_val
+                        sponsor.insert(idx, el)
+                for raw in sponsor_type_raws:
+                    governance.remove(raw)
+
+        # 3. Type de Financeur (Enumération obligatoire, filet de sécurité)
         for fa in root.iter('FundingAgent'):
             if fa.find('FundingAgentType') is None:
                 ET.SubElement(fa, 'FundingAgentType').text = "Autre"
@@ -282,7 +365,7 @@ class FReSHXMLBuilder:
                             
                         # Extraction de l'URI (prise en compte de 'extLink' ou 'ext Link')
                         ext_link = j_dict.get("extLink") or j_dict.get("ext Link")
-                        if ext_link and "uri" in ext_link:
+                        if ext_link and ext_link.get("uri", "").strip():
                             ET.SubElement(ida_node, 'URI').text = ext_link["uri"].strip()
                             
                         # On insère à la place du Raw
@@ -326,13 +409,22 @@ class FReSHXMLBuilder:
         # -2. ConformityDeclaration est déjà normalisé via le vocabulaire contrôlé à l'extraction
         #     (HierarchicalExtractor._clean_value) ; pas de retraitement ici.
 
-        # -3. Si c'est observationnel, on détruit les résidus interventionnels envoyés par erreur par l'API
+        # -3. On ne garde que la branche StudyMethodology correspondant au ResearchType
+        # final : InterventionalStudy et ObservationalStudy sont mappés en parallèle
+        # depuis les mêmes champs source (isInclusionGroups, intervention/item...),
+        # donc l'une des deux est toujours un résidu à détruire.
         for sm in root.iter('StudyMethodology'):
             rt = sm.find('ResearchType')
-            if rt is not None and rt.text == observational_term:
+            if rt is None:
+                continue
+            if rt.text == observational_term:
                 interv = sm.find('InterventionalStudy')
                 if interv is not None:
                     sm.remove(interv)
+            elif rt.text == interventional_term:
+                obs = sm.find('ObservationalStudy')
+                if obs is not None:
+                    sm.remove(obs)
         
         # 10.8 Traitement du "faux tableau" pour DataTypeRaw
         for dt_container in root.iter('DataTypes'):
@@ -360,8 +452,62 @@ class FReSHXMLBuilder:
                 
                 # On supprime la balise Raw
                 dt_container.remove(raw_node)
-                
-        
+
+        # 10.82 ArmType : décomposition en 5 booléens requis (voir ARM_TYPE_BOOL_MAP)
+        for arm in root.iter('Arm'):
+            raw_node = arm.find('ArmTypeRaw')
+            if raw_node is None:
+                continue
+            raw_text = raw_node.text.strip() if raw_node.text else ""
+            arm.remove(raw_node)
+            if not raw_text:
+                continue
+
+            canonical = resolve_vocab_term('ArmType', raw_text, self.lang, self.unmatched_vocab)
+            matched_field = ARM_TYPE_BOOL_MAP.get(self.lang, {}).get(canonical)
+
+            arm_type_el = ET.Element('ArmType')
+            for field_name in ARM_TYPE_BOOL_FIELDS:
+                ET.SubElement(arm_type_el, field_name).text = "1" if field_name == matched_field else "0"
+
+            # ArmType comes right after ArmName in the XSD sequence, regardless
+            # of where ArmTypeRaw happened to land during the initial dict->XML
+            # sort (it wasn't a known key in schema_hierarchy's "Arm" order).
+            name_el = arm.find('ArmName')
+            idx = list(arm).index(name_el) + 1 if name_el is not None else 0
+            arm.insert(idx, arm_type_el)
+
+        # 10.85 ThirdPartySource : SourceType n'est pas répétable dans un seul
+        # ThirdPartySource, mais un <source> source peut avoir plusieurs <srcorig>
+        # (donc plusieurs SourceTypeRaw). Chaque valeur devient son propre
+        # ThirdPartySource, dupliquant SourceName/SourceId/SourcePurpose.
+        for dci in root.iter('DataCollectionIntegration'):
+            for tps in list(dci.findall('ThirdPartySource')):
+                raw_nodes = tps.findall('SourceTypeRaw')
+                if not raw_nodes:
+                    continue
+                type_vals = []
+                for raw_node in raw_nodes:
+                    if raw_node.text and raw_node.text.strip():
+                        type_vals.append(resolve_vocab_term('SourceType', raw_node.text.strip(), self.lang, self.unmatched_vocab))
+                    tps.remove(raw_node)
+
+                if not type_vals:
+                    dci.remove(tps)
+                    continue
+
+                source_id_el = tps.find('SourceId')
+                idx = list(tps).index(source_id_el) + 1 if source_id_el is not None else 0
+                type_el = ET.Element('SourceType')
+                type_el.text = type_vals[0]
+                tps.insert(idx, type_el)
+
+                insert_idx = list(dci).index(tps)
+                for extra_val in reversed(type_vals[1:]):
+                    clone = copy.deepcopy(tps)
+                    clone.find('SourceType').text = extra_val
+                    dci.insert(insert_idx + 1, clone)
+
         # 10.9 Traitement des faux tableaux : UsedStandards, QualityProcedure, RecruitmentSource
         for dq in root.iter('DataQuality'):
             raw = dq.find('UsedStandardsRaw')

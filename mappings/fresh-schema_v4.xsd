@@ -1,6 +1,5 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" id="pp" vc:minVersion="1.1">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" id="pp" vc:minVersion="1.1">
 
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="https://www.w3.org/2001/xml.xsd"/>
 
@@ -35,9 +34,7 @@
                                     <xsd:documentation xml:lang="fr">Provenance </xsd:documentation>
                                     <xsd:documentation xml:lang="en">Provenance</xsd:documentation>
                                 </xsd:annotation>
-                                <xsd:alternative test="@xml:lang='en'" type="ProvenanceEnType"/>
-                                <xsd:alternative type="ProvenanceFrType"/>
-                            </xsd:element>
+                                <xsd:alternative test="@xml:lang='en'" type="ProvenanceEnType"/><xsd:alternative type="ProvenanceFrType"/></xsd:element>
                             <xsd:element default="fr" name="VersionLang">
                                 <xsd:annotation>
                                     <xsd:documentation xml:lang="fr">Langue de la version</xsd:documentation>
@@ -55,9 +52,7 @@
                                     <xsd:documentation xml:lang="fr">Langue d'origine</xsd:documentation>
                                     <xsd:documentation xml:lang="en">Original language</xsd:documentation>
                                 </xsd:annotation>
-                                <xsd:alternative test="@xml:lang='en'" type="OriginLangEnType"/>
-                                <xsd:alternative type="OriginLangFrType"/>
-                            </xsd:element>
+                                <xsd:alternative test="@xml:lang='en'" type="OriginLangEnType"/><xsd:alternative type="OriginLangFrType"/></xsd:element>
                             <xsd:element name="CreationDate" type="xsd:date">
                                 <xsd:annotation>
                                     <xsd:documentation xml:lang="fr">Date du 1er enregistrement</xsd:documentation>
@@ -97,9 +92,7 @@
                                     <xsd:documentation xml:lang="fr">Status</xsd:documentation>
                                     <xsd:documentation xml:lang="en">Status</xsd:documentation>
                                 </xsd:annotation>
-                                <xsd:alternative test="@xml:lang='en'" type="StatusEnType"/>
-                                <xsd:alternative type="StatusFrType"/>
-                            </xsd:element>
+                                <xsd:alternative test="@xml:lang='en'" type="StatusEnType"/><xsd:alternative type="StatusFrType"/></xsd:element>
                             <xsd:element name="MetadataContributor">
                                 <xsd:annotation>
                                     <xsd:documentation xml:lang="fr">Contributeur de la fiche de
@@ -160,9 +153,7 @@
                                                 <xsd:documentation xml:lang="en">Current study
                                                     status</xsd:documentation>
                                             </xsd:annotation>
-                                            <xsd:alternative test="@xml:lang='en'" type="StudyStatusEnType"/>
-                                            <xsd:alternative type="StudyStatusFrType"/>
-                                        </xsd:element>
+                                            <xsd:alternative test="@xml:lang='en'" type="StudyStatusEnType"/><xsd:alternative type="StudyStatusFrType"/></xsd:element>
                                         <xsd:element name="Purpose" type="xsd:string" minOccurs="0">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Objectifs de
@@ -441,9 +432,7 @@
                                                                 authorisation or notice of validity
                                                                 for the study</xsd:documentation>
                                                         </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="AuthorizingAgencyEnType"/>
-                                                        <xsd:alternative type="AuthorizingAgencyFrType"/>
-                                                    </xsd:element>
+                                                        <xsd:alternative test="@xml:lang='en'" type="AuthorizingAgencyEnType"/><xsd:alternative type="AuthorizingAgencyFrType"/></xsd:element>
                                                     <xsd:element name="OtherAuthorizingAgency" type="xsd:string" minOccurs="0">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Autre
@@ -902,9 +891,7 @@
                                     <xsd:documentation xml:lang="fr">Modèle d'étude</xsd:documentation>
                                     <xsd:documentation xml:lang="en">Study type</xsd:documentation>
                                 </xsd:annotation>
-                                <xsd:alternative test="@xml:lang='en'" type="ResearchTypeEnType"/>
-                                <xsd:alternative type="ResearchTypeFrType"/>
-                            </xsd:element>
+                                <xsd:alternative test="@xml:lang='en'" type="ResearchTypeEnType"/><xsd:alternative type="ResearchTypeFrType"/></xsd:element>
                             <xsd:element name="InterventionalStudy" minOccurs="0">
                                 <xsd:annotation>
                                     <xsd:documentation xml:lang="fr">Etude interventionnelle
@@ -926,9 +913,7 @@
                                                 <xsd:documentation xml:lang="fr">Phase d'essai</xsd:documentation>
                                                 <xsd:documentation xml:lang="en">Stduy phase</xsd:documentation>
                                             </xsd:annotation>
-                                            <xsd:alternative test="@xml:lang='en'" type="TrialPhaseEnType"/>
-                                            <xsd:alternative type="TrialPhaseFrType"/>
-                                        </xsd:element>
+                                            <xsd:alternative test="@xml:lang='en'" type="TrialPhaseEnType"/><xsd:alternative type="TrialPhaseFrType"/></xsd:element>
                                         <xsd:element name="ResearchPurpose" maxOccurs="unbounded">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Objet principal de
@@ -936,9 +921,7 @@
                                                 <xsd:documentation xml:lang="en">Primary research
                                                     purpose</xsd:documentation>
                                             </xsd:annotation>
-                                            <xsd:alternative test="@xml:lang='en'" type="ResearchPurposeEnType"/>
-                                            <xsd:alternative type="ResearchPurposeFrType"/>
-                                        </xsd:element>
+                                            <xsd:alternative test="@xml:lang='en'" type="ResearchPurposeEnType"/><xsd:alternative type="ResearchPurposeFrType"/></xsd:element>
                                         <xsd:element maxOccurs="1" minOccurs="0" name="OtherResearchPurpose" type="xsd:string">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Autre objectif
@@ -970,9 +953,7 @@
                                                     d'intervention</xsd:documentation>
                                                 <xsd:documentation xml:lang="en">Intervention model</xsd:documentation>
                                             </xsd:annotation>
-                                            <xsd:alternative test="@xml:lang='en'" type="InterventionalStudyModelEnType"/>
-                                            <xsd:alternative type="InterventionalStudyModelFrType"/>
-                                        </xsd:element>
+                                            <xsd:alternative test="@xml:lang='en'" type="InterventionalStudyModelEnType"/><xsd:alternative type="InterventionalStudyModelFrType"/></xsd:element>
                                         <xsd:element name="Allocation">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Allocation</xsd:documentation>
@@ -987,9 +968,7 @@
                                                             <xsd:documentation xml:lang="en">Allocation
                                                                 type</xsd:documentation>
                                                         </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="AllocationModeEnType"/>
-                                                        <xsd:alternative type="AllocationModeFrType"/>
-                                                    </xsd:element>
+                                                        <xsd:alternative test="@xml:lang='en'" type="AllocationModeEnType"/><xsd:alternative type="AllocationModeFrType"/></xsd:element>
                                                     <xsd:element name="AllocationUnit">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Unité
@@ -997,9 +976,7 @@
                                                             <xsd:documentation xml:lang="en">Allocation
                                                                 unit</xsd:documentation>
                                                         </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="AllocationUnitEnType"/>
-                                                        <xsd:alternative type="AllocationUnitFrType"/>
-                                                    </xsd:element>
+                                                        <xsd:alternative test="@xml:lang='en'" type="AllocationUnitEnType"/><xsd:alternative type="AllocationUnitFrType"/></xsd:element>
                                                 </xsd:sequence>
                                             </xsd:complexType>
                                         </xsd:element>
@@ -1017,9 +994,7 @@
                                                             <xsd:documentation xml:lang="en">Masking
                                                                 type</xsd:documentation>
                                                         </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="MaskingTypeEnType"/>
-                                                        <xsd:alternative type="MaskingTypeFrType"/>
-                                                    </xsd:element>
+                                                        <xsd:alternative test="@xml:lang='en'" type="MaskingTypeEnType"/><xsd:alternative type="MaskingTypeFrType"/></xsd:element>
                                                     <xsd:element name="BlindedMaskingDetails" maxOccurs="unbounded" minOccurs="0">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Groupe(s)
@@ -1027,9 +1002,7 @@
                                                             <xsd:documentation xml:lang="en">Blinded
                                                                 masking group(s)</xsd:documentation>
                                                         </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="BlindedMaskingDetailsEnType"/>
-                                                        <xsd:alternative type="BlindedMaskingDetailsFrType"/>
-                                                    </xsd:element>
+                                                        <xsd:alternative test="@xml:lang='en'" type="BlindedMaskingDetailsEnType"/><xsd:alternative type="BlindedMaskingDetailsFrType"/></xsd:element>
                                                 </xsd:sequence>
                                             </xsd:complexType>
                                         </xsd:element>
@@ -1131,16 +1104,7 @@
                                                 <xsd:documentation xml:lang="en">Observational study
                                                     design</xsd:documentation>
                                             </xsd:annotation>
-                                            <xsd:simpleType>
-                                                <xsd:restriction base="xsd:string">
-                                                    <xsd:enumeration value="Registres"/>
-                                                    <xsd:enumeration value="Longitudinale ou cohorte"/>
-                                                    <xsd:enumeration value="Etudes transversales"/>
-                                                    <xsd:enumeration value="Etudes cas-temoin"/>
-                                                    <xsd:enumeration value="Autres"/>
-                                                </xsd:restriction>
-                                            </xsd:simpleType>
-                                        </xsd:element>
+                                            <xsd:alternative test="@xml:lang='en'" type="ObservationalStudyDesignEnType"/><xsd:alternative type="ObservationalStudyDesignFrType"/></xsd:element>
                                         <xsd:element minOccurs="0" name="OtherResearchTypeDetails" type="xsd:string">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Autre type d'étude
@@ -1516,9 +1480,7 @@
                                                 <xsd:documentation xml:lang="en">Declaration of
                                                     conformity</xsd:documentation>
                                             </xsd:annotation>
-                                            <xsd:alternative test="@xml:lang='en'" type="ConformityDeclarationEnType"/>
-                                            <xsd:alternative type="ConformityDeclarationFrType"/>
-                                        </xsd:element>
+                                            <xsd:alternative test="@xml:lang='en'" type="ConformityDeclarationEnType"/><xsd:alternative type="ConformityDeclarationFrType"/></xsd:element>
                                         <xsd:element maxOccurs="unbounded" minOccurs="0" name="ThirdPartySource">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Informations
@@ -1551,9 +1513,7 @@
                                                             <xsd:documentation xml:lang="en">Souce
                                                                 type</xsd:documentation>
                                                         </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="SourceTypeEnType"/>
-                                                        <xsd:alternative type="SourceTypeFrType"/>
-                                                    </xsd:element>
+                                                        <xsd:alternative test="@xml:lang='en'" type="SourceTypeEnType"/><xsd:alternative type="SourceTypeFrType"/></xsd:element>
                                                     <xsd:element name="SourcePurpose">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Objectif
@@ -1561,9 +1521,7 @@
                                                             <xsd:documentation xml:lang="en">Source
                                                                 integration purpose</xsd:documentation>
                                                         </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="SourcePurposeEnType"/>
-                                                        <xsd:alternative type="SourcePurposeFrType"/>
-                                                    </xsd:element>
+                                                        <xsd:alternative test="@xml:lang='en'" type="SourcePurposeEnType"/><xsd:alternative type="SourcePurposeFrType"/></xsd:element>
                                                     <xsd:element name="OtherSourceType" type="xsd:string" minOccurs="0">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Autre
@@ -1908,8 +1866,7 @@
                 </xsd:element>
             </xsd:sequence>
 
-            <xsd:attribute ref="xml:lang" inheritable="true"/>
-        </xsd:complexType>
+        <xsd:attribute ref="xml:lang" inheritable="true"/></xsd:complexType>
     </xsd:element>
     <xsd:complexType name="InclusionGroupType">
         <xsd:sequence>
@@ -1940,9 +1897,7 @@
                     <xsd:documentation xml:lang="fr">Type d'intervention </xsd:documentation>
                     <xsd:documentation xml:lang="en">Intervention/exposition type</xsd:documentation>
                 </xsd:annotation>
-                <xsd:alternative test="@xml:lang='en'" type="InterventionTypeEnType"/>
-                <xsd:alternative type="InterventionTypeFrType"/>
-            </xsd:element>
+                <xsd:alternative test="@xml:lang='en'" type="InterventionTypeEnType"/><xsd:alternative type="InterventionTypeFrType"/></xsd:element>
             <xsd:element minOccurs="0" name="InterventionTypeOther" type="xsd:string">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="fr">Autre type d'intervention/exposition,
@@ -1984,9 +1939,7 @@
                     <xsd:documentation xml:lang="fr">Type d'identifiant organisme (ROR, SIREN, RNSR)</xsd:documentation>
                     <xsd:documentation xml:lang="en">Organisation identifier type (ROR, SIREN, RNSR)</xsd:documentation>
                 </xsd:annotation>
-                <xsd:alternative test="@xml:lang='en'" type="PIDSchemaEnType"/>
-                <xsd:alternative type="PIDSchemaFrType"/>
-            </xsd:element>
+                <xsd:alternative test="@xml:lang='en'" type="PIDSchemaEnType"/><xsd:alternative type="PIDSchemaFrType"/></xsd:element>
             <xsd:element name="URI" type="xsd:anyURI">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="fr">URI organisme</xsd:documentation>
@@ -2012,314 +1965,4 @@
         </xsd:sequence>
 
     </xsd:complexType>
-    <xsd:simpleType name="AllocationModeFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Randomisée"/>
-            <xsd:enumeration value="Non randomisée"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="AllocationModeEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Randomised"/>
-            <xsd:enumeration value="Nonrandomised"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="AllocationUnitFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Individuelle"/>
-            <xsd:enumeration value="Cluster"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="AllocationUnitEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Individual"/>
-            <xsd:enumeration value="Cluster"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="AuthorizingAgencyFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="CESREES"/>
-            <xsd:enumeration value="ANSM"/>
-            <xsd:enumeration value="Autre"/>
-            <xsd:enumeration value="CPP"/>
-            <xsd:enumeration value="CNIL"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="AuthorizingAgencyEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="CESREES"/>
-            <xsd:enumeration value="ANSM"/>
-            <xsd:enumeration value="Other"/>
-            <xsd:enumeration value="CPP"/>
-            <xsd:enumeration value="CNIL"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="BlindedMaskingDetailsFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Participant"/>
-            <xsd:enumeration value="Personnel soignant"/>
-            <xsd:enumeration value="Evaluateur des résultats"/>
-            <xsd:enumeration value="Membre de l'équipe de recherche"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="BlindedMaskingDetailsEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Participant"/>
-            <xsd:enumeration value="Care provider"/>
-            <xsd:enumeration value="Outcomes Assessor"/>
-            <xsd:enumeration value="Research Team Member"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ConformityDeclarationFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="MR-001"/>
-            <xsd:enumeration value="MR-002"/>
-            <xsd:enumeration value="MR-003"/>
-            <xsd:enumeration value="MR-004"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ConformityDeclarationEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="MR-001"/>
-            <xsd:enumeration value="MR-002"/>
-            <xsd:enumeration value="MR-003"/>
-            <xsd:enumeration value="MR-004"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="InterventionTypeFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Autre"/>
-            <xsd:enumeration value="Biologique-vaccin"/>
-            <xsd:enumeration value="Radiation"/>
-            <xsd:enumeration value="Procédure-chirurgie"/>
-            <xsd:enumeration value="Dispositif médical"/>
-            <xsd:enumeration value="Santé publique"/>
-            <xsd:enumeration value="Génétique"/>
-            <xsd:enumeration value="Médicament"/>
-            <xsd:enumeration value="Combinaison"/>
-            <xsd:enumeration value="Comportementale"/>
-            <xsd:enumeration value="Complément alimentaire"/>
-            <xsd:enumeration value="Test diagnostic"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="InterventionTypeEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Other"/>
-            <xsd:enumeration value="Biological-Vaccine"/>
-            <xsd:enumeration value="Radiation"/>
-            <xsd:enumeration value="Procedure-Surgery"/>
-            <xsd:enumeration value="Device"/>
-            <xsd:enumeration value="Public Health"/>
-            <xsd:enumeration value="Genetic"/>
-            <xsd:enumeration value="Drug"/>
-            <xsd:enumeration value="Combination Product"/>
-            <xsd:enumeration value="Behavioral"/>
-            <xsd:enumeration value="Dietary Supplement"/>
-            <xsd:enumeration value="Diagnostic Test"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="InterventionalStudyModelFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Groupes parallèles"/>
-            <xsd:enumeration value="Plan factoriel"/>
-            <xsd:enumeration value="Schéma croisé"/>
-            <xsd:enumeration value="Simple bras"/>
-            <xsd:enumeration value="Séquentiel"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="InterventionalStudyModelEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Parallel"/>
-            <xsd:enumeration value="Factorial"/>
-            <xsd:enumeration value="Crossover"/>
-            <xsd:enumeration value="Single Group"/>
-            <xsd:enumeration value="Sequential"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="MaskingTypeFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Avec insu (en aveugle)"/>
-            <xsd:enumeration value="Ouvert"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="MaskingTypeEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Blinded"/>
-            <xsd:enumeration value="Open label"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="OriginLangFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Français"/>
-            <xsd:enumeration value="Anglais"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="OriginLangEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="French"/>
-            <xsd:enumeration value="English"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="PIDSchemaFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="SIREN"/>
-            <xsd:enumeration value="ROR"/>
-            <xsd:enumeration value="RNSR"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="PIDSchemaEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="SIREN"/>
-            <xsd:enumeration value="ROR"/>
-            <xsd:enumeration value="RNSR"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ProvenanceFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="FReSH (France Recherche en Santé Humaine)"/>
-            <xsd:enumeration value="Clinical Trials"/>
-            <xsd:enumeration value="PEF (Portail Epidémiologie France)"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ProvenanceEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="FReSH (France Recherche en Santé Humaine)"/>
-            <xsd:enumeration value="Clinical Trials"/>
-            <xsd:enumeration value="PEF (Epidemiology France Portal)"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ResearchPurposeFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Autre"/>
-            <xsd:enumeration value="Prévention"/>
-            <xsd:enumeration value="Faisabilité des dispositifs"/>
-            <xsd:enumeration value="Dépistage"/>
-            <xsd:enumeration value="Traitement"/>
-            <xsd:enumeration value="Recherche sur les services de santé"/>
-            <xsd:enumeration value="Recherche fondamentale"/>
-            <xsd:enumeration value="Soins de soutien"/>
-            <xsd:enumeration value="Diagnostic"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ResearchPurposeEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Other"/>
-            <xsd:enumeration value="Prevention"/>
-            <xsd:enumeration value="Device Feasability"/>
-            <xsd:enumeration value="Screening"/>
-            <xsd:enumeration value="Treatment"/>
-            <xsd:enumeration value="Health Services Research"/>
-            <xsd:enumeration value="Basic Science"/>
-            <xsd:enumeration value="Supportive Care"/>
-            <xsd:enumeration value="Diagnostic"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ResearchTypeFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Etude interventionnelle (expérimentale)"/>
-            <xsd:enumeration value="Etude observationnelle"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="ResearchTypeEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Interventional Study"/>
-            <xsd:enumeration value="Observational Study"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="SourcePurposeFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Enrichissement des données par croisement (autre que le suivi passif)"/>
-            <xsd:enumeration value="Suivi passif des participants"/>
-            <xsd:enumeration value="Ajout d'individus"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="SourcePurposeEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Data enrichment through cross-referencing"/>
-            <xsd:enumeration value="Passive participant monitoring"/>
-            <xsd:enumeration value="Adding individuals"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="SourceTypeFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Dossier du patient"/>
-            <xsd:enumeration value="Données collectées dans le cadre d'une recherche"/>
-            <xsd:enumeration value="Biobanque"/>
-            <xsd:enumeration value="Autre"/>
-            <xsd:enumeration value="Base administrative"/>
-            <xsd:enumeration value="Registre"/>
-            <xsd:enumeration value="Source des données paracliniques"/>
-            <xsd:enumeration value="Base médico-administrative"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="SourceTypeEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Clinical source: Clinical record"/>
-            <xsd:enumeration value="Research data"/>
-            <xsd:enumeration value="Biobank"/>
-            <xsd:enumeration value="Other"/>
-            <xsd:enumeration value="Administrative database"/>
-            <xsd:enumeration value="Registry"/>
-            <xsd:enumeration value="Paraclinical source"/>
-            <xsd:enumeration value="Medico-administrative database"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="StatusFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Envoyée pour publication"/>
-            <xsd:enumeration value="Mise à jour manuellement"/>
-            <xsd:enumeration value="Publiée"/>
-            <xsd:enumeration value="Brouillon"/>
-            <xsd:enumeration value="Importée"/>
-            <xsd:enumeration value="Mise à jour automatiquement"/>
-            <xsd:enumeration value="Modifications requises"/>
-            <xsd:enumeration value="Rejetée"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="StatusEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Awaiting validation"/>
-            <xsd:enumeration value="Updated manually"/>
-            <xsd:enumeration value="Published"/>
-            <xsd:enumeration value="Draft"/>
-            <xsd:enumeration value="Imported"/>
-            <xsd:enumeration value="Updated automatically"/>
-            <xsd:enumeration value="Returned"/>
-            <xsd:enumeration value="Rejected"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="StudyStatusFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Étude complétée"/>
-            <xsd:enumeration value="Inconnu"/>
-            <xsd:enumeration value="Étude en cours"/>
-            <xsd:enumeration value="Étude arrêtée"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="StudyStatusEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Completed study"/>
-            <xsd:enumeration value="Unknown"/>
-            <xsd:enumeration value="Ongoing study"/>
-            <xsd:enumeration value="Terminated study"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="TrialPhaseFrType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Phase 4"/>
-            <xsd:enumeration value="Phase 2"/>
-            <xsd:enumeration value="Phase 3"/>
-            <xsd:enumeration value="Phase 1"/>
-            <xsd:enumeration value="NA"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:simpleType name="TrialPhaseEnType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Phase 4"/>
-            <xsd:enumeration value="Phase 2"/>
-            <xsd:enumeration value="Phase 3"/>
-            <xsd:enumeration value="Phase 1"/>
-            <xsd:enumeration value="NA"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-</xsd:schema>
+<xsd:simpleType name="AllocationModeFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Randomisée"/><xsd:enumeration value="Non randomisée"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="AllocationModeEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Randomised"/><xsd:enumeration value="Nonrandomised"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="AllocationUnitFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Individuelle"/><xsd:enumeration value="Cluster"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="AllocationUnitEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Individual"/><xsd:enumeration value="Cluster"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="AuthorizingAgencyFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="CESREES"/><xsd:enumeration value="ANSM"/><xsd:enumeration value="Autre"/><xsd:enumeration value="CPP"/><xsd:enumeration value="CNIL"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="AuthorizingAgencyEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="CESREES"/><xsd:enumeration value="ANSM"/><xsd:enumeration value="Other"/><xsd:enumeration value="CPP"/><xsd:enumeration value="CNIL"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="BlindedMaskingDetailsFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Participant"/><xsd:enumeration value="Personnel soignant"/><xsd:enumeration value="Evaluateur des résultats"/><xsd:enumeration value="Membre de l'équipe de recherche"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="BlindedMaskingDetailsEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Participant"/><xsd:enumeration value="Care provider"/><xsd:enumeration value="Outcomes Assessor"/><xsd:enumeration value="Research Team Member"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ConformityDeclarationFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="MR-001"/><xsd:enumeration value="MR-002"/><xsd:enumeration value="MR-003"/><xsd:enumeration value="MR-004"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ConformityDeclarationEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="MR-001"/><xsd:enumeration value="MR-002"/><xsd:enumeration value="MR-003"/><xsd:enumeration value="MR-004"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="InterventionTypeFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Autre"/><xsd:enumeration value="Biologique-vaccin"/><xsd:enumeration value="Radiation"/><xsd:enumeration value="Procédure-chirurgie"/><xsd:enumeration value="Dispositif médical"/><xsd:enumeration value="Santé publique"/><xsd:enumeration value="Génétique"/><xsd:enumeration value="Médicament"/><xsd:enumeration value="Combinaison"/><xsd:enumeration value="Comportementale"/><xsd:enumeration value="Complément alimentaire"/><xsd:enumeration value="Test diagnostic"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="InterventionTypeEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Other"/><xsd:enumeration value="Biological-Vaccine"/><xsd:enumeration value="Radiation"/><xsd:enumeration value="Procedure-Surgery"/><xsd:enumeration value="Device"/><xsd:enumeration value="Public Health"/><xsd:enumeration value="Genetic"/><xsd:enumeration value="Drug"/><xsd:enumeration value="Combination Product"/><xsd:enumeration value="Behavioral"/><xsd:enumeration value="Dietary Supplement"/><xsd:enumeration value="Diagnostic Test"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="InterventionalStudyModelFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Groupes parallèles"/><xsd:enumeration value="Plan factoriel"/><xsd:enumeration value="Schéma croisé"/><xsd:enumeration value="Simple bras"/><xsd:enumeration value="Séquentiel"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="InterventionalStudyModelEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Parallel"/><xsd:enumeration value="Factorial"/><xsd:enumeration value="Crossover"/><xsd:enumeration value="Single Group"/><xsd:enumeration value="Sequential"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="MaskingTypeFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Avec insu (en aveugle)"/><xsd:enumeration value="Ouvert"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="MaskingTypeEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Blinded"/><xsd:enumeration value="Open label"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ObservationalStudyDesignFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Registres"/><xsd:enumeration value="Longitudinale ou cohorte"/><xsd:enumeration value="Etudes transversales"/><xsd:enumeration value="Etudes cas-temoin"/><xsd:enumeration value="Autres"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ObservationalStudyDesignEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Registries"/><xsd:enumeration value="Longitudinal or cohort"/><xsd:enumeration value="Cross-sectional studies"/><xsd:enumeration value="Case-control studies"/><xsd:enumeration value="Other"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="OriginLangFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Français"/><xsd:enumeration value="Anglais"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="OriginLangEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="French"/><xsd:enumeration value="English"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="PIDSchemaFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="SIREN"/><xsd:enumeration value="ROR"/><xsd:enumeration value="RNSR"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="PIDSchemaEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="SIREN"/><xsd:enumeration value="ROR"/><xsd:enumeration value="RNSR"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ProvenanceFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="FReSH (France Recherche en Santé Humaine)"/><xsd:enumeration value="Clinical Trials"/><xsd:enumeration value="PEF (Portail Epidémiologie France)"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ProvenanceEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="FReSH (France Recherche en Santé Humaine)"/><xsd:enumeration value="Clinical Trials"/><xsd:enumeration value="PEF (Epidemiology France Portal)"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ResearchPurposeFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Autre"/><xsd:enumeration value="Prévention"/><xsd:enumeration value="Faisabilité des dispositifs"/><xsd:enumeration value="Dépistage"/><xsd:enumeration value="Traitement"/><xsd:enumeration value="Recherche sur les services de santé"/><xsd:enumeration value="Recherche fondamentale"/><xsd:enumeration value="Soins de soutien"/><xsd:enumeration value="Diagnostic"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ResearchPurposeEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Other"/><xsd:enumeration value="Prevention"/><xsd:enumeration value="Device Feasability"/><xsd:enumeration value="Screening"/><xsd:enumeration value="Treatment"/><xsd:enumeration value="Health Services Research"/><xsd:enumeration value="Basic Science"/><xsd:enumeration value="Supportive Care"/><xsd:enumeration value="Diagnostic"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ResearchTypeFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Etude interventionnelle (expérimentale)"/><xsd:enumeration value="Etude observationnelle"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="ResearchTypeEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Interventional Study"/><xsd:enumeration value="Observational Study"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="SourcePurposeFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Enrichissement des données par croisement (autre que le suivi passif)"/><xsd:enumeration value="Suivi passif des participants"/><xsd:enumeration value="Ajout d'individus"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="SourcePurposeEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Data enrichment through cross-referencing"/><xsd:enumeration value="Passive participant monitoring"/><xsd:enumeration value="Adding individuals"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="SourceTypeFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Dossier du patient"/><xsd:enumeration value="Données collectées dans le cadre d'une recherche"/><xsd:enumeration value="Biobanque"/><xsd:enumeration value="Autre"/><xsd:enumeration value="Base administrative"/><xsd:enumeration value="Registre"/><xsd:enumeration value="Source des données paracliniques"/><xsd:enumeration value="Base médico-administrative"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="SourceTypeEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Clinical source: Clinical record"/><xsd:enumeration value="Research data"/><xsd:enumeration value="Biobank"/><xsd:enumeration value="Other"/><xsd:enumeration value="Administrative database"/><xsd:enumeration value="Registry"/><xsd:enumeration value="Paraclinical source"/><xsd:enumeration value="Medico-administrative database"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="StatusFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Envoyée pour publication"/><xsd:enumeration value="Mise à jour manuellement"/><xsd:enumeration value="Publiée"/><xsd:enumeration value="Brouillon"/><xsd:enumeration value="Importée"/><xsd:enumeration value="Mise à jour automatiquement"/><xsd:enumeration value="Modifications requises"/><xsd:enumeration value="Rejetée"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="StatusEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Awaiting validation"/><xsd:enumeration value="Updated manually"/><xsd:enumeration value="Published"/><xsd:enumeration value="Draft"/><xsd:enumeration value="Imported"/><xsd:enumeration value="Updated automatically"/><xsd:enumeration value="Returned"/><xsd:enumeration value="Rejected"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="StudyStatusFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Étude complétée"/><xsd:enumeration value="Inconnu"/><xsd:enumeration value="Étude en cours"/><xsd:enumeration value="Étude arrêtée"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="StudyStatusEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Completed study"/><xsd:enumeration value="Unknown"/><xsd:enumeration value="Ongoing study"/><xsd:enumeration value="Terminated study"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="TrialPhaseFrType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Phase 4"/><xsd:enumeration value="Phase 2"/><xsd:enumeration value="Phase 3"/><xsd:enumeration value="Phase 1"/><xsd:enumeration value="NA"/></xsd:restriction></xsd:simpleType><xsd:simpleType name="TrialPhaseEnType"><xsd:restriction base="xsd:string"><xsd:enumeration value="Phase 4"/><xsd:enumeration value="Phase 2"/><xsd:enumeration value="Phase 3"/><xsd:enumeration value="Phase 1"/><xsd:enumeration value="NA"/></xsd:restriction></xsd:simpleType></xsd:schema>
