@@ -30,6 +30,15 @@ class HierarchicalExtractor:
         self.mapping = pd.read_csv(mapping_csv_path).dropna(subset=['target_xpath'])
         self.namespaces = {}
         self.unmatched_vocab = []
+        self.lang = self._detect_lang()
+
+    def _detect_lang(self):
+        """Determines the record's own language once, up front, from the
+        source XML itself -- rather than relying on mapping-CSV row order to
+        already know it by the time other vocab fields are processed."""
+        values = self.tree.xpath('/xml/dataset/metadata/additional/originLang/text()')
+        raw = values[0].strip().lower() if values else ""
+        return "en" if raw == "en" else "fr"
 
     def _extract_text(self, elements):
         results = []
@@ -65,7 +74,7 @@ class HierarchicalExtractor:
 
 
                 # --- NORMALISATION CONTRE LES VOCABULAIRES CONTRÔLÉS (ground truth CSV) ---
-                v_stripped = resolve_vocab_term(_vocab_field_name(target_xpath), v_stripped, self.unmatched_vocab)
+                v_stripped = resolve_vocab_term(_vocab_field_name(target_xpath), v_stripped, self.lang, self.unmatched_vocab)
 
 
                 if any(b in target_xpath for b in bool_fields):
@@ -188,7 +197,7 @@ def run_transformation(input_xml_path, mapping_csv_path, xsd_schema_path, output
     nested_data = extractor.process()
     
     print("2. Building and Saving Target XML...")
-    builder = FReSHXMLBuilder()
+    builder = FReSHXMLBuilder(lang=extractor.lang)
     xml_root = builder.build_tree(nested_data)
     
     os.makedirs(os.path.dirname(output_xml_path), exist_ok=True)
@@ -239,11 +248,12 @@ if __name__ == "__main__":
     logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
     
     
+    fresh_id = "PEF60139"
     run_transformation(
-        input_xml_path=os.path.join(data_dir, "FReSH-PEF60139-fr.xml"), 
+        input_xml_path=os.path.join(data_dir, f"FReSH-{fresh_id}-fr.xml"), 
         mapping_csv_path=os.path.join("mappings", "entity_wise_corres_table.csv"),
-        xsd_schema_path=os.path.join("mappings", "fresh-schema_v3.xsd"),
-        output_xml_path=os.path.join(output_dir, "FReSH-PEF60139-fr_fresh_clean.xml"),
+        xsd_schema_path=os.path.join("mappings", "fresh-schema_v4.xsd"),
+        output_xml_path=os.path.join(output_dir, f"FReSH-{fresh_id}-fr_fresh_clean.xml"),
         logs_path=logs_dir
     )
 # %%

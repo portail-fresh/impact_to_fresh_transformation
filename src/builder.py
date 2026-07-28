@@ -3,7 +3,8 @@ import xml.etree.ElementTree as ET
 from src.vocabularies import resolve_vocab_term
 
 class FReSHXMLBuilder:
-    def __init__(self):
+    def __init__(self, lang="fr"):
+        self.lang = lang
         self.unmatched_vocab = []
         self.ns_map = {
             "xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
@@ -89,6 +90,10 @@ class FReSHXMLBuilder:
 
     def build_tree(self, data_dict):
         root = ET.Element("FreshSchema", attrib=self.ns_map)
+        # Read by fresh-schema_v4.xsd's XSD 1.1 Conditional Type Assignment to
+        # pick the French or English enumeration for every controlled-vocab
+        # field (inherited down the whole tree, no need to repeat it).
+        root.set("{http://www.w3.org/XML/1998/namespace}lang", self.lang)
         self._dict_to_xml(root, data_dict, "FreshSchema")
         self._enforce_mandatory_dummy_nodes(root)
         return root
@@ -167,7 +172,7 @@ class FReSHXMLBuilder:
                         cm = ET.Element('CollectionMode')
                         if "value" in j_dict:
                             raw_val = ' '.join(j_dict["value"].split())
-                            ET.SubElement(cm, 'value').text = resolve_vocab_term('CollectionMode', raw_val, self.unmatched_vocab)
+                            ET.SubElement(cm, 'value').text = resolve_vocab_term('CollectionMode', raw_val, self.lang, self.unmatched_vocab)
                         if "concept" in j_dict and "vocabURI" in j_dict["concept"]:
                             ET.SubElement(cm, 'URI').text = j_dict["concept"]["vocabURI"]
                         
@@ -199,7 +204,7 @@ class FReSHXMLBuilder:
                                 sm = ET.Element('SamplingMode')
                                 if "value" in j_dict:
                                     raw_val = ' '.join(j_dict["value"].split())
-                                    ET.SubElement(sm, 'value').text = resolve_vocab_term('SamplingMode', raw_val, self.unmatched_vocab)
+                                    ET.SubElement(sm, 'value').text = resolve_vocab_term('SamplingMode', raw_val, self.lang, self.unmatched_vocab)
                                 if "concept" in j_dict and "vocabURI" in j_dict["concept"]:
                                     ET.SubElement(sm, 'URI').text = j_dict["concept"]["vocabURI"]
                                 
@@ -236,12 +241,12 @@ class FReSHXMLBuilder:
                 agency_val = agency_node.text.strip() if agency_node.text else None
                 
                 if agency_val:
-                    agency_val = resolve_vocab_term('AuthorizingAgency', agency_val, self.unmatched_vocab)
+                    agency_val = resolve_vocab_term('AuthorizingAgency', agency_val, self.lang, self.unmatched_vocab)
                     auth_node = ET.Element('ObtainedAuthorization')
                     ET.SubElement(auth_node, 'AuthorizingAgency').text = agency_val
 
-                    # On n'ajoute OtherAuthorizingAgency QUE si c'est "Autre"
-                    if agency_val == "Autre":
+                    # On n'ajoute OtherAuthorizingAgency QUE si c'est "Autre"/"Other"
+                    if agency_val in ("Autre", "Other"):
                         # On récupère la valeur au même index dans la liste "others"
                         if i < len(others) and others[i].text and others[i].text.strip():
                             other_val = ' '.join(others[i].text.split()) # On nettoie les espaces
@@ -273,7 +278,7 @@ class FReSHXMLBuilder:
                         # Extraction de la valeur
                         if "value" in j_dict:
                             raw_val = ' '.join(j_dict["value"].split())
-                            ET.SubElement(ida_node, 'value').text = resolve_vocab_term('IndividualDataAccess', raw_val, self.unmatched_vocab)
+                            ET.SubElement(ida_node, 'value').text = resolve_vocab_term('IndividualDataAccess', raw_val, self.lang, self.unmatched_vocab)
                             
                         # Extraction de l'URI (prise en compte de 'extLink' ou 'ext Link')
                         ext_link = j_dict.get("extLink") or j_dict.get("ext Link")
@@ -286,7 +291,7 @@ class FReSHXMLBuilder:
                     except Exception:
                         # Fallback de sécurité si ce n'est pas un JSON valide (juste du texte)
                         ida_node = ET.Element('IndividualDataAccess')
-                        ET.SubElement(ida_node, 'value').text = resolve_vocab_term('IndividualDataAccess', raw_text.strip(), self.unmatched_vocab)
+                        ET.SubElement(ida_node, 'value').text = resolve_vocab_term('IndividualDataAccess', raw_text.strip(), self.lang, self.unmatched_vocab)
                         idx = list(da).index(raw_node)
                         da.insert(idx, ida_node)
                         
@@ -305,13 +310,18 @@ class FReSHXMLBuilder:
         
         # -1. Nettoyage de ResearchType (détection par mot-clé dans un texte parfois bruité,
         #     puis passage par le vocabulaire contrôlé pour l'orthographe exacte)
+        observational_keyword, interventional_keyword, observational_term, interventional_term = (
+            ("observational", "interventional", "Observational Study", "Interventional Study")
+            if self.lang == "en" else
+            ("observationnelle", "interventionnelle", "Etude observationnelle", "Etude interventionnelle (expérimentale)")
+        )
         for rt in root.iter('ResearchType'):
             if rt.text:
                 val = rt.text.lower()
-                if "observationnelle" in val:
-                    rt.text = resolve_vocab_term('ResearchType', 'Etude observationnelle', self.unmatched_vocab)
-                elif "interventionnelle" in val:
-                    rt.text = resolve_vocab_term('ResearchType', 'Etude interventionnelle (expérimentale)', self.unmatched_vocab)
+                if observational_keyword in val:
+                    rt.text = resolve_vocab_term('ResearchType', observational_term, self.lang, self.unmatched_vocab)
+                elif interventional_keyword in val:
+                    rt.text = resolve_vocab_term('ResearchType', interventional_term, self.lang, self.unmatched_vocab)
 
         # -2. ConformityDeclaration est déjà normalisé via le vocabulaire contrôlé à l'extraction
         #     (HierarchicalExtractor._clean_value) ; pas de retraitement ici.
@@ -319,7 +329,7 @@ class FReSHXMLBuilder:
         # -3. Si c'est observationnel, on détruit les résidus interventionnels envoyés par erreur par l'API
         for sm in root.iter('StudyMethodology'):
             rt = sm.find('ResearchType')
-            if rt is not None and rt.text == 'Etude observationnelle':
+            if rt is not None and rt.text == observational_term:
                 interv = sm.find('InterventionalStudy')
                 if interv is not None:
                     sm.remove(interv)
@@ -340,12 +350,12 @@ class FReSHXMLBuilder:
                         clean_item = item.strip().strip("'").strip('"')
                         if clean_item:
                             new_node = ET.Element('DataType')
-                            new_node.text = resolve_vocab_term('DataType', clean_item, self.unmatched_vocab)
+                            new_node.text = resolve_vocab_term('DataType', clean_item, self.lang, self.unmatched_vocab)
                             dt_container.append(new_node)
                 else:
                     # Cas classique : pas de crochets, on garde le texte tel quel
                     new_node = ET.Element('DataType')
-                    new_node.text = resolve_vocab_term('DataType', raw_text, self.unmatched_vocab)
+                    new_node.text = resolve_vocab_term('DataType', raw_text, self.lang, self.unmatched_vocab)
                     dt_container.append(new_node)
                 
                 # On supprime la balise Raw
@@ -375,7 +385,7 @@ class FReSHXMLBuilder:
             if raw is not None:
                 for val in self._split_bracket_list(raw.text):
                     new_node = ET.Element('RecruitmentSource')
-                    new_node.text = resolve_vocab_term('RecruitmentSource', val, self.unmatched_vocab)
+                    new_node.text = resolve_vocab_term('RecruitmentSource', val, self.lang, self.unmatched_vocab)
                     dc.append(new_node)
                 dc.remove(raw)
                                     
