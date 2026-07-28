@@ -248,12 +248,16 @@ if __name__ == "__main__":
     logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
     
     
-    fresh_id = "PEF60139"
+    fresh_id = "43597"
+    # lang = "fr"
+    lang = "en"
+    in_file_path = os.path.join(data_dir, f"FReSH-{fresh_id}-{lang}.xml")
+    out_file_path = os.path.join(output_dir, f"FReSH-{fresh_id}-{lang}_clean.xml")
     run_transformation(
-        input_xml_path=os.path.join(data_dir, f"FReSH-{fresh_id}-fr.xml"), 
+        input_xml_path=in_file_path,
+        output_xml_path=out_file_path,
         mapping_csv_path=os.path.join("mappings", "entity_wise_corres_table.csv"),
         xsd_schema_path=os.path.join("mappings", "fresh-schema_v4.xsd"),
-        output_xml_path=os.path.join(output_dir, f"FReSH-{fresh_id}-fr_fresh_clean.xml"),
         logs_path=logs_dir
     )
 # %%

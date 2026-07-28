@@ -2032,7 +2032,7 @@
     </xsd:simpleType>
     <xsd:simpleType name="AllocationUnitEnType">
         <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Individuelle"/>
+            <xsd:enumeration value="Individual"/>
             <xsd:enumeration value="Cluster"/>
         </xsd:restriction>
     </xsd:simpleType>
