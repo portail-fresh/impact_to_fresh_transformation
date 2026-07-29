@@ -1387,7 +1387,7 @@
                                                                             active follow-up?</xsd:documentation>
                                                                     </xsd:annotation>
                                                                 </xsd:element>
-                                                                <xsd:element name="FollowUpMode" maxOccurs="unbounded" type="xsd:string">
+                                                                <xsd:element name="FollowUpMode" minOccurs="0" maxOccurs="unbounded" type="xsd:string">
                                                                     <xsd:annotation>
                                                                         <xsd:documentation xml:lang="fr">Modalité
                                                                             de suivi</xsd:documentation>
