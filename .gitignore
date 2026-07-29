@@ -2157,3 +2157,7 @@ data/input/FRESH-PEF74150-en.xml
 data/input/FRESH-PEF74150-fr.xml
 data/input/mock_api.xml
 data/output/mock_fresh_output.xml
+mappings/fresh-schema_v4.xsd
+data/logs/FReSH-43661-fr_unmatched_vocab.csv
+data/logs/FReSH-43661-fr_validation_report.txt
+data/output/FReSH-43661-fr_clean.xml

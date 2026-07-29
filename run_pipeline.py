@@ -306,21 +306,21 @@ def run_transformation(input_xml_path, mapping_csv_path, xsd_schema_path, output
     print(f"   Rapport de vocabulaires écrit dans : {report_path}")
 
 if __name__ == "__main__":
-    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\xml_files_from_IH_API"
-    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
-    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
+    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\input"
+    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\output"
+    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\logs"
     
     
     
-    # fresh_id = "43597"
-    # lang = "fr"
-    # # lang = "en"
-    # in_file_path = os.path.join(data_dir, f"FReSH-{fresh_id}-{lang}.xml")
-    # out_file_path = os.path.join(output_dir, f"FReSH-{fresh_id}-{lang}_clean.xml")
+    fresh_id = "43661"
+    lang = "fr"
+    # lang = "en"
+    in_file_path = os.path.join(data_dir, f"FReSH-{fresh_id}-{lang}.xml")
+    out_file_path = os.path.join(output_dir, f"FReSH-{fresh_id}-{lang}_clean.xml")
     
     
-    in_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr.xml"
-    out_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr_clean.xml"
+    # in_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr.xml"
+    # out_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr_clean.xml"
         
         
     run_transformation(
