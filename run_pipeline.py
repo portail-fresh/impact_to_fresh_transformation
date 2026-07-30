@@ -331,7 +331,7 @@ if __name__ == "__main__":
         input_xml_path=in_file_path,
         output_xml_path=out_file_path,
         mapping_csv_path=os.path.join("mappings", "entity_wise_corres_table.csv"),
-        xsd_schema_path=os.path.join("mappings", "fresh-schema_v4.xsd"),
+        xsd_schema_path=os.path.join("mappings", "fresh-schema_v5.xsd"),
         logs_path=logs_dir
     )
 # %%

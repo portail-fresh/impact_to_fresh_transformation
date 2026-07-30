@@ -33,12 +33,23 @@ VOCAB_ALIASES = {
         "ObservationalStudyDesign": {
             "etudecastemoins": "Etudes cas-temoin",
             "cohorte": "Longitudinale ou cohorte",
+            "registredemorbidite": "Registres",
+            # Source sends the bare "Autre" (no plural); ground truth is "Autres".
+            "autre": "Autres",
         },
+        # Source sends the literal, untranslated English technical marker
+        # "imported" (left over from the legacy PEF bulk-import) even in
+        # French records; ground truth is "Importée".
+        "Status": {"imported": "Importée"},
     },
     "en": {
         "OriginLang": {"fr": "French", "en": "English"},
         # Source sends the short label "Cohort study"; ground truth is "Longitudinal or cohort".
-        "ObservationalStudyDesign": {"cohortstudy": "Longitudinal or cohort"},
+        "ObservationalStudyDesign": {
+            "cohortstudy": "Longitudinal or cohort",
+            "morbidityregistry": "Registries",
+            "casecontrolstudy": "Case-control studies",
+        },
     },
 }
 
