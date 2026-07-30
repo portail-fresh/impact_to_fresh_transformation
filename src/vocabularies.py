@@ -37,6 +37,8 @@ VOCAB_ALIASES = {
     },
     "en": {
         "OriginLang": {"fr": "French", "en": "English"},
+        # Source sends the short label "Cohort study"; ground truth is "Longitudinal or cohort".
+        "ObservationalStudyDesign": {"cohortstudy": "Longitudinal or cohort"},
     },
 }
 
@@ -50,8 +52,13 @@ def _normalize(s):
     # Drop separators/quote marks entirely (not just collapse) so "MR-001",
     # "MR 001" and "MR001" normalize identically regardless of separator
     # style, and so CSV terms that quote a word for emphasis (e.g. de
-    # "convenance") still match a source value that omits the quotes.
-    s = re.sub(r'[\s\-/\'’"“”]+', "", s)
+    # "convenance") still match a source value that omits the quotes. Colons
+    # are included too: several vocab CSVs use "Category : Subcategory" style
+    # terms (DataType, HealthDeterminant, SourceType...) and some source
+    # records drop the colon in translation (e.g. "Clinical source Clinical
+    # record" instead of "Clinical source: Clinical record"). Checked against
+    # every vocab CSV for collisions before adding ':' here -- none found.
+    s = re.sub(r'[\s\-/\'’"“”:]+', "", s)
     return s
 
 

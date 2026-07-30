@@ -75,7 +75,7 @@ class FReSHXMLBuilder:
             "CollectionChronology": ["CollectionStart", "CollectionEnd", "CollectionFrequency"],
             "DataCollection": ["CollectionProcess", "RecruitmentSource", "RecruitmentSourceOther", "ActiveFollowUp", "DataTypes", "InclusionStrategy", "InclusionStrategyOther", "SamplingMode", "SamplingModeOther"],
             "ActiveFollowUp": ["IsActiveFollowUp", "FollowUpMode", "FollowUpModeOther"],
-            "DataTypes": ["DataType", "ClinicalDataDetails", "ParaclinicalDataDetails", "BiologicalDataDetails", "isDataInBiobank", "BiobankContent", "BiobankContentOther", "OtherLiquidsDetails"],
+            "DataTypes": ["DataType", "ClinicalDataDetails", "ParaclinicalDataOther", "BiologicalDataDetails", "isDataInBiobank", "BiobankContent", "BiobankContentOther", "OtherLiquidsDetails"],
             "ThirdPartySource": ["SourceName", "SourceId", "SourceType"],
             "DataAccess": ["DataQuality", "DataAvailability", "UseStatement", "DataInformationContact", "DataCitation", "VariableDictionary", "MockSample", "OtherDocumentation", "DatasetPID"],
             "DataQuality": ["UsedStandards", "QualityProcedure"],
@@ -141,7 +141,7 @@ class FReSHXMLBuilder:
                         # These "*Raw" fields keep blank placeholders: they're paired
                         # by position (enumerate) further down, so dropping an empty
                         # entry here would desync it from its sibling list.
-                        if item == "" and key not in ("AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw"):
+                        if item == "" and key not in ("AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw", "OtherSourceTypeRaw"):
                             continue
                         child = ET.SubElement(parent_element, key)
                         self._dict_to_xml(child, item, key)
@@ -167,14 +167,6 @@ class FReSHXMLBuilder:
                 if re.fullmatch(r'[;,\s]*', name_text) and tm.find('TeamMemberAffiliation') is None:
                     admin_info.remove(tm)
 
-        # 1. Validation Responsable par défaut
-        for tech in root.iter('TechnicalInfo'):
-            if tech.find('RespValidation') is None:
-                idx = list(tech).index(tech.find('AutoTranslation')) if tech.find('AutoTranslation') is not None else len(tech)
-                el = ET.Element('RespValidation')
-                el.text = "0"
-                tech.insert(idx, el)
-                
         # 2. Contributeur (obligatoire)
         for tech in root.iter('TechnicalInfo'):
             if tech.find('MetadataContributor') is None:
@@ -219,27 +211,6 @@ class FReSHXMLBuilder:
                         sponsor.insert(idx, el)
                 for raw in sponsor_type_raws:
                     governance.remove(raw)
-
-        # 3. Type de Financeur (Enumération obligatoire, filet de sécurité)
-        for fa in root.iter('FundingAgent'):
-            if fa.find('FundingAgentType') is None:
-                ET.SubElement(fa, 'FundingAgentType').text = "Autre"
-
-        # 4. Type de Promoteur (Enumération obligatoire)
-        for sp in root.iter('Sponsor'):
-            if sp.find('SponsorType') is None:
-                ET.SubElement(sp, 'SponsorType').text = "Autre"
-
-        # 5. Mode de suivi (Obligatoire si la balise ActiveFollowUp existe)
-        for af in root.iter('ActiveFollowUp'):
-            if af.find('FollowUpMode') is None:
-                ET.SubElement(af, 'FollowUpMode').text = "Autre"
-
-                
-        # 7. Détail Collaborations
-        for col in root.iter('Collaborations'):
-            if col.find('CollaborationsDetail') is None:
-                ET.SubElement(col, 'CollaborationsDetail').text = "Non renseigné"
 
         # 8. Post-processing des JSON Complexes (CollectionMode et SamplingMode)
         import ast, json
@@ -482,7 +453,11 @@ class FReSHXMLBuilder:
         # (donc plusieurs SourceTypeRaw). Chaque valeur devient son propre
         # ThirdPartySource, dupliquant SourceName/SourceId/SourcePurpose.
         for dci in root.iter('DataCollectionIntegration'):
-            for tps in list(dci.findall('ThirdPartySource')):
+            # OtherSourceTypeRaw: separate parallel list (like FundingAgentTypeRaw),
+            # one entry per original <source> node, matched by position -- attached
+            # before fan-out so deepcopy carries it onto every cloned ThirdPartySource.
+            other_source_type_raws = dci.findall('OtherSourceTypeRaw')
+            for i, tps in enumerate(list(dci.findall('ThirdPartySource'))):
                 raw_nodes = tps.findall('SourceTypeRaw')
                 if not raw_nodes:
                     continue
@@ -502,11 +477,17 @@ class FReSHXMLBuilder:
                 type_el.text = type_vals[0]
                 tps.insert(idx, type_el)
 
+                if i < len(other_source_type_raws) and other_source_type_raws[i].text and other_source_type_raws[i].text.strip():
+                    ET.SubElement(tps, 'OtherSourceType').text = other_source_type_raws[i].text.strip()
+
                 insert_idx = list(dci).index(tps)
                 for extra_val in reversed(type_vals[1:]):
                     clone = copy.deepcopy(tps)
                     clone.find('SourceType').text = extra_val
                     dci.insert(insert_idx + 1, clone)
+
+            for raw in other_source_type_raws:
+                dci.remove(raw)
 
         # 10.9 Traitement des faux tableaux : UsedStandards, QualityProcedure, RecruitmentSource
         for dq in root.iter('DataQuality'):
@@ -553,9 +534,9 @@ class FReSHXMLBuilder:
 
         # Ordre DataTypes (avec correction de la majuscule "isDataInBiobank")
         dt_order = [
-            'DataType', 'DataTypeOther', 'ClinicalDataDetails', 'BiologicalDataDetails', 
-            'isDataInBiobank', 'BiobankContent', 'BiobankContentOther', 
-            'OtherLiquidsDetails', 'ParaclinicalDataOther'
+            'DataType', 'DataTypeOther', 'ClinicalDataDetails', 'ParaclinicalDataOther', 'BiologicalDataDetails',
+            'isDataInBiobank', 'BiobankContent', 'BiobankContentOther',
+            'OtherLiquidsDetails'
         ]
         for dt in root.iter('DataTypes'):
             children = list(dt)

@@ -87,7 +87,7 @@
                                     <xsd:documentation xml:lang="en">Last manual update date</xsd:documentation>
                                 </xsd:annotation>
                             </xsd:element>
-                            <xsd:element name="RespValidation" type="xsd:boolean">
+                            <xsd:element name="RespValidation" minOccurs="0" type="xsd:boolean">
                                 <xsd:annotation>
                                     <xsd:documentation xml:lang="fr">Completion/validation par le
                                         responsable</xsd:documentation>
@@ -891,7 +891,7 @@
                                                                 consortia</xsd:documentation>
                                                         </xsd:annotation>
                                                     </xsd:element>
-                                                    <xsd:element name="CollaborationsDetail" type="xsd:string">
+                                                    <xsd:element name="CollaborationsDetail" minOccurs="0" type="xsd:string">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Collaboration(s)
                                                                 impliquée(s), précisions</xsd:documentation>
@@ -1525,7 +1525,7 @@
                                                                             data details</xsd:documentation>
                                                                     </xsd:annotation>
                                                                 </xsd:element>
-                                                                <xsd:element name="ParaclinicalDataDetails" type="xsd:string" minOccurs="0">
+                                                                <xsd:element name="ParaclinicalDataOther" type="xsd:string" minOccurs="0">
                                                                     <xsd:annotation>
                                                                         <xsd:documentation xml:lang="fr">Autres
                                                                             données paracliniques

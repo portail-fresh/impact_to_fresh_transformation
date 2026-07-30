@@ -2161,3 +2161,8 @@ mappings/fresh-schema_v4.xsd
 data/logs/FReSH-43661-fr_unmatched_vocab.csv
 data/logs/FReSH-43661-fr_validation_report.txt
 data/output/FReSH-43661-fr_clean.xml
+data/logs/FReSH-43661-en_unmatched_vocab.csv
+data/logs/FReSH-43661-en_validation_report.txt
+data/logs/FReSH-43677-fr_unmatched_vocab.csv
+data/logs/FReSH-43677-fr_validation_report.txt
+data/output/FReSH-43661-en_clean.xml

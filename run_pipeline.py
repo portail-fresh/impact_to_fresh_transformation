@@ -17,7 +17,7 @@ import json
 # entries must be preserved (not dropped) on both sides so the two lists stay
 # index-aligned -- see HierarchicalExtractor._extract_text_keep_blanks and the
 # matching exception in FReSHXMLBuilder._dict_to_xml.
-POSITIONAL_RAW_FIELDS = {"AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw"}
+POSITIONAL_RAW_FIELDS = {"AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw", "OtherSourceTypeRaw"}
 
 
 def _vocab_field_name(target_xpath):
@@ -105,7 +105,7 @@ class HierarchicalExtractor:
 
 
                 if any(b in target_xpath for b in bool_fields):
-                    return "1" if v_stripped.lower() in ["oui", "1", "true"] else "0"
+                    return "1" if v_stripped.lower() in ["oui", "yes", "1", "true"] else "0"
                 
                 if any(d in target_xpath for d in date_fields):
                     if "T" in v_stripped: return v_stripped.split("T")[0]
@@ -321,7 +321,11 @@ if __name__ == "__main__":
     
     # in_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr.xml"
     # out_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\test_files\\fromPreProd-FReSH-69765-fr_clean.xml"
-        
+    
+    
+    in_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\FReSH-43677-fr.xml"
+    out_file_path = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\FReSH-model-playgroung\\FReSH-43677-fr_clean.xml"
+       
         
     run_transformation(
         input_xml_path=in_file_path,

@@ -8,6 +8,8 @@ source_xpath,target_xpath,comment
 /xml/dataset/metadata/additional/lastUpdatedAuto,TechnicalInfo/LastUpdatedAuto,"Date ISO brute à nettoyer au format YYYY-MM-DD."
 /xml/dataset/metadata/additional/lastUpdatedManual,TechnicalInfo/LastUpdatedManual,"Date ISO brute à nettoyer au format YYYY-MM-DD."
 /xml/dataset/metadata/additional/autoTranslation,TechnicalInfo/AutoTranslation,"Chaîne booléenne (0/1)."
+/xml/dataset/metadata/doc_desc/producers/producer/name,TechnicalInfo/MetadataContributor/ContributorName,"Confirmé par le collègue -- 96.8% des fichiers ont un vrai nom ici, le défaut 'Inconnu' de builder.py ne reste que pour les cas réellement vides."
+/xml/dataset/metadata/doc_desc/producers/producer/affiliation,TechnicalInfo/MetadataContributor/ContributorAffiliation,"Idem ContributorName -- 96.2% des fichiers ont une vraie valeur."
 /xml/dataset/title,StudyRelatedInfo/StudyOverview/Title,"Chaîne brute directe."
 /xml/dataset/metadata/study_desc/title_statement/alternate_title,StudyRelatedInfo/StudyOverview/Acronym,"Chaîne brute directe."
 /xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus,"Statut de l'étude"
@@ -22,6 +24,11 @@ source_xpath,target_xpath,comment
 
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other health theme']/topic,StudyRelatedInfo/Theme/OtherHealthTheme,"Autre spécialité médicale, précisions"
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other determinant']/topic,StudyRelatedInfo/Theme/OtherDeterminant,"Autres déterminants, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other socio demographic determinant']/topic,StudyRelatedInfo/Theme/OtherSocioDemoDeterminant,"Autres déterminants socio-démographiques et économiques, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other environmental determinant']/topic,StudyRelatedInfo/Theme/OtherEnvironmentalDemoDeterminant,"Autres déterminants environnementaux, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other healthcare determinant']/topic,StudyRelatedInfo/Theme/OtherHealthcarSystemDeterminant,"Autres déterminants liés au système de santé, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other behavioural determinant']/topic,StudyRelatedInfo/Theme/OtherBehaviouralDeterminant,"Autres déterminants comportementaux, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other biological determinant']/topic,StudyRelatedInfo/Theme/OtherBiologicalDeterminant,"Autres déterminants biologiques, précisions"
 
 ROOT:/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='health theme'],StudyRelatedInfo/Theme/HealthTheme,"Boucle Thèmes de santé"
 ./topic,StudyRelatedInfo/Theme/HealthTheme/value,"Nom Thème de santé"
@@ -31,7 +38,7 @@ ROOT:/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='cim-11'],St
 ./topic,StudyRelatedInfo/Theme/Pathology/value,"Nom Pathologie"
 ./extLink/extlink/uri,StudyRelatedInfo/Theme/Pathology/URI,"URI Pathologie"
 
-/xml/dataset/metadata/additional/rareDiseases/values,StudyRelatedInfo/Theme/RareDiseases,"Conversion booléenne"
+/xml/dataset/metadata/additional/theme/RareDiseases,StudyRelatedInfo/Theme/RareDiseases,"Champ booléen brut 0/1 -- l'ancien mapping utilisait additional/rareDiseases/values (doublon texte Oui/Non ou Yes/No), sensible à la langue et non fiable."
 /xml/dataset/metadata/additional/universe/level_type_clusion_I,StudyRelatedInfo/Population/PopulationType,"Chaîne brute directe."
 
 ROOT:/xml/dataset/metadata/additional/universe/sexe/item,StudyRelatedInfo/Population/DemographicInfo/Sex,"Boucle Sexe"
@@ -107,7 +114,8 @@ ARRAY:./extlink/item[role='sponsor id'],AdministrativeInformation/OrganisationGo
 
 /xml/dataset/metadata/additional/sponsor/sponsorType/sponsortype,AdministrativeInformation/OrganisationGovernance/SponsorTypeRaw,"Types Sponsor - liste PARALLELE à Sponsor, appariée par position dans builder.py"
 
-/xml/dataset/metadata/additional/governance/committee,AdministrativeInformation/OrganisationGovernance/Governance/Committee,"Chaîne booléenne (0/1)."
+/xml/dataset/metadata/additional/governance/committee,AdministrativeInformation/OrganisationGovernance/Governance/Committee,"Chaîne booléenne (0/1) -- valeur brute 'Autre' retombe sur 0, le détail va dans OtherGovernance ci-dessous."
+/xml/dataset/metadata/study_desc/study_info/quality_statement/standards/standard/governance,AdministrativeInformation/OrganisationGovernance/Governance/OtherGovernance,"Autre modalité de gouvernance, précisions"
 /xml/dataset/metadata/additional/collaborations/networkConsortium,AdministrativeInformation/OrganisationGovernance/Collaborations/NetworkConsortium,"Chaîne booléenne (0/1)."
 /xml/dataset/metadata/study_desc/oth_id/item[type='collaboration']/name,AdministrativeInformation/OrganisationGovernance/Collaborations/CollaborationsDetail,"Collaboration(s) impliquée(s), précisions"
 
@@ -191,6 +199,7 @@ ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,Data
 ./sourceCitation/holdings,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource/SourceId,"Identifiant de la source"
 ./sourceCitation/notes[subject='source purpose']/value,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource/SourcePurpose,"Objectif de l'intégration de la source"
 ./srcOrig/srcorig,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource/SourceTypeRaw,"Type(s) de source brut"
+/xml/dataset/metadata/additional/thirdPartySource/otherSourceType/othersourcetype,DataCollectionAccess/DataCollectionIntegration/OtherSourceTypeRaw,"Autre type de source, précisions -- liste PARALLELE (chemin séparé), appariée par position avec ThirdPartySource dans builder.py"
 
 /xml/dataset/metadata/study_desc/method/data_collection/target_sample_size,DataCollectionAccess/DataCollectionIntegration/SampleSize/PlannedSampleSize,"Taille d'échantillon cible"
 /xml/dataset/metadata/study_desc/method/data_collection/response_rate,DataCollectionAccess/DataCollectionIntegration/SampleSize/FinalSampleSize,"Taille d'échantillon final"
@@ -217,6 +226,8 @@ ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,Data
 /xml/dataset/metadata/additional/dataTypes/biologicalDataDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiologicalDataDetails,"Détails biologiques"
 /xml/dataset/metadata/additional/dataTypes/isDataInBiobank,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/isDataInBiobank,"Présence Biobanque"
 /xml/dataset/metadata/additional/dataTypes/biobankContent/biobankcontent,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiobankContent,"Contenu Biobanque"
+/xml/dataset/metadata/additional/dataTypes/biobankContentOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiobankContentOther,"Autre échantillon, précisions"
+/xml/dataset/metadata/additional/dataTypes/paraclinicalDataOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/ParaclinicalDataOther,"Autres données paracliniques (hors biologiques), précisions"
 /xml/dataset/metadata/additional/dataTypes/otherLiquidsDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/OtherLiquidsDetails,"Chaîne brute directe."
 
 /xml/dataset/metadata/study_desc/study_info/quality_statement/standards/standard/name,DataCollectionAccess/DataAccess/DataQuality/UsedStandardsRaw,"Standard ou nomenclature employé"
