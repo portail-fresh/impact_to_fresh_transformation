@@ -1,4 +1,5 @@
 # %%
+from ntpath import join
 import os
 import csv
 import pandas as pd
@@ -309,16 +310,22 @@ if __name__ == "__main__":
     # /!\ MODIFY PATHS HERE AS NEEDED /!\
     # These are hardcoded to one machine/user -- update data_dir, output_dir and
     # logs_dir to match your own setup before running.
-    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\input"
-    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\output"
-    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\logs"
+    # data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\input"
+    # output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\output"
+    # logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\logs"
 
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(base_dir, "data", "input")
+    output_dir = os.path.join(base_dir, "data", "output")
+    logs_dir = os.path.join(base_dir, "data", "logs")
+    
+    
     fresh_id = "43661"
     lang = "fr"
     # lang = "en"
     in_file_path = os.path.join(data_dir, f"FReSH-{fresh_id}-{lang}.xml")
     out_file_path = os.path.join(output_dir, f"FReSH-{fresh_id}-{lang}_clean.xml")
-
     run_transformation(
         input_xml_path=in_file_path,
         output_xml_path=out_file_path,
