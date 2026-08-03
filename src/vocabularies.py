@@ -1,10 +1,12 @@
 """Normalizes free-text enum values against the ground-truth controlled-vocabulary
 CSVs in mappings/vocabularies/, so source-system drift (accents, case, typos)
 resolves to the exact term the FReSH schema/vocabulary expects. Bilingual:
-each field's CSV carries both a "Terme français" and a "Terme anglais" column,
-and resolution is keyed by the record's own language (see fresh-schema_v4.xsd,
-which validates each field against the matching language via XSD 1.1
-Conditional Type Assignment)."""
+each field's CSV carries both a "prefLabel_fr" and a "prefLabel_en" column
+(generated from the technical-documentation repo's SKOS .ttl files by
+get_CVs_from_fresh_technical_documentation_git.ipynb, which also renames each
+CSV to match the FReSH field name it backs), and resolution is keyed by the
+record's own language (see fresh-schema_v4.xsd, which validates each field
+against the matching language via XSD 1.1 Conditional Type Assignment)."""
 import csv
 import glob
 import os
@@ -27,16 +29,6 @@ VOCAB_ALIASES = {
         "MaskingType": {"insu": "Avec insu (en aveugle)"},
         # Source sends ISO language codes; the ground-truth term is the full word.
         "OriginLang": {"fr": "Français", "en": "Anglais"},
-        # Source sends "Etude cas-témoins" (singular study, plural témoins); the
-        # ground-truth/XSD term flips both ("Etudes cas-temoin", no accent).
-        # Source also sends the short "Cohorte"; ground truth is the longer form.
-        "ObservationalStudyDesign": {
-            "etudecastemoins": "Etudes cas-temoin",
-            "cohorte": "Longitudinale ou cohorte",
-            "registredemorbidite": "Registres",
-            # Source sends the bare "Autre" (no plural); ground truth is "Autres".
-            "autre": "Autres",
-        },
         # Source sends the literal, untranslated English technical marker
         # "imported" (left over from the legacy PEF bulk-import) even in
         # French records; ground truth is "Importée".
@@ -44,12 +36,6 @@ VOCAB_ALIASES = {
     },
     "en": {
         "OriginLang": {"fr": "French", "en": "English"},
-        # Source sends the short label "Cohort study"; ground truth is "Longitudinal or cohort".
-        "ObservationalStudyDesign": {
-            "cohortstudy": "Longitudinal or cohort",
-            "morbidityregistry": "Registries",
-            "casecontrolstudy": "Case-control studies",
-        },
     },
 }
 
@@ -80,8 +66,8 @@ def load_vocabularies():
         fr_terms, en_terms = {}, {}
         with open(csv_path, encoding="utf-8-sig", newline="") as f:
             for row in csv.DictReader(f):
-                fr = (row.get("Terme français") or "").strip()
-                en = (row.get("Terme anglais") or "").strip()
+                fr = (row.get("prefLabel_fr") or "").strip()
+                en = (row.get("prefLabel_en") or "").strip()
                 if fr:
                     fr_terms[_normalize(fr)] = fr
                 if en:
