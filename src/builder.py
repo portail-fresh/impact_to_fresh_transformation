@@ -44,7 +44,7 @@ class FReSHXMLBuilder:
             "MetadataContributor": ["ContributorName", "ContributorAffiliation"],
             "StudyRelatedInfo": ["StudyOverview", "Theme", "Population"],
             "StudyOverview": ["Title", "Acronym", "StudyStatus", "Purpose", "Summary", "Keyword"],
-            "Theme": ["IsHealthTheme", "HealthTheme", "OtherHealthTheme", "HealthDeterminant", "OtherSocioDemoDeterminant", "OtherEnvironmentalDemoDeterminant", "OtherHealthcarSystemDeterminant", "OtherBehaviouralDeterminant", "OtherBiologicalDeterminant", "OtherDeterminant", "Pathology", "RareDiseases"],
+            "Theme": ["IsHealthTheme", "HealthTheme", "OtherHealthTheme", "HealthDeterminant", "OtherSocioDemoDeterminant", "OtherEnvironmentalDeterminant", "OtherHealthcareSystemDeterminant", "OtherBehavioralDeterminant", "OtherBiologicalDeterminant", "OtherDeterminant", "Pathology", "RareDiseases"],
             "Population": ["PopulationType", "OtherPopulationType", "DemographicInfo", "OtherClusion", "GeographicalCoverage"],
             "DemographicInfo": ["Sex", "Age"],
             "GeographicalCoverage": ["Nation", "FranceRegion", "GeoDetail"],
@@ -61,7 +61,7 @@ class FReSHXMLBuilder:
             "OrganisationGovernance": ["Sponsor", "Governance", "Collaborations"],
             "Sponsor": ["SponsorName", "SponsorType", "OtherSponsorType", "SponsorPID"],
             "Governance": ["Committee", "CommitteeDetail", "OtherGovernance"],
-            "Collaborations": ["NetworkConsortium", "CollaborationsDetail"],
+            "Collaborations": ["NetworkConsortium", "CollaborationsDetails"],
             "StudyMethodology": ["AnalysisUnit", "ResearchType", "InterventionalStudy", "ObservationalStudy"],
             "InterventionalStudy": ["IsClinicalTrial", "TrialPhase", "ResearchPurpose", "OtherResearchPurpose", "IsInclusionGroups", "InclusionGroup", "InterventionalStudyModel", "Allocation", "Masking", "Arm", "Intervention"],
             "Arm": ["ArmName", "ArmType", "ArmTypeOther", "ArmDescription"],
@@ -69,21 +69,21 @@ class FReSHXMLBuilder:
             "InclusionGroup": ["GroupName", "GroupDescription"],
             "Intervention": ["InterventionName", "InterventionType", "InterventionTypeOther", "InterventionDescritption"],
             "DataCollectionAccess": ["DataCollectionIntegration", "DataAccess"],
-            "DataCollectionIntegration": ["SampleSize", "CollectionChronology", "DataCollection", "IsDataIntegration", "ConformityDeclaration", "ThirdPartySource"],
+            "DataCollectionIntegration": ["SampleSize", "CollectionChronology", "DataCollection", "IsDataIntegration", "DataIntegration"],
+            "DataIntegration": ["ConformityDeclaration", "ThirdPartySource"],
             "ThirdPartySource": ["SourceName", "SourceId", "SourceType", "SourcePurpose", "OtherSourceType"],
             "SampleSize": ["PlannedSampleSize", "FinalSampleSize"],
             "CollectionChronology": ["CollectionStart", "CollectionEnd", "CollectionFrequency"],
             "DataCollection": ["CollectionProcess", "RecruitmentSource", "RecruitmentSourceOther", "ActiveFollowUp", "DataTypes", "InclusionStrategy", "InclusionStrategyOther", "SamplingMode", "SamplingModeOther"],
             "ActiveFollowUp": ["IsActiveFollowUp", "FollowUpMode", "FollowUpModeOther"],
             "DataTypes": ["DataType", "ClinicalDataDetails", "ParaclinicalDataOther", "BiologicalDataDetails", "isDataInBiobank", "BiobankContent", "BiobankContentOther", "OtherLiquidsDetails"],
-            "ThirdPartySource": ["SourceName", "SourceId", "SourceType"],
-            "DataAccess": ["DataQuality", "DataAvailability", "UseStatement", "DataInformationContact", "DataCitation", "VariableDictionary", "MockSample", "OtherDocumentation", "DatasetPID"],
+            "DataAccess": ["DataQuality", "DataAvailability", "UseStatement", "DataInformationContact", "DataCitation", "VariableDictionnary", "MockSample", "OtherDocumentation", "DatasetPID"],
             "DataQuality": ["UsedStandards", "QualityProcedure"],
             "DataAvailability": ["IndividualDataAccess", "AggregatedDataAccess", "DataAccessRequestTool", "DataAccessRequestToolLocation"],
             "UseStatement": ["AccessConditions", "AccessRestrictions", "AdditionalDataAccessLink", "NonDisclosureAgreement"],
             "DataInformationContact": ["DIContactName", "DIContactMail"],
             "DataCitation": ["DataCitationRequirement", "DataCitationStatement"],
-            "VariableDictionary": ["VariableDictionaryAvailable", "VariableDictionaryLink"],
+            "VariableDictionnary": ["VariableDictionnaryAvailable", "VariableDictionnaryLink"],
             "MockSample": ["MockSampleAvailable", "MockSampleLocation"],
             "DatasetIDType": ["IDSchema", "Identifier"],
             
@@ -452,12 +452,12 @@ class FReSHXMLBuilder:
         # ThirdPartySource, mais un <source> source peut avoir plusieurs <srcorig>
         # (donc plusieurs SourceTypeRaw). Chaque valeur devient son propre
         # ThirdPartySource, dupliquant SourceName/SourceId/SourcePurpose.
-        for dci in root.iter('DataCollectionIntegration'):
+        for di in root.iter('DataIntegration'):
             # OtherSourceTypeRaw: separate parallel list (like FundingAgentTypeRaw),
             # one entry per original <source> node, matched by position -- attached
             # before fan-out so deepcopy carries it onto every cloned ThirdPartySource.
-            other_source_type_raws = dci.findall('OtherSourceTypeRaw')
-            for i, tps in enumerate(list(dci.findall('ThirdPartySource'))):
+            other_source_type_raws = di.findall('OtherSourceTypeRaw')
+            for i, tps in enumerate(list(di.findall('ThirdPartySource'))):
                 raw_nodes = tps.findall('SourceTypeRaw')
                 if not raw_nodes:
                     continue
@@ -468,7 +468,7 @@ class FReSHXMLBuilder:
                     tps.remove(raw_node)
 
                 if not type_vals:
-                    dci.remove(tps)
+                    di.remove(tps)
                     continue
 
                 source_id_el = tps.find('SourceId')
@@ -480,14 +480,14 @@ class FReSHXMLBuilder:
                 if i < len(other_source_type_raws) and other_source_type_raws[i].text and other_source_type_raws[i].text.strip():
                     ET.SubElement(tps, 'OtherSourceType').text = other_source_type_raws[i].text.strip()
 
-                insert_idx = list(dci).index(tps)
+                insert_idx = list(di).index(tps)
                 for extra_val in reversed(type_vals[1:]):
                     clone = copy.deepcopy(tps)
                     clone.find('SourceType').text = extra_val
-                    dci.insert(insert_idx + 1, clone)
+                    di.insert(insert_idx + 1, clone)
 
             for raw in other_source_type_raws:
-                dci.remove(raw)
+                di.remove(raw)
 
         # 10.9 Traitement des faux tableaux : UsedStandards, QualityProcedure, RecruitmentSource
         for dq in root.iter('DataQuality'):
@@ -572,7 +572,7 @@ class FReSHXMLBuilder:
             us[:] = children
 
         # Ordre DataAccess (avec DataCitation correctement placé)
-        da_order = ['DataQuality', 'DataAvailability', 'UseStatement', 'DataCitation', 'VariableDictionary', 'MockSample', 'OtherDocumentation', 'DatasetPID']
+        da_order = ['DataQuality', 'DataAvailability', 'UseStatement', 'DataCitation', 'VariableDictionnary', 'MockSample', 'OtherDocumentation', 'DatasetPID']
         for da in root.iter('DataAccess'):
             children = list(da)
             children.sort(key=lambda x: da_order.index(x.tag) if x.tag in da_order else 999)

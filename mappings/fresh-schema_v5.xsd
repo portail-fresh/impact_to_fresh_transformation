@@ -233,7 +233,7 @@
                                                     details</xsd:documentation>
                                             </xsd:annotation>
                                         </xsd:element>
-                                        <xsd:element minOccurs="0" name="OtherEnvironmentalDemoDeterminant" type="xsd:string">
+                                        <xsd:element minOccurs="0" name="OtherEnvironmentalDeterminant" type="xsd:string">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Autres déterminants
                                                     environnementaux, précisions</xsd:documentation>
@@ -241,7 +241,7 @@
                                                     determinants, details</xsd:documentation>
                                             </xsd:annotation>
                                         </xsd:element>
-                                        <xsd:element minOccurs="0" name="OtherHealthcarSystemDeterminant" type="xsd:string">
+                                        <xsd:element minOccurs="0" name="OtherHealthcareSystemDeterminant" type="xsd:string">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Autres déterminants
                                                     liés au système de santé, précisions</xsd:documentation>
@@ -249,7 +249,7 @@
                                                     system determinants, details</xsd:documentation>
                                             </xsd:annotation>
                                         </xsd:element>
-                                        <xsd:element minOccurs="0" name="OtherBehaviouralDeterminant" type="xsd:string">
+                                        <xsd:element minOccurs="0" name="OtherBehavioralDeterminant" type="xsd:string">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Autres déterminants
                                                     comportementaux, précisions</xsd:documentation>
@@ -852,7 +852,7 @@
                                                                 consortia</xsd:documentation>
                                                         </xsd:annotation>
                                                     </xsd:element>
-                                                    <xsd:element name="CollaborationsDetail" minOccurs="0" type="xsd:string">
+                                                    <xsd:element name="CollaborationsDetails" minOccurs="0" type="xsd:string">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Collaboration(s)
                                                                 impliquée(s), précisions</xsd:documentation>
@@ -1495,68 +1495,80 @@
                                                     from other sources reused in this study?</xsd:documentation>
                                             </xsd:annotation>
                                         </xsd:element>
-                                        <xsd:element name="ConformityDeclaration" minOccurs="0">
+                                        <xsd:element name="DataIntegration" minOccurs="0">
                                             <xsd:annotation>
-                                                <xsd:documentation xml:lang="fr">Declaration de
-                                                    conformité</xsd:documentation>
-                                                <xsd:documentation xml:lang="en">Declaration of
-                                                    conformity</xsd:documentation>
-                                            </xsd:annotation>
-                                            <xsd:alternative test="@xml:lang='en'" type="ConformityDeclarationEnType"/>
-                                            <xsd:alternative type="ConformityDeclarationFrType"/>
-                                        </xsd:element>
-                                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="ThirdPartySource">
-                                            <xsd:annotation>
-                                                <xsd:documentation xml:lang="fr">Informations
-                                                    concernant les données réutilisées pour l'étude </xsd:documentation>
-                                                <xsd:documentation xml:lang="en">Information
-                                                    concerning data reused for the study </xsd:documentation>
+                                                <xsd:documentation xml:lang="fr">Réutilisation de
+                                                    données existantes</xsd:documentation>
+                                                <xsd:documentation xml:lang="en">Reuse of existing
+                                                    data</xsd:documentation>
                                             </xsd:annotation>
                                             <xsd:complexType>
                                                 <xsd:sequence>
-                                                    <xsd:element name="SourceName" type="xsd:string" minOccurs="0">
+                                                    <xsd:element name="ConformityDeclaration" minOccurs="0">
                                                         <xsd:annotation>
-                                                            <xsd:documentation xml:lang="fr">Information
+                                                            <xsd:documentation xml:lang="fr">Declaration de
+                                                                conformité</xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Declaration of
+                                                                conformity</xsd:documentation>
+                                                        </xsd:annotation>
+                                                        <xsd:alternative test="@xml:lang='en'" type="ConformityDeclarationEnType"/>
+                                                        <xsd:alternative type="ConformityDeclarationFrType"/>
+                                                    </xsd:element>
+                                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="ThirdPartySource">
+                                                        <xsd:annotation>
+                                                            <xsd:documentation xml:lang="fr">Informations
+                                                                concernant les données réutilisées pour l'étude </xsd:documentation>
+                                                            <xsd:documentation xml:lang="en">Information
                                                                 concerning data reused for the study </xsd:documentation>
-                                                            <xsd:documentation xml:lang="en">Source
-                                                                description</xsd:documentation>
                                                         </xsd:annotation>
-                                                    </xsd:element>
-                                                    <xsd:element minOccurs="0" name="SourceId" type="xsd:string">
-                                                        <xsd:annotation>
-                                                            <xsd:documentation xml:lang="fr">Identifiant
-                                                                de la source</xsd:documentation>
-                                                            <xsd:documentation xml:lang="en">Source
-                                                                identifier</xsd:documentation>
-                                                        </xsd:annotation>
-                                                    </xsd:element>
-                                                    <xsd:element name="SourceType">
-                                                        <xsd:annotation>
-                                                            <xsd:documentation xml:lang="fr">Type de
-                                                                source</xsd:documentation>
-                                                            <xsd:documentation xml:lang="en">Souce
-                                                                type</xsd:documentation>
-                                                        </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="SourceTypeEnType"/>
-                                                        <xsd:alternative type="SourceTypeFrType"/>
-                                                    </xsd:element>
-                                                    <xsd:element name="SourcePurpose" minOccurs="0">
-                                                        <xsd:annotation>
-                                                            <xsd:documentation xml:lang="fr">Objectif
-                                                                de l'integration de la source</xsd:documentation>
-                                                            <xsd:documentation xml:lang="en">Source
-                                                                integration purpose</xsd:documentation>
-                                                        </xsd:annotation>
-                                                        <xsd:alternative test="@xml:lang='en'" type="SourcePurposeEnType"/>
-                                                        <xsd:alternative type="SourcePurposeFrType"/>
-                                                    </xsd:element>
-                                                    <xsd:element name="OtherSourceType" type="xsd:string" minOccurs="0">
-                                                        <xsd:annotation>
-                                                            <xsd:documentation xml:lang="fr">Autre
-                                                                type de source, précisions</xsd:documentation>
-                                                            <xsd:documentation xml:lang="en">Other
-                                                                sourcetype, details</xsd:documentation>
-                                                        </xsd:annotation>
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="SourceName" type="xsd:string" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation xml:lang="fr">Information
+                                                                            concerning data reused for the study </xsd:documentation>
+                                                                        <xsd:documentation xml:lang="en">Source
+                                                                            description</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element minOccurs="0" name="SourceId" type="xsd:string">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation xml:lang="fr">Identifiant
+                                                                            de la source</xsd:documentation>
+                                                                        <xsd:documentation xml:lang="en">Source
+                                                                            identifier</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                                <xsd:element name="SourceType">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation xml:lang="fr">Type de
+                                                                            source</xsd:documentation>
+                                                                        <xsd:documentation xml:lang="en">Souce
+                                                                            type</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                    <xsd:alternative test="@xml:lang='en'" type="SourceTypeEnType"/>
+                                                                    <xsd:alternative type="SourceTypeFrType"/>
+                                                                </xsd:element>
+                                                                <xsd:element name="SourcePurpose" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation xml:lang="fr">Objectif
+                                                                            de l'integration de la source</xsd:documentation>
+                                                                        <xsd:documentation xml:lang="en">Source
+                                                                            integration purpose</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                    <xsd:alternative test="@xml:lang='en'" type="SourcePurposeEnType"/>
+                                                                    <xsd:alternative type="SourcePurposeFrType"/>
+                                                                </xsd:element>
+                                                                <xsd:element name="OtherSourceType" type="xsd:string" minOccurs="0">
+                                                                    <xsd:annotation>
+                                                                        <xsd:documentation xml:lang="fr">Autre
+                                                                            type de source, précisions</xsd:documentation>
+                                                                        <xsd:documentation xml:lang="en">Other
+                                                                            sourcetype, details</xsd:documentation>
+                                                                    </xsd:annotation>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
                                                     </xsd:element>
                                                 </xsd:sequence>
                                             </xsd:complexType>
@@ -1781,7 +1793,7 @@
                                                 </xsd:sequence>
                                             </xsd:complexType>
                                         </xsd:element>
-                                        <xsd:element name="VariableDictionary" minOccurs="0">
+                                        <xsd:element name="VariableDictionnary" minOccurs="0">
                                             <xsd:annotation>
                                                 <xsd:documentation xml:lang="fr">Dictionnaire des
                                                     variables</xsd:documentation>
@@ -1789,7 +1801,7 @@
                                             </xsd:annotation>
                                             <xsd:complexType>
                                                 <xsd:sequence>
-                                                    <xsd:element name="VariableDictionaryAvailable" type="xsd:boolean">
+                                                    <xsd:element name="VariableDictionnaryAvailable" type="xsd:boolean">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Existe-t-il
                                                                 un dictionnaire des variables ?</xsd:documentation>
@@ -1797,7 +1809,7 @@
                                                                 dictionary is it available ?</xsd:documentation>
                                                         </xsd:annotation>
                                                     </xsd:element>
-                                                    <xsd:element name="VariableDictionaryLink" type="xsd:string" minOccurs="0">
+                                                    <xsd:element name="VariableDictionnaryLink" type="xsd:string" minOccurs="0">
                                                         <xsd:annotation>
                                                             <xsd:documentation xml:lang="fr">Lien
                                                                 vers le dictionnaire des variables</xsd:documentation>

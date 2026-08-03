@@ -25,9 +25,9 @@ source_xpath,target_xpath,comment
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other health theme']/topic,StudyRelatedInfo/Theme/OtherHealthTheme,"Autre spécialité médicale, précisions"
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other determinant']/topic,StudyRelatedInfo/Theme/OtherDeterminant,"Autres déterminants, précisions"
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other socio demographic determinant']/topic,StudyRelatedInfo/Theme/OtherSocioDemoDeterminant,"Autres déterminants socio-démographiques et économiques, précisions"
-/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other environmental determinant']/topic,StudyRelatedInfo/Theme/OtherEnvironmentalDemoDeterminant,"Autres déterminants environnementaux, précisions"
-/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other healthcare determinant']/topic,StudyRelatedInfo/Theme/OtherHealthcarSystemDeterminant,"Autres déterminants liés au système de santé, précisions"
-/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other behavioural determinant']/topic,StudyRelatedInfo/Theme/OtherBehaviouralDeterminant,"Autres déterminants comportementaux, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other environmental determinant']/topic,StudyRelatedInfo/Theme/OtherEnvironmentalDeterminant,"Autres déterminants environnementaux, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other healthcare determinant']/topic,StudyRelatedInfo/Theme/OtherHealthcareSystemDeterminant,"Autres déterminants liés au système de santé, précisions"
+/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other behavioural determinant']/topic,StudyRelatedInfo/Theme/OtherBehavioralDeterminant,"Autres déterminants comportementaux, précisions"
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other biological determinant']/topic,StudyRelatedInfo/Theme/OtherBiologicalDeterminant,"Autres déterminants biologiques, précisions"
 
 ROOT:/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='health theme'],StudyRelatedInfo/Theme/HealthTheme,"Boucle Thèmes de santé"
@@ -117,7 +117,7 @@ ARRAY:./extlink/item[role='sponsor id'],AdministrativeInformation/OrganisationGo
 /xml/dataset/metadata/additional/governance/committee,AdministrativeInformation/OrganisationGovernance/Governance/Committee,"Chaîne booléenne (0/1) -- valeur brute 'Autre' retombe sur 0, le détail va dans OtherGovernance ci-dessous."
 /xml/dataset/metadata/study_desc/study_info/quality_statement/standards/standard/governance,AdministrativeInformation/OrganisationGovernance/Governance/OtherGovernance,"Autre modalité de gouvernance, précisions"
 /xml/dataset/metadata/additional/collaborations/networkConsortium,AdministrativeInformation/OrganisationGovernance/Collaborations/NetworkConsortium,"Chaîne booléenne (0/1)."
-/xml/dataset/metadata/study_desc/oth_id/item[type='collaboration']/name,AdministrativeInformation/OrganisationGovernance/Collaborations/CollaborationsDetail,"Collaboration(s) impliquée(s), précisions"
+/xml/dataset/metadata/study_desc/oth_id/item[type='collaboration']/name,AdministrativeInformation/OrganisationGovernance/Collaborations/CollaborationsDetails,"Collaboration(s) impliquée(s), précisions"
 
 ROOT:/xml/dataset/metadata/study_desc/title_statement/IDno/metadata_no/item,AdministrativeInformation/OtherStudyId,"Boucle Autres Identifiants de l'Etude"
 ./agency,AdministrativeInformation/OtherStudyId/IDSchema,"Type identifiant"
@@ -194,12 +194,12 @@ ROOT:/xml/dataset/metadata/additional/intervention/item,StudyMethodology/Observa
 # Third-party sources : SourceType n'est pas répétable dans un seul ThirdPartySource,
 # mais un <source> peut avoir plusieurs <srcorig> -- SourceTypeRaw est donc éclaté en
 # plusieurs ThirdPartySource (dupliquant Name/Id/Purpose) dans builder.py.
-ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource,"Boucle Sources Tierces"
-./sourceCitation/titlStmt/titl,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource/SourceName,"Description de la source"
-./sourceCitation/holdings,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource/SourceId,"Identifiant de la source"
-./sourceCitation/notes[subject='source purpose']/value,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource/SourcePurpose,"Objectif de l'intégration de la source"
-./srcOrig/srcorig,DataCollectionAccess/DataCollectionIntegration/ThirdPartySource/SourceTypeRaw,"Type(s) de source brut"
-/xml/dataset/metadata/additional/thirdPartySource/otherSourceType/othersourcetype,DataCollectionAccess/DataCollectionIntegration/OtherSourceTypeRaw,"Autre type de source, précisions -- liste PARALLELE (chemin séparé), appariée par position avec ThirdPartySource dans builder.py"
+ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource,"Boucle Sources Tierces"
+./sourceCitation/titlStmt/titl,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourceName,"Description de la source"
+./sourceCitation/holdings,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourceId,"Identifiant de la source"
+./sourceCitation/notes[subject='source purpose']/value,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourcePurpose,"Objectif de l'intégration de la source"
+./srcOrig/srcorig,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourceTypeRaw,"Type(s) de source brut"
+/xml/dataset/metadata/additional/thirdPartySource/otherSourceType/othersourcetype,DataCollectionAccess/DataCollectionIntegration/DataIntegration/OtherSourceTypeRaw,"Autre type de source, précisions -- liste PARALLELE (chemin séparé), appariée par position avec ThirdPartySource dans builder.py"
 
 /xml/dataset/metadata/study_desc/method/data_collection/target_sample_size,DataCollectionAccess/DataCollectionIntegration/SampleSize/PlannedSampleSize,"Taille d'échantillon cible"
 /xml/dataset/metadata/study_desc/method/data_collection/response_rate,DataCollectionAccess/DataCollectionIntegration/SampleSize/FinalSampleSize,"Taille d'échantillon final"
@@ -218,7 +218,7 @@ ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,Data
 /xml/dataset/metadata/study_desc/method/notes/note[subject='follow-up']/values/value,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/FollowUpMode,"Valeur Suivi"
 
 /xml/dataset/metadata/additional/dataCollectionIntegration/isDataIntegration,DataCollectionAccess/DataCollectionIntegration/IsDataIntegration,"Chaîne booléenne (0/1)."
-/xml/dataset/metadata/additional/regulatoryRequirements/conformityDeclaration,DataCollectionAccess/DataCollectionIntegration/ConformityDeclaration,"ConformityDeclaration"
+/xml/dataset/metadata/additional/regulatoryRequirements/conformityDeclaration,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ConformityDeclaration,"ConformityDeclaration"
 
 /xml/dataset/metadata/study_desc/study_info/data_kind,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/DataTypeRaw,"Faux tableau brut des types de données"
 /xml/dataset/metadata/additional/dataTypes/dataTypeOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/DataTypeOther,"Autre type de données, précisions"
@@ -255,8 +255,8 @@ ROOT:/xml/dataset/metadata/study_desc/data_access/dataset_use/contact/item,DataC
 /xml/dataset/metadata/study_desc/data_access/dataset_use/deposit_req,DataCollectionAccess/DataAccess/DataCitation/DataCitationRequirement,"Obligation de transmission"
 /xml/dataset/metadata/study_desc/data_access/dataset_use/cit_req,DataCollectionAccess/DataAccess/DataCitation/DataCitationStatement,"Obligation de citation"
 
-/xml/dataset/metadata/additional/variableDictionnary/variableDictionnaryAvailable,DataCollectionAccess/DataAccess/VariableDictionary/VariableDictionaryAvailable,"Dico des variables dispo"
-/xml/dataset/metadata/additional/variableDictionnary/variableDictionnaryLink,DataCollectionAccess/DataAccess/VariableDictionary/VariableDictionaryLink,"Lien vers le dico"
+/xml/dataset/metadata/additional/variableDictionnary/variableDictionnaryAvailable,DataCollectionAccess/DataAccess/VariableDictionnary/VariableDictionnaryAvailable,"Dico des variables dispo"
+/xml/dataset/metadata/additional/variableDictionnary/variableDictionnaryLink,DataCollectionAccess/DataAccess/VariableDictionnary/VariableDictionnaryLink,"Lien vers le dico"
 
 /xml/dataset/metadata/additional/mockSample/mockSampleAvailable,DataCollectionAccess/DataAccess/MockSample/MockSampleAvailable,"Echantillon fictif dispo"
 /xml/dataset/metadata/additional/mockSample/mockSampleLocation,DataCollectionAccess/DataAccess/MockSample/MockSampleLocation,"Lien échantillon fictif"
