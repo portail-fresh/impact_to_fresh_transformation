@@ -1,8 +1,8 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-"Base médico-administrative (de patients, Assurance Maladie/Mutuelle)","Medical-administrative database (patients, health insurance/mutual insurance)",,
-Via les professionnels de santé d'exercice libéral,Through independent healthcare practitioners,,
-Autre,Other,"À utiliser lorsque la source du recrutement est connue, mais introuvable dans la liste.",Use when the recrutment source is known but cannot be found in the list.
-"Base administrative (d'employés, d'élèves, d'étudiants, etc…)","Administrative database (employees, pupils, students, etc.)",,
-Base de population à finalité statistique,Population database for statistical purposes,,
-"Via des structures (services ou établissements de santé, écoles, entreprises…)","Through organizations (health services or institutions, schools, businesses, etc.)",,
-"Registre de maladies, de décès",Disease and death registry,,
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Via les professionnels de santé d'exercice libéral,Through independent healthcare practitioners,,FRS8098
+Base de population à finalité statistique,Population database for statistical purposes,,FRS1358
+"Registre de maladies, de décès",Disease and death registry,,FRS3562
+"Base médico-administrative (de patients, Assurance Maladie/Mutuelle)","Medical-administrative database (patients, health insurance/mutual insurance)",,FRS3712
+"Base administrative (d'employés, d'élèves, d'étudiants, etc…)","Administrative database (employees, pupils, students, etc.)",,FRS8956
+"Via des structures (services ou établissements de santé, écoles, entreprises…)","Through organizations (health services or institutions, schools, businesses, etc.)",,FRS1139
+Autre,Other,,FRS2933

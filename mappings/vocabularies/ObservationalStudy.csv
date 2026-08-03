@@ -1,8 +1,8 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Registre de morbidité,Morbidity registry,"Recueil continu de données individuelles portant sur un ou plusieurs événements de santé, visant l’exhaustivité dans une population géographiquement définie, à des fins de recherche et/ou de santé publique.","Continuous collection of individual data on one or more health events, aiming for completeness in a geographically defined population, for research and/or public health purposes."
-Autre,Other,À utiliser si le type d’étude est connu mais ne correspond à aucune des catégories précédentes.,Use if the study type is known but doesn’t fit into the listed categories.
-Registre des pratiques,Practices registry,"Recueil systématique de données standardisées issues de la pratique clinique sur un sujet spécifique, visant à surveiller, évaluer et améliorer les pratiques de soins de santé.","Systematically collected set of standardized data from clinical practice on a specific topic, intended to monitor, evaluate, and improve healthcare practices."
-Cohorte,Cohort study,Étude suivant un groupe de personnes dans le temps pour observer l’apparition d’événements de santé.,Study that follows a group of people over time to observe health outcomes.
-Etude de cas,Case study,Observation portant sur un groupe unique d'individus présentant des caractéristiques spécifiques.,Observation of a single group of individuals with specific characteristics.
-Etude cas-témoins,Case-control study,"Étude comparant un groupe d'individus (cas) présentant des caractéristiques spécifiques (par exemple, même affection ou même exposition) à un ou plusieurs groupes présentant des caractéristiques différentes, mais similaires à tous autres égards (temoins).","Study comparing a group of individuals (cases) with specific characteristics (e.g., same condition or exposure) compared to group(s) with different characteristics, but otherwise similar (controls)."
-Etude cas croisé,Case-crossover study,Etude comparant l’exposition d’un même individu à différents moments pour évaluer son effet sur un événement.,Study comparing an individual’s exposure at different times to assess its effect on an event.
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Cohorte,Cohort study,,FOS6552
+Etude cas-témoins,Case-control study,,FOS9042
+Registre des pratiques,Practices registry,,FOS2667
+Registre de morbidité,Morbidity registry,,FOS6567
+Etude de cas,Case study,,FOS7770
+Etude cas croisé,Case-crossover study,,FOS4325
+Autre,Other,,FOS1108

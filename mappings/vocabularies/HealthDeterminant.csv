@@ -1,35 +1,35 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Déterminants environnementaux : Qualité de l'eau,Environmental determinants: Water quality,"Caractéristiques physiques, chimiques et microbiologiques de l’eau, qu’elle soit destinée à la consommation humaine, à un usage domestique, ou présente dans l’environnement.","Physical, chemical and microbiological characteristics of water, whether intended for human consumption, domestic use, or present in the environment."
-Déterminants liés au système de santé : Autre,Healthcare system determinants: Other,Tout autre facteur lié au système de santé ne figurant pas dans les catégories précédentes.,Any other factor related to the healthcare system not included in the previous categories.
-Déterminants socio-démographiques et économiques : Age,Socio-demographic and economic determinants: Age,"Caractéristique démographique indiquant le nombre d’années vécues par une personne, influençant ses rôles et interactions sociales, ses responsabilités et ses ressources économiques.","A demographic characteristic indicating the number of years a person has lived, influencing their social roles and interactions, responsibilities and economic resources."
-Déterminants socio-démographiques et économiques : Revenu,Socio-demographic and economic determinants: Income,Niveau de revenu.,Income level.
-Déterminants liés au système de santé : Consommation des soins,Healthcare system determinants: Use of care,Fréquence et type d’utilisation des services de santé.,Frequency and type of healthcare service use.
-Déterminants socio-démographiques et économiques : Niveau d'études,Socio-demographic and economic determinants: Education level,"Degré de formation atteint par un individu, généralement mesuré par le plus haut diplôme obtenu.","Level of education attained by an individual, generally measured by the highest qualification obtained."
-Déterminants socio-démographiques et économiques : Situation familiale,Socio-demographic and economic determinants: Family situation,"Configuration du foyer ou du ménage, liens familiaux.","Household or family configuration, family ties."
-Déterminants liés au système de santé : Qualité des soins,Healthcare system determinants: Quality of care,Niveau de performance et de sécurité des services de santé.,Performance and safety level of healthcare services.
-Déterminants biologiques : Sexe,Biological determinants: Sex,Caractéristiques biologiques et physiologiques qui différencient les hommes des femmes (définition de l'OMS - https://www.who.int/fr/news-room/fact-sheets/detail/women-s-health),Biological and physiological characteristics that differentiate men from women (WHO definition - https://www.who.int/fr/news-room/fact-sheets/detail/women-s-health)
-Déterminants biologiques : Autre,Biological determinants: Other,Autre caractéristique biologique ne figurant pas dans les catégories précédentes.,Any other biological characteristic not included in the previous categories.
-Déterminants environnementaux : Autre,Environmental determinants: Other,Tout autre facteur environnemental ne figurant pas dans les catégories précédentes.,Any other environmental factor not included in the previous categories.
-Autre,Other,"À utiliser lorsque le déterminant est connu, mais introuvable dans la liste.",Use when the determinant is known but cannot be found in the list.
-Déterminants comportementaux : Pratiques sexuelles,Behavioral determinants: Sexual practice,Comportements liés à la sexualité.,Behaviours related to sexuality.
-Déterminants socio-démographiques et économiques : Autre,Socio-demographic and economic determinants: Other,Tout autre facteur socio-économique ne figurant pas dans les catégories précédentes.,Other socioeconomic factors not included in the previous categories.
-Déterminants comportementaux,Behavioral determinants,Facteurs liés aux comportements individuels des personnes participant à l'étude.,Factor related to individual behavior of the study participants.
-Déterminants liés au système de santé,Healthcare system determinants,"Facteurs relatifs à l’organisation, à l’accessibilité, à la qualité et à l’utilisation des services de santé par les personnes participant à l’étude. ","Factors related to the organisation, accessibility, quality and use of health services by study participants. "
-Déterminants environnementaux,Environmental determinants,Facteurs liés à l'environnement physique des personnes participant à l'étude.,Factors related to the physical environment of the study participants.
-Déterminants liés au système de santé : Accès aux soins,Healthcare system determinants: Access to care,"Disponibilité, proximité et accessibilité financière des soins.","Availability, proximity, and affordability of healthcare."
-Déterminants comportementaux : Addiction,Behavioral determinants: Addiction,"Comportement incontrôlable lié à un besoin excessif de consommer une substance ou de répéter un acte, entraînant une dépendance physique et émotionnelle.","Uncontrollable behaviour linked to an excessive need to consume a substance or repeat an act, leading to physical and emotional dependence."
-Déterminants comportementaux : Comportements à risque,Behavioral determinants: Risk behavior,Actions ou habitudes susceptibles de nuire à la santé (ex. : conduite à risque).,"Actions or habits that may be harmful to health (e.g., risky driving)."
-Déterminants comportementaux : Alimentation,Behavioral determinants: Eating habits,Comportements alimentaires et régime alimentaire.,Feeding behavior and diet.
-Déterminants comportementaux : Activité physique,Behavioral determinants: Physical activity,Niveau et régularité d'activité physique pratiquée.,Level and regularity of physical activity.
-Déterminants socio-démographiques et économiques : Emploi,Socio-demographic and economic determinants: Employment,"Situation d’activité professionnelle, incluant statut et le type d'emploi, le secteur d'activité et conditions de travail.","Professional activity situation, including employment status and type of job, sector of activity, and working conditions."
-Déterminants biologiques,Biological determinants,Facteurs liés aux caractéristiques biologiques des personnes participant à l'étude.,Factor related to biological characteristics of the study participants.
-Déterminants comportementaux : Autre,Behavioral determinants: Other,Tout autre comportement influençant la santé ne figurant pas dans les catégories précédentes.,Any other health-related behavior not included in the previous categories.
-Déterminants biologiques : Prédisposition génétique,Biological determinants: Genetic predisposition,Caractéristiques héréditaires d’une personne qui augmentent sa vulnérabilité à certaines maladies ou affections.,Hereditary characteristics of a person that increase their vulnerability to certain diseases or conditions.
-Déterminants socio-démographiques et économiques : Logement,Socio-demographic and economic determinants: Housing,Conditions matérielles de logement.,Material conditions of housing.
-Déterminants environnementaux : Qualité de l'air,Environmental determinants: Air quality,"Ensemble des caractéristiques de l’air ambiant (extérieur ou intérieur), mesurées en fonction de la présence de polluants.","All characteristics of ambient air (outdoor or indoor), measured in terms of the presence of pollutants."
-Déterminants comportementaux : Hygiène,Behavioral determinants: Hygiene,"Ensemble des pratiques visant à préserver la santé et prévenir les maladies, notamment par la propreté.","Practices that maintain health and prevent disease, especially through cleanliness."
-Déterminants environnementaux : Climat,Environmental determinants: Climate,Conditions météorologiques moyennes observées sur une période prolongée dans une région donnée. ,Average weather conditions observed over an extensiv period in a given region. 
-Déterminants comportementaux : Littératie en santé,Behavioral determinants: Health literacy,Capacité à comprendre et utiliser les informations liées à la santé.,Ability to understand and use health-related information.
-Déterminants socio-démographiques et économiques : Genre,Socio-demographic and economic determinants: Gender,"Rôles déterminés socialement par les comportements, les activités et les attributs qu’une société considère comme appropriés pour les hommes et les femmes (https://www.who.int/fr/news-room/fact-sheets/detail/gender)","Roles determined socially by the behaviours, activities and attributes that a society considers appropriate for men and women (https://www.who.int/fr/news-room/fact-sheets/detail/gender)"
-Déterminants socio-démographiques et économiques,Socio-demographic and economic determinants,Facteurs liés à l'environnement social et économique des personnes participant à l'étude.,Factors related to the social and economic environment of the study participants.
-Déterminants biologiques : Viellissement,Biological determinants: Aging,,
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Déterminants socio-démographiques et économiques,Socio-demographic and economic determinants,,FHD1624
+Déterminants socio-démographiques et économiques : Emploi,Socio-demographic and economic determinants: Employment,,FHD7164
+Déterminants socio-démographiques et économiques : Revenu,Socio-demographic and economic determinants: Income,,FHD8197
+Déterminants socio-démographiques et économiques : Logement,Socio-demographic and economic determinants: Housing,,FHD9559
+Déterminants socio-démographiques et économiques : Niveau d'études,Socio-demographic and economic determinants: Education level,,FHD6471
+Déterminants socio-démographiques et économiques : Situation familiale,Socio-demographic and economic determinants: Family situation,,FHD7020
+Déterminants socio-démographiques et économiques : Genre,Socio-demographic and economic determinants: Gender,,FHD7708
+Déterminants socio-démographiques et économiques : Age,Socio-demographic and economic determinants: Age,,FHD3308
+Déterminants socio-démographiques et économiques : Autre,Socio-demographic and economic determinants: Other,,FHD5890
+Déterminants environnementaux,Environmental determinants,,FHD1261
+Déterminants environnementaux : Qualité de l'air,Environmental determinants: Air quality,,FHD4756
+Déterminants environnementaux : Qualité de l'eau,Environmental determinants: Water quality,,FHD8793
+Déterminants environnementaux : Climat,Environmental determinants: Climate,,FHD8320
+Déterminants environnementaux : Autre,Environmental determinants: Other,,FHD2169
+Déterminants liés au système de santé,Healthcare system determinants,,FHD2204
+Déterminants liés au système de santé : Accès aux soins,Healthcare system determinants: Access to care,,FHD5923
+Déterminants liés au système de santé : Qualité des soins,Healthcare system determinants: Quality of care,,FHD5552
+Déterminants liés au système de santé : Consommation des soins,Healthcare system determinants: Use of care,,FHD9877
+Déterminants liés au système de santé : Autre,Healthcare system determinants: Other,,FHD3763
+Déterminants comportementaux,Behavioral determinants,,FHD4659
+Déterminants comportementaux : Addiction,Behavioral determinants: Addiction,,FHD7735
+Déterminants comportementaux : Alimentation,Behavioral determinants: Eating habits,,FHD9955
+Déterminants comportementaux : Activité physique,Behavioral determinants: Physical activity,,FHD1859
+Déterminants comportementaux : Littératie en santé,Behavioral determinants: Health literacy,,FHD4541
+Déterminants comportementaux : Hygiène,Behavioral determinants: Hygiene,,FHD1085
+Déterminants comportementaux : Pratiques sexuelles,Behavioral determinants: Sexual practice,,FHD8610
+Déterminants comportementaux : Comportements à risque,Behavioral determinants: Risk behavior,,FHD8373
+Déterminants comportementaux : Autre,Behavioral determinants: Other,,FHD4305
+Déterminants biologiques,Biological determinants,,FHD7064
+Déterminants biologiques : Prédisposition génétique,Biological determinants: Genetic predisposition,,FHD1224
+Déterminants biologiques : Viellissement,Biological determinants: Aging,,FHD6631
+Déterminants biologiques : Sexe,Biological determinants: Sex,,FHD5526
+Déterminants biologiques : Autre,Biological determinants: Other,,FHD7008
+Autre,Other,,FHD3661

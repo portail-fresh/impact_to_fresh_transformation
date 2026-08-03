@@ -1,7 +1,7 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Sans intervention,No intervention,Bras sans intervention.,Arm without intervention.
-Expérimental,Experimental,Bras recevant l'intervention ou le traitement spécifique.,Arm receiving the specific intervention or treatment.
-Comparateur fictif,Sham Comparator,"Bras recevant une procédure ou un dispositif conçu pour être impossible à distinguer de la procédure ou du dispositif réel étudié, mais qui ne contient pas de processus ou de composants actifs, afin de contrôler les effets de la procédure elle-même (durée de l'opération, anesthésie, implantation du dispositif, etc.).","Arm receiving a procedure or intervention that mimics the real one but without the active/therapeutic component, in order to to control for the effects of the procedure itself (time in surgery, anesthesia, device implantation, etc.)."
-Autre,Other,"À utiliser lorsque le type de bras est connu, mais introuvable dans la liste.",Used when the type of arm is known but cannot be found in the list.
-Comparateur placebo,Placebo Comparator,"Bras recevant une substance inerte (placebo) n’ayant pas d’effet thérapeutique attendu, afin de comparer avec l’intervention étudiée.","Arm receiving an inactive substance (placebo) with no expected therapeutic effect, to compare with the intervention under study."
-Comparateur actif,Active Comparator,"Bras recevant un traitement déjà reconnu, utilisé comme comparaison avec le traitement étudié.","Arm receiving an established treatment, used for comparison with the experimental treatment."
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Expérimental,Experimental,,FAT6332
+Comparateur actif,Active Comparator,,FAT7155
+Comparateur placebo,Placebo Comparator,,FAT2379
+Comparateur fictif,Sham Comparator,,FAT7054
+Sans intervention,No intervention,,FAT2443
+Autre,Other,,FAT9716

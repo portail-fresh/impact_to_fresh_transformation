@@ -1,6 +1,6 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
->= 20000 individus,>= 20000 individuals,,
-[500-1000[ individus,[500-1000[ individuals,,
-< 500 individus,< 500 individuals,,
-[10000-20000[ individus,[10000-20000[ individuals,,
-[1000-10000[ individus,[1000-10000[ individuals,,
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+< 500 individus,< 500 individuals,,FPS5792
+[500-1000[ individus,[500-1000[ individuals,,FPS3139
+[1000-10000[ individus,[1000-10000[ individuals,,FPS8915
+[10000-20000[ individus,[10000-20000[ individuals,,FPS3980
+>= 20000 individus,>= 20000 individuals,,FPS7458

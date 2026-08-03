@@ -1,6 +1,6 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Longitudinale rétrospective,Retrospective longitudinal,Inclusion des participants à partir de données existantes recueillies dans le passé.,Inclusion of participants based on existing data collected in the past.
-Etude transversale non répétée,One-time cross-sectional study,"Observation à un moment donné d’une population, sans suivi actif dans le temps.","One-time observation of a population, without an active follow-up."
-Etude transversale répétée ,Repeated cross-sectional study,Observations répétées à différents moments sur des échantillons indépendants.,Repeated observations at different times on independent samples.
-Longitudinale prospective,Prospective longitudinal,Inclusion des participants suivis dans le temps à partir de leur entrée dans l’étude.,Inclusion of participants followed over time from their entry into the study.
-Autre,Other,"À utiliser lorsque le type de recrutement est connu, mais introuvable dans la liste.",Used when the inclusion type is known but cannot be found in the list.
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Longitudinale rétrospective,Retrospective longitudinal,,FTP8482
+Longitudinale prospective,Prospective longitudinal,,FTP1434
+Etude transversale non répétée,One-time cross-sectional study,,FTP3385
+Etude transversale répétée ,Repeated cross-sectional study,,FTP2932
+Autre,Other,,FTP2406

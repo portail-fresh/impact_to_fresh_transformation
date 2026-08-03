@@ -1,16 +1,16 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Autre,Other,"À utiliser lorsque le type de données est connu, mais introuvable dans la liste.",Use when the datatype is known but cannot be found in the list.
-Données géospatiales,Geospatial data,"Données localisées géographiquement, comme le lieu de résidence, les trajectoires ou les zones d’exposition.","Geographically referenced data such as residence location, movement trajectories, or exposure zones."
-Données paracliniques (hors biologiques),Paraclinical data (non-biological),"Données issues d'examens complémentaires à l'examen clinique, comme l'imagerie médicale ou l’électrophysiologie, à l’exclusion des examens biologiques.","Data from tests that complement clinical examination, such as medical imaging or electrophysiology, excluding biological tests."
-Données paracliniques (hors biologiques) : Autre,Paraclinical data (non-biological) : Other,Données ne correspondant pas aux catégories définies.,Data that do not fall into the defined categories.
-Données de santé rapportées par les participants de l'étude,Participant-reported health data,Informations concernant la santé fournies directement par les participants.,Health-related informations directly reported by study participants.
-Données génétiques / génomiques,Genetic / genomic data,Données issues de l’analyse de l’ADN ou du génome d’un individu.,Data obtained from analysis of an individual's DNA or genome.
-Données biologiques,Biological data,"Résultats issus de prélèvements biologiques comme le sang, l’urine ou les tissus (ex. : hémogrammes, dosages hormonaux).","Results obtained from biological samples such as blood, urine, or tissues (e.g., blood counts, hormone levels)."
-Données économiques,Economic data,"Informations relatives aux aspects financiers associés aux soins de santé, ainsi que sur la situation économique des individus (revenus, dépenses, emploi, etc.).","Information on the financial aspects associated with healthcare, as well as on the economic situation of individuals (income, expenses, employment, etc.)."
-Données environnementales / d'exposition,Environmental / exposure data,"Données sur les expositions à des facteurs environnementaux (pollution, produits chimiques, climat, etc.) ou professionnels.","Data on exposure to environmental factors (pollution, chemicals, climate, etc.) or occupational hazards."
-Données paracliniques (hors biologiques) : Exploration fonctionnelle,Paraclinical data (non-biological) : Function testing,L'exploration fonctionnelle couvre un certain nombre de procédures de diagnostic qui fournissent une évaluation de la valeur fonctionnelle d’un organe ou de sa capacité à remplir sa fonction physiologique.,Functional testing covers a number of diagnostic procedures providing an evaluation of an organ’s functional value or its capacity to fulfil its physiological function.
-Données paracliniques (hors biologiques) : Anthropométrie,Paraclinical data (non-biological) : Anthropometry,"Mesures des dimensions et de la composition du corps humain (ex. : taille, poids, indice de masse corporelle, périmètre crânien).","Measurement of human body size and composition (e.g., height, weight, body mass index, head circumference)."
-Données cliniques,Clinical data,"Informations recueillies directement lors de la prise en charge médicale d'un patient (examens cliniques, diagnostics, traitements, symptômes, etc.).","Information collected directly during medical care of a patient (clinical examinations, diagnoses, treatments, symptoms, etc.)."
-Données comportementales,Behavioral data,"Informations sur les habitudes et comportements individuels (alimentation, activité physique, consommation de substances, etc.).","Information on individual habits and behaviors (diet, physical activity, substance use, etc.)."
-Données paracliniques (hors biologiques) : Imagerie,Paraclinical data (non-biological) : Imaging,"Ensemble des techniques permettant d’obtenir des images du corps humain à des fins diagnostiques ou de suivi (ex. : radiographie, IRM, échographie).","A set of techniques used to obtain images of the human body for diagnostic or monitoring purposes (e.g., X-ray, MRI, ultrasound)."
-Données socio-démographiques,Socio-demographic data,"Informations sur les caractéristiques sociales et démographiques des individus (âge, sexe, niveau d’éducation, profession, etc.).","Information about individuals’ social and demographic characteristics (age, sex, education level, occupation, etc.)."
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Données cliniques,Clinical data,,FDA6638
+Données paracliniques (hors biologiques),Paraclinical data (non-biological),,FDA6856
+Données paracliniques (hors biologiques) : Imagerie,Paraclinical data (non-biological) : Imaging,,FDA7482
+Données paracliniques (hors biologiques) : Anthropométrie,Paraclinical data (non-biological) : Anthropometry,,FDA2448
+Données paracliniques (hors biologiques) : Exploration fonctionnelle,Paraclinical data (non-biological) : Function testing,,FDA9485
+Données paracliniques (hors biologiques) : Autre,Paraclinical data (non-biological) : Other,,FDA8921
+Données biologiques,Biological data,,FDA1123
+Données socio-démographiques,Socio-demographic data,,FDA6942
+Données environnementales / d'exposition,Environmental / exposure data,,FDA5329
+Données comportementales,Behavioral data,,FDA1621
+Données géospatiales,Geospatial data,,FDA2968
+Données économiques,Economic data,,FDA4988
+Données génétiques / génomiques,Genetic / genomic data,,FDA6004
+Données de santé rapportées par les participants de l'étude,Participant-reported health data,,FDA6533
+Autre,Other,,FDA6414

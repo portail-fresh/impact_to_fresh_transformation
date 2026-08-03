@@ -1,19 +1,19 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Centre-Val de Loire,Centre-Val de Loire,,
-Ile-de-France,Ile-de-France,,
-Auvergne Rhône-Alpes,Auvergne Rhône-Alpes,,
-Hauts-de-France,Hauts-de-France,,
-Pays de la Loire,Pays de la Loire,,
-Martinique,Martinique,,
-Bretagne,Bretagne,,
-Provence - Alpes - Côte d'Azur,Provence - Alpes - Côte d'Azur,,
-Grand Est,Grand Est,,
-Bourgogne Franche-Comté,Bourgogne Franche-Comté,,
-Corse,Corse,,
-Guyane,Guyane,,
-Nouvelle-Aquitaine,Nouvelle-Aquitaine,,
-Normandie,Normandie,,
-Occitanie,Occitanie,,
-La Réunion,La Réunion,,
-Mayotte,Mayotte,,
-Guadeloupe,Guadeloupe,,
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Grand Est,Grand Est,FR-GES,FFR2249
+Nouvelle-Aquitaine,Nouvelle-Aquitaine,FR-NAQ,FFR2869
+Auvergne Rhône-Alpes,Auvergne Rhône-Alpes,FR-ARA,FFR3123
+Bourgogne Franche-Comté,Bourgogne Franche-Comté,FR-BFC,FFR5384
+Bretagne,Bretagne,FR-BRE,FFR4994
+Centre-Val de Loire,Centre-Val de Loire,FR-CVL,FFR9745
+Corse,Corse,FR-20R,FFR4721
+Ile-de-France,Ile-de-France,FR-IDF,FFR5275
+Occitanie,Occitanie,FR-OCC,FFR2066
+Hauts-de-France,Hauts-de-France,FR-HDF,FFR9966
+Normandie,Normandie,FR-NOR,FFR5961
+Pays de la Loire,Pays de la Loire,FR-PDL,FFR1294
+Provence - Alpes - Côte d'Azur,Provence - Alpes - Côte d'Azur,FR-PAC,FFR6735
+Guadeloupe,Guadeloupe,FR-971,FFR2077
+Guyane,Guyane,FR-973,FFR4657
+Martinique,Martinique,FR-972,FFR1039
+Mayotte,Mayotte,FR-976,FFR4497
+La Réunion,La Réunion,FR-974,FFR9758

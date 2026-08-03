@@ -1,4 +1,4 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-DOI,DOI,"Digital Object Identifier - Lien permanent ou persistant attribué à une ressource numérique, généralement géré par des agences DOI comme CrossRef ou DataCite, pour en faciliter la localisation et la citation.","Digital Object Identifier - Permanent or persistent link assigned to a digital resource, usually managed by DOI agencies such as CrossRef or DataCite, to facilitate its location and citation."
-Handle,Handle,"Identifiant persistant attribué àune ressource numérique, géré par le Handle System (CNRI).","Persistent identifier assigned to a digital resource, managed by the Handle System (CNRI)."
-Autre,Other,"À utiliser lorsque le type d'identifiant est connu, mais introuvable dans la liste.",Used when the identifier type is known but cannot be found in the list.
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+DOI,DOI,,FDS1444
+Handle,Handle,,FDS1570
+Autre,Other,,FDS6835

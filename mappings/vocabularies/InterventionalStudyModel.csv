@@ -1,6 +1,6 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Groupes parallèles,Parallel,"Deux ou plus de groupes distincts de participants reçoivent différentes interventions, généralement attribuées de manière randomisée, et restent dans le même groupe pendant toute la durée de l’étude.","Two or more distinct groups of participants receive different interventions, usually assigned randomly, and remain in the same group for the study duration."
-Plan factoriel,Factorial,"Deux interventions ou plus, chacune seule et en combinaison, sont évaluées en parallèle par rapport à un groupe témoin.","Two or more interventions, each alone and in combination, are evaluated in parallel against a control group."
-Schéma croisé,Crossover,"Les participants reçoivent l'une des deux (ou plusieurs) interventions alternatives pendant la phase initiale de l'étude et reçoivent l'autre intervention pendant la deuxième phase de l'étude, dans un ordre prédéterminé.","Participants receive one of two (or more) alternative interventions during the initial phase of the study and receive the other intervention during the second phase of the study, in a pre-determined sequence."
-Simple bras,Single Group,Etude à bras unique : tous les participants reçoivent la même intervention.,Study with a single arm: all participants receive the same intervention.
-Séquentiel,Sequential,"Les groupes de participants sont répartis pour recevoir des interventions en fonction des étapes préalables atteintes dans l'étude, comme dans certaines études à doses croissantes et à conception adaptative.","Groups of participants are assigned to receive interventions based on prior milestones being reached in the study, such as in some dose escalation and adaptive design studies."
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Simple bras,Single Group,,FIS3146
+Groupes parallèles,Parallel,,FIS3503
+Schéma croisé,Crossover,,FIS9793
+Plan factoriel,Factorial,,FIS8294
+Séquentiel,Sequential,,FIS1512

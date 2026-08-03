@@ -1,3 +1,3 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Avec insu (en aveugle),Blinded,Au moins une partie est tenue dans l’ignorance de l’intervention attribuée.,At least one party is unaware of the assigned intervention.
-Ouvert,Open label,Toutes les parties connaissent l’intervention attribuée.,All parties know the assigned intervention.
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+Avec insu (en aveugle),Blinded,,FMT3704
+Ouvert,Open label,,FMT5335

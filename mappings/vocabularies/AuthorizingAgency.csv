@@ -1,6 +1,6 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-CESREES,CESREES,"Comité éthique et scientifique pour les recherches, les études et les évaluations dans le domaine de la santé",Ethical and scientific committee of researchers in the medical field
-ANSM,ANSM,Agence Nationale de Sécurité du Médicament et des produits de santé,French National Agency for Medicines and Health Products Safety
-Autre,Other,"À utiliser lorsque la source de l'autorisation est connue, mais introuvable dans la liste.",Use when the authorization source is known but not listed.
-CPP,CPP,Comités de protection des personnes,Committees for the protection of persons
-CNIL,CNIL,Commission Nationale de l'Informatique et des Libertés,National Commission on Informatics and Liberty
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+ANSM,ANSM,,FAA7785
+CNIL,CNIL,,FAA2548
+CESREES,CESREES,,FAA1916
+CPP,CPP,,FAA7094
+Autre,Other,,FAA4819

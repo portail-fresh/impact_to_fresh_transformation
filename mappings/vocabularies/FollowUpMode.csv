@@ -1,4 +1,4 @@
-﻿Terme français,Terme anglais,Description en français,Description en anglais
-Autre,Other,,
-"Suivi par contact avec le participant (téléphone, e-mail, courrier...)","Monitoring by contact with the participant (mail, e-mail, telephone etc.)",,
-Suivi par visite du participant au centre investigateur,Monitoring by participant visit to the investigation center,,
+﻿prefLabel_fr,prefLabel_en,exactMatch,identifier
+"Suivi par contact avec le participant (téléphone, e-mail, courrier...)","Monitoring by contact with the participant (mail, e-mail, telephone etc.)",,FFU3530
+Suivi par visite du participant au centre investigateur,Monitoring by participant visit to the investigation center,,FFU1320
+Autre,Other,,FFU5906
