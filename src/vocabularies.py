@@ -15,6 +15,15 @@ import unicodedata
 
 VOCAB_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "mappings", "vocabularies")
 
+# Field names that have no CSV of their own but share another field's vocabulary
+# verbatim. SponsorType and FundingAgentType are the same underlying "organisation
+# type" list (the source system just asks the question twice, once per role); only
+# FundingAgentType.csv exists in mappings/vocabularies/, so SponsorType borrows it
+# for both term resolution and exactMatch URIs.
+FIELD_CSV_ALIAS = {
+    "SponsorType": "FundingAgentType",
+}
+
 # Manual overrides for values that don't normalize-match any ground-truth term.
 # Keyed by [lang][field name], each maps a normalized raw value to the term
 # that should be emitted. After syncing fresh-schema_v3.xsd/_v4.xsd to the
@@ -64,15 +73,21 @@ def load_vocabularies():
     for csv_path in glob.glob(os.path.join(VOCAB_DIR, "*.csv")):
         field_name = os.path.splitext(os.path.basename(csv_path))[0]
         fr_terms, en_terms = {}, {}
+        fr_uris, en_uris = {}, {}
         with open(csv_path, encoding="utf-8-sig", newline="") as f:
             for row in csv.DictReader(f):
                 fr = (row.get("prefLabel_fr") or "").strip()
                 en = (row.get("prefLabel_en") or "").strip()
+                uri = (row.get("exactMatch") or "").strip()
                 if fr:
                     fr_terms[_normalize(fr)] = fr
+                    if uri:
+                        fr_uris[fr] = uri
                 if en:
                     en_terms[_normalize(en)] = en
-        vocabularies[field_name] = {"fr": fr_terms, "en": en_terms}
+                    if uri:
+                        en_uris[en] = uri
+        vocabularies[field_name] = {"fr": fr_terms, "en": en_terms, "fr_uri": fr_uris, "en_uri": en_uris}
     return vocabularies
 
 
@@ -90,7 +105,7 @@ def resolve_vocab_term(field_name, raw_value, lang, report=None):
     if not raw_value:
         return raw_value
 
-    field_terms = _VOCABULARIES.get(field_name)
+    field_terms = _VOCABULARIES.get(field_name) or _VOCABULARIES.get(FIELD_CSV_ALIAS.get(field_name))
     if field_terms is None:
         return raw_value
 
@@ -107,3 +122,18 @@ def resolve_vocab_term(field_name, raw_value, lang, report=None):
     if report is not None:
         report.append((field_name, raw_value))
     return raw_value
+
+
+def resolve_vocab_uri(field_name, canonical_value, lang):
+    """Returns the ground-truth exactMatch URI for canonical_value (a value
+    already returned by resolve_vocab_term -- not a raw/unresolved string)
+    under field_name, in the given language. None if field_name has no vocab
+    table, or the table has no exactMatch recorded for that term."""
+    if not canonical_value:
+        return None
+
+    field_terms = _VOCABULARIES.get(field_name) or _VOCABULARIES.get(FIELD_CSV_ALIAS.get(field_name))
+    if field_terms is None:
+        return None
+
+    return field_terms.get(f"{lang}_uri", {}).get(canonical_value)

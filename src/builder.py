@@ -2,30 +2,7 @@ import os
 import re
 import copy
 import xml.etree.ElementTree as ET
-from src.vocabularies import resolve_vocab_term
-
-# ArmType isn't a string enum: the schema models it as 5 required booleans (one
-# per arm-type category), so the CSV's raw ArmType.csv term has to be turned
-# into "this one flag is 1, the rest are 0" rather than emitted as text. Values
-# with no matching flag (e.g. "Autre") legitimately leave all 5 at "0" --
-# ArmTypeOther carries the free-text detail in that case.
-ARM_TYPE_BOOL_FIELDS = ["ExperimentalArm", "ActiveComparatorArm", "PlaceboComparatorArm", "SharmComparatorArm", "NoInterventionArm"]
-ARM_TYPE_BOOL_MAP = {
-    "fr": {
-        "Expérimental": "ExperimentalArm",
-        "Comparateur actif": "ActiveComparatorArm",
-        "Comparateur placebo": "PlaceboComparatorArm",
-        "Comparateur fictif": "SharmComparatorArm",
-        "Sans intervention": "NoInterventionArm",
-    },
-    "en": {
-        "Experimental": "ExperimentalArm",
-        "Active Comparator": "ActiveComparatorArm",
-        "Placebo Comparator": "PlaceboComparatorArm",
-        "Sham Comparator": "SharmComparatorArm",
-        "No intervention": "NoInterventionArm",
-    },
-}
+from src.vocabularies import resolve_vocab_term, resolve_vocab_uri
 
 class FReSHXMLBuilder:
     def __init__(self, lang="fr"):
@@ -193,7 +170,7 @@ class FReSHXMLBuilder:
                     name_el = funder.find('FundingAgentName')
                     idx = list(funder).index(name_el) + 1 if name_el is not None else 0
                     el = ET.Element('FundingAgentType')
-                    el.text = type_val
+                    ET.SubElement(el, 'value').text = type_val
                     funder.insert(idx, el)
             for raw in type_raws:
                 admin_info.remove(raw)
@@ -207,7 +184,7 @@ class FReSHXMLBuilder:
                         name_el = sponsor.find('SponsorName')
                         idx = list(sponsor).index(name_el) + 1 if name_el is not None else 0
                         el = ET.Element('SponsorType')
-                        el.text = type_val
+                        ET.SubElement(el, 'value').text = type_val
                         sponsor.insert(idx, el)
                 for raw in sponsor_type_raws:
                     governance.remove(raw)
@@ -297,7 +274,8 @@ class FReSHXMLBuilder:
                 if agency_val:
                     agency_val = resolve_vocab_term('AuthorizingAgency', agency_val, self.lang, self.unmatched_vocab)
                     auth_node = ET.Element('ObtainedAuthorization')
-                    ET.SubElement(auth_node, 'AuthorizingAgency').text = agency_val
+                    agency_el = ET.SubElement(auth_node, 'AuthorizingAgency')
+                    ET.SubElement(agency_el, 'value').text = agency_val
 
                     # On n'ajoute OtherAuthorizingAgency QUE si c'est "Autre"/"Other"
                     if agency_val in ("Autre", "Other"):
@@ -413,18 +391,20 @@ class FReSHXMLBuilder:
                         clean_item = item.strip().strip("'").strip('"')
                         if clean_item:
                             new_node = ET.Element('DataType')
-                            new_node.text = resolve_vocab_term('DataType', clean_item, self.lang, self.unmatched_vocab)
+                            ET.SubElement(new_node, 'value').text = resolve_vocab_term('DataType', clean_item, self.lang, self.unmatched_vocab)
                             dt_container.append(new_node)
                 else:
                     # Cas classique : pas de crochets, on garde le texte tel quel
                     new_node = ET.Element('DataType')
-                    new_node.text = resolve_vocab_term('DataType', raw_text, self.lang, self.unmatched_vocab)
+                    ET.SubElement(new_node, 'value').text = resolve_vocab_term('DataType', raw_text, self.lang, self.unmatched_vocab)
                     dt_container.append(new_node)
                 
                 # On supprime la balise Raw
                 dt_container.remove(raw_node)
 
-        # 10.82 ArmType : décomposition en 5 booléens requis (voir ARM_TYPE_BOOL_MAP)
+        # 10.82 ArmType : résolution via le vocabulaire contrôlé (value/URI, comme
+        # le reste des champs contrôlés -- l'ancienne décomposition en 5 booléens
+        # a été abandonnée au profit de la structure CvIdType uniforme).
         for arm in root.iter('Arm'):
             raw_node = arm.find('ArmTypeRaw')
             if raw_node is None:
@@ -435,11 +415,9 @@ class FReSHXMLBuilder:
                 continue
 
             canonical = resolve_vocab_term('ArmType', raw_text, self.lang, self.unmatched_vocab)
-            matched_field = ARM_TYPE_BOOL_MAP.get(self.lang, {}).get(canonical)
 
             arm_type_el = ET.Element('ArmType')
-            for field_name in ARM_TYPE_BOOL_FIELDS:
-                ET.SubElement(arm_type_el, field_name).text = "1" if field_name == matched_field else "0"
+            ET.SubElement(arm_type_el, 'value').text = canonical
 
             # ArmType comes right after ArmName in the XSD sequence, regardless
             # of where ArmTypeRaw happened to land during the initial dict->XML
@@ -474,7 +452,7 @@ class FReSHXMLBuilder:
                 source_id_el = tps.find('SourceId')
                 idx = list(tps).index(source_id_el) + 1 if source_id_el is not None else 0
                 type_el = ET.Element('SourceType')
-                type_el.text = type_vals[0]
+                ET.SubElement(type_el, 'value').text = type_vals[0]
                 tps.insert(idx, type_el)
 
                 if i < len(other_source_type_raws) and other_source_type_raws[i].text and other_source_type_raws[i].text.strip():
@@ -483,7 +461,7 @@ class FReSHXMLBuilder:
                 insert_idx = list(di).index(tps)
                 for extra_val in reversed(type_vals[1:]):
                     clone = copy.deepcopy(tps)
-                    clone.find('SourceType').text = extra_val
+                    clone.find('SourceType/value').text = extra_val
                     di.insert(insert_idx + 1, clone)
 
             for raw in other_source_type_raws:
@@ -512,7 +490,7 @@ class FReSHXMLBuilder:
             if raw is not None:
                 for val in self._split_bracket_list(raw.text):
                     new_node = ET.Element('RecruitmentSource')
-                    new_node.text = resolve_vocab_term('RecruitmentSource', val, self.lang, self.unmatched_vocab)
+                    ET.SubElement(new_node, 'value').text = resolve_vocab_term('RecruitmentSource', val, self.lang, self.unmatched_vocab)
                     dc.append(new_node)
                 dc.remove(raw)
                                     
@@ -584,8 +562,32 @@ class FReSHXMLBuilder:
             children = list(rd)
             children.sort(key=lambda x: rd_order.index(x.tag) if x.tag in rd_order else 999)
             rd[:] = children
-                
 
+        # 12. Injection des URI du vocabulaire contrôlé (ground truth), en dernier
+        # pour prendre le pas sur toute URI déjà posée plus haut (Nation,
+        # CollectionMode, SamplingMode, IndividualDataAccess, HealthTheme --
+        # sourcées jusqu'ici depuis le vocabURI/extLink du système source).
+        self._inject_vocab_uris(root)
+
+    def _inject_vocab_uris(self, root):
+        """Adds the ground-truth exactMatch URI right after every <value>
+        child found anywhere in the tree, replacing whatever URI (if any) an
+        earlier step already set. Left untouched when the resolved value has
+        no ground-truth URI (e.g. Pathology, which has no CSV at all, or any
+        term a CSV simply doesn't carry an exactMatch for) -- in that case
+        whatever URI an earlier step produced (or none) stands as-is."""
+        for elem in root.iter():
+            value_el = elem.find('value')
+            if value_el is None or not value_el.text:
+                continue
+            uri = resolve_vocab_uri(elem.tag, value_el.text, self.lang)
+            if not uri:
+                continue
+            for existing in elem.findall('URI'):
+                elem.remove(existing)
+            uri_el = ET.Element('URI')
+            uri_el.text = uri
+            elem.insert(list(elem).index(value_el) + 1, uri_el)
 
     def save_xml(self, root_element, output_path):
         # Utilise le formateur natif de Python au lieu de minidom (plus rapide et robuste)

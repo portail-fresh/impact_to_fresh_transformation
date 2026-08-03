@@ -2168,3 +2168,5 @@ data/logs/FReSH-43677-fr_validation_report.txt
 data/output/FReSH-43661-en_clean.xml
 data/logs/FRESH-PEF100-fr_unmatched_vocab.csv
 data/logs/FRESH-PEF100-fr_validation_report.txt
+data/logs/FRESH-PEF100-en_unmatched_vocab.csv
+data/logs/FRESH-PEF100-en_validation_report.txt

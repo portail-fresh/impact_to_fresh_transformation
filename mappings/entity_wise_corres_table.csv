@@ -1,9 +1,9 @@
 source_xpath,target_xpath,comment
 /xml/dataset/repositoryid,TechnicalInfo/StudyId/IDSchema,"Chaîne brute directe."
 /xml/dataset/id,TechnicalInfo/StudyId/Identifier,"Chaîne brute directe."
-/xml/dataset/metadata/additional/status,TechnicalInfo/Status,"Chaîne brute directe."
+/xml/dataset/metadata/additional/status,TechnicalInfo/Status/value,"Chaîne brute directe."
 /xml/dataset/metadata/additional/versionLang,TechnicalInfo/VersionLang,"Chaîne brute directe."
-/xml/dataset/metadata/additional/originLang,TechnicalInfo/OriginLang,"Chaîne brute directe."
+/xml/dataset/metadata/additional/originLang,TechnicalInfo/OriginLang/value,"Chaîne brute directe."
 /xml/dataset/created,TechnicalInfo/CreationDate,"Date ISO brute à nettoyer au format YYYY-MM-DD."
 /xml/dataset/metadata/additional/lastUpdatedAuto,TechnicalInfo/LastUpdatedAuto,"Date ISO brute à nettoyer au format YYYY-MM-DD."
 /xml/dataset/metadata/additional/lastUpdatedManual,TechnicalInfo/LastUpdatedManual,"Date ISO brute à nettoyer au format YYYY-MM-DD."
@@ -12,7 +12,7 @@ source_xpath,target_xpath,comment
 /xml/dataset/metadata/doc_desc/producers/producer/affiliation,TechnicalInfo/MetadataContributor/ContributorAffiliation,"Idem ContributorName -- 96.2% des fichiers ont une vraie valeur."
 /xml/dataset/title,StudyRelatedInfo/StudyOverview/Title,"Chaîne brute directe."
 /xml/dataset/metadata/study_desc/title_statement/alternate_title,StudyRelatedInfo/StudyOverview/Acronym,"Chaîne brute directe."
-/xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus,"Statut de l'étude"
+/xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus/value,"Statut de l'étude"
 /xml/dataset/metadata/study_desc/study_info/purpose,StudyRelatedInfo/StudyOverview/Purpose,"Chaîne brute directe."
 /xml/dataset/metadata/study_desc/study_info/abstract,StudyRelatedInfo/StudyOverview/Summary,"Chaîne brute directe."
 
@@ -20,7 +20,8 @@ source_xpath,target_xpath,comment
 
 /xml/dataset/metadata/additional/isHealthTheme,StudyRelatedInfo/Theme/IsHealthTheme,"Chaîne booléenne (0/1)."
 
-/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='health determinant']/topic,StudyRelatedInfo/Theme/HealthDeterminant,"TABLEAU : FILTRE CONDITIONNEL."
+ROOT:/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='health determinant'],StudyRelatedInfo/Theme/HealthDeterminant,"Boucle Déterminants de santé -- FILTRE CONDITIONNEL."
+./topic,StudyRelatedInfo/Theme/HealthDeterminant/value,"Nom Déterminant de santé"
 
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other health theme']/topic,StudyRelatedInfo/Theme/OtherHealthTheme,"Autre spécialité médicale, précisions"
 /xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='other determinant']/topic,StudyRelatedInfo/Theme/OtherDeterminant,"Autres déterminants, précisions"
@@ -39,7 +40,7 @@ ROOT:/xml/dataset/metadata/study_desc/study_info/topics/topic[vocab='cim-11'],St
 ./extLink/extlink/uri,StudyRelatedInfo/Theme/Pathology/URI,"URI Pathologie"
 
 /xml/dataset/metadata/additional/theme/RareDiseases,StudyRelatedInfo/Theme/RareDiseases,"Champ booléen brut 0/1 -- l'ancien mapping utilisait additional/rareDiseases/values (doublon texte Oui/Non ou Yes/No), sensible à la langue et non fiable."
-/xml/dataset/metadata/additional/universe/level_type_clusion_I,StudyRelatedInfo/Population/PopulationType,"Chaîne brute directe."
+/xml/dataset/metadata/additional/universe/level_type_clusion_I,StudyRelatedInfo/Population/PopulationType/value,"Chaîne brute directe."
 
 ROOT:/xml/dataset/metadata/additional/universe/sexe/item,StudyRelatedInfo/Population/DemographicInfo/Sex,"Boucle Sexe"
 ./text(),StudyRelatedInfo/Population/DemographicInfo/Sex/value,"Valeur du sexe"
@@ -54,7 +55,8 @@ ROOT:/xml/dataset/metadata/study_desc/study_info/nation/item,StudyRelatedInfo/Po
 ./name,StudyRelatedInfo/Population/GeographicalCoverage/Nation/value,"Valeur de la nation"
 ./extLink/vocabURI,StudyRelatedInfo/Population/GeographicalCoverage/Nation/URI,"URI de la nation (ISO)"
 
-/xml/dataset/metadata/additional/geogCoverage/values/value,StudyRelatedInfo/Population/GeographicalCoverage/FranceRegion,"TABLEAU : Liste simple."
+ROOT:/xml/dataset/metadata/additional/geogCoverage/values/value,StudyRelatedInfo/Population/GeographicalCoverage/FranceRegion,"Boucle Régions -- TABLEAU : Liste simple."
+./text(),StudyRelatedInfo/Population/GeographicalCoverage/FranceRegion/value,"Valeur de la région"
 /xml/dataset/metadata/additional/geographicalCoverage/geoDetail,StudyRelatedInfo/Population/GeographicalCoverage/GeoDetail,"Chaîne brute directe."
 
 /xml/dataset/metadata/study_desc/study_authorization/agency/item/name,AdministrativeInformation/RegulatoryRequirements/AgencyRaw,"Agences brutes"
@@ -71,7 +73,7 @@ ROOT:/xml/dataset/metadata/study_desc/authoring_entity/item,AdministrativeInform
 ./extlink/item[title='RNSR']/uri,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/PILaboId,"URI Labo RNSR"
 ./isContact,AdministrativeInformation/PrimaryInvestigator/IsPIContact,"PI est contact ?"
 ARRAY:./extlink/item[role='organisation id'],AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationPID,"--- SOUS-BOUCLE PIDS ---"
-./title,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationPID/PIDSchema,"Schema PID"
+./title,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationPID/PIDSchema/value,"Schema PID"
 ./uri,AdministrativeInformation/PrimaryInvestigator/PIAffiliation/OrganisationPID/URI,"URI du PID"
 
 /xml/dataset/metadata/additional/addTeamMember,AdministrativeInformation/AddTeamMember,"Chaîne booléenne (0/1)."
@@ -85,7 +87,7 @@ ROOT:/xml/dataset/metadata/study_desc/oth_id/item[type='contributor'],Administra
 ./following-sibling::item[1]/extlink/item[title='RNSR']/uri,AdministrativeInformation/TeamMember/TeamMemberAffiliation/TeamMemberLaboId,"URI Labo RNSR membre équipe"
 ./isContact,AdministrativeInformation/TeamMember/IsTeamMemberContact,"Membre équipe est contact ?"
 ARRAY:./following-sibling::item[1]/extlink/item[role='organisation id'],AdministrativeInformation/TeamMember/TeamMemberAffiliation/OrganisationPID,"--- SOUS-BOUCLE PIDS ---"
-./title,AdministrativeInformation/TeamMember/TeamMemberAffiliation/OrganisationPID/PIDSchema,"Schema PID"
+./title,AdministrativeInformation/TeamMember/TeamMemberAffiliation/OrganisationPID/PIDSchema/value,"Schema PID"
 ./uri,AdministrativeInformation/TeamMember/TeamMemberAffiliation/OrganisationPID/URI,"URI du PID"
 
 ROOT:/xml/dataset/metadata/study_desc/distribution_statement/contact/item,AdministrativeInformation/ContactPoint,"--- DEBUT BOUCLE CONTACTS ---"
@@ -95,13 +97,13 @@ ROOT:/xml/dataset/metadata/study_desc/distribution_statement/contact/item,Admini
 ./contactPointLabo,AdministrativeInformation/ContactPoint/ContactPointAffiliation/ContactPointLabo,"Nom Labo Contact"
 ./extlink/item[title='RNSR']/uri,AdministrativeInformation/ContactPoint/ContactPointAffiliation/ContactPointLaboId,"URI Labo RNSR Contact"
 ARRAY:./extlink/item[role='organisation id'],AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationPID,"--- SOUS-BOUCLE PIDS ---"
-./title,AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationPID/PIDSchema,"Schema PID"
+./title,AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationPID/PIDSchema/value,"Schema PID"
 ./uri,AdministrativeInformation/ContactPoint/ContactPointAffiliation/OrganisationPID/URI,"URI du PID"
 
 ROOT:/xml/dataset/metadata/study_desc/production_statement/funding_agencies/funding_agency,AdministrativeInformation/FundingAgent,"--- DEBUT BOUCLE FINANCEURS ---"
 ./name,AdministrativeInformation/FundingAgent/FundingAgentName,"Nom Funder"
 ARRAY:./extlink/item,AdministrativeInformation/FundingAgent/FundingAgentPID,"--- SOUS-BOUCLE PIDS (pas de <role> ici, on prend tout) ---"
-./title,AdministrativeInformation/FundingAgent/FundingAgentPID/PIDSchema,"Schema PID"
+./title,AdministrativeInformation/FundingAgent/FundingAgentPID/PIDSchema/value,"Schema PID"
 ./uri,AdministrativeInformation/FundingAgent/FundingAgentPID/URI,"URI PID"
 
 /xml/dataset/metadata/additional/fundingAgent/fundingAgentType/fundingagenttype,AdministrativeInformation/FundingAgentTypeRaw,"Types Financeur - liste PARALLELE à FundingAgent, appariée par position dans builder.py (chemin séparé dans le XML source, pas nichée sous funding_agency)"
@@ -109,7 +111,7 @@ ARRAY:./extlink/item,AdministrativeInformation/FundingAgent/FundingAgentPID,"---
 ROOT:/xml/dataset/metadata/study_desc/production_statement/producers/producer,AdministrativeInformation/OrganisationGovernance/Sponsor,"--- DEBUT BOUCLE PROMOTEURS ---"
 ./name,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorName,"Nom Sponsor"
 ARRAY:./extlink/item[role='sponsor id'],AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorPID,"--- SOUS-BOUCLE PIDS (role='sponsor id', pas 'organisation id') ---"
-./title,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorPID/PIDSchema,"Schema PID"
+./title,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorPID/PIDSchema/value,"Schema PID"
 ./uri,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorPID/URI,"URI PID"
 
 /xml/dataset/metadata/additional/sponsor/sponsorType/sponsortype,AdministrativeInformation/OrganisationGovernance/SponsorTypeRaw,"Types Sponsor - liste PARALLELE à Sponsor, appariée par position dans builder.py"
@@ -122,9 +124,9 @@ ARRAY:./extlink/item[role='sponsor id'],AdministrativeInformation/OrganisationGo
 ROOT:/xml/dataset/metadata/study_desc/title_statement/IDno/metadata_no/item,AdministrativeInformation/OtherStudyId,"Boucle Autres Identifiants de l'Etude"
 ./agency,AdministrativeInformation/OtherStudyId/IDSchema,"Type identifiant"
 ./code,AdministrativeInformation/OtherStudyId/Identifier,"Valeur identifiant"
-/xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus,"Statut de l'étude (Etude en cours -> Etude active)"
+/xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus/value,"Statut de l'étude (Etude en cours -> Etude active)"
 /xml/dataset/metadata/study_desc/study_info/analysis_unit,StudyMethodology/AnalysisUnit,"Unité d'analyse (ex: Individus)"
-/xml/dataset/metadata/additional/researchType/values,StudyMethodology/ResearchType,"Valeur Type de recherche"
+/xml/dataset/metadata/additional/researchType/values,StudyMethodology/ResearchType/value,"Valeur Type de recherche"
 
 # ... [Previous mappings for StudyOverview ...
 
@@ -132,8 +134,10 @@ ROOT:/xml/dataset/metadata/study_desc/title_statement/IDno/metadata_no/item,Admi
 /xml/dataset/metadata/additional/interventionalStudy/isClinicalTrial,StudyMethodology/InterventionalStudy/IsClinicalTrial,"Chaîne booléenne (0/1)."
 
 # Trial Phase and Research Purpose (from the dedicated interventionalStudy block)
-/xml/dataset/metadata/additional/interventionalStudy/trialPhase/trialphase,StudyMethodology/InterventionalStudy/TrialPhase,"Phase de l'essai"
-/xml/dataset/metadata/additional/interventionalStudy/researchPurpose/researchpurpose,StudyMethodology/InterventionalStudy/ResearchPurpose,"Objectif Principal"
+ROOT:/xml/dataset/metadata/additional/interventionalStudy/trialPhase/trialphase,StudyMethodology/InterventionalStudy/TrialPhase,"Boucle Phase de l'essai"
+./text(),StudyMethodology/InterventionalStudy/TrialPhase/value,"Valeur Phase de l'essai"
+ROOT:/xml/dataset/metadata/additional/interventionalStudy/researchPurpose/researchpurpose,StudyMethodology/InterventionalStudy/ResearchPurpose,"Boucle Objectif Principal"
+./text(),StudyMethodology/InterventionalStudy/ResearchPurpose/value,"Valeur Objectif Principal"
 /xml/dataset/metadata/additional/interventionalStudy/otherResearchPurpose,StudyMethodology/InterventionalStudy/OtherResearchPurpose,"Autre Objectif Principal"
 
 # Inclusion Groups
@@ -143,15 +147,16 @@ ROOT:/xml/dataset/metadata/additional/inclusionGroups/inclusiongroup,StudyMethod
 ./description,StudyMethodology/InterventionalStudy/InclusionGroup/GroupDescription,"Desc Groupe"
 
 # Intervention Model
-/xml/dataset/metadata/additional/interventionalStudy/interventionalStudyModel,StudyMethodology/InterventionalStudy/InterventionalStudyModel,"Schéma d’intervention"
+/xml/dataset/metadata/additional/interventionalStudy/interventionalStudyModel,StudyMethodology/InterventionalStudy/InterventionalStudyModel/value,"Schéma d’intervention"
 
 # Allocation
-/xml/dataset/metadata/additional/allocation/allocationMode,StudyMethodology/InterventionalStudy/Allocation/AllocationMode,"Mode d'allocation"
-/xml/dataset/metadata/additional/allocation/allocationUnit,StudyMethodology/InterventionalStudy/Allocation/AllocationUnit,"Unité d'allocation"
+/xml/dataset/metadata/additional/allocation/allocationMode,StudyMethodology/InterventionalStudy/Allocation/AllocationMode/value,"Mode d'allocation"
+/xml/dataset/metadata/additional/allocation/allocationUnit,StudyMethodology/InterventionalStudy/Allocation/AllocationUnit/value,"Unité d'allocation"
 
 # Masking
-/xml/dataset/metadata/additional/masking/maskingType,StudyMethodology/InterventionalStudy/Masking/MaskingType,"Mode d'insu"
-/xml/dataset/metadata/additional/masking/blindedMaskingDetails/blindedmaskingdetail,StudyMethodology/InterventionalStudy/Masking/BlindedMaskingDetails,"Groupe(s) avec insu -- BlindedMaskingDetails est une énumération simple (pas de value/URI), TABLEAU : Liste simple plate."
+/xml/dataset/metadata/additional/masking/maskingType,StudyMethodology/InterventionalStudy/Masking/MaskingType/value,"Mode d'insu"
+ROOT:/xml/dataset/metadata/additional/masking/blindedMaskingDetails/blindedmaskingdetail,StudyMethodology/InterventionalStudy/Masking/BlindedMaskingDetails,"Boucle Groupe(s) avec insu -- TABLEAU : Liste simple plate."
+./text(),StudyMethodology/InterventionalStudy/Masking/BlindedMaskingDetails/value,"Valeur Groupe avec insu"
 
 # Arms (if present)
 ROOT:/xml/dataset/metadata/additional/arms/arm,StudyMethodology/InterventionalStudy/Arm,"Boucle Bras"
@@ -163,7 +168,7 @@ ROOT:/xml/dataset/metadata/additional/arms/arm,StudyMethodology/InterventionalSt
 # Interventions
 ROOT:/xml/dataset/metadata/additional/intervention/item,StudyMethodology/InterventionalStudy/Intervention,"Boucle Intervention"
 ./name,StudyMethodology/InterventionalStudy/Intervention/InterventionName,"Nom Intervention"
-./type,StudyMethodology/InterventionalStudy/Intervention/InterventionType,"Type Intervention"
+./type,StudyMethodology/InterventionalStudy/Intervention/InterventionType/value,"Type Intervention"
 ./typeOther,StudyMethodology/InterventionalStudy/Intervention/InterventionTypeOther,"Autre Type Intervention"
 
 # --- OBSERVATIONAL STUDY BLOCK ---
@@ -171,9 +176,9 @@ ROOT:/xml/dataset/metadata/additional/intervention/item,StudyMethodology/Interve
 # inclusionGroups, intervention/item) mappées ICI AUSSI vers ObservationalStudy.
 # builder.py détruit ensuite la branche qui ne correspond pas au ResearchType
 # final (InterventionalStudy si observationnel, ObservationalStudy si interventionnel).
-/xml/dataset/metadata/study_desc/method/notes/note[subject='observational study method']/values/value,StudyMethodology/ObservationalStudy/ObservationalStudyDesign,"Modèle de l'étude observationnelle"
+/xml/dataset/metadata/study_desc/method/notes/note[subject='observational study method']/values/value,StudyMethodology/ObservationalStudy/ObservationalStudyDesign/value,"Modèle de l'étude observationnelle"
 /xml/dataset/metadata/additional/otherResearchType/otherResearchTypeDetails,StudyMethodology/ObservationalStudy/OtherResearchTypeDetails,"Autre type d'étude observationnelle, précisions"
-/xml/dataset/metadata/study_desc/method/data_collection/time_method,StudyMethodology/ObservationalStudy/TimePerspective,"Perspective temporelle"
+/xml/dataset/metadata/study_desc/method/data_collection/time_method,StudyMethodology/ObservationalStudy/TimePerspective/value,"Perspective temporelle"
 
 /xml/dataset/metadata/additional/isInclusionGroups,StudyMethodology/ObservationalStudy/IsInclusionGroups,"Chaîne booléenne (0/1)."
 ROOT:/xml/dataset/metadata/additional/inclusionGroups/inclusiongroup,StudyMethodology/ObservationalStudy/InclusionGroup,"Boucle Groupe Inclusion (Observationnelle)"
@@ -182,7 +187,7 @@ ROOT:/xml/dataset/metadata/additional/inclusionGroups/inclusiongroup,StudyMethod
 
 ROOT:/xml/dataset/metadata/additional/intervention/item,StudyMethodology/ObservationalStudy/Intervention,"Boucle Facteur/Exposition (Observationnelle)"
 ./name,StudyMethodology/ObservationalStudy/Intervention/InterventionName,"Nom Facteur/Exposition"
-./type,StudyMethodology/ObservationalStudy/Intervention/InterventionType,"Type Facteur/Exposition"
+./type,StudyMethodology/ObservationalStudy/Intervention/InterventionType/value,"Type Facteur/Exposition"
 ./typeOther,StudyMethodology/ObservationalStudy/Intervention/InterventionTypeOther,"Autre Type Facteur/Exposition"
 
 # Outcomes
@@ -197,11 +202,11 @@ ROOT:/xml/dataset/metadata/additional/intervention/item,StudyMethodology/Observa
 ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource,"Boucle Sources Tierces"
 ./sourceCitation/titlStmt/titl,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourceName,"Description de la source"
 ./sourceCitation/holdings,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourceId,"Identifiant de la source"
-./sourceCitation/notes[subject='source purpose']/value,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourcePurpose,"Objectif de l'intégration de la source"
+./sourceCitation/notes[subject='source purpose']/value,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourcePurpose/value,"Objectif de l'intégration de la source"
 ./srcOrig/srcorig,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ThirdPartySource/SourceTypeRaw,"Type(s) de source brut"
 /xml/dataset/metadata/additional/thirdPartySource/otherSourceType/othersourcetype,DataCollectionAccess/DataCollectionIntegration/DataIntegration/OtherSourceTypeRaw,"Autre type de source, précisions -- liste PARALLELE (chemin séparé), appariée par position avec ThirdPartySource dans builder.py"
 
-/xml/dataset/metadata/study_desc/method/data_collection/target_sample_size,DataCollectionAccess/DataCollectionIntegration/SampleSize/PlannedSampleSize,"Taille d'échantillon cible"
+/xml/dataset/metadata/study_desc/method/data_collection/target_sample_size,DataCollectionAccess/DataCollectionIntegration/SampleSize/PlannedSampleSize/value,"Taille d'échantillon cible"
 /xml/dataset/metadata/study_desc/method/data_collection/response_rate,DataCollectionAccess/DataCollectionIntegration/SampleSize/FinalSampleSize,"Taille d'échantillon final"
 
 /xml/dataset/metadata/study_desc/study_info/coll_dates/coll_date/start,DataCollectionAccess/DataCollectionIntegration/CollectionChronology/CollectionStart,"Date début collecte"
@@ -215,17 +220,19 @@ ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,Data
 
 /xml/dataset/metadata/additional/activeFollowUp/isActiveFollowUp,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/IsActiveFollowUp,"Chaîne booléenne (0/1)."
 
-/xml/dataset/metadata/study_desc/method/notes/note[subject='follow-up']/values/value,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/FollowUpMode,"Valeur Suivi"
+ROOT:/xml/dataset/metadata/study_desc/method/notes/note[subject='follow-up']/values/value,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/FollowUpMode,"Boucle Suivi"
+./text(),DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/FollowUpMode/value,"Valeur Suivi"
 
 /xml/dataset/metadata/additional/dataCollectionIntegration/isDataIntegration,DataCollectionAccess/DataCollectionIntegration/IsDataIntegration,"Chaîne booléenne (0/1)."
-/xml/dataset/metadata/additional/regulatoryRequirements/conformityDeclaration,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ConformityDeclaration,"ConformityDeclaration"
+/xml/dataset/metadata/additional/regulatoryRequirements/conformityDeclaration,DataCollectionAccess/DataCollectionIntegration/DataIntegration/ConformityDeclaration/value,"ConformityDeclaration"
 
 /xml/dataset/metadata/study_desc/study_info/data_kind,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/DataTypeRaw,"Faux tableau brut des types de données"
 /xml/dataset/metadata/additional/dataTypes/dataTypeOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/DataTypeOther,"Autre type de données, précisions"
 /xml/dataset/metadata/additional/dataTypes/clinicalDataDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/ClinicalDataDetails,"Détails cliniques"
 /xml/dataset/metadata/additional/dataTypes/biologicalDataDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiologicalDataDetails,"Détails biologiques"
 /xml/dataset/metadata/additional/dataTypes/isDataInBiobank,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/isDataInBiobank,"Présence Biobanque"
-/xml/dataset/metadata/additional/dataTypes/biobankContent/biobankcontent,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiobankContent,"Contenu Biobanque"
+ROOT:/xml/dataset/metadata/additional/dataTypes/biobankContent/biobankcontent,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiobankContent,"Boucle Contenu Biobanque"
+./text(),DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiobankContent/value,"Valeur Contenu Biobanque"
 /xml/dataset/metadata/additional/dataTypes/biobankContentOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/BiobankContentOther,"Autre échantillon, précisions"
 /xml/dataset/metadata/additional/dataTypes/paraclinicalDataOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/ParaclinicalDataOther,"Autres données paracliniques (hors biologiques), précisions"
 /xml/dataset/metadata/additional/dataTypes/otherLiquidsDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/DataTypes/OtherLiquidsDetails,"Chaîne brute directe."
@@ -263,10 +270,10 @@ ROOT:/xml/dataset/metadata/study_desc/data_access/dataset_use/contact/item,DataC
 /xml/dataset/metadata/additional/dataQuality/otherDocumentation,DataCollectionAccess/DataAccess/OtherDocumentation,"Documentation complémentaire"
 
 ROOT:/xml/dataset/metadata/additional/fileDscr/fileTxt/fileCitation/titlStmt/IDno/idno,DataCollectionAccess/DataAccess/DatasetPID,"Boucle PID Jeu de données"
-./type,DataCollectionAccess/DataAccess/DatasetPID/DatasetPIDSchema,"Type ID pérenne"
+./type,DataCollectionAccess/DataAccess/DatasetPID/DatasetPIDSchema/value,"Type ID pérenne"
 ./uri,DataCollectionAccess/DataAccess/DatasetPID/URI,"Valeur ID pérenne"
 
 ROOT:/xml/dataset/metadata/additional/relatedDocument/relateddocument,DataCollectionAccess/RelatedDocument,"Boucle Documents Connexes"
-./type,DataCollectionAccess/RelatedDocument/DocumentType,"Doc connexe - Titre"
+./type,DataCollectionAccess/RelatedDocument/DocumentType/value,"Doc connexe - Titre"
 ./title,DataCollectionAccess/RelatedDocument/DocumentTitle,"Doc connexe - Type"
 ./link,DataCollectionAccess/RelatedDocument/DocumentLink,"Doc connexe - Lien"

@@ -92,7 +92,7 @@ if __name__ == "__main__":
         output_dir=output_dir,
         logs_dir=logs_dir,
         mapping_csv_path=os.path.join(BASE_DIR, "mappings", "entity_wise_corres_table.csv"),
-        xsd_schema_path=os.path.join(BASE_DIR, "mappings", "fresh-schema_v5.xsd"),
+        xsd_schema_path=os.path.join(BASE_DIR, "mappings", "fresh-schema_v6.xsd"),
         study_ids=study_ids,
     )
 # %%

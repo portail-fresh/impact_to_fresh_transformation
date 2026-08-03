@@ -6,7 +6,10 @@
 - `fresh-schema_v3.xsd` — generated from `v2.xsd` by `sync_xsd_vocabularies.py`. Every controlled-vocabulary field's `<xsd:enumeration>` list was regenerated from the ground-truth CSVs in `mappings/vocabularies/`, so the schema's enum values match the CSVs' `Terme français` column exactly. Still plain **XSD 1.0**, still **French-only**.
 - `fresh-schema_v4.xsd` — generated from `v3.xsd` by `sync_xsd_vocabularies_bilingual.py`. Same vocab fields, but each one can now hold **either** its French **or** its English ground-truth term, depending on the language the record itself is written in.
 
-`v3.xsd` is kept as a checkpoint; it's not otherwise used by the pipeline. `v4.xsd` is what `run_pipeline.py` validates against today.
+`v3.xsd`/`v4.xsd` are kept as checkpoints; neither is otherwise used by the pipeline today.
+
+- `fresh-schema_v5.xsd` — hand-edited from `v4.xsd` (minOccurs tweaks, a few structural fixes).
+- `fresh-schema_v6.xsd` — generated from `v5.xsd` by `sync_xsd_vocabularies_cvidtype.py`, which retires both `sync_xsd_vocabularies.py` and `sync_xsd_vocabularies_bilingual.py` above (their "the enum/CTA sits directly on the field's element" assumption stops holding once every vocab field is wrapped in a `value`/`URI` structure). `v6.xsd` gives every controlled-vocabulary field a ground-truth `URI` (sourced from the vocab CSVs' `exactMatch` column) alongside its `value`, not just the handful that already used `CvIdType`. `v6.xsd` is what `run_pipeline.py` validates against today.
 
 ## The problem v4 solves
 
