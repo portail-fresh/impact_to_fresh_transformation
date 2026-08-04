@@ -69,7 +69,6 @@ class FReSHXMLBuilder:
             "Sex": ["value", "URI"],
             "Age": ["value", "URI"],
             "Status": ["value", "URI"],
-            "DataType": ["value", "URI"],
             "OrganisationPID": ["PIDSchema", "value", "URI"],
             "FundingAgentPID": ["PIDSchema", "value", "URI"],
             "SponsorPID": ["PIDSchema", "value", "URI"],

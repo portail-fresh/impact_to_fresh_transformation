@@ -1,7 +1,7 @@
 # IMPACT to FReSH transformation
 
 Converts source study records (IMPACT/API export XML, one file per language per
-study) into FReSH-schema XML, validated against `mappings/fresh-schema_v5.xsd`.
+study) into FReSH-schema XML, validated against `mappings/fresh-schema_v6.xsd`.
 
 ## 1. Requirements
 
