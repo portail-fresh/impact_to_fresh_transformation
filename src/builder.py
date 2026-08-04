@@ -348,12 +348,13 @@ class FReSHXMLBuilder:
             ("observationnelle", "interventionnelle", "Etude observationnelle", "Etude interventionnelle (expérimentale)")
         )
         for rt in root.iter('ResearchType'):
-            if rt.text:
-                val = rt.text.lower()
+            value_el = rt.find('value')
+            if value_el is not None and value_el.text:
+                val = value_el.text.lower()
                 if observational_keyword in val:
-                    rt.text = resolve_vocab_term('ResearchType', observational_term, self.lang, self.unmatched_vocab)
+                    value_el.text = resolve_vocab_term('ResearchType', observational_term, self.lang, self.unmatched_vocab)
                 elif interventional_keyword in val:
-                    rt.text = resolve_vocab_term('ResearchType', interventional_term, self.lang, self.unmatched_vocab)
+                    value_el.text = resolve_vocab_term('ResearchType', interventional_term, self.lang, self.unmatched_vocab)
 
         # -2. ConformityDeclaration est déjà normalisé via le vocabulaire contrôlé à l'extraction
         #     (HierarchicalExtractor._clean_value) ; pas de retraitement ici.
@@ -366,11 +367,13 @@ class FReSHXMLBuilder:
             rt = sm.find('ResearchType')
             if rt is None:
                 continue
-            if rt.text == observational_term:
+            rt_value_el = rt.find('value')
+            rt_text = rt_value_el.text if rt_value_el is not None else None
+            if rt_text == observational_term:
                 interv = sm.find('InterventionalStudy')
                 if interv is not None:
                     sm.remove(interv)
-            elif rt.text == interventional_term:
+            elif rt_text == interventional_term:
                 obs = sm.find('ObservationalStudy')
                 if obs is not None:
                     sm.remove(obs)
