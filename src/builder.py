@@ -311,10 +311,13 @@ class FReSHXMLBuilder:
                             raw_val = ' '.join(j_dict["value"].split())
                             ET.SubElement(ida_node, 'value').text = resolve_vocab_term('IndividualDataAccess', raw_val, self.lang, self.unmatched_vocab)
                             
-                        # Extraction de l'URI (prise en compte de 'extLink' ou 'ext Link')
+                        # Extraction de l'URI (prise en compte de 'extLink' ou 'ext Link',
+                        # qui peut être soit un objet {uri:...} soit une liste de tels objets)
                         ext_link = j_dict.get("extLink") or j_dict.get("ext Link")
-                        if ext_link and ext_link.get("uri", "").strip():
-                            ET.SubElement(ida_node, 'URI').text = ext_link["uri"].strip()
+                        ext_links = ext_link if isinstance(ext_link, list) else ([ext_link] if ext_link else [])
+                        for link in ext_links:
+                            if isinstance(link, dict) and link.get("uri", "").strip():
+                                ET.SubElement(ida_node, 'URI').text = link["uri"].strip()
                             
                         # On insère à la place du Raw
                         idx = list(da).index(raw_node)

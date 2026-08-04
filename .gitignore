@@ -2174,3 +2174,15 @@ data/logs/FReSH-43597-fr_unmatched_vocab.csv
 data/logs/FReSH-43597-fr_validation_report.txt
 data/output/FReSH-43597-fr_clean.xml
 data/output/FRESH-PEF100-fr_uritest.xml
+data/logs/FReSH-PEF1025-fr_unmatched_vocab.csv
+data/logs/FReSH-PEF1025-fr_validation_report.txt
+data/logs/FReSH-PEF3101-fr_unmatched_vocab.csv
+data/logs/FReSH-PEF3101-fr_validation_report.txt
+data/logs/FReSH-PEF3121-fr_unmatched_vocab.csv
+data/logs/FReSH-PEF3121-fr_validation_report.txt
+data/logs/FReSH-PEF60139-fr_unmatched_vocab.csv
+data/logs/FReSH-PEF60139-fr_validation_report.txt
+data/logs/FReSH-PEF73105-fr_unmatched_vocab.csv
+data/logs/FReSH-PEF73105-fr_validation_report.txt
+data/logs/FReSH-PEF74146-fr_unmatched_vocab.csv
+data/logs/FReSH-PEF74146-fr_validation_report.txt
