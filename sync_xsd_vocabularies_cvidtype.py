@@ -43,7 +43,7 @@ converted like the rest of BUCKET_A).
 """
 import csv
 import os
-from lxml import etree
+from lxml import etree  # type: ignore
 import xmlschema
 
 BASE = os.path.dirname(os.path.abspath(__file__))
