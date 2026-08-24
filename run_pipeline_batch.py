@@ -53,7 +53,7 @@ def run_batch(data_dir, output_dir, logs_dir, mapping_csv_path, xsd_schema_path,
                 input_xml_path=input_xml_path,
                 mapping_csv_path=mapping_csv_path,
                 xsd_schema_path=xsd_schema_path,
-                output_xml_path=os.path.join(output_dir, f"{file_name}_fresh_clean.xml"),
+                output_xml_path=os.path.join(output_dir, f"{file_name}_clean.xml"),
                 logs_path=logs_dir,
             )
             succeeded.append(file_name)
@@ -77,9 +77,9 @@ if __name__ == "__main__":
     # These are hardcoded to one machine/user -- update data_dir, output_dir and
     # logs_dir to match your own setup before running (e.g. point data_dir at
     # this repo's own data/input if that's where your source files are).
-    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\xml_files_from_IH_API"
-    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
-    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_local_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
+    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_from_IH_API"
+    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
+    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
 
     # Leave as None to process every study (both '-fr' and '-en') found in
     # data_dir. 
