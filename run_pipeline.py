@@ -96,8 +96,18 @@ class HierarchicalExtractor:
                 # d'une apostrophe cassant le parsing -- comportement non déterministe).
                 if target_xpath.strip('/').split('/')[-1].endswith('Raw'):
                     return v_stripped
-                
-                
+
+
+                # --- StudyId/Identifier vient de link_study (ex: "FReSH-43597",
+                # "FRESH-PEF100"), pas d'un identifiant nu -- on ne garde que la
+                # partie après le premier "-". link_study est le même des deux
+                # côtés -fr/-en d'une même étude (contrairement à /dataset/id, un
+                # id de ligne interne à la base qui diverge entre les deux), donc
+                # c'est ce qui rend StudyId/Identifier stable inter-langues.
+                if target_xpath.strip('/') == "TechnicalInfo/StudyId/Identifier" and "-" in v_stripped:
+                    v_stripped = v_stripped.split("-", 1)[1]
+
+
                 v_stripped = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', '', v_stripped)
 
 

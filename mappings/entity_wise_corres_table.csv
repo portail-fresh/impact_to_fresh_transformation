@@ -1,6 +1,6 @@
 source_xpath,target_xpath,comment
 /xml/dataset/repositoryid,TechnicalInfo/StudyId/IDSchema,"Chaîne brute directe."
-/xml/dataset/id,TechnicalInfo/StudyId/Identifier,"Chaîne brute directe."
+/xml/dataset/link_study,TechnicalInfo/StudyId/Identifier,"Code étude préfixé par le repo (ex: FReSH-43597, FRESH-PEF100) ; le préfixe est retiré dans _clean_value (run_pipeline.py). Remplace /xml/dataset/id, qui est un id de ligne interne à la base et diverge entre les fichiers -fr/-en d'une même étude (ex: 43597 vs 43598) alors que link_study est identique des deux côtés."
 /xml/dataset/metadata/additional/status,TechnicalInfo/Status/value,"Chaîne brute directe."
 /xml/dataset/metadata/additional/versionLang,TechnicalInfo/VersionLang,"Chaîne brute directe."
 /xml/dataset/metadata/additional/originLang,TechnicalInfo/OriginLang/value,"Chaîne brute directe."
