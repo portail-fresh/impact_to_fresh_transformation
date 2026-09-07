@@ -321,9 +321,9 @@ if __name__ == "__main__":
     logs_dir = os.path.join(base_dir, "data", "logs")
     
     
-    fresh_id = "43661"
+    fresh_id = "43597"
     lang = "fr"
-    # lang = "en"
+    lang = "en"
     in_file_path = os.path.join(data_dir, f"FReSH-{fresh_id}-{lang}.xml")
     out_file_path = os.path.join(output_dir, f"FReSH-{fresh_id}-{lang}_clean.xml")
     run_transformation(

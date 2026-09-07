@@ -2186,3 +2186,6 @@ data/logs/FReSH-PEF73105-fr_unmatched_vocab.csv
 data/logs/FReSH-PEF73105-fr_validation_report.txt
 data/logs/FReSH-PEF74146-fr_unmatched_vocab.csv
 data/logs/FReSH-PEF74146-fr_validation_report.txt
+data/logs/FReSH-43597-en_unmatched_vocab.csv
+data/logs/FReSH-43597-en_validation_report.txt
+data/output/FReSH-43597-en_clean.xml
