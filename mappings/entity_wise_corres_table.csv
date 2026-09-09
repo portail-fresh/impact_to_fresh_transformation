@@ -267,7 +267,7 @@ ROOT:/xml/dataset/metadata/study_desc/data_access/dataset_use/contact/item,DataC
 
 /xml/dataset/metadata/additional/mockSample/mockSampleAvailable,DataCollectionAccess/DataAccess/MockSample/MockSampleAvailable,"Echantillon fictif dispo"
 /xml/dataset/metadata/additional/mockSample/mockSampleLocation,DataCollectionAccess/DataAccess/MockSample/MockSampleLocation,"Lien échantillon fictif"
-/xml/dataset/metadata/additional/dataQuality/otherDocumentation,DataCollectionAccess/DataAccess/OtherDocumentation,"Documentation complémentaire"
+/xml/dataset/metadata/additional/dataCollection/otherDocumentation,DataCollectionAccess/DataAccess/OtherDocumentation,"Documentation complémentaire. Etait mappé par erreur depuis .../dataQuality/otherDocumentation (élément homonyme mais toujours vide -- vérifié sur 400 fichiers du batch) ; la vraie valeur vit sous dataCollection, confirmé sur l'étude 43689."
 
 ROOT:/xml/dataset/metadata/additional/fileDscr/fileTxt/fileCitation/titlStmt/IDno/idno,DataCollectionAccess/DataAccess/DatasetPID,"Boucle PID Jeu de données"
 ./type,DataCollectionAccess/DataAccess/DatasetPID/DatasetPIDSchema/value,"Type ID pérenne"

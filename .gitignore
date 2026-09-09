@@ -2189,3 +2189,11 @@ data/logs/FReSH-PEF74146-fr_validation_report.txt
 data/logs/FReSH-43597-en_unmatched_vocab.csv
 data/logs/FReSH-43597-en_validation_report.txt
 data/output/FReSH-43597-en_clean.xml
+data/input/FRESH-43689-en.xml
+data/input/FRESH-43689-fr.xml
+data/logs/FReSH-43689-en_unmatched_vocab.csv
+data/logs/FReSH-43689-en_validation_report.txt
+data/logs/FReSH-43689-fr_unmatched_vocab.csv
+data/logs/FReSH-43689-fr_validation_report.txt
+data/output/FReSH-43689-en_clean.xml
+data/output/FReSH-43689-fr_clean.xml
