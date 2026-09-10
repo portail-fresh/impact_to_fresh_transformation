@@ -77,9 +77,13 @@ if __name__ == "__main__":
     # These are hardcoded to one machine/user -- update data_dir, output_dir and
     # logs_dir to match your own setup before running (e.g. point data_dir at
     # this repo's own data/input if that's where your source files are).
-    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_from_IH_API"
-    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
-    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
+    # data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_from_IH_API"
+    # output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
+    # logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
+    
+    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\input"
+    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\output"
+    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\logs"
 
     # Leave as None to process every study (both '-fr' and '-en') found in
     # data_dir. 
