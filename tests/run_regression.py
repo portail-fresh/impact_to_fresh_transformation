@@ -23,6 +23,7 @@ import argparse
 import difflib
 import io
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -38,6 +39,16 @@ MAPPING_CSV = os.path.join(BASE_DIR, "mappings", "entity_wise_corres_table.csv")
 XSD_SCHEMA = os.path.join(BASE_DIR, "mappings", "fresh-schema_v6.xsd")
 
 CRASH_MARKER = "_CRASH.txt"
+
+# xmlschema reports the offending node as a Python repr -- "<Element 'StudyId'
+# at 0x0000018B1AA3AFC0>" -- whose address differs on every run. Left alone, any
+# fixture that fails validation would be flagged as changed forever, and the
+# harness would cry wolf until nobody reads it any more.
+_MEMORY_ADDRESS = re.compile(r" at 0x[0-9A-Fa-f]+")
+
+
+def normalise(content):
+    return _MEMORY_ADDRESS.sub(" at 0xADDR", content)
 
 
 def produce(fixture_path, out_dir, quick):
@@ -111,10 +122,10 @@ def run_all(quick):
             name = os.path.splitext(os.path.basename(fixture))[0]
             crash = produce(fixture, tmp, quick)
             if crash:
-                produced[name + CRASH_MARKER] = crash
+                produced[name + CRASH_MARKER] = normalise(crash)
         for fname in sorted(os.listdir(tmp)):
             with open(os.path.join(tmp, fname), encoding="utf-8-sig") as f:
-                produced[fname] = f.read()
+                produced[fname] = normalise(f.read())
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 

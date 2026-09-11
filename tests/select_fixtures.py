@@ -198,10 +198,17 @@ def add_complements(chosen, scanned, max_files, banal_wanted=3):
     vocabulary lookup, boolean/date handling, xml:lang and the XSD's own
     conditional typing."""
     picked = {p for p, _, _ in chosen}
+    # Parcouru dans l'ordre glouton, jamais dans celui de l'ensemble : l'ordre
+    # d'itération d'un set de chaînes varie d'une exécution à l'autre (hachage
+    # randomisé), ce qui donnait une sélection de fixtures différente à chaque
+    # lancement -- exactement ce qu'un harnais de non-régression ne peut pas se
+    # permettre. En prime, l'ordre glouton prend le pendant de la fixture la
+    # plus riche plutôt qu'un fichier au hasard.
+    ordered = [p for p, _, _ in chosen]
 
     # 1. Une étude présente dans ses deux langues, de préférence déjà retenue.
-    if not any(sibling_in_other_lang(p) in picked for p in picked if sibling_in_other_lang(p)):
-        sibling = next((sibling_in_other_lang(p) for p in picked if sibling_in_other_lang(p)), None)
+    if not any(sibling_in_other_lang(p) in picked for p in ordered if sibling_in_other_lang(p)):
+        sibling = next((sibling_in_other_lang(p) for p in ordered if sibling_in_other_lang(p)), None)
         if sibling:
             chosen.append((sibling, ["paire_bilingue"], f"pendant {lang_of(sibling)} d'une fixture retenue"))
             picked.add(sibling)
