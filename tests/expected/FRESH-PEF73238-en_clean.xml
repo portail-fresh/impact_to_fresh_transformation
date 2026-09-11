@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="en">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF73238</Identifier>
+        </StudyId>
+        <VersionLang>en</VersionLang>
+        <OriginLang>
+            <value>English</value>
+        </OriginLang>
+        <CreationDate>2026-02-18</CreationDate>
+        <LastUpdatedManual>2018-10-04</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Imported</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Inconnu</ContributorName>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Register of Patients Operated On By A Thoracic Surgeon</Title>
+            <Acronym>Epithor</Acronym>
+            <StudyStatus>
+                <value>Unknown</value>
+            </StudyStatus>
+            <Purpose>What procedure for which patient, with what comorbidity and what long-term outcome.</Purpose>
+            <Keyword>thoracic surgery – epidemiology – assessment of professional practices – lung cancer – complications – survival</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Oncology</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/5784b7f1-c7ce-49d9-9f38-aebcda0ff41d</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Pulmonary medicine</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/f6e18c52-6087-4662-904c-5c4b8174e40e</URI>
+            </HealthTheme>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients population</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Male</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Sex>
+                    <value>Female</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Age>
+                    <value>Young Adult (19 to 24 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D055815</URI>
+                </Age>
+                <Age>
+                    <value>Adult (25 to 44 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Middle Aged (45 to 64 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+                <Age>
+                    <value>Aged (65 to 79 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+                <Age>
+                    <value>Aged, 80 and over (80 years and more)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000369</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>All patients operated on by a thoracic surgeon participating in Epithor.</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <GeoDetail>All public and private thoracic surgery departments.</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Marcel;DAHAN</PIName>
+            <PIAffiliation>
+                <OrganisationName>SOCIETE FRANÇAISE DE CHIRURGIE THORACIQUE ET CARDIO-VASCULAIRE</OrganisationName>
+            </PIAffiliation>
+            <IsPIContact>0</IsPIContact>
+        </PrimaryInvestigator>
+        <OrganisationGovernance>
+            <Governance>
+                <Committee>1</Committee>
+            </Governance>
+            <Collaborations>
+                <NetworkConsortium>1</NetworkConsortium>
+                <CollaborationsDetails>INCa</CollaborationsDetails>
+            </Collaborations>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>73238</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF73238</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individuals</AnalysisUnit>
+        <ResearchType>
+            <value>Observational Study</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Morbidity registry</value>
+            </ObservationalStudyDesign>
+        </ObservationalStudy>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&gt;= 20000 individuals</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>210,000 patients, 260,000 procedures</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2002-01-01</CollectionStart>
+                <CollectionEnd>3000-01-01</CollectionEnd>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Other</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/6311ae1</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Other</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Clinical data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Socio-demographic data</value>
+                    </DataType>
+                    <ClinicalDataDetails>Diagnosis; comorbidities; complications.</ClinicalDataDetails>
+                    <isDataInBiobank>0</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>1</IsDataIntegration>
+            <DataIntegration>
+                <ThirdPartySource>
+                    <SourceType>
+                        <value>Medico-administrative database</value>
+                    </SourceType>
+                </ThirdPartySource>
+            </DataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataQuality>
+                <UsedStandards>CIM10 and CCAM</UsedStandards>
+            </DataQuality>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Restricted access</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Access on specific project only</AggregatedDataAccess>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Any participant that meets the quality criteria following approval from the scientific committee, and according to certain publication regulations.</AccessConditions>
+            </UseStatement>
+        </DataAccess>
+    </DataCollectionAccess>
+</FreshSchema>

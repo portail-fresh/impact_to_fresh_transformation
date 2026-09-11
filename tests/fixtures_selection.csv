@@ -1,0 +1,9 @@
+﻿fichier,langue,echec_validation,cas_couverts,note
+FRESH-PEF2582-fr.xml,fr,non,agency_other bracket_data_kind bracket_recruitment bracket_with_apostrophe ghost_teammember json_collection_mode json_individual_access json_sampling_mode multi_agency multi_funder multi_sponsor observational,
+FRESH-PEF73238-en.xml,en,non,bracket_used_standards empty_contributor funder_type_desync,1 financeurs / 0 types
+FReSH-43597-en.xml,en,non,interventional,
+FReSH-43661-en.xml,en,non,multi_srcorig,
+FRESH-PEF2582-en.xml,en,non,paire_bilingue,pendant en d'une fixture retenue
+FRESH-PEF1192-en.xml,en,non,cas_ordinaire,5 cas particulier(s)
+FRESH-PEF200-en.xml,en,non,cas_ordinaire,5 cas particulier(s)
+FRESH-PEF200-fr.xml,fr,non,cas_ordinaire,5 cas particulier(s)

@@ -1,0 +1,423 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="en">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>43597</Identifier>
+        </StudyId>
+        <VersionLang>en</VersionLang>
+        <OriginLang>
+            <value>English</value>
+        </OriginLang>
+        <CreationDate>2026-04-27</CreationDate>
+        <LastUpdatedAuto>2026-06-16</LastUpdatedAuto>
+        <LastUpdatedManual>2026-06-16</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Awaiting validation</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Fabien GIERSKI</ContributorName>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>The Concept of Self and Autobiographical Memory in the Care of Patients with Alcohol Use Disorder: A Pilot Study</Title>
+            <Acronym>COSMAb</Acronym>
+            <StudyStatus>
+                <value>Ongoing study</value>
+            </StudyStatus>
+            <Purpose>To investigate the effect of innovative psychotherapy workshops based on self-concept and autobiographical memory on alcohol addiction among patients with alcohol use disorder.</Purpose>
+            <Summary>In 2015, an estimated 41,000 deaths in France were attributed to alcohol consumption, accounting for 7% of deaths among people aged 15 and older and representing the second leading cause of preventable mortality (Bonaldi &amp; Hill, 2019). The primary victims are patients with Alcohol Use Disorder (AUD). Managing this chronic and complex condition requires consideration of numerous biological, psychological, and social factors. In this context, one of the factors highlighted in understanding alcohol consumption behavior is the Alcohol-Related Self-Concept (ARSC; Lindgren et al., 2017). A recent meta-analysis has shown that the ARSC is a robust predictor of alcohol consumption behavior and associated problems (Montes &amp; Pearson, 2021). However, studies in the field of autobiographical memory have shown that it underlies the construction of the self-concept. Indeed, this form of memory stores all the information and memories specific to an individual accumulated since childhood, which enable them to construct a sense of identity and temporal continuity. According to the model proposed by Conway and Pleydell-Pearce (2000), autobiographical memories serve as the building blocks that help individuals construct a coherent self-image and update their self-concept. However, data from the literature have shown that AM is particularly impaired in patients with ALD (Cuervo-Lombard et al. 2016; Nandrino &amp; Gandolphe, 2017).  In line with the concepts of Nandrino, Gandolphe &amp; El Haj (2017), we hypothesize that autobiographical memory could serve as a therapeutic lever toward the CSA.</Summary>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Addiction medicine</value>
+                <URI>http://id.nlm.nih.gov/mesh/D000073316</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Psychiatry</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/3de50dee-da1c-4791-a386-56bca24a5fed</URI>
+            </HealthTheme>
+            <HealthDeterminant>
+                <value>Behavioral determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Behavioral determinants: Addiction</value>
+            </HealthDeterminant>
+            <Pathology>
+                <value>Alcohol dependence</value>
+                <URI>http://id.who.int/icd/entity/1580466198</URI>
+            </Pathology>
+            <RareDiseases>0</RareDiseases>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients population</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Female</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Sex>
+                    <value>Male</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Age>
+                    <value>Adult (25 to 44 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Middle Aged (45 to 64 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>- Patients aged 18 or older, male or female, who were either hospitalized or receiving outpatient care at the time of enrollment.
+
+- Diagnosis of a current alcohol use disorder, according to the diagnostic criteria in the DSM-5-TR.
+
+- Native French speaker, able to read and write fluently in French (based on personality questionnaires and cognitive tests).
+
+- Voluntary participation, following review of the information sheet describing the study and written agreement to participate by signing the informed consent form.</InclusionCriterion>
+                <ExclusionCriterion>Exclusion criteria:
+
+- Diagnosis of active and unstable psychiatric disorders, based on the DSM-5-RT diagnostic criteria.
+
+- Presence of moderate or severe substance use disorders according to DSM-5-TR criteria (excluding tobacco).
+
+- A diagnosis of intellectual disability or pervasive developmental disorder.
+
+- Presence of any clinically significant or unstable condition: organic disorders affecting the central nervous system or conditions likely to interfere with assessments, including neurological complications of alcoholism.
+
+- Presence of uncorrected sensory impairments (vision and hearing) due to the perceptual-visual nature of certain cognitive tests.
+
+- Persons who are specifically protected under Articles L.1121-5 through L.1121-8 of the French Public Health Code.
+
+
+
+Exclusion criteria:
+
+- Patients with cognitive impairment (Montreal Cognitive Assessment [MoCA] score &lt; 22 at baseline).</ExclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <FranceRegion>
+                    <value>Grand Est</value>
+                    <URI>FR-GES</URI>
+                </FranceRegion>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <RegulatoryRequirements>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CPP</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+        </RegulatoryRequirements>
+        <IsContributorPI>1</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Fabien;GIERSKI</PIName>
+            <PIMail>fabien.gierski@univ-reims.fr</PIMail>
+            <PIORCID>0000-0001-9168-2024</PIORCID>
+            <PIIdRef>12709380X</PIIdRef>
+            <PIAffiliation>
+                <OrganisationName>UNIVERSITE DE REIMS CHAMPAGNE-ARDENNE (URCA)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>195112966</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03hypw319</URI>
+                </OrganisationPID>
+                <PILaboId>201220368S</PILaboId>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <AddTeamMember>1</AddTeamMember>
+        <TeamMember>
+            <TeamMemberName>Christine-Vanessa;CUERVO-LOMBARD</TeamMemberName>
+            <TeamMemberAffiliation>
+                <OrganisationName>UNIVERSITE DE TOULOUSE</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>938271392</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/01ahyrz84</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>0</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Jessica;MANGE</TeamMemberName>
+            <TeamMemberAffiliation>
+                <OrganisationName>UNIVERSITE DE CAEN NORMANDIE</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>191414085</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/051kpcy16</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>0</IsTeamMemberContact>
+        </TeamMember>
+        <ContactPoint>
+            <ContactName>Fabien;GIERSKI</ContactName>
+            <EMail>fabien.gierski@univ-reims.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>UNIVERSITE DE REIMS CHAMPAGNE-ARDENNE (URCA)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>195112966</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03hypw319</URI>
+                </OrganisationPID>
+                <ContactPointLaboId>201220368S</ContactPointLaboId>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>GIS-INSTITUT POUR LA RECHERCHE EN SANTE PUBLIQUE (IRESP)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/05fw72335</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>EPSM Marne</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>UNIVERSITE DE REIMS CHAMPAGNE-ARDENNE (URCA)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>195112966</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/03hypw319</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>EPSM Marne</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+            </Sponsor>
+            <Sponsor>
+                <SponsorName>UNIVERSITE DE REIMS CHAMPAGNE-ARDENNE (URCA)</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>195112966</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03hypw319</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Governance>
+                <Committee>1</Committee>
+            </Governance>
+            <Collaborations>
+                <NetworkConsortium>1</NetworkConsortium>
+                <CollaborationsDetails>Universities of Reims Champagne-Ardenne, University of Toulouse Jean-Jaurès, University of Caen Normandy</CollaborationsDetails>
+            </Collaborations>
+        </OrganisationGovernance>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individus</AnalysisUnit>
+        <ResearchType>
+            <value>Interventional Study</value>
+        </ResearchType>
+        <InterventionalStudy>
+            <IsClinicalTrial>1</IsClinicalTrial>
+            <TrialPhase>
+                <value>NA</value>
+            </TrialPhase>
+            <ResearchPurpose>
+                <value>Treatment</value>
+            </ResearchPurpose>
+            <IsInclusionGroups>1</IsInclusionGroups>
+            <InclusionGroup>
+                <GroupName>CSA Group</GroupName>
+                <GroupDescription>Group participating in workshops on self-concept and autobiographical memory</GroupDescription>
+            </InclusionGroup>
+            <InclusionGroup>
+                <GroupName>Control group GT</GroupName>
+                <GroupDescription>Group not covered by standard coverage</GroupDescription>
+            </InclusionGroup>
+            <InterventionalStudyModel>
+                <value>Parallel</value>
+            </InterventionalStudyModel>
+            <Allocation>
+                <AllocationMode>
+                    <value>Randomised</value>
+                </AllocationMode>
+                <AllocationUnit>
+                    <value>Individual</value>
+                </AllocationUnit>
+            </Allocation>
+            <Masking>
+                <MaskingType>
+                    <value>Open label</value>
+                </MaskingType>
+            </Masking>
+            <Intervention>
+                <InterventionName>Atelier psychothérapeutique</InterventionName>
+            </Intervention>
+        </InterventionalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>AUDIT questionnaire score</PrimaryOutcomes>
+            <SecondaryOutcomes>Scores on craving scales (OCDS), perceived self-efficacy for abstaining from drinking, perceived remission</SecondaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&lt; 500 individuals</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>30</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2025-05-28</CollectionStart>
+                <CollectionEnd>2027-11-27</CollectionEnd>
+                <CollectionFrequency>3 measurements: at M0, M3, and M6</CollectionFrequency>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Interview with the participant (including clinical)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/cb20d17</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Measurements and tests</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/38ceaa4</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Psychological tests/clinical scales (depression, cognition, quality of life, etc.)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/27daf03</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Observation (clinical or behavioural)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/c680d43</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Self-administered questionnaire</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Non-probability</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/4d8364f</URI>
+                    </SamplingMode>
+                    <SamplingMode>
+                        <value>Non-probability: Availability ("convenience" or "opportunity" sampling)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/90cbfe9</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Through organizations (health services or institutions, schools, businesses, etc.)</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                    <FollowUpMode>
+                        <value>Monitoring by participant visit to the investigation center</value>
+                    </FollowUpMode>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Clinical data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Socio-demographic data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Behavioral data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Participant-reported health data</value>
+                    </DataType>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>0</IsDataIntegration>
+            <DataIntegration />
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>To be defined</value>
+                </IndividualDataAccess>
+                <DataAccessRequestTool>
+                    <DataAccessRequestToolAvailable>0</DataAccessRequestToolAvailable>
+                </DataAccessRequestTool>
+            </DataAvailability>
+            <UseStatement>
+                <DataInformationContact>
+                    <DIContactName>Fabien;GIERSKI</DIContactName>
+                    <DIContactMail>fabien.gierski@univ-reims.fr</DIContactMail>
+                </DataInformationContact>
+            </UseStatement>
+            <DataCitation>
+                <DataCitationRequirement>No</DataCitationRequirement>
+                <DataCitationStatement>Yes</DataCitationStatement>
+            </DataCitation>
+            <VariableDictionnary>
+                <VariableDictionnaryAvailable>0</VariableDictionnaryAvailable>
+            </VariableDictionnary>
+            <MockSample>
+                <MockSampleAvailable>0</MockSampleAvailable>
+            </MockSample>
+        </DataAccess>
+    </DataCollectionAccess>
+</FreshSchema>

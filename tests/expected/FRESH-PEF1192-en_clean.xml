@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="en">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF1192</Identifier>
+        </StudyId>
+        <VersionLang>en</VersionLang>
+        <OriginLang>
+            <value>English</value>
+        </OriginLang>
+        <CreationDate>2026-02-18</CreationDate>
+        <LastUpdatedManual>2025-06-02</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Imported</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Isabelle MICHOT</ContributorName>
+            <ContributorAffiliation>OBSERVATOIRE FRANCAIS DES DROGUES ET DES TENDANCES ADDICTIVES (OFDT)</ContributorAffiliation>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Common Data Collection on Treatment and Drug Addiction</Title>
+            <Acronym>RECAP</Acronym>
+            <StudyStatus>
+                <value>Unknown</value>
+            </StudyStatus>
+            <Purpose>RECAP is a continuous data collection designed to find out and monitor the characteristics of psychoactive substance users treated by professionals in Specialised Drug Addiction Treatment Centres (CSST), Outpatient Alcohol Treatment Centres (CCAA) and, since their creation, Addictology Treatment Support and Prevention Centres (CSAPA). The public authorities need the data collected in this way to define and assess their drug policy, and especially to identify trends in the use of services. The national data must also prompt treatment professionals to examine their own actions by providing food for thought.</Purpose>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Infectious disease medicine</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/fa2ceeab-3b2f-45e9-9243-e5a8005b98de</URI>
+            </HealthTheme>
+            <HealthDeterminant>
+                <value>Behavioral determinants: Addiction</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Behavioral determinants</value>
+            </HealthDeterminant>
+            <Pathology>
+                <value>Disorders due to substance use</value>
+                <URI>http://id.who.int/icd/entity/590211325</URI>
+            </Pathology>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients population</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Male</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Sex>
+                    <value>Female</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Age>
+                    <value>Young Adult (19 to 24 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D055815</URI>
+                </Age>
+                <Age>
+                    <value>Adult (25 to 44 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Middle Aged (45 to 64 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>Data is collected on all persons in France with an addiction problem, substance-related or otherwise, who have received at least one treatment over the course of the year in the structure that admits them. The concept of treatment episode is very expansive here, since the simple act of admitting someone can be considered as a treatment episode. Substance users seen in counselling clinics for young users should also be included in the data collection.</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <GeoDetail>Metropolitan France and overseas departments</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Christophe;PALLE</PIName>
+            <PIMail>christophe.palle@ofdt.fr</PIMail>
+            <PIAffiliation>
+                <OrganisationName>OBSERVATOIRE FRANCAIS DES DROGUES ET DES TENDANCES ADDICTIVES (OFDT)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036105</URI>
+                </OrganisationPID>
+                <PILabo>OFDT (Observatoire Français des Drogues et des</PILabo>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <ContactPoint>
+            <ContactName>Christophe;PALLE</ContactName>
+            <EMail>christophe.palle@ofdt.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>OBSERVATOIRE FRANCAIS DES DROGUES ET DES TENDANCES ADDICTIVES (OFDT)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036105</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>OBSERVATOIRE FRANCAIS DES DROGUES ET DES TENDANCES ADDICTIVES (OFDT)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>180036105</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>OBSERVATOIRE FRANCAIS DES DROGUES ET DES TENDANCES ADDICTIVES (OFDT)</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036105</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Governance>
+                <Committee>0</Committee>
+            </Governance>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>1192</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF1192</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individuals</AnalysisUnit>
+        <ResearchType>
+            <value>Observational Study</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Morbidity registry</value>
+            </ObservationalStudyDesign>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Health event/morbidity
+
+Others</PrimaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&gt;= 20000 individuals</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>89,000 patients</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2005-01-01</CollectionStart>
+                <CollectionEnd>3000-01-01</CollectionEnd>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Converting or copying information into a structured record</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Other</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>0</IsActiveFollowUp>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Participant-reported health data</value>
+                    </DataType>
+                    <isDataInBiobank>0</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>0</IsDataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Restricted access</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Free access</AggregatedDataAccess>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Access possible through research agreements; patient and centre anonymity</AccessConditions>
+            </UseStatement>
+        </DataAccess>
+        <RelatedDocument>
+            <DocumentTitle>Palle C. (2016) Les personnes accueillies dans les CSAPA. Situation en 2014 et évolution depuis 2007. Tendances, OFDT, n° 110, 8 p.</DocumentTitle>
+            <DocumentLink>https://en.ofdt.fr/BDD/publications/docs/eftacpw6.pdf</DocumentLink>
+        </RelatedDocument>
+    </DataCollectionAccess>
+</FreshSchema>

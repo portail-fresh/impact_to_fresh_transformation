@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="fr">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF200</Identifier>
+        </StudyId>
+        <VersionLang>fr</VersionLang>
+        <OriginLang>
+            <value>Français</value>
+        </OriginLang>
+        <CreationDate>2026-02-18</CreationDate>
+        <LastUpdatedManual>2016-07-05</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Importée</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Pierre INGRAND</ContributorName>
+            <ContributorAffiliation>UNIVERSITE DE POITIERS</ContributorAffiliation>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Registre général des cancers de la région Poitou-Charentes (Registre qualifié 2013-2015)</Title>
+            <StudyStatus>
+                <value>Inconnu</value>
+            </StudyStatus>
+            <Purpose>Objectifs du registre en termes de santé publique (surveillance, évaluation): Le registre a pour objectif de fournir des indicateurs de référence permettant de décrire la dynamique d’évolution des cancers (distribution, évolution et impact de la maladie selon les caractéristiques géographiques et démographiques de la population) et intervient dans l’évaluation de la prévention et du dépistage (en évaluant l’efficacité pratique des programmes mis en place) et dans l’évaluation des soins (par l’analyse des filières de soins empruntés par les patients, les déterminants du choix de mode de prise en charge diagnostique, la diffusion des recommandations de bonne pratique). Il jouera son rôle d’expert dans l’aide à l’évaluation des politiques publiques auprès de l’Agence Régionale de Santé (ARS), en collaboration avec les autres structures régionales (Réseau Onco Poitou-Charentes, Observatoire Régional de la Santé, structures de dépistage). Il participera à la production de statistiques nationales (FRANCIM) et internationales (CIRC). Objectifs du registre en termes de recherche: Deux axes de recherche sont privilégiés dans la continuité des travaux réalisés au sein de l’équipe de Santé Publique de Poitiers. 1) L’évaluation des déterminants de l’accès au dépistage (accès au dépistage des fratries des cas index incident) et l’évaluation des déterminants de l’accès aux soins (satisfaction des patients, accès aux plateaux techniques chirurgicaux et délais d’attente de radiothérapie). 2) La classification automatisée de l’information textuelle contenue dans les comptes rendus d’anatomie et de cytologie pathologiques informatisés (collaboration Université de Rennes 1).</Purpose>
+            <Keyword>Registre</Keyword>
+            <Keyword>santé publique</Keyword>
+            <Keyword>région</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Oncologie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/5784b7f1-c7ce-49d9-9f38-aebcda0ff41d</URI>
+            </HealthTheme>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Masculin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Sex>
+                    <value>Féminin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Age>
+                    <value>Nouveau-né (naissance à 28j)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007231</URI>
+                </Age>
+                <Age>
+                    <value>Nourrisson (28j à 2 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007223</URI>
+                </Age>
+                <Age>
+                    <value>Petite enfance (2 à 5 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002675</URI>
+                </Age>
+                <Age>
+                    <value>Enfance (6 à 12 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002648</URI>
+                </Age>
+                <Age>
+                    <value>Adolescence (13 à 18 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000293</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (19 à 24 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D055815</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (25 à 44 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (45 à 64 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+                <Age>
+                    <value>Personne âgée (65 à 79 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+                <Age>
+                    <value>Grand âge (80 ans et plus)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000369</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>Tous les cas de tumeurs malignes invasives (hémopathies malignes et tumeurs solides en-dehors des carcinomes baso-cellulaires de la peau), les tumeurs in situ, les tumeurs borderline des ovaires, et les tumeurs bénignes ou d’évolution imprévisible du cerveau et de la vessie. Les adénomes avancés colorectaux font l’objet d’un enregistrement passif.</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <FranceRegion>
+                    <value>Nouvelle-Aquitaine</value>
+                    <URI>FR-NAQ</URI>
+                </FranceRegion>
+                <GeoDetail>Région Poitou-Charentes, soit quatre départements : 16 Charente, 17 Charente-Maritime, 79 Deux-Sèvres et 86 Vienne</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <RegulatoryRequirements>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CNIL</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+        </RegulatoryRequirements>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Pierre;INGRAND</PIName>
+            <PIMail>pierre.ingrand@chu-poitiers.fr</PIMail>
+            <PIAffiliation>
+                <OrganisationName>UNIVERSITE DE POITIERS</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/04xhy8q59</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>198608564</URI>
+                </OrganisationPID>
+                <PILabo>Faculty of Medicine and Pharmacy at Poitiers Teaching Department / Cancer Epidemiology Unit</PILabo>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <ContactPoint>
+            <ContactName>Pierre;INGRAND</ContactName>
+            <EMail>pierre.ingrand@chu-poitiers.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>UNIVERSITE DE POITIERS</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/04xhy8q59</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>198608564</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>INSTITUT NATIONAL DU CANCER (INCA)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/03m8vkq32</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>187512777</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>UNIVERSITE DE POITIERS</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/04xhy8q59</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>198608564</URI>
+                </SponsorPID>
+            </Sponsor>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>200</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF200</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individus</AnalysisUnit>
+        <ResearchType>
+            <value>Etude observationnelle</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Registre de morbidité</value>
+            </ObservationalStudyDesign>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Evénements de santé/morbidité</PrimaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>[1000-10000[ individus</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>3 323 cancers invasifs / 217 carcinomes in situ</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2008-01-01</CollectionStart>
+                <CollectionEnd>3000-01-01</CollectionEnd>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Transcription et saisie d’informations dans un enregistrement structuré</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Autre</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Données cliniques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données socio-démographiques</value>
+                    </DataType>
+                    <isDataInBiobank>0</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>0</IsDataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Accès réservé</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Accès restreint sur projet spécifique</AggregatedDataAccess>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Contacter le responsable scientifique</AccessConditions>
+            </UseStatement>
+        </DataAccess>
+        <RelatedDocument>
+            <DocumentTitle>Liste des publications dans Pubmed</DocumentTitle>
+            <DocumentLink>http://tinyurl.com/PUBMED-PCCR</DocumentLink>
+        </RelatedDocument>
+    </DataCollectionAccess>
+</FreshSchema>

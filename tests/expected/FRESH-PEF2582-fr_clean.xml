@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="fr">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF2582</Identifier>
+        </StudyId>
+        <VersionLang>fr</VersionLang>
+        <OriginLang>
+            <value>Français</value>
+        </OriginLang>
+        <CreationDate>2026-07-22</CreationDate>
+        <LastUpdatedAuto>2026-09-04</LastUpdatedAuto>
+        <LastUpdatedManual>2026-09-04</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Envoyée pour publication</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Mélissa Mégy</ContributorName>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Réseau Sentinelles</Title>
+            <StudyStatus>
+                <value>Étude en cours</value>
+            </StudyStatus>
+            <Purpose>Surveillance épidémiologique d'indicateurs de santé (surveillances clinique et virologique) et études épidémiologiques en soins de premier recours</Purpose>
+            <Summary>Créé en 1984, le réseau Sentinelles a pour objectifs principaux :
+
+- la constitution de grandes bases de données en médecine générale et en pédiatrie, à des fins de veille sanitaire et de recherche ;
+
+- le développement d’outils de détection et de prévision épidémique ;
+
+- la mise en place d’études cliniques et épidémiologiques.
+
+
+
+Les médecins membres sont dits « médecins Sentinelles » (médecins généralistes et pédiatres) et participent à une ou plusieurs activités :
+
+- une surveillance continue d'indicateurs de santé : les médecins généralistes Sentinelles transmettent le nombre des cas vus en consultation pour les indicateurs suivis permettant d'estimer le taux d'incidence hebdomadaire pour chaque indicateur et de suivre son évolution dans le temps et dans l'espace
+
+- une surveillance virologique des infections respiratoires aiguës et des oreillons
+
+- des études ponctuelles épidémiologiques réalisées en partenariat avec différents organismes sur des thématiques variées.</Summary>
+            <Keyword>sentinelles</Keyword>
+            <Keyword>médecins généralistes</Keyword>
+            <Keyword>surveillance</Keyword>
+            <Keyword>pédiatres</Keyword>
+            <Keyword>veille</Keyword>
+            <Keyword>recherche</Keyword>
+            <Keyword>soins primaires</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Infectiologie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/fa2ceeab-3b2f-45e9-9243-e5a8005b98de</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Médecine générale</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/4b9f8efb-68dd-45a1-b04c-d23d457d6898</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Psychiatrie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/3de50dee-da1c-4791-a386-56bca24a5fed</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Pédiatrie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/bf8aaaac-ddee-41cd-bb8a-c5a63de3fcbd</URI>
+            </HealthTheme>
+            <Pathology>
+                <value>Infection respiratoire aigüe SAI</value>
+                <URI>http://id.who.int/icd/entity/798529914</URI>
+            </Pathology>
+            <Pathology>
+                <value>Oreillons</value>
+                <URI>http://id.who.int/icd/entity/1208294714</URI>
+            </Pathology>
+            <Pathology>
+                <value>Infection gonococcique</value>
+                <URI>http://id.who.int/icd/entity/609214049</URI>
+            </Pathology>
+            <Pathology>
+                <value>Zona</value>
+                <URI>http://id.who.int/icd/entity/523481501</URI>
+            </Pathology>
+            <Pathology>
+                <value>Varicelle</value>
+                <URI>http://id.who.int/icd/entity/1805574500</URI>
+            </Pathology>
+            <Pathology>
+                <value>Diarrhée</value>
+                <URI>http://id.who.int/icd/entity/116759077</URI>
+            </Pathology>
+            <Pathology>
+                <value>Syphilis</value>
+                <URI>http://id.who.int/icd/entity/455894495</URI>
+            </Pathology>
+            <Pathology>
+                <value>Chlamydia</value>
+                <URI>http://id.who.int/icd/entity/1065383727</URI>
+            </Pathology>
+            <Pathology>
+                <value>Coqueluche</value>
+                <URI>http://id.who.int/icd/entity/2064398473</URI>
+            </Pathology>
+            <Pathology>
+                <value>Suicide, non classé ailleurs</value>
+                <URI>http://id.who.int/icd/entity/731306388</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tentative de suicide</value>
+                <URI>http://id.who.int/icd/entity/179322472</URI>
+            </Pathology>
+            <Pathology>
+                <value>Borréliose de Lyme</value>
+                <URI>http://id.who.int/icd/entity/1600014919</URI>
+            </Pathology>
+            <RareDiseases>0</RareDiseases>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Féminin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Sex>
+                    <value>Masculin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Age>
+                    <value>Nouveau-né (naissance à 28j)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007231</URI>
+                </Age>
+                <Age>
+                    <value>Nourrisson (28j à 2 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007223</URI>
+                </Age>
+                <Age>
+                    <value>Petite enfance (2 à 5 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002675</URI>
+                </Age>
+                <Age>
+                    <value>Enfance (6 à 12 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002648</URI>
+                </Age>
+                <Age>
+                    <value>Adolescence (13 à 18 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000293</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (19 à 24 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D055815</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (25 à 44 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (45 à 64 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+                <Age>
+                    <value>Personne âgée (65 à 79 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+                <Age>
+                    <value>Grand âge (80 ans et plus)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000369</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>Patients vus en consultation de médecine générale dont la situation répond à la définition de cas d'un des indicateurs surveillés par le réseau Sentinelles</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <GeoDetail>France hexagonale</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <RegulatoryRequirements>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CNIL</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CPP</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>Autre</value>
+                </AuthorizingAgency>
+                <OtherAuthorizingAgency>Inserm</OtherAuthorizingAgency>
+            </ObtainedAuthorization>
+        </RegulatoryRequirements>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Thierry;BLANCHON</PIName>
+            <PIMail>sentinelles@iplesp.upmc.fr</PIMail>
+            <PIAffiliation>
+                <OrganisationName>Sorbonne Public Health Institute (SPH), Inserm - Sorbonne Université, UMR-S 1136</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <PILabo>Sorbonne Public Health Institute (SPH), Inserm - Sorbonne Université, UMR-S 1136</PILabo>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <ContactPoint>
+            <ContactName>Thierry;BLANCHON</ContactName>
+            <EMail>sentinelles@iplesp.upmc.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>Sorbonne Public Health Institute (SPH), Inserm - Sorbonne Université, UMR-S 1136</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <ContactPointLabo>Sorbonne Public Health Institute (SPH), Inserm - Sorbonne Université, UMR-S 1136</ContactPointLabo>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/02vjkv261</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>180036048</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>SANTE PUBLIQUE FRANCE</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/00dfw9p58</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>130022338</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>SORBONNE UNIVERSITE</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/02en5vm52</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>130023385</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Sponsor>
+                <SponsorName>SORBONNE UNIVERSITE</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02en5vm52</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>130023385</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Governance>
+                <Committee>1</Committee>
+            </Governance>
+            <Collaborations>
+                <NetworkConsortium>1</NetworkConsortium>
+                <CollaborationsDetails>Santé publique France</CollaborationsDetails>
+            </Collaborations>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>2582</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF2582</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individus</AnalysisUnit>
+        <ResearchType>
+            <value>Etude observationnelle</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Autre</value>
+            </ObservationalStudyDesign>
+            <OtherResearchTypeDetails>Recueil de données, étude épidémiologique descriptive continue</OtherResearchTypeDetails>
+            <IsInclusionGroups>0</IsInclusionGroups>
+            <Intervention>
+                <InterventionName>Indicateurs de santé (infections respiratoires aiguës, varicelle, diarrhée aiguë, zona, coqueluche...)</InterventionName>
+            </Intervention>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Evénements de santé/morbidité
+
+Consommation de soins/services de santé</PrimaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&gt;= 20000 individus</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>Recueil continu</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>1984-01-01</CollectionStart>
+                <CollectionEnd>3000-01-01</CollectionEnd>
+                <CollectionFrequency>Hebdomadaire</CollectionFrequency>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Questionnaire auto-administré</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Autre</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Via les professionnels de santé d'exercice libéral</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>0</IsActiveFollowUp>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Données cliniques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données biologiques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données de santé rapportées par les participants de l'étude</value>
+                    </DataType>
+                    <isDataInBiobank>0</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>0</IsDataIntegration>
+            <DataIntegration />
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Accès réservé</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Accès libre</AggregatedDataAccess>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Une demande d'accès à des données plus détaillées peut être réalisée sur le site internet.</AccessConditions>
+                <DataInformationContact>
+                    <DIContactName>Thierry;BLANCHON</DIContactName>
+                    <DIContactMail>sentinelles@iplesp.upmc.fr</DIContactMail>
+                </DataInformationContact>
+            </UseStatement>
+            <VariableDictionnary>
+                <VariableDictionnaryAvailable>0</VariableDictionnaryAvailable>
+            </VariableDictionnary>
+        </DataAccess>
+        <RelatedDocument>
+            <DocumentLink>https://www.sentiweb.fr</DocumentLink>
+        </RelatedDocument>
+    </DataCollectionAccess>
+</FreshSchema>

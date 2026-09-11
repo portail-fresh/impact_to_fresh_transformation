@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml><status>success</status><dataset><id>41627</id><doi/><repositoryid>FReSH</repositoryid><type>survey</type><idno>FRESH-PEF200-fr</idno><title>Registre général des cancers de la région Poitou-Charentes (Registre qualifié 2013-2015)</title><year_start>2008</year_start><year_end>3000</year_end><nation>France</nation><authoring_entity>Pierre;INGRAND</authoring_entity><published>1</published><created_by>1</created_by><created>2026-02-18T18:21:51+00:00</created><changed>2026-02-18T18:21:51+00:00</changed><varcount/><total_views>31</total_views><total_downloads>0</total_downloads><formid/><data_access_type/><remote_data_url/><data_class_id/><data_class_code/><data_class_title/><thumbnail/><link_study>FRESH-PEF200</link_study><link_indicator>imported</link_indicator><link_report>pierre.ingrand@chu-poitiers.fr</link_report><link_technical>Pierre INGRAND</link_technical><metadata><doc_desc><title>Registre général des cancers de la région Poitou-Charentes (Registre qualifié 2013-2015)</title><idno>FRESH-PEF200-fr</idno><producers><producer><name>Pierre INGRAND</name><affiliation>UNIVERSITE DE POITIERS</affiliation></producer></producers></doc_desc><study_desc><title_statement><idno>FRESH-PEF200-fr</idno><IDno><metadata_no><item><agency>PEF</agency><code>200</code></item><item><agency>FReSH</agency><code>FRESH-PEF200</code></item></metadata_no></IDno><title>Registre général des cancers de la région Poitou-Charentes (Registre qualifié 2013-2015)</title><alternate_title/></title_statement><study_authorization><agency><item><name>CNIL</name></item></agency></study_authorization><authoring_entity><item><name>Pierre;INGRAND</name><firstname>Pierre</firstname><lastname>INGRAND</lastname><type>investigator</type><extlink><item><title>ROR</title><uri>https://ror.org/04xhy8q59</uri><role>organisation id</role></item><item><title>SIREN</title><uri>198608564</uri><role>organisation id</role></item></extlink><email>pierre.ingrand@chu-poitiers.fr</email><affiliationName>UNIVERSITE DE POITIERS</affiliationName><PILabo>Faculty of Medicine and Pharmacy at Poitiers Teaching Department / Cancer Epidemiology Unit</PILabo><isContact>1</isContact></item></authoring_entity><oth_id><item><name/></item></oth_id><production_statement><prod_place>Portail Epidémiologie France (PEF)</prod_place><producers><producer><name>UNIVERSITE DE POITIERS</name><extlink><item><title>ROR</title><uri>https://ror.org/04xhy8q59</uri><role>sponsor id</role></item><item><title>SIREN</title><uri>198608564</uri><role>sponsor id</role></item></extlink><role>sponsor</role></producer></producers><funding_agencies><funding_agency><name>INSTITUT NATIONAL DU CANCER (INCA)</name><extlink><item><title>ROR</title><uri>https://ror.org/03m8vkq32</uri></item><item><title>SIREN</title><uri>187512777</uri></item></extlink></funding_agency></funding_agencies></production_statement><distribution_statement><contact><item><name>Pierre;INGRAND</name><lastname>INGRAND</lastname><firstname>Pierre</firstname><type>contact</type><email>pierre.ingrand@chu-poitiers.fr</email><affiliationName>UNIVERSITE DE POITIERS</affiliationName><contactPointLabo/><extlink><item><uri>https://ror.org/04xhy8q59</uri><role>organisation id</role><title>ROR</title></item><item><uri>198608564</uri><role>organisation id</role><title>SIREN</title></item></extlink></item></contact></distribution_statement><study_info><keywords><keyword><keyword>Registre</keyword></keyword><keyword><keyword>santé publique</keyword></keyword><keyword><keyword>région</keyword></keyword></keywords><topics><topic><topic>Oncologie</topic><vocab>health theme</vocab><extLink><extlink><title>ESV</title><uri>http://data.europa.eu/8mn/euroscivoc/5784b7f1-c7ce-49d9-9f38-aebcda0ff41d</uri></extlink><extlink><title>MeSH</title><uri>http://id.nlm.nih.gov/mesh/D008495</uri></extlink></extLink></topic></topics><purpose>Objectifs du registre en termes de santé publique (surveillance, évaluation): Le registre a pour objectif de fournir des indicateurs de référence permettant de décrire la dynamique d’évolution des cancers (distribution, évolution et impact de la maladie selon les caractéristiques géographiques et démographiques de la population) et intervient dans l’évaluation de la prévention et du dépistage (en évaluant l’efficacité pratique des programmes mis en place) et dans l’évaluation des soins (par l’analyse des filières de soins empruntés par les patients, les déterminants du choix de mode de prise en charge diagnostique, la diffusion des recommandations de bonne pratique). Il jouera son rôle d’expert dans l’aide à l’évaluation des politiques publiques auprès de l’Agence Régionale de Santé (ARS), en collaboration avec les autres structures régionales (Réseau Onco Poitou-Charentes, Observatoire Régional de la Santé, structures de dépistage). Il participera à la production de statistiques nationales (FRANCIM) et internationales (CIRC). Objectifs du registre en termes de recherche: Deux axes de recherche sont privilégiés dans la continuité des travaux réalisés au sein de l’équipe de Santé Publique de Poitiers. 1) L’évaluation des déterminants de l’accès au dépistage (accès au dépistage des fratries des cas index incident) et l’évaluation des déterminants de l’accès aux soins (satisfaction des patients, accès aux plateaux techniques chirurgicaux et délais d’attente de radiothérapie). 2) La classification automatisée de l’information textuelle contenue dans les comptes rendus d’anatomie et de cytologie pathologiques informatisés (collaboration Université de Rennes 1).</purpose><abstract/><coll_dates><coll_date><start>2008-01-01</start><end>3000-01-01</end></coll_date></coll_dates><nation><item><name>France</name><abbreviation>fr</abbreviation><extLink><vocab>ISO</vocab><vocabURI>fr</vocabURI></extLink></item></nation><geog_coverage>['Nouvelle-Aquitaine']</geog_coverage><analysis_unit>Individus</analysis_unit><universe>{
+    "level_sex_clusion_I": [
+        {
+            "value": "Masculin",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D008297"
+            }
+        },
+        {
+            "value": "Féminin",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D005260"
+            }
+        }
+    ],
+    "level_age_clusion_I": [
+        {
+            "value": "Nouveau-né (naissance à 28j)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D007231"
+            }
+        },
+        {
+            "value": "Nourrisson (28j à 2 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D007223"
+            }
+        },
+        {
+            "value": "Petite enfance (2 à 5 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D002675"
+            }
+        },
+        {
+            "value": "Enfance (6 à 12 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D002648"
+            }
+        },
+        {
+            "value": "Adolescence (13 à 18 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D000293"
+            }
+        },
+        {
+            "value": "Adulte (19 à 24 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D055815"
+            }
+        },
+        {
+            "value": "Adulte (25 à 44 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D000328"
+            }
+        },
+        {
+            "value": "Adulte (45 à 64 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D008875"
+            }
+        },
+        {
+            "value": "Personne âgée (65 à 79 ans)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D000368"
+            }
+        },
+        {
+            "value": "Grand âge (80 ans et plus)",
+            "concept": {
+                "vocab": "MeSH",
+                "vocabURI": "http:\/\/id.nlm.nih.gov\/mesh\/D000369"
+            }
+        }
+    ],
+    "level_type_clusion_I": "Patients",
+    "level_type_clusion_other": "",
+    "clusion_I": "Tous les cas de tumeurs malignes invasives (hémopathies malignes et tumeurs solides en-dehors des carcinomes baso-cellulaires de la peau), les tumeurs in situ, les tumeurs borderline des ovaires, et les tumeurs bénignes ou d’évolution imprévisible du cerveau et de la vessie. Les adénomes avancés colorectaux font l’objet d’un enregistrement passif.",
+    "clusion_E": ""
+}</universe><data_kind>['Données cliniques','Données socio-démographiques']</data_kind><quality_statement><standards><standard><name/><committee/><governance/></standard></standards><other_quality_statement/></quality_statement></study_info><study_development><development_activity><item><activity_type>primary evaluation</activity_type><activity_description>Evénements de santé/morbidité</activity_description></item></development_activity></study_development><method><data_collection><time_method/><frequency/><sampling_procedure>['{"concept":{"vocabURI":"Other","vocab":"CESSDA"},"value":"Autre"}']</sampling_procedure><sample_frame><frame_unit><unit_type/></frame_unit></sample_frame><coll_mode><item>{"concept":{"vocabURI":"Transcription","vocab":"CESSDA"},"value":"Transcription et saisie d’informations dans un enregistrement structuré"}</item></coll_mode><research_instrument>Accès restreint sur projet spécifique</research_instrument><sources/><target_sample_size>[1000-10000[ individus</target_sample_size><response_rate>3 323 cancers invasifs / 217 carcinomes in situ</response_rate></data_collection><method_notes>Etude observationnelle</method_notes><study_class>Inconnu</study_class><notes><note><subject>research type</subject><values><value>Etude observationnelle</value></values></note><note><subject>observational study method</subject><values><value>Registre de morbidité</value></values></note></notes></method><data_access><dataset_availability><access_place/><complete/><status>{"value":"Accès réservé","extLink":[{"title":"COAR","uri":"http://purl.org/coar/access_right/c_16ec"}]}</status></dataset_availability><dataset_use><restrictions/><conditions>Contacter le responsable scientifique</conditions><conf_dec><item><txt/></item></conf_dec><spec_perm><item><txt/><required/></item></spec_perm><contact><item><name/></item></contact><deposit_req/><cit_req/></dataset_use><notes/></data_access></study_desc><additional><IsImport>1</IsImport><versionLang>fr</versionLang><originLang>fr</originLang><autoTranslation>0</autoTranslation><status>imported</status><creationDate>20-12-2010</creationDate><lastUpdatedAuto/><lastUpdatedManual>05-07-2016</lastUpdatedManual><isContributorPI>0</isContributorPI><contributorName/><contributorAffiliation/><addTeamMember/><contactEmail><export>0</export><value>Oui</value></contactEmail><obtainedAuthorization><otherAuthorizingAgency><otherauthorizingagency/></otherAuthorizingAgency></obtainedAuthorization><relatedDocument><relateddocument><type/><title>Liste des publications dans Pubmed</title><link>http://tinyurl.com/PUBMED-PCCR</link></relateddocument></relatedDocument><regulatoryRequirements><conformityDeclaration/></regulatoryRequirements><fundingAgent><fundingAgentType><fundingagenttype>Public (France)</fundingagenttype></fundingAgentType><otherFundingAgentType><otherfundingagenttype/></otherFundingAgentType></fundingAgent><sponsor><sponsorType><sponsortype>Public (France)</sponsortype></sponsorType><otherSponsorType><othersponsortype/></otherSponsorType></sponsor><governance><committee/></governance><collaborations><networkConsortium/></collaborations><theme><complementaryInformation/><RareDiseases/></theme><activeFollowUp><isActiveFollowUp>1</isActiveFollowUp><followUpModeOther/></activeFollowUp><interventionalStudy><researchPurpose/><trialPhase/><interventionalStudyModel/><isClinicalTrial/><otherResearchPurpose/></interventionalStudy><isInclusionGroups/><allocation><allocationMode/><allocationUnit/></allocation><masking><maskingType/><blindedMaskingDetails/></masking><arms/><intervention/><inclusionGroups/><collectionProcess><collectionModeDetails>Recueil informatique crypté (actif ou passif) des cas éligibles dans les Structures d’anatomie et de cytologies pathologiques, les Services d’information médicale des établissements de santé (PMSI), les Services médicaux de l’Assurance Maladie (ALD).Recueil informatique (actif) des fiches du Réseau de Cancérologie Onco Poitou-CharentesRecueil actif (retour au dossier médical) dans les établissements de santé (services cliniques ou archives)Recueil pour identification des fuites extrarégionales et contrôle de l’exhaustivité des données de la Base régionale PMSI domiciliéeRecueil informatique crypté passif des cas enregistrés par l’EPC (Enquête Permanente Cancer)</collectionModeDetails><collectionModeOther/></collectionProcess><dataCollection><inclusionStrategyOther/><samplingModeOther/><recruitmentSourceOther/><otherDocumentation/></dataCollection><dataCollectionIntegration><isDataIntegration>0</isDataIntegration></dataCollectionIntegration><geographicalCoverage><geoDetail>Région Poitou-Charentes, soit quatre départements : 16 Charente, 17 Charente-Maritime, 79 Deux-Sèvres et 86 Vienne</geoDetail></geographicalCoverage><dataTypes><clinicalDataDetails/><biologicalDataDetails/><isDataInBiobank>0</isDataInBiobank><biobankContent/><biobankContentOther/><dataTypeOther/></dataTypes><variableDictionnary><variableDictionnaryAvailable/><variableDictionnaryLink/></variableDictionnary><dataQuality><otherDocumentation/></dataQuality><mockSample><mockSampleAvailable/><mockSampleLocation/></mockSample><thirdPartySource><otherSourceType/></thirdPartySource><universe><export>0</export><sexe><item>Masculin</item><item>Féminin</item></sexe><level_age_clusion_I><level_age_clusion_i>Nouveau-né (naissance à 28j)</level_age_clusion_i><level_age_clusion_i>Nourrisson (28j à 2 ans)</level_age_clusion_i><level_age_clusion_i>Petite enfance (2 à 5 ans)</level_age_clusion_i><level_age_clusion_i>Enfance (6 à 12 ans)</level_age_clusion_i><level_age_clusion_i>Adolescence (13 à 18 ans)</level_age_clusion_i><level_age_clusion_i>Adulte (19 à 24 ans)</level_age_clusion_i><level_age_clusion_i>Adulte (25 à 44 ans)</level_age_clusion_i><level_age_clusion_i>Adulte (45 à 64 ans)</level_age_clusion_i><level_age_clusion_i>Personne âgée (65 à 79 ans)</level_age_clusion_i><level_age_clusion_i>Grand âge (80 ans et plus)</level_age_clusion_i></level_age_clusion_I><level_type_clusion_I>Patients</level_type_clusion_I><type_inclusion_autre/><clusion_I>Tous les cas de tumeurs malignes invasives (hémopathies malignes et tumeurs solides en-dehors des carcinomes baso-cellulaires de la peau), les tumeurs in situ, les tumeurs borderline des ovaires, et les tumeurs bénignes ou d’évolution imprévisible du cerveau et de la vessie. Les adénomes avancés colorectaux font l’objet d’un enregistrement passif.</clusion_I><clusion_E/></universe><observationalStudy><export>0</export><values>Registre de morbidité</values></observationalStudy><avlStatus><export>0</export><values>Accès réservé</values></avlStatus><geogCoverage><export>0</export><values><value>Nouvelle-Aquitaine</value></values></geogCoverage><dataKind><export>0</export><values><value>Données cliniques</value><value>Données socio-démographiques</value></values></dataKind><sourceOrigine><export>0</export><values>Non applicable</values></sourceOrigine><researchType><export>0</export><values>Etude observationnelle</values></researchType><collectionStartDate><export>0</export><values>2008-01-01</values></collectionStartDate><collectionEndDate><export>0</export><values>3000-01-01</values></collectionEndDate><targetSampleSize><export>0</export><values>[1000-10000[ individus</values></targetSampleSize><topicsHealthTheme><export>0</export><values><value>Oncologie</value></values></topicsHealthTheme><topicsHealthDeterminant><export>0</export><values>Non renseigné</values></topicsHealthDeterminant><age><export>0</export><values><value>Nouveau-né (naissance à 28j)</value><value>Nourrisson (28j à 2 ans)</value><value>Petite enfance (2 à 5 ans)</value><value>Enfance (6 à 12 ans)</value><value>Adolescence (13 à 18 ans)</value><value>Adulte (19 à 24 ans)</value><value>Adulte (25 à 44 ans)</value><value>Adulte (45 à 64 ans)</value><value>Personne âgée (65 à 79 ans)</value><value>Grand âge (80 ans et plus)</value></values></age><sex><export>0</export><values><value>Masculin</value><value>Féminin</value></values></sex><populationType><export>0</export><values>Patients</values></populationType><specPermRequired><export>0</export><values>Non renseigné</values></specPermRequired><prodPlace><export>0</export><values>Portail Epidémiologie France (PEF)</values></prodPlace><sponsorName><export>0</export><values><value>UNIVERSITE DE POITIERS</value></values></sponsorName><sponsorType><export>0</export><values><value>Public (France)</value></values></sponsorType><isHealthTheme>1</isHealthTheme><trialPhase><export>0</export><values>Non renseigné</values></trialPhase><allocationMode><export>0</export><values>Non renseigné</values></allocationMode><rareDiseases><export>0</export><values>Non renseigné</values></rareDiseases><fileDscr><fileTxt><fileCitation><titlStmt><IDno/></titlStmt></fileCitation></fileTxt></fileDscr></additional><schematype>survey</schematype></metadata></dataset></xml>

@@ -1,0 +1,940 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="en">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>43661</Identifier>
+        </StudyId>
+        <VersionLang>en</VersionLang>
+        <OriginLang>
+            <value>English</value>
+        </OriginLang>
+        <CreationDate>2026-07-06</CreationDate>
+        <LastUpdatedAuto>2026-07-09</LastUpdatedAuto>
+        <LastUpdatedManual>2026-07-09</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Awaiting validation</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Karmene Souyris</ContributorName>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>A database for in-depth phenotyping of craniofacial anomalies during development. FACE and SKULL for Key Innovative Data Science.</Title>
+            <Acronym>FACE.S-4-KIDS</Acronym>
+            <StudyStatus>
+                <value>Ongoing study</value>
+            </StudyStatus>
+            <Purpose>To characterize the genotypic and phenotypic components of variability in rare genetic disorders involving craniofacial developmental abnormalities.</Purpose>
+            <Summary>A large number of rare genetic disorders share the common feature of craniofacial developmental abnormalities (more than 2,100), regardless of their specific manifestations
+
+manifestations of the disease. Syndromology and dysmorphology aim to establish accurate diagnoses through a simple and immediate clinical analysis: the examination of craniofacial physical characteristics. The validity of these approaches is supported by the large number of relevant genetic diagnoses and by confirmation of their genetic origin. However, several observations suggest that this approach is reaching its limits, due to three main factors:
+
+1. epidemiological, with a growing number of syndromes identified through next-generation sequencing (NGS), all of which are rare; 2. scientific, involving phenotypic variability within a single genotype; 3. academic, presenting the challenge of teaching these clinical skills, which are possessed by only a few specialists.
+
+
+
+The clinical characterization of “head and neck” phenotypes is therefore a major challenge in light of the primary scientific issue: significant variability in expression. This variability is observed not only among affected individuals within the same family, but also over time in the same person.
+
+FACE.S-4-KIDS is an ambitious database project addressing the scientific issue of the variable presentation of craniofacial disorders, with the goal of achieving optimal clinical management (diagnosis, prognosis) and personalized treatment plans.
+
+FACE.S-4-KIDS draws on large cohorts of well-characterized and genotyped patients, expert departments specializing in craniofacial malformations (medical, surgical, and imaging), as well as basic science laboratories, all located at a single site. For years, they have been generating vast amounts of data (patient records, imaging, photographs, genomic data, and animal and cellular models).
+
+
+
+FACE.S-4-KIDS has selected four prototypical malformations, characterized by craniofacial features, that encapsulate the various ontological, embryological, and anatomical questions raised:
+
+- craniostenoses associated with FGFR signaling (Crouzon, Pfeiffer, Apert, and Muenke syndromes),
+
+- achondroplasia / hypochondroplasia,
+
+- osteogenesis imperfecta,
+
+- dental anomalies, cleft palates, and Pierre Robin sequences,
+
+Each raises specific scientific questions related to variability.
+
+
+
+By bringing together the multidisciplinary expertise of Imagine’s research teams—Molecular and Pathophysiological Bases of Osteochondrodysplasia, Embryology and Genetics of Malformations, and the Clinical Bioinformatics Laboratory with the Data Science Platform—and by collaborating with 8 CRMRs, 3 national networks, and 1 ERN, we aim to address fundamental questions—both collective and specific to each archetype—related to variable expression: the origins of unpredictable outcomes following surgical treatment for FGFR-related craniosynostoses; the relationship between phenotype and severity in achondroplasia; the links between dental and skeletal phenotypes in osteogenesis imperfecta, and the predictive factors for functional and cognitive outcomes in cleft palate or Robin sequence.</Summary>
+            <Keyword>craniofacial</Keyword>
+            <Keyword>malformation</Keyword>
+            <Keyword>craniostenosis</Keyword>
+            <Keyword>achondroplasia</Keyword>
+            <Keyword>hypochondroplasia</Keyword>
+            <Keyword>Osteogenesis Imperfecta</Keyword>
+            <Keyword>Pierre Robin</Keyword>
+            <Keyword>cleft palate</Keyword>
+            <Keyword>osteochondrodysplasia</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Dentistry</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/5754a839-d714-4849-9789-e831eb4af6f1</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Medical genetics</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/8e2d297f-5880-4d7a-969d-79026aa0779c</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Paediatrics</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/bf8aaaac-ddee-41cd-bb8a-c5a63de3fcbd</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Surgery</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/432746d6-998b-431f-b22f-d3abe0e8aada</URI>
+            </HealthTheme>
+            <HealthDeterminant>
+                <value>Healthcare system determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Healthcare system determinants: Quality of care</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Biological determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Biological determinants: Genetic predisposition</value>
+            </HealthDeterminant>
+            <Pathology>
+                <value>Osteogenesis imperfecta</value>
+                <URI>http://id.who.int/icd/entity/1219932551</URI>
+            </Pathology>
+            <Pathology>
+                <value>Achondroplasia</value>
+                <URI>http://id.who.int/icd/entity/24224082</URI>
+            </Pathology>
+            <Pathology>
+                <value>Hypochondroplasia</value>
+                <URI>http://id.who.int/icd/entity/1930265486</URI>
+            </Pathology>
+            <Pathology>
+                <value>Pierre Robin syndrome</value>
+                <URI>http://id.who.int/icd/entity/136361299</URI>
+            </Pathology>
+            <Pathology>
+                <value>Muenke syndrome</value>
+                <URI>http://id.who.int/icd/entity/1860572017</URI>
+            </Pathology>
+            <Pathology>
+                <value>Apert syndrome</value>
+                <URI>http://id.who.int/icd/entity/1962779847</URI>
+            </Pathology>
+            <Pathology>
+                <value>Pfeiffer syndrome</value>
+                <URI>http://id.who.int/icd/entity/1075159878</URI>
+            </Pathology>
+            <Pathology>
+                <value>Crouzon disease</value>
+                <URI>http://id.who.int/icd/entity/1535725821</URI>
+            </Pathology>
+            <RareDiseases>1</RareDiseases>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients population</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Female</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Sex>
+                    <value>Male</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Age>
+                    <value>Infant, Newborn (birth to 28 days)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007231</URI>
+                </Age>
+                <Age>
+                    <value>Infant (28 days to 2 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007223</URI>
+                </Age>
+                <Age>
+                    <value>Child, Preschool (2 to 5 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002675</URI>
+                </Age>
+                <Age>
+                    <value>Child (6 to 12 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002648</URI>
+                </Age>
+                <Age>
+                    <value>Adolescent (13 to 18 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000293</URI>
+                </Age>
+                <Age>
+                    <value>Young Adult (19 to 24 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D055815</URI>
+                </Age>
+                <Age>
+                    <value>Adult (25 to 44 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>1) Patients with one of the following conditions: craniostenosis associated with FGFR signaling, OR achondroplasia/hypochondroplasia, OR osteogenesis imperfecta, OR Pierre Robin sequence
+
+2) Patients who may or may not have undergone genome sequencing as part of their care and who (or their legal guardians, if applicable) have consented to the storage of leftover biological samples in one of the following collections: Chondrodysplasia and Craniosynostosis, Constitutional Bone Disorders, Developmental Anomalies
+
+3) Patients who underwent craniofacial imaging (CT or MRI) as part of their care</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <FranceRegion>
+                    <value>Ile-de-France</value>
+                    <URI>FR-IDF</URI>
+                </FranceRegion>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <RegulatoryRequirements>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CNIL</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+        </RegulatoryRequirements>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Stanislas;LYONNET</PIName>
+            <PIMail>stanislas.lyonnet@institutimagine.org</PIMail>
+            <PIORCID>0000-0001-5426-9417</PIORCID>
+            <PIIdRef>092296521</PIIdRef>
+            <PIAffiliation>
+                <OrganisationName>INSTITUT IMAGINE</OrganisationName>
+                <PILabo>Department of Medical Genetics - APHP Necker-Enfants Malades</PILabo>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <AddTeamMember>1</AddTeamMember>
+        <TeamMember>
+            <TeamMemberName>Véronique;ABADIE</TeamMemberName>
+            <TeamMemberORCID>0000-0002-3525-1921</TeamMemberORCID>
+            <TeamMemberIdRef>069751641</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>1</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Jeanne;AMIEL</TeamMemberName>
+            <TeamMemberORCID>0000-0001-5973-4728</TeamMemberORCID>
+            <TeamMemberIdRef>123444845</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>1</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Geneviève;BAUJAT</TeamMemberName>
+            <TeamMemberORCID>0000-0001-7435-0298</TeamMemberORCID>
+            <TeamMemberIdRef>176562842</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>1</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Valérie;CORMIER DAIRE</TeamMemberName>
+            <TeamMemberORCID>0000-0002-2839-9856</TeamMemberORCID>
+            <TeamMemberIdRef>070209227</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>1</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Nicolas;GARCELON</TeamMemberName>
+            <TeamMemberORCID>0000-0002-3326-2811</TeamMemberORCID>
+            <TeamMemberIdRef>234179031</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>INSTITUT IMAGINE</OrganisationName>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>0</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Roman Hossein;KHONSARI</TeamMemberName>
+            <TeamMemberORCID>0000-0002-0649-1432</TeamMemberORCID>
+            <TeamMemberIdRef>112346871</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>1</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Laurence;LEGEAI MALLET</TeamMemberName>
+            <TeamMemberORCID>0000-0003-4989-5856</TeamMemberORCID>
+            <TeamMemberIdRef>144408023</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>0</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Antonio;RAUSSEL</TeamMemberName>
+            <TeamMemberORCID>0000-0002-4832-6101</TeamMemberORCID>
+            <TeamMemberIdRef>231982143</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>INSTITUT IMAGINE</OrganisationName>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>0</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>Lisa;FRIEDLANDER</TeamMemberName>
+            <TeamMemberORCID>0000-0003-3056-3624</TeamMemberORCID>
+            <TeamMemberIdRef>129051705</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>1</IsTeamMemberContact>
+        </TeamMember>
+        <TeamMember>
+            <TeamMemberName>martin;BIOSSE DUPLAN</TeamMemberName>
+            <TeamMemberORCID>0000-0001-9417-3970</TeamMemberORCID>
+            <TeamMemberIdRef>09031977X</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>0</IsTeamMemberContact>
+        </TeamMember>
+        <ContactPoint>
+            <ContactName>Stanislas;LYONNET</ContactName>
+            <EMail>stanislas.lyonnet@institutimagine.org</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT IMAGINE</OrganisationName>
+                <ContactPointLabo>Department of Medical Genetics - APHP Necker-Enfants Malades</ContactPointLabo>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Véronique;ABADIE</ContactName>
+            <EMail>veronique.abadie@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Jeanne;AMIEL</ContactName>
+            <EMail>jeanne.amiel@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Geneviève;BAUJAT</ContactName>
+            <EMail>genevieve.baujat@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Valérie;CORMIER DAIRE</ContactName>
+            <EMail>valerie.cormier-daire@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Roman Hossein;KHONSARI</ContactName>
+            <EMail>roman.khonsari@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Lisa;FRIEDLANDER</ContactName>
+            <EMail>lisa.friedlander@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Véronique;ABADIE</ContactName>
+            <EMail>veronique.abadie@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Jeanne;AMIEL</ContactName>
+            <EMail>jeanne.amiel@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Geneviève;BAUJAT</ContactName>
+            <EMail>genevieve.baujat@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Valérie;CORMIER DAIRE</ContactName>
+            <EMail>valerie.cormier-daire@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Roman Hossein;KHONSARI</ContactName>
+            <EMail>roman.khonsari@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Lisa;FRIEDLANDER</ContactName>
+            <EMail>lisa.friedlander@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Véronique;ABADIE</ContactName>
+            <EMail>veronique.abadie@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Jeanne;AMIEL</ContactName>
+            <EMail>jeanne.amiel@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Geneviève;BAUJAT</ContactName>
+            <EMail>genevieve.baujat@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Valérie;CORMIER DAIRE</ContactName>
+            <EMail>valerie.cormier-daire@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Roman Hossein;KHONSARI</ContactName>
+            <EMail>roman.khonsari@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Lisa;FRIEDLANDER</ContactName>
+            <EMail>lisa.friedlander@aphp.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>ASSISTANCE PUBLIQUE HOPITAUX DE PARIS (AP-HP)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>267500452</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00pg5jh14</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>AGENCE NATIONALE DE LA RECHERCHE (ANR)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>130002504</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/00rbzpz17</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>INSTITUT IMAGINE</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+            </Sponsor>
+            <Governance>
+                <Committee>0</Committee>
+            </Governance>
+            <Collaborations>
+                <NetworkConsortium>1</NetworkConsortium>
+                <CollaborationsDetails>France Cohortes. The data and metadata will be stored on the France Cohortes information system, which is based on an infrastructure hosted in an HDS-certified environment. Access to the data is subject to authorization by the project coordinator. France Cohortes guarantees the implementation of a secure, internet-isolated environment containing statistical and analytical software for users.</CollaborationsDetails>
+            </Collaborations>
+        </OrganisationGovernance>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individus</AnalysisUnit>
+        <ResearchType>
+            <value>Observational Study</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Cohort study</value>
+            </ObservationalStudyDesign>
+            <TimePerspective>
+                <value>Retrospective longitudinal</value>
+            </TimePerspective>
+            <IsInclusionGroups>0</IsInclusionGroups>
+            <Intervention>
+                <InterventionName>Craniofacial Developmental Anomaly</InterventionName>
+                <InterventionType>
+                    <value>Genetic</value>
+                </InterventionType>
+            </Intervention>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Patient with a confirmed diagnosis of craniosynostosis (FGFR-related), osteogenesis imperfecta, achondroplasia/hypochondroplasia, or Pierre Robin syndrome</PrimaryOutcomes>
+            <SecondaryOutcomes>Patient who has undergone genotyping and for whom imaging data is available</SecondaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>[1000-10000[ individuals</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>1500</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2026-04-08</CollectionStart>
+                <CollectionEnd>2028-04-08</CollectionEnd>
+                <CollectionFrequency>The frequency varies depending on the patient's condition among the 4 selected by FACES4KIDS. Currently, 25 per month</CollectionFrequency>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Converting or copying information into a structured record</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Non-probability</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/4d8364f</URI>
+                    </SamplingMode>
+                    <SamplingMode>
+                        <value>Non-probability: Availability ("convenience" or "opportunity" sampling)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/90cbfe9</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Through organizations (health services or institutions, schools, businesses, etc.)</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>0</IsActiveFollowUp>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Clinical data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Biological data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Genetic / genomic data</value>
+                    </DataType>
+                    <ClinicalDataDetails>Medical history, family history, growth parameters, phenotype, surgical procedures, medical treatments, tests, dentistry</ClinicalDataDetails>
+                    <BiologicalDataDetails>Blood tests (osteocalcin, calcium); Urinalysis (calcium-to-creatinine ratio)</BiologicalDataDetails>
+                    <isDataInBiobank>0</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>1</IsDataIntegration>
+            <DataIntegration>
+                <ConformityDeclaration>
+                    <value>MR-004</value>
+                </ConformityDeclaration>
+                <ThirdPartySource>
+                    <SourceName>Accessing Patient Medical Records</SourceName>
+                    <SourceId>ORBIS App</SourceId>
+                    <SourceType>
+                        <value>Clinical source: Clinical record</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Data enrichment through cross-referencing</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+                <ThirdPartySource>
+                    <SourceName>Data extracted from the medical records databases of the various hospital departments participating in the study</SourceName>
+                    <SourceId>Necker Healthcare Database</SourceId>
+                    <SourceType>
+                        <value>Clinical source: Clinical record</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Adding individuals</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+                <ThirdPartySource>
+                    <SourceName>Data extracted from the medical records databases of the various hospital departments participating in the study</SourceName>
+                    <SourceId>Necker Healthcare Database</SourceId>
+                    <SourceType>
+                        <value>Medico-administrative database</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Adding individuals</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+            </DataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataQuality>
+                <UsedStandards>HPO (Human Phenotype Ontology); ATC (Anatomical Therapeutic Chemical Classification System); HGNC (HUGO Gene Nomenclature Committee)</UsedStandards>
+            </DataQuality>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Restricted access</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>The data will be hosted on the France Cohortes information system. Requests for access to the data must be approved by the cohort’s governance body. Once access to the data has been granted, the user can access the secure environment set up by France Cohortes, which contains the data extract and the analysis software.</AggregatedDataAccess>
+                <DataAccessRequestTool>
+                    <DataAccessRequestToolAvailable>1</DataAccessRequestToolAvailable>
+                </DataAccessRequestTool>
+                <DataLocation>Current storage on the Imagine Institute's servers prior to migration to France Cohorts</DataLocation>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Validation by the cohort's governing body.</AccessConditions>
+                <DataInformationContact>
+                    <DIContactName>Stanislas;LYONNET</DIContactName>
+                    <DIContactMail>stanislas.lyonnet@institutimagine.org</DIContactMail>
+                </DataInformationContact>
+                <DataInformationContact>
+                    <DIContactName>Karmène;SOUYRIS</DIContactName>
+                    <DIContactMail>karmene.souyris@institutimagine.org</DIContactMail>
+                </DataInformationContact>
+                <DataInformationContact>
+                    <DIContactName>Fatima;MADANI ALAOUI</DIContactName>
+                    <DIContactMail>fatima.madani-alaoui@institutimagine.org</DIContactMail>
+                </DataInformationContact>
+            </UseStatement>
+            <DataCitation>
+                <DataCitationStatement>Citation required: Frances Cohortes, Imagine Institute</DataCitationStatement>
+            </DataCitation>
+            <VariableDictionnary>
+                <VariableDictionnaryAvailable>1</VariableDictionnaryAvailable>
+            </VariableDictionnary>
+            <MockSample>
+                <MockSampleAvailable>0</MockSampleAvailable>
+            </MockSample>
+        </DataAccess>
+    </DataCollectionAccess>
+</FreshSchema>

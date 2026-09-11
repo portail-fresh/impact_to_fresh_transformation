@@ -1,0 +1,1 @@
+Le fichier XML généré est 100% conforme au schéma XSD !
