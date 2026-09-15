@@ -17,6 +17,7 @@ import csv
 import glob
 import io
 import os
+import re
 import sys
 import time
 from contextlib import redirect_stdout
@@ -48,6 +49,15 @@ INTERVENTIONAL_SIGNALS = {
 }
 
 RESEARCH_TYPE = "/xml/dataset/metadata/additional/researchType/values"
+
+# xmlschema cite le noeud fautif via son repr Python, adresse memoire comprise.
+# Sans neutralisation, deux echecs identiques paraissent differents et le
+# regroupement par motif ne regroupe rien.
+_ADRESSE = re.compile(r" at 0x[0-9A-Fa-f]+")
+
+
+def sans_adresse(message):
+    return _ADRESSE.sub("", message)
 
 
 def texts(tree, xpath):
@@ -288,7 +298,7 @@ def section_vocabularies(paths, validate):
     per_field = collections.Counter()
     examples = collections.defaultdict(collections.Counter)
     crashed, valid, invalid = [], 0, 0
-    validation_errors = []
+    failures = []
     started = time.time()
 
     for index, path in enumerate(paths, 1):
@@ -310,16 +320,22 @@ def section_vocabularies(paths, validate):
         if schema is not None:
             # builder.py construit avec xml.etree (bibliothèque standard), pas
             # avec lxml : sérialiser via lxml lève "cannot be serialized".
+            payload = stdET.tostring(root, encoding="unicode")
             try:
-                payload = stdET.tostring(root, encoding="unicode")
-                if schema.is_valid(io.StringIO(payload)):
-                    valid += 1
-                else:
-                    invalid += 1
+                # validate(), surtout pas is_valid() : ce dernier valide en mode
+                # laxiste et accepte aussi bien une balise inventée qu'un ordre
+                # de balises cassé -- vérifié, il répondait "valide" sur un
+                # fichier délibérément corrompu. C'est le piège que signale déjà
+                # le commentaire de src/validator.py, et il donnait ici un taux
+                # de conformité de 100 % qui ne mesurait rien.
+                schema.validate(io.StringIO(payload))
+                valid += 1
+            except xmlschema.XMLSchemaValidationError as exc:
+                invalid += 1
+                failures.append((os.path.basename(path), sans_adresse(str(exc).splitlines()[0])[:150]))
             except Exception as exc:
                 invalid += 1
-                if len(validation_errors) < 5:
-                    validation_errors.append((os.path.basename(path), str(exc)[:120]))
+                failures.append((os.path.basename(path), f"[erreur inattendue] {str(exc)[:120]}"))
 
     print(f"\n{len(paths) - len(crashed)} fichiers traites, {len(crashed)} plantages")
     for name, message in crashed[:10]:
@@ -329,8 +345,24 @@ def section_vocabularies(paths, validate):
         total = valid + invalid
         rate = 100 * valid / total if total else 0
         print(f"\n--- CONFORMITE XSD : {valid} valides / {total}  ({rate:.1f}%) ---")
-        for name, message in validation_errors:
-            print(f"    erreur inattendue sur {name} : {message}")
+        if failures:
+            # Cette liste remplace les journaux de validation qu'il fallait
+            # demander a Remy : elle dit exactement quelles etudes echouent,
+            # donc lesquelles doivent entrer dans le jeu de fixtures.
+            print(f"\n--- LES {len(failures)} FICHIERS NON CONFORMES ---")
+            motifs = collections.Counter()
+            for name, message in failures:
+                motifs[message[:110]] += 1
+            print("\n  Motifs d'echec les plus frequents :")
+            for motif, n in motifs.most_common(10):
+                print(f"    {n:5}  {motif}")
+            print("\n  Liste complete :")
+            for name, message in failures:
+                print(f"    {name}")
+            with open("fichiers_non_conformes.txt", "w", encoding="utf-8") as f:
+                for name, message in failures:
+                    f.write(f"{name}\t{message}\n")
+            print("\n  (liste aussi ecrite dans fichiers_non_conformes.txt)")
 
     print(f"\n--- Champs avec des valeurs non resolues ({len(per_field)}) ---")
     for field, count in per_field.most_common():
