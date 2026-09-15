@@ -48,12 +48,17 @@ def detect_traits(path):
 
     # --- Listes parallèles appariées par position (builder.py étapes 2.5 / 10) ---
     funders = tree.xpath("/xml/dataset/metadata/study_desc/production_statement/funding_agencies/funding_agency")
-    funder_types = _texts(tree, "/xml/dataset/metadata/additional/fundingAgent/fundingAgentType/fundingagenttype")
+    # Compter les ÉLÉMENTS, pas les valeurs non vides : la source émet un
+    # emplacement de type par financeur, vide compris, et ce vide tient la
+    # position (c'est la raison d'être de _extract_text_keep_blanks dans
+    # run_pipeline.py). Compter les non-vides signalait un décalage là où
+    # l'appariement est correct.
+    funder_types = tree.xpath("/xml/dataset/metadata/additional/fundingAgent/fundingAgentType/fundingagenttype")
     if len(funders) > 1:
         traits.add("multi_funder")
     if funders and len(funder_types) != len(funders):
         traits.add("funder_type_desync")
-        notes.append(f"{len(funders)} financeurs / {len(funder_types)} types")
+        notes.append(f"{len(funders)} financeurs / {len(funder_types)} emplacements de type")
 
     sponsors = tree.xpath("/xml/dataset/metadata/study_desc/production_statement/producers/producer")
     if len(sponsors) > 1:
