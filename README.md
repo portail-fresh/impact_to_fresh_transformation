@@ -146,11 +146,34 @@ Use it before assuming a mapping rule is dead: a rule that never fires because
 the case does not occur is not the same thing as a rule looking in the wrong
 place, and this is how you tell them apart.
 
-### `docs/arbitrage_vocabulaires.md`
+### `detecter_listes_aplaties.py` — free-text fields that are really a closed list
 
-Not a tool — the decision document for the ~1,900 values that resolve to no
-controlled-vocabulary term, sorted by what deciding costs rather than by
-volume. It is addressed to whoever owns the vocabularies.
+```bash
+python tests/detecter_listes_aplaties.py --data-dir data/input
+```
+
+A field with a controlled vocabulary comes out carrying its identifier; a plain
+text field comes out carrying nothing, and so cannot be aligned to
+HealthDCAT-AP — even when its content is, in practice, a term picked from a
+dropdown. `PrimaryOutcomes` is the clearest case: free text on the FReSH side,
+but only four distinct values across the test corpus.
+
+The script separates them by repetition: real free text produces long, mostly
+unique values; a flattened list produces short values that recur verbatim
+between records. Booleans, dates, e-mails and identifiers are excluded. It
+yields candidates to check, not a verdict — read its docstring for the
+thresholds.
+
+### The two documents in `docs/`
+
+Neither is a tool.
+
+- `docs/arbitrage_vocabulaires.md` — the decision document for the ~1,900 values
+  that resolve to no controlled-vocabulary term, sorted by what deciding costs
+  rather than by volume. Addressed to whoever owns the vocabularies.
+- `docs/pistes_ouvertes.md` — open leads, each stating what is measured, what is
+  assumed, and the command that settles it. Read this first when picking the
+  work back up.
 
 ## 5. How the pipeline works (for whoever takes this over)
 
@@ -204,6 +227,8 @@ don't change it; see section 4 for how to use them):
 - `tests/rapport_qualite.py` — aggregates what the pipeline had to repair,
   for curation.
 - `tests/inspect_field.py` — distinct values of one source XPath, with counts.
+- `tests/detecter_listes_aplaties.py` — text fields that in fact carry a
+  closed list.
 
 **Not live — leftover from an earlier, flatter version of the pipeline.**
 Nothing in `run_pipeline*.py` or `src/builder.py` imports these; don't lose
