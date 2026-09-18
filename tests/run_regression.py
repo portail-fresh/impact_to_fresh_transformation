@@ -46,8 +46,17 @@ CRASH_MARKER = "_CRASH.txt"
 # harness would cry wolf until nobody reads it any more.
 _MEMORY_ADDRESS = re.compile(r" at 0x[0-9A-Fa-f]+")
 
+# Les fiches source contiennent des retours chariot encodes (&#13;) au milieu du
+# texte libre. Selon le systeme, ils ressortent comme une ligne vide ou comme un
+# simple saut de ligne : une reference gelee sous Windows affichait 5 ecarts
+# fantomes rejouee sous Linux. On ramene toutes les fins de ligne a "\n" avant de
+# comparer, pour que le harnais dise la meme chose partout -- sinon il crie au
+# loup chez le premier collegue qui le lance.
+_FINS_DE_LIGNE = re.compile(r"\r\n?")
+
 
 def normalise(content):
+    content = _FINS_DE_LIGNE.sub("\n", content)
     return _MEMORY_ADDRESS.sub(" at 0xADDR", content)
 
 

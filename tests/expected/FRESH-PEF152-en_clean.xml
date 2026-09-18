@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="en">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF152</Identifier>
+        </StudyId>
+        <VersionLang>en</VersionLang>
+        <OriginLang>
+            <value>English</value>
+        </OriginLang>
+        <CreationDate>2026-02-18</CreationDate>
+        <LastUpdatedManual>2020-01-01</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Imported</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Christel LECLERC-ZWIRN</ContributorName>
+            <ContributorAffiliation>GLAXOSMITHKLINE (FRANCE)</ContributorAffiliation>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Influenza burden assessment in adults aged of 65 years and more visiting a general practitioner for acute respiratory illness in France</Title>
+            <Acronym>EFG Senior</Acronym>
+            <StudyStatus>
+                <value>Unknown</value>
+            </StudyStatus>
+            <Purpose>Describe and compare the burden of acute respiratory infections (IRA) linked to influenza virus, in terms of morbidity and medical consumption, according to the vaccinal status, in those 65 years and older spontaneously consulting in general practice</Purpose>
+            <Keyword>elderly subjects</Keyword>
+            <Keyword>epidemiology</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Pulmonary medicine</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/f6e18c52-6087-4662-904c-5c4b8174e40e</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Infectious disease medicine</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/fa2ceeab-3b2f-45e9-9243-e5a8005b98de</URI>
+            </HealthTheme>
+            <HealthDeterminant>
+                <value>Healthcare system determinants: Use of care</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Healthcare system determinants</value>
+            </HealthDeterminant>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients population</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Male</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Sex>
+                    <value>Female</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Age>
+                    <value>Aged (65 to 79 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+                <Age>
+                    <value>Aged, 80 and over (80 years and more)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000369</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>• Patient aged 65 years or older • Patient having an acute respiratory infection defined as a clinical presentation combining the abrupt appearance of respiratory signs (coughing, rhinitis, coryza) in the context of acute infection (fever, asthenia, headache, myalgia, etc.), in less than 48h.  • For patients 80 years and older, the clinical presentations can associate other general signs (mental confusion, dehydration, anorexia, digestive disorders, general malaise, body aches, headache) and respiratory signs (from rhinitis to pneumopathy)</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <GeoDetail>France</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Christel;LECLERC-ZWIRN</PIName>
+            <PIMail>christel.c.leclerc-zwirn@gsk.com</PIMail>
+            <PIAffiliation>
+                <OrganisationName>GLAXOSMITHKLINE (FRANCE)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00z1h3j87</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>592052146</URI>
+                </OrganisationPID>
+                <PILabo>Laboratoire GSK</PILabo>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <ContactPoint>
+            <ContactName>Christel;LECLERC-ZWIRN</ContactName>
+            <EMail>christel.c.leclerc-zwirn@gsk.com</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>GLAXOSMITHKLINE (FRANCE)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00z1h3j87</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>592052146</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>GLAXOSMITHKLINE (FRANCE)</FundingAgentName>
+            <FundingAgentType>
+                <value>Industry</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/00z1h3j87</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>592052146</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>GLAXOSMITHKLINE (FRANCE)</SponsorName>
+                <SponsorType>
+                    <value>Industry</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/00z1h3j87</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>592052146</URI>
+                </SponsorPID>
+            </Sponsor>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>152</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF152</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individuals</AnalysisUnit>
+        <ResearchType>
+            <value>Observational Study</value>
+        </ResearchType>
+        <Outcomes>
+            <PrimaryOutcomes>Health event/morbidity
+
+Health care consumption and services</PrimaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&lt; 500 individuals</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>93</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2008-01-01</CollectionStart>
+                <CollectionEnd>2010-01-01</CollectionEnd>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Interview with the participant (including clinical)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/cb20d17</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Other</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Medical-administrative database (patients, health insurance/mutual insurance) Disease and death registry</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Clinical data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Participant-reported health data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Biological data</value>
+                    </DataType>
+                    <BiologicalDataDetails>nasal sample</BiologicalDataDetails>
+                    <isDataInBiobank>0</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>0</IsDataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Restricted access</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Access on specific project only</AggregatedDataAccess>
+            </DataAvailability>
+            <UseStatement />
+        </DataAccess>
+    </DataCollectionAccess>
+</FreshSchema>

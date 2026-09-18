@@ -1,0 +1,42 @@
+Échec de la validation XSD.
+failed validating <Element 'StudyOverview' at 0xADDR> with Xsd11Group(model='sequence', occurs=[1, 1]):
+
+Reason: Unexpected child with tag 'StudyStatus' at position 1. Tag 'Title' expected.
+
+Schema component:
+
+  <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Title" type="xsd:string">
+              <xsd:annotation>
+                  <xsd:documentation xml:lang="fr">Titre de l'étude</xsd:documentation>
+                  <xsd:documentation xml:lang="en">Study title</xsd:documentation>
+              </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Acronym" type="xsd:string" minOccurs="0">
+              <xsd:annotation>
+                  <xsd:documentation xml:lang="fr">Acronyme de l'étude</xsd:documentation>
+                  <xsd:documentation xml:lang="en">Study acronym</xsd:documentation>
+              </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="StudyStatus" type="StudyStatusType">
+              <xsd:annotation>
+                  <xsd:documentation xml:lang="fr">Statut actuel de
+                      l'étude</xsd:documentation>
+                  <xsd:documentation xml:lang="en">Current study
+                      status</xsd:documentation>
+      ...
+      ...
+  </xsd:complexType>
+
+Instance type: <class 'xml.etree.ElementTree.Element'>
+
+Instance:
+
+  <StudyOverview>
+      <StudyStatus>
+          <value>Completed study</value>
+      </StudyStatus>
+  </StudyOverview>
+
+Path: /FreshSchema/StudyRelatedInfo/StudyOverview

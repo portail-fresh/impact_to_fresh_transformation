@@ -8,6 +8,10 @@ class FReSHXMLBuilder:
     def __init__(self, lang="fr"):
         self.lang = lang
         self.unmatched_vocab = []
+        # Noeuds supprimes faute de <value> (voir etape 9.1) : (balise, URI).
+        # Ce ne sont pas des erreurs de conversion mais des lacunes de la source,
+        # a remonter telles quelles a la curation.
+        self.dropped_uri_only = []
         self.ns_map = {
             "xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
             "xmlns:vc": "http://www.w3.org/2007/XMLSchema-versioning"
@@ -258,6 +262,27 @@ class FReSHXMLBuilder:
                     to_remove.append(child)
             for child in to_remove:
                 parent.remove(child)
+
+        # 9.1 Supprimer les noeuds reduits a une URI nue.
+        # Un champ de type CvIdType (Pathology, Sex, Status...) exige <value>
+        # avant ses <URI> ; un noeud qui ne contient QUE des <URI> lui manque
+        # donc son libelle et sera rejete. Le cas vient de la source : un sujet
+        # CIM-11 porteur d'un identifiant mais d'aucun libelle produisait
+        # <Pathology><URI>...</URI></Pathology> -- 8 fichiers du corpus rejetes.
+        #
+        # Le test porte sur la FORME, pas sur le nom : "tous les enfants sont
+        # des URI". C'est exactement la silhouette d'un CvIdType ampute, et
+        # cela epargne OrganisationPIDType (PIDSchema + URI, sans aucun <value>)
+        # dont les noeuds sont valides et portent les identifiants ROR/RNSR --
+        # une regle plus large les supprimait, soit precisement la donnee qui
+        # manque le plus au mapping vers HealthDCAT-AP.
+        for parent in root.iter():
+            for child in list(parent):
+                if len(child) and all(sub.tag == 'URI' for sub in child):
+                    self.dropped_uri_only.append(
+                        (child.tag, (child[0].text or "").strip())
+                    )
+                    parent.remove(child)
         
         # 10. Post-processing pour ObtainedAuthorization (Gestion multiple et tableaux parallèles)
         for req in root.iter('RegulatoryRequirements'):
@@ -454,8 +479,16 @@ class FReSHXMLBuilder:
                     di.remove(tps)
                     continue
 
-                source_id_el = tps.find('SourceId')
-                idx = list(tps).index(source_id_el) + 1 if source_id_el is not None else 0
+                # Le XSD impose SourceName, SourceId, SourceType, SourcePurpose,
+                # OtherSourceType. SourceType se place donc apres SourceId, ou a
+                # defaut apres SourceName. Le repli a 0 le faisait passer DEVANT
+                # SourceName des que SourceId etait absent -- et comme
+                # ThirdPartySource ne fait partie d'aucun re-tri de l'etape 11,
+                # rien ne rattrapait le coup : 4 fichiers du corpus invalides.
+                anchor = tps.find('SourceId')
+                if anchor is None:
+                    anchor = tps.find('SourceName')
+                idx = list(tps).index(anchor) + 1 if anchor is not None else 0
                 type_el = ET.Element('SourceType')
                 ET.SubElement(type_el, 'value').text = type_vals[0]
                 tps.insert(idx, type_el)

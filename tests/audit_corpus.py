@@ -197,8 +197,16 @@ def section_dead_mapping(trees):
     title("4. Lignes de la table de mapping qui ne ramenent JAMAIS rien")
     rows = list(csv.DictReader(open(MAPPING_CSV, encoding="utf-8")))
 
+    # On rejoue la machine a etats de HierarchicalExtractor.process() : apres une
+    # ligne ARRAY, les lignes ./ qui suivent sont relatives au noeud ARRAY, pas
+    # au ROOT. Les rattacher au ROOT fabriquait des chemins qui ne matchent rien
+    # et faisait passer pour "jamais remplies" toutes les regles des sous-boucles
+    # -- dont les identifiants d'organisation (ROR, RNSR), qui sont en realite
+    # bien presents.
     checks = []  # (target, xpath_absolu)
     current_root = None
+    current_array = None
+    mode = None
     for row in rows:
         source = (row.get("source_xpath") or "").strip()
         target = (row.get("target_xpath") or "").strip()
@@ -206,15 +214,23 @@ def section_dead_mapping(trees):
             continue
         if source.startswith("ROOT:"):
             current_root = source.split("ROOT:", 1)[1]
+            current_array = None
+            mode = "ROOT"
             checks.append((target, current_root))
         elif source.startswith("ARRAY:"):
-            relative = source.split("ARRAY:", 1)[1].lstrip("./")
+            relative = source.split("ARRAY:", 1)[1]
+            if relative.startswith("./"):
+                relative = relative[2:]
+            mode = "ARRAY"
             if current_root:
-                checks.append((target, f"{current_root}/{relative}"))
+                current_array = f"{current_root}/{relative}"
+                checks.append((target, current_array))
         elif source.startswith("./"):
-            if current_root:
-                checks.append((target, f"{current_root}/{source[2:]}"))
+            base = current_array if mode == "ARRAY" else current_root
+            if base:
+                checks.append((target, f"{base}/{source[2:]}"))
         elif source.startswith("/xml/"):
+            mode = "ABSOLUTE"
             checks.append((target, source))
 
     never, rare = [], []

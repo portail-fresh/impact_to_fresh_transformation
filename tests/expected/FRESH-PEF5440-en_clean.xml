@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="en">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF5440</Identifier>
+        </StudyId>
+        <VersionLang>en</VersionLang>
+        <OriginLang>
+            <value>English</value>
+        </OriginLang>
+        <CreationDate>2026-02-18</CreationDate>
+        <LastUpdatedManual>2014-08-01</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Imported</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Jean-François NICOLAS</ContributorName>
+            <ContributorAffiliation>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</ContributorAffiliation>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Vaccinology</Title>
+            <StudyStatus>
+                <value>Unknown</value>
+            </StudyStatus>
+            <Purpose>1- To characterise immunity response to influenza vaccination in accordance with intradermal or intramuscular injection 2- To characterise immunosenescence markers in populations with no response to influenza vaccines</Purpose>
+            <Keyword>influenza</Keyword>
+            <Keyword>Vaccination</Keyword>
+            <Keyword>immunosenescence</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Clinical immunology</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/7a3cf568-46ba-4840-be8f-f22fc030139f</URI>
+            </HealthTheme>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants</value>
+            </HealthDeterminant>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>General population</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Male</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Sex>
+                    <value>Female</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Age>
+                    <value>Aged (65 to 79 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+                <Age>
+                    <value>Aged, 80 and over (80 years and more)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000369</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>1) Over 65 years of age 2) Signed and dated consent 3) Able to attend all scheduled visits 4) Health insurance cover</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <FranceRegion>
+                    <value>Auvergne Rhône-Alpes</value>
+                    <URI>FR-ARA</URI>
+                </FranceRegion>
+                <GeoDetail>Lyon and Saint Étienne</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Jean-François;NICOLAS</PIName>
+            <PIMail>jean-francois.nicolas@chu-lyon.fr</PIMail>
+            <PIAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <PILabo>INSERM - Institut National de la Santé et de la Recherche / Equipe 14 Inserm U1111- CIRI "Immunologie de l'allergie cutanée et vaccination"</PILabo>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <PrimaryInvestigator>
+            <PIName>Aurore;ROZIERES</PIName>
+            <PIMail>aurore.rozieres@inserm.fr</PIMail>
+            <PIAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <PILabo>INSERM - Institut National de la Santé et de la Recherche</PILabo>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <ContactPoint>
+            <ContactName>Jean-François;NICOLAS</ContactName>
+            <EMail>jean-francois.nicolas@chu-lyon.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Aurore;ROZIERES</ContactName>
+            <EMail>aurore.rozieres@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>BECTON DICKINSON FRANCE</FundingAgentName>
+            <FundingAgentType>
+                <value>Industry</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>056501711</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>SANOFI (FRANCE)</FundingAgentName>
+            <FundingAgentType>
+                <value>Industry</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/02n6c9837</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>395030844</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </SponsorPID>
+            </Sponsor>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>5440</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF5440</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individuals</AnalysisUnit>
+        <ResearchType>
+            <value>Observational Study</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Cohort study</value>
+            </ObservationalStudyDesign>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Health event/morbidity
+
+Health event/mortality</PrimaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>[1000-10000[ individuals</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>1126</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2010-01-01</CollectionStart>
+                <CollectionEnd>2013-01-01</CollectionEnd>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Physical/biological measurements (blood pressure, weight, biochemistry, imaging, etc.)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/c2a25a6</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Other</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Through organizations (health services or institutions, schools, businesses, etc.)</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Clinical data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Participant-reported health data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Biological data</value>
+                    </DataType>
+                    <BiologicalDataDetails>Biological data related to inflammatory markers</BiologicalDataDetails>
+                    <isDataInBiobank>1</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>0</IsDataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Restricted access</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Access on specific project only</AggregatedDataAccess>
+            </DataAvailability>
+            <UseStatement>
+                <AccessRestrictions>Data from this cohort is accessible through scientific publications. If other researchers wish to access this data, a request must be made and data will be made available according to good clinical practice. No "open access", filtered "access request".</AccessRestrictions>
+            </UseStatement>
+        </DataAccess>
+    </DataCollectionAccess>
+</FreshSchema>

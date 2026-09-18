@@ -1,0 +1,757 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="fr">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF3101</Identifier>
+        </StudyId>
+        <VersionLang>fr</VersionLang>
+        <OriginLang>
+            <value>Français</value>
+        </OriginLang>
+        <CreationDate>2026-07-03</CreationDate>
+        <LastUpdatedAuto>2026-07-03</LastUpdatedAuto>
+        <LastUpdatedManual>2026-07-03</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Envoyée pour publication</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>CAMILLE LAPLANCHE</ContributorName>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Étude Épidémiologique auprès de femmes de la Mutuelle Générale de l’Éducation Nationale et des membres de leur famille</Title>
+            <Acronym>Cohorte E3N-Générations</Acronym>
+            <StudyStatus>
+                <value>Étude en cours</value>
+            </StudyStatus>
+            <Purpose>L’objectif de la cohorte familiale E3N-Générations est de mieux comprendre, dans l’apparition des maladies, ce qui relève de la génétique, du mode de vie et de l’environnement. En plus d'un grand nombre de données épidémiologiques prospectives, la cohorte E3N-Générations collecte de précieuses informations phénotypiques, biologiques et génétiques.</Purpose>
+            <Summary>L'étude familiale E3N-Générations a pour but d'étudier la santé en relation avec le mode de vie moderne chez des personnes d'une même famille, sur trois générations. L’étude E3N-Générations prolonge l’étude E3N en suivant les membres de la famille des femmes ayant participé à la cohorte E3N : les pères de leurs enfants, leurs enfants et leurs petits-enfants. 
+
+
+
+site web de l'étude : www.e3n-generations.fr</Summary>
+            <Keyword>Famille</Keyword>
+            <Keyword>mode de vie</Keyword>
+            <Keyword>exposome</Keyword>
+            <Keyword>alimentation</Keyword>
+            <Keyword>marqueurs biologiques</Keyword>
+            <Keyword>génétique</Keyword>
+            <Keyword>vieillissement</Keyword>
+            <Keyword>environnement</Keyword>
+            <Keyword>pharmaco-épidémiologie</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>0</IsHealthTheme>
+            <HealthDeterminant>
+                <value>Déterminants socio-démographiques et économiques</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants socio-démographiques et économiques : Emploi</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants socio-démographiques et économiques : Revenu</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants socio-démographiques et économiques : Niveau d'études</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants socio-démographiques et économiques : Age</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants environnementaux</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants environnementaux : Qualité de l'air</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants environnementaux : Climat</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants environnementaux : Autre</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants liés au système de santé</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants liés au système de santé : Consommation des soins</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants comportementaux</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants comportementaux : Alimentation</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants comportementaux : Activité physique</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants biologiques</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants biologiques : Prédisposition génétique</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants biologiques : Viellissement</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants biologiques : Sexe</value>
+            </HealthDeterminant>
+            <OtherEnvironmentalDeterminant>contaminants alimentaires, polluants éternels, pollution sonore, lumière artificielle la nuit</OtherEnvironmentalDeterminant>
+            <Pathology>
+                <value>Tumeurs malignes du sein</value>
+                <URI>http://id.who.int/icd/entity/1047754165</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes du côlon</value>
+                <URI>http://id.who.int/icd/entity/1265576634</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes du col utérin</value>
+                <URI>http://id.who.int/icd/entity/1256072522</URI>
+            </Pathology>
+            <Pathology>
+                <value>Asthme</value>
+                <URI>http://id.who.int/icd/entity/1656445230</URI>
+            </Pathology>
+            <Pathology>
+                <value>Maladie de Parkinson</value>
+                <URI>http://id.who.int/icd/entity/296066191</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes de la prostate</value>
+                <URI>http://id.who.int/icd/entity/1552457716</URI>
+            </Pathology>
+            <Pathology>
+                <value>Cancer du poumon</value>
+                <URI>http://id.who.int/icd/entity/1679532614</URI>
+            </Pathology>
+            <Pathology>
+                <value>Endométriose</value>
+                <URI>http://id.who.int/icd/entity/1838213761</URI>
+            </Pathology>
+            <Pathology>
+                <value>Diabète sucré de type 2</value>
+                <URI>http://id.who.int/icd/entity/119724091</URI>
+            </Pathology>
+            <Pathology>
+                <value>Maladies de l'appareil circulatoire</value>
+                <URI>http://id.who.int/icd/entity/426429380</URI>
+            </Pathology>
+            <Pathology>
+                <value>Psoriasis</value>
+                <URI>http://id.who.int/icd/entity/63698555</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes de l'ovaire</value>
+                <URI>http://id.who.int/icd/entity/685124533</URI>
+            </Pathology>
+            <Pathology>
+                <value>Lymphomes de Hodgkin et non Hodgkiniens</value>
+                <URI>http://id.who.int/icd/entity/1891884932</URI>
+            </Pathology>
+            <Pathology>
+                <value>Mélanome de la peau</value>
+                <URI>http://id.who.int/icd/entity/488336723</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes de la peau</value>
+                <URI>http://id.who.int/icd/entity/1706880799</URI>
+            </Pathology>
+            <Pathology>
+                <value>Déclin cognitif lié à l'âge</value>
+                <URI>http://id.who.int/icd/entity/584231559</URI>
+            </Pathology>
+            <Pathology>
+                <value>Dépression (MT1)</value>
+                <URI>http://id.who.int/icd/entity/480354492</URI>
+            </Pathology>
+            <Pathology>
+                <value>Hypertension essentielle</value>
+                <URI>http://id.who.int/icd/entity/761947693</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeur maligne du pancréas</value>
+                <URI>http://id.who.int/icd/entity/542147910</URI>
+            </Pathology>
+            <Pathology>
+                <value>Cancer des voies respiratoires</value>
+                <URI>http://id.who.int/icd/entity/693315837</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes du rectum</value>
+                <URI>http://id.who.int/icd/entity/1113099195</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes de la glande thyroïde</value>
+                <URI>http://id.who.int/icd/entity/447433352</URI>
+            </Pathology>
+            <Pathology>
+                <value>Polyarthrite rhumatoïde</value>
+                <URI>http://id.who.int/icd/entity/576319925</URI>
+            </Pathology>
+            <Pathology>
+                <value>Tumeurs malignes de l'estomac</value>
+                <URI>http://id.who.int/icd/entity/1397617262</URI>
+            </Pathology>
+            <Pathology>
+                <value>Dégénérescence maculaire liée à l'âge</value>
+                <URI>http://id.who.int/icd/entity/1514301548</URI>
+            </Pathology>
+            <Pathology>
+                <value>COVID-19</value>
+                <URI>http://id.who.int/icd/entity/1730556128</URI>
+            </Pathology>
+            <Pathology>
+                <value>SRAS-CoV-2</value>
+                <URI>http://id.who.int/icd/entity/243015485</URI>
+            </Pathology>
+            <RareDiseases>0</RareDiseases>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Population générale</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Féminin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Sex>
+                    <value>Masculin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Age>
+                    <value>Adulte (19 à 24 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D055815</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (25 à 44 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (45 à 64 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+                <Age>
+                    <value>Personne âgée (65 à 79 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+                <Age>
+                    <value>Grand âge (80 ans et plus)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000369</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>Femmes de la cohorte E3N (Femmes G1) : 98 995 femmes françaises résidant en France métropolitaine en 1990, nées entre 1925 et 1950 et affiliées à la MGEN.
+
+Pères des enfants des femmes G1 (Hommes G1) 
+
+Fils et filles des femmes G1 ( Génération 2 dite G2) 
+
+Petits-enfants des femmes G1 (Génération 3 dite G3)</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <GeoDetail>France</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <RegulatoryRequirements>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CNIL</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CPP</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+        </RegulatoryRequirements>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Gianluca;SEVERI</PIName>
+            <PIMail>gianluca.severi@inserm.fr</PIMail>
+            <PIORCID>0000-0001-7157-419X</PIORCID>
+            <PIIdRef>198040598</PIIdRef>
+            <PIAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <PILabo>Centre de recherche en Épidémiologie et Santé des Populations (CESP), équipe Exposome et Hérédité</PILabo>
+                <PILaboId>201019083D</PILaboId>
+            </PIAffiliation>
+            <IsPIContact>0</IsPIContact>
+        </PrimaryInvestigator>
+        <AddTeamMember>0</AddTeamMember>
+        <ContactPoint>
+            <ContactName>Elodie;SPEYER</ContactName>
+            <EMail>elodie.speyer@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>UNIVERSITE PARIS-SACLAY</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>130026024</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03xjwb503</URI>
+                </OrganisationPID>
+                <ContactPointLabo>Centre de recherche en Épidémiologie et Santé des Populations (CESP), équipe Exposome et Hérédité</ContactPointLabo>
+                <ContactPointLaboId>201019083D</ContactPointLaboId>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>CAMILLE;LAPLANCHE</ContactName>
+            <EMail>camille.laplanche@gustaveroussy.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>UNIVERSITE PARIS-SACLAY</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>130026024</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03xjwb503</URI>
+                </OrganisationPID>
+                <ContactPointLabo>Centre de recherche en Épidémiologie et Santé des Populations (CESP), équipe Exposome et Hérédité</ContactPointLabo>
+                <ContactPointLaboId>201019083D</ContactPointLaboId>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>AGENCE NATIONALE DE LA RECHERCHE (ANR)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/00rbzpz17</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>130002504</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>MINISTERE DE L’ENSEIGNEMENT SUPERIEUR, DE LA RECHERCHE ET DE L’ESPACE</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>110044013</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/03sjk9a61</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>180036048</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/02vjkv261</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>INSTITUT GUSTAVE ROUSSY (IGR)</FundingAgentName>
+            <FundingAgentType>
+                <value>Privé à but non lucratif</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>775741101</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/0321g0743</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>LIGUE NATIONALE CONTRE LE CANCER (LNCC)</FundingAgentName>
+            <FundingAgentType>
+                <value>Privé à but non lucratif</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>775664717</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/00rkrv905</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>MGEN</FundingAgentName>
+            <FundingAgentType>
+                <value>Privé à but non lucratif</value>
+            </FundingAgentType>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>UNIVERSITE PARIS-SACLAY</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>130026024</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/03xjwb503</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Sponsor>
+                <SponsorName>INSTITUT GUSTAVE ROUSSY (IGR)</SponsorName>
+                <SponsorType>
+                    <value>Privé à but non lucratif</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>775741101</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/0321g0743</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Sponsor>
+                <SponsorName>UNIVERSITE PARIS-SACLAY</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03xjwb503</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>130026024</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Governance>
+                <Committee>1</Committee>
+            </Governance>
+            <Collaborations>
+                <NetworkConsortium>1</NetworkConsortium>
+                <CollaborationsDetails>La cohorte européenne EPIC (European Prospective Investigation into Cancer and Nutrition), dont la partie française est représentée par les femmes de la première génération de la cohorte E3N-Générations. Les consortia ELAPSE, EPITHYR, LIFEPATH et ESCAPE utilisent également des données des femmes G1. Les données de la cohorte (Femmes G1, Hommes G1 et G2) sont utilisées dans les études nationales SAPRIS et SAPRIS-SERO sur le covid-19.</CollaborationsDetails>
+            </Collaborations>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PORTAIL EPIDEMIOLOGIE FRANCE (PEF)</IDSchema>
+            <Identifier>3101</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF3101</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individus</AnalysisUnit>
+        <ResearchType>
+            <value>Etude observationnelle</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Cohorte</value>
+            </ObservationalStudyDesign>
+            <TimePerspective>
+                <value>Longitudinale prospective</value>
+            </TimePerspective>
+            <IsInclusionGroups>1</IsInclusionGroups>
+            <InclusionGroup>
+                <GroupName>Femmes de la première génération (Femmes G1)</GroupName>
+                <GroupDescription>Les femmes de la cohorte E3N qui sont le socle de la cohorte familiale</GroupDescription>
+            </InclusionGroup>
+            <InclusionGroup>
+                <GroupName>Hommes de la première génération (Hommes G1)</GroupName>
+                <GroupDescription>Les hommes avec qui les femmes G1 ont eu des enfants</GroupDescription>
+            </InclusionGroup>
+            <InclusionGroup>
+                <GroupName>Génération 2 (G2)</GroupName>
+                <GroupDescription>Les enfants (fils et filles) des femmes G1</GroupDescription>
+            </InclusionGroup>
+            <InclusionGroup>
+                <GroupName>Génération 3 (G3)</GroupName>
+                <GroupDescription>Les petits-enfants (petits-fils et petites-filles) des femmes G1</GroupDescription>
+            </InclusionGroup>
+            <Intervention>
+                <InterventionName>exposome</InterventionName>
+                <InterventionType>
+                    <value>Santé publique</value>
+                </InterventionType>
+            </Intervention>
+            <Intervention>
+                <InterventionName>mode de vie</InterventionName>
+                <InterventionType>
+                    <value>Comportementale</value>
+                </InterventionType>
+            </Intervention>
+            <Intervention>
+                <InterventionName>alimentation</InterventionName>
+                <InterventionType>
+                    <value>Comportementale</value>
+                </InterventionType>
+            </Intervention>
+            <Intervention>
+                <InterventionName>Traitements</InterventionName>
+                <InterventionType>
+                    <value>Médicament</value>
+                </InterventionType>
+            </Intervention>
+            <Intervention>
+                <InterventionName>Gènes</InterventionName>
+                <InterventionType>
+                    <value>Génétique</value>
+                </InterventionType>
+            </Intervention>
+            <Intervention>
+                <InterventionName>Antécédents familiaux</InterventionName>
+                <InterventionType>
+                    <value>Génétique</value>
+                </InterventionType>
+            </Intervention>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Evénements de santé/morbidité
+
+Evénements de santé/mortalité
+
+Consommation de soins/services de santé
+
+Qualité de vie/santé perçue</PrimaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&gt;= 20000 individus</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>98 995 G1 Women ; 17 700 G1 Men ; 21 000 G2</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>1990-01-01</CollectionStart>
+                <CollectionEnd>3000-01-01</CollectionEnd>
+                <CollectionFrequency>Tous les deux ans environ</CollectionFrequency>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Questionnaire auto-administré</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
+                    </CollectionMode>
+                    <SamplingMode>
+                        <value>Autre</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Autre</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                    <FollowUpMode>
+                        <value>Suivi par contact avec le participant (téléphone, e-mail, courrier...)</value>
+                    </FollowUpMode>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Données cliniques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données biologiques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données socio-démographiques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données environnementales / d'exposition</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données comportementales</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données géospatiales</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données économiques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données génétiques / génomiques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données de santé rapportées par les participants de l'étude</value>
+                    </DataType>
+                    <ClinicalDataDetails>Compte-rendus d'anatomopathologie en cas de cancer déclaré et compte-rendu médicaux pour documenter les pathologies auto-déclarées</ClinicalDataDetails>
+                    <BiologicalDataDetails>Pour les Femmes G1 : sang frais, salive, sang sur buvard ; Pour les hommes G1 : salive, sang sur buvard ; Pour les G2 : sang sur buvard ; Pour les G2 et les G3 : collectes de salive, sang sur buvard, selles, cheveux et ongles prévues. Dans le cadre d'études ancillaires : biomarqueurs, contaminants...</BiologicalDataDetails>
+                    <isDataInBiobank>1</isDataInBiobank>
+                    <BiobankContent>
+                        <value>Sang total</value>
+                        <URI>http://id.nlm.nih.gov/mesh/D001769</URI>
+                    </BiobankContent>
+                    <BiobankContent>
+                        <value>Plasma</value>
+                        <URI>http://id.nlm.nih.gov/mesh/D010949</URI>
+                    </BiobankContent>
+                    <BiobankContent>
+                        <value>Sérum</value>
+                        <URI>http://id.nlm.nih.gov/mesh/D044967</URI>
+                    </BiobankContent>
+                    <BiobankContent>
+                        <value>Autres liquides ou sécretions biologiques</value>
+                    </BiobankContent>
+                    <OtherLiquidsDetails>Salive</OtherLiquidsDetails>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>1</IsDataIntegration>
+            <DataIntegration>
+                <ConformityDeclaration>
+                    <value>MR-001</value>
+                </ConformityDeclaration>
+                <ThirdPartySource>
+                    <SourceName>Base de remboursement de soins de la MGEN (pour les femmes G1 uniquement)</SourceName>
+                    <SourceType>
+                        <value>Base médico-administrative</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Enrichissement des données par croisement (autre que le suivi passif)</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+                <ThirdPartySource>
+                    <SourceName>CepiDC</SourceName>
+                    <SourceType>
+                        <value>Base médico-administrative</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Suivi passif des participants</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+            </DataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataQuality>
+                <UsedStandards>CIM 10</UsedStandards>
+                <QualityProcedure>Validation des pathologies par une équipe d'ARC qui s'appuient sur les documents médicaux des participants pour valider les pathologies déclarées.</QualityProcedure>
+            </DataQuality>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Accès réservé</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Accès restreint sur projet spécifique</AggregatedDataAccess>
+                <DataAccessRequestTool>
+                    <DataAccessRequestToolAvailable>1</DataAccessRequestToolAvailable>
+                    <DataAccessRequestToolLocation>https://demande-acces-donnees.portail-fresh.fr/signin</DataAccessRequestToolLocation>
+                </DataAccessRequestTool>
+                <DataLocation>Pour les G1 : Les données collectées sont stockées sur des serveurs sécurisés agréés pour l'hébergement des données de santé, à Gustave Roussy, et bénéficient de tous les outils de protection de l’hôpital, qui gère en permanence des données médicales sensibles. Pour les G2 : Les données brutes sont recueillies sur la plateforme de web-questionnaires (développée par la société Gide) sont hébergées sur des serveurs certifiés pour l'hébergement de données de santé. Puis les données générées sont stockées comme celles des G1, sur des serveurs sécurisés agréés HDS de Gustave Roussy.</DataLocation>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Modalités d'accès aux données pour des équipes extérieures : demande d'autorisation au comité d'accès aux données de la cohorte E3N-Générations</AccessConditions>
+                <NonDisclosureAgreement>Charte d'accès aux données</NonDisclosureAgreement>
+                <DataInformationContact>
+                    <DIContactName>Elodie;SPEYER</DIContactName>
+                    <DIContactMail>elodie.speyer@inserm.fr</DIContactMail>
+                </DataInformationContact>
+            </UseStatement>
+            <DataCitation>
+                <DataCitationRequirement>oui</DataCitationRequirement>
+                <DataCitationStatement>oui</DataCitationStatement>
+            </DataCitation>
+            <VariableDictionnary>
+                <VariableDictionnaryAvailable>1</VariableDictionnaryAvailable>
+                <VariableDictionnaryLink>disponible prochainement</VariableDictionnaryLink>
+            </VariableDictionnary>
+            <MockSample>
+                <MockSampleAvailable>0</MockSampleAvailable>
+            </MockSample>
+        </DataAccess>
+        <RelatedDocument>
+            <DocumentTitle>Site web dédiée à la cohorte</DocumentTitle>
+            <DocumentLink>www.e3n-generations.fr</DocumentLink>
+        </RelatedDocument>
+    </DataCollectionAccess>
+</FreshSchema>
