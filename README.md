@@ -47,33 +47,112 @@ directly from the FReSH API.
 **Single study** (useful for debugging one file): `run_pipeline.py` — edit
 `fresh_id`/`lang` near the bottom of the file, then run it.
 
-**Batch, all studies or a chosen subset**: `run_pipeline_batch.py`. At the
-bottom of the file, `data_dir`/`output_dir`/`logs_dir` are hardcoded paths —
-marked `/!\ MODIFY PATHS HERE AS NEEDED /!\` — update them to match your own
-machine first (e.g. point `data_dir` at this repo's own `data/input` if
-that's where your source files are).
-
-```python
-# Leave as None to process every study (both '-fr' and '-en') found in
-# data_dir. To run only a subset, list the ids to include instead, e.g.:
-# study_ids = ["43597", "PEF3476", "PEF60139", "PEF73375", "PEF74055"]
-study_ids = None
-```
-
-Leave `study_ids = None` to process every study in `data_dir`, in both
-languages, or set it to a list of ids (bare numeric or `PEF...`, matched
-case-insensitively against the filename) to run just those — both their
-`-fr` and `-en` files. Then:
+**Batch, all studies or a chosen subset**: `run_pipeline_batch.py`. It takes
+its paths on the command line and defaults to this repo's own folders, so a
+fresh checkout runs as-is:
 
 ```bash
 python run_pipeline_batch.py
+python run_pipeline_batch.py --data-dir data/input --output-dir data/output --logs-dir data/logs
+python run_pipeline_batch.py --study-ids 43597 PEF3476 PEF60139
 ```
 
-Each study's converted XML lands in `output_dir`, and a per-file validation
-report + unmatched-vocabulary report is written to `logs_dir`. The batch run
-prints a final summary of how many studies succeeded vs failed.
+Without `--study-ids` every study in `--data-dir` is processed, in both
+languages. With it, only the studies whose id appears in the filename (bare
+numeric or `PEF...`, matched case-insensitively) are — both their `-fr` and
+`-en` files.
 
-## 4. How the pipeline works (for whoever takes this over)
+Each study's converted XML lands in the output folder, and three per-file
+reports are written to the logs folder:
+
+| file | what it holds |
+|---|---|
+| `<name>_validation_report.txt` | XSD-conformant, or the first error |
+| `<name>_unmatched_vocab.csv` | values with no controlled-vocabulary match |
+| `<name>_quality_report.csv` | what the pipeline had to repair for lack of anything better |
+
+The batch run prints a final summary of how many studies succeeded vs failed.
+
+## 4. Checking your work: the tools in `tests/`
+
+None of these change the pipeline. They tell you what it currently does, so a
+change shows up as an explicit list instead of a guess.
+
+### `run_regression.py` — the safety net
+
+Runs the pipeline on 21 real studies kept in `tests/fixtures/` and compares
+every output against a frozen copy in `tests/expected/`.
+
+```bash
+python tests/run_regression.py            # compare, list the differences
+python tests/run_regression.py --update   # (re)freeze the reference
+python tests/run_regression.py --quick    # skip XSD validation, much faster
+```
+
+The reference is not "the correct output" — it is "the output as of the moment
+you froze it". That is what makes it usable on a pipeline that still has
+defects: you do not need the output to be right, only to know what moved. Run
+it before and after any change to `builder.py`, `run_pipeline.py` or the
+mapping; a change that reports `0 modifié` did not touch the conversion.
+
+The 21 fixtures were picked by `select_fixtures.py`, which greedily covers 17
+structural traits (parallel lists, multiple funders, third-party sources,
+conditional branches…) so a small set exercises the branches that actually
+break. The 13 studies that failed XSD validation were added on top, so the
+reference carries their failure too — freezing a known failure is what tells
+you the day it changes.
+
+Note the reference is OS-independent: the pipeline writes its XML with an
+explicit newline setting, so a reference frozen on Windows replays identically
+on Linux and macOS. Verified across both.
+
+### `audit_corpus.py` — the state of the whole catalogue
+
+```bash
+python tests/audit_corpus.py --data-dir data/input             # structure only
+python tests/audit_corpus.py --data-dir data/input --validate  # + XSD conformity
+```
+
+Six sections: source structure, paired-list synchronisation, mapping rules that
+never fire, XSD conformity with the failure reasons grouped, and the
+controlled-vocabulary values that resolve to nothing.
+
+Conformity is measured with `schema.validate()`, **not** `is_valid()`:
+`is_valid()` validates in lax mode and accepts invented tags and broken element
+order, which silently reports 100% on a corpus that is not conformant.
+
+### `rapport_qualite.py` — what the source did not provide
+
+```bash
+python tests/rapport_qualite.py --data-dir data/input > rapport_qualite.txt
+```
+
+The pipeline produces conformant XML even when the source record is
+incomplete: it invents the missing contributor, drops the nameless team member,
+abandons the untyped third-party source. The output is then *valid*, and so
+indistinguishable from a healthy record. This report is what makes the
+difference visible — grouped by cause, with what happened, what curation can do
+about it, and the studies concerned. It is written for curation, not for
+developers.
+
+### `inspect_field.py` — what a source field actually contains
+
+```bash
+python tests/inspect_field.py --data-dir data/input --xpath "/xml/dataset/..."
+```
+
+Lists the distinct values of one source XPath across the corpus, with counts.
+Use it before assuming a mapping rule is dead: a rule that never fires because
+the case does not occur is not the same thing as a rule looking in the wrong
+place, and this is how you tell them apart.
+
+### `docs/arbitrage_vocabulaires.md`
+
+Not a tool — the decision document for the ~1,900 values that resolve to no
+controlled-vocabulary term, sorted by what deciding costs rather than by
+volume. It is addressed to whoever owns the vocabularies.
+
+## 5. How the pipeline works (for whoever takes this over)
 
 The rest of this README covers *running* the pipeline. This section covers
 what's actually inside it, written for someone who needs to debug or extend
@@ -114,6 +193,17 @@ if you're tracing a bug, it's in one of these):
   (`prefLabel_fr`, `prefLabel_en`, `exactMatch`, `identifier`), one per
   FReSH field. These are the ground truth `resolve_vocab_term()` checks
   every value against.
+
+**Checking tools** (never imported by the pipeline — they observe it, they
+don't change it; see section 4 for how to use them):
+- `tests/run_regression.py` — runs the 21 fixtures and diffs every output
+  against the frozen reference in `tests/expected/`.
+- `tests/select_fixtures.py` — how those fixtures were chosen (greedy cover
+  of 17 structural traits).
+- `tests/audit_corpus.py` — six-section audit of a whole corpus.
+- `tests/rapport_qualite.py` — aggregates what the pipeline had to repair,
+  for curation.
+- `tests/inspect_field.py` — distinct values of one source XPath, with counts.
 
 **Not live — leftover from an earlier, flatter version of the pipeline.**
 Nothing in `run_pipeline*.py` or `src/builder.py` imports these; don't lose
@@ -221,18 +311,10 @@ inside this repo — it isn't here.
 
 ### Rough edges worth knowing about before they surprise you
 
-- **`.gitignore` is ~2,200 individually-listed filenames**, not a wildcard
-  `data/input/*.xml` pattern — it reads like something that auto-appended
-  one line per downloaded file rather than being hand-written. A genuinely
-  new file dropped into `data/input`/`output`/`logs` may not be covered and
-  could get committed by accident; worth checking `git status` after a
-  local run, or just collapsing this into real wildcard patterns at some
-  point.
-- **Paths are hardcoded, not configurable.** Both `run_pipeline.py`'s
-  `__main__` block and `run_pipeline_batch.py`'s bottom section have
-  machine-specific absolute Windows paths — marked `/!\ MODIFY PATHS HERE
-  AS NEEDED /!\` in the batch script, unmarked in the single-file one. This
-  is the most likely reason a fresh checkout "doesn't run."
+- **`run_pipeline.py` still needs editing to pick a study.** Its `__main__`
+  sets `fresh_id`/`lang` in the source. That is fine for a debug script —
+  use `run_pipeline_batch.py --study-ids ...` when you want a real run — but
+  it does mean the single-file entry point is not usable as-is.
 - **`mappings/vocabularies/*.csv` are generated, not hand-authored** (from
   `get_CVs_from_fresh_technical_documentation_git.ipynb`) — if a term looks
   wrong, check whether the fix belongs upstream in `technical-documentation`
