@@ -316,6 +316,21 @@ def run_transformation(input_xml_path, mapping_csv_path, xsd_schema_path, output
         writer.writerows(unmatched_vocab)
     print(f"   Rapport de vocabulaires écrit dans : {report_path}")
 
+    # Rapport qualité : ce que le pipeline a dû réparer faute de mieux. Une fiche
+    # rafistolée produit un XML valide, donc indiscernable d'une fiche saine si on
+    # ne le dit pas ici. C'est ce fichier-là qui remonte à la curation.
+    if builder.corrections:
+        print(f"\n5. [QUALITE] {len(builder.corrections)} réparation(s) faute de mieux :")
+        for code, element, detail in builder.corrections:
+            print(f"   - {code} sur <{element}> : {detail}")
+
+    quality_path = os.path.join(logs_path, f"{file_name}_quality_report.csv")
+    with open(quality_path, "w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["code", "element", "detail"])
+        writer.writerows(builder.corrections)
+    print(f"   Rapport qualité écrit dans : {quality_path}")
+
 if __name__ == "__main__":
     # /!\ MODIFY PATHS HERE AS NEEDED /!\
     # These are hardcoded to one machine/user -- update data_dir, output_dir and

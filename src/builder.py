@@ -8,10 +8,12 @@ class FReSHXMLBuilder:
     def __init__(self, lang="fr"):
         self.lang = lang
         self.unmatched_vocab = []
-        # Noeuds supprimes faute de <value> (voir etape 9.1) : (balise, URI).
-        # Ce ne sont pas des erreurs de conversion mais des lacunes de la source,
-        # a remonter telles quelles a la curation.
-        self.dropped_uri_only = []
+        # Registre des reparations faites faute de mieux : (code, element, detail).
+        # Ce ne sont pas des erreurs de conversion mais des lacunes de la source.
+        # Le pipeline les ecrit en fin de course pour que la curation sache quelles
+        # fiches ont ete rafistolees, ou, et pourquoi -- sans quoi le rafistolage
+        # est indiscernable d'une fiche saine.
+        self.corrections = []
         self.ns_map = {
             "xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
             "xmlns:vc": "http://www.w3.org/2007/XMLSchema-versioning"
@@ -79,6 +81,15 @@ class FReSHXMLBuilder:
             "Nation": ["value", "URI"]
         }
 
+    def _signaler(self, code, element, detail=""):
+        """Enregistre une reparation faite faute de mieux (voir self.corrections).
+
+        code    : categorie stable, pour regrouper dans le rapport
+        element : la balise concernee
+        detail  : ce qu'on a lu dans la source, ou ce qu'on a mis a la place
+        """
+        self.corrections.append((code, element, (detail or "").strip()))
+
     def _split_bracket_list(self, raw_text):
         """Transforme un faux tableau Python en texte "['a','b']" en vraie liste de strings."""
         if not raw_text:
@@ -145,6 +156,8 @@ class FReSHXMLBuilder:
                 name_el = tm.find('TeamMemberName')
                 name_text = name_el.text.strip() if name_el is not None and name_el.text else ""
                 if re.fullmatch(r'[;,\s]*', name_text) and tm.find('TeamMemberAffiliation') is None:
+                    self._signaler('MEMBRE_EQUIPE_VIDE', 'TeamMember',
+                                   "nom lu : %r" % name_text)
                     admin_info.remove(tm)
 
         # 2. Contributeur (obligatoire)
@@ -152,6 +165,8 @@ class FReSHXMLBuilder:
             if tech.find('MetadataContributor') is None:
                 mc = ET.SubElement(tech, 'MetadataContributor')
                 ET.SubElement(mc, 'ContributorName').text = "Inconnu"
+                self._signaler('CONTRIBUTEUR_INVENTE', 'MetadataContributor/ContributorName',
+                               "valeur ecrite : Inconnu")
 
         # 2.1 OtherClusion (obligatoire, même vide -- ses enfants InclusionCriterion/
         # ExclusionCriterion sont optionnels, mais l'élément lui-même ne l'est pas)
@@ -261,6 +276,8 @@ class FReSHXMLBuilder:
                 if child.tag == 'OrganisationPID' and len(child) == 0 and not child.text:
                     to_remove.append(child)
             for child in to_remove:
+                self._signaler('IDENTIFIANT_ORGANISATION_VIDE', 'OrganisationPID',
+                               "sous %s" % parent.tag)
                 parent.remove(child)
 
         # 9.1 Supprimer les noeuds reduits a une URI nue.
@@ -279,9 +296,9 @@ class FReSHXMLBuilder:
         for parent in root.iter():
             for child in list(parent):
                 if len(child) and all(sub.tag == 'URI' for sub in child):
-                    self.dropped_uri_only.append(
-                        (child.tag, (child[0].text or "").strip())
-                    )
+                    self._signaler('LIBELLE_ABSENT', child.tag,
+                                   "identifiant conserve par la source : %s"
+                                   % (child[0].text or "").strip())
                     parent.remove(child)
         
         # 10. Post-processing pour ObtainedAuthorization (Gestion multiple et tableaux parallèles)
@@ -476,6 +493,10 @@ class FReSHXMLBuilder:
                     tps.remove(raw_node)
 
                 if not type_vals:
+                    nom_el = tps.find('SourceName')
+                    self._signaler('SOURCE_TIERCE_SANS_TYPE', 'ThirdPartySource',
+                                   "source abandonnee : %s"
+                                   % ((nom_el.text or "").strip() if nom_el is not None else "sans nom"))
                     di.remove(tps)
                     continue
 

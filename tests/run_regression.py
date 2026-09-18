@@ -10,11 +10,12 @@ The reference is not "the correct output" -- it is "the output as of the moment
 you froze it". That is what makes the harness usable on a pipeline that still
 has defects: you do not need the output to be right, only to know what moved.
 
-Three files per fixture are compared, because all three are pipeline outputs a
+Four files per fixture are compared, because all four are pipeline outputs a
 change can silently alter:
   <name>_clean.xml               le XML produit
   <name>_validation_report.txt   conforme au XSD, ou la première erreur
   <name>_unmatched_vocab.csv     les valeurs sans correspondance de vocabulaire
+  <name>_quality_report.csv      les réparations faites faute de mieux
 
 A fixture that makes the pipeline crash is recorded as such and compared like
 any other: freezing a known failure is what tells you the day it changes.
@@ -112,6 +113,12 @@ def _produce_without_validation(fixture_path, output_xml, logs_dir):
         writer = _csv.writer(f)
         writer.writerow(["field", "raw_value"])
         writer.writerows(extractor.unmatched_vocab + builder.unmatched_vocab)
+
+    with open(os.path.join(logs_dir, f"{name}_quality_report.csv"), "w",
+              encoding="utf-8-sig", newline="") as f:
+        writer = _csv.writer(f)
+        writer.writerow(["code", "element", "detail"])
+        writer.writerows(builder.corrections)
 
 
 def run_all(quick):
