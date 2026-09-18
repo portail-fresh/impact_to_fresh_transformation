@@ -29,34 +29,19 @@
             </StudyStatus>
             <Purpose>To characterize the genotypic and phenotypic components of variability in rare genetic disorders involving craniofacial developmental abnormalities.</Purpose>
             <Summary>A large number of rare genetic disorders share the common feature of craniofacial developmental abnormalities (more than 2,100), regardless of their specific manifestations
-
 manifestations of the disease. Syndromology and dysmorphology aim to establish accurate diagnoses through a simple and immediate clinical analysis: the examination of craniofacial physical characteristics. The validity of these approaches is supported by the large number of relevant genetic diagnoses and by confirmation of their genetic origin. However, several observations suggest that this approach is reaching its limits, due to three main factors:
-
 1. epidemiological, with a growing number of syndromes identified through next-generation sequencing (NGS), all of which are rare; 2. scientific, involving phenotypic variability within a single genotype; 3. academic, presenting the challenge of teaching these clinical skills, which are possessed by only a few specialists.
 
-
-
 The clinical characterization of “head and neck” phenotypes is therefore a major challenge in light of the primary scientific issue: significant variability in expression. This variability is observed not only among affected individuals within the same family, but also over time in the same person.
-
 FACE.S-4-KIDS is an ambitious database project addressing the scientific issue of the variable presentation of craniofacial disorders, with the goal of achieving optimal clinical management (diagnosis, prognosis) and personalized treatment plans.
-
 FACE.S-4-KIDS draws on large cohorts of well-characterized and genotyped patients, expert departments specializing in craniofacial malformations (medical, surgical, and imaging), as well as basic science laboratories, all located at a single site. For years, they have been generating vast amounts of data (patient records, imaging, photographs, genomic data, and animal and cellular models).
 
-
-
 FACE.S-4-KIDS has selected four prototypical malformations, characterized by craniofacial features, that encapsulate the various ontological, embryological, and anatomical questions raised:
-
 - craniostenoses associated with FGFR signaling (Crouzon, Pfeiffer, Apert, and Muenke syndromes),
-
 - achondroplasia / hypochondroplasia,
-
 - osteogenesis imperfecta,
-
 - dental anomalies, cleft palates, and Pierre Robin sequences,
-
 Each raises specific scientific questions related to variability.
-
-
 
 By bringing together the multidisciplinary expertise of Imagine’s research teams—Molecular and Pathophysiological Bases of Osteochondrodysplasia, Embryology and Genetics of Malformations, and the Clinical Bioinformatics Laboratory with the Data Science Platform—and by collaborating with 8 CRMRs, 3 national networks, and 1 ERN, we aim to address fundamental questions—both collective and specific to each archetype—related to variable expression: the origins of unpredictable outcomes following surgical treatment for FGFR-related craniosynostoses; the relationship between phenotype and severity in achondroplasia; the links between dental and skeletal phenotypes in osteogenesis imperfecta, and the predictive factors for functional and cognitive outcomes in cleft palate or Robin sequence.</Summary>
             <Keyword>craniofacial</Keyword>
@@ -177,9 +162,7 @@ By bringing together the multidisciplinary expertise of Imagine’s research tea
             </DemographicInfo>
             <OtherClusion>
                 <InclusionCriterion>1) Patients with one of the following conditions: craniostenosis associated with FGFR signaling, OR achondroplasia/hypochondroplasia, OR osteogenesis imperfecta, OR Pierre Robin sequence
-
 2) Patients who may or may not have undergone genome sequencing as part of their care and who (or their legal guardians, if applicable) have consented to the storage of leftover biological samples in one of the following collections: Chondrodysplasia and Craniosynostosis, Constitutional Bone Disorders, Developmental Anomalies
-
 3) Patients who underwent craniofacial imaging (CT or MRI) as part of their care</InclusionCriterion>
             </OtherClusion>
             <GeographicalCoverage>

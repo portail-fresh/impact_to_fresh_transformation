@@ -28,21 +28,13 @@
             </StudyStatus>
             <Purpose>Continuous epidemiological monitoring of health indicators.</Purpose>
             <Summary>Founded in 1984, the Sentinelles network has the following main objectives:
-
 - the creation of large databases in general medicine and pediatrics for the purposes of health monitoring and research;
-
 - the development of tools for detecting and predicting epidemics;
-
 - the conduct of clinical and epidemiological studies.
 
-
-
 Participating physicians are known as “Sentinel Physicians” (general practitioners and pediatricians) and take part in one or more of the following activities:
-
 - Continuous monitoring of health indicators: Sentinelles general practitioners report the number of cases seen in their practices for the monitored indicators, which makes it possible to estimate the weekly incidence rate for each indicator and track its trends over time and across geographic areas
-
 - virological surveillance of acute respiratory infections and mumps
-
 - Ad hoc epidemiological studies conducted in partnership with various organizations on a range of topics.</Summary>
             <Keyword>general practitioners</Keyword>
             <Keyword>monitoring</Keyword>
@@ -368,7 +360,6 @@ Participating physicians are known as “Sentinel Physicians” (general practit
         </ObservationalStudy>
         <Outcomes>
             <PrimaryOutcomes>Health event/morbidity
-
 Health care consumption and services</PrimaryOutcomes>
         </Outcomes>
     </StudyMethodology>

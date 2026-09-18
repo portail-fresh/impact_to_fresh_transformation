@@ -30,31 +30,17 @@
             <Purpose>Recherche de facteurs de risque (mode de vie, alimentation, environnement, antécédents familiaux, facteurs reproductifs, traitements...) des cancers et des principales pathologies chroniques chez la femme.</Purpose>
             <Summary>La cohorte E3N constitue le socle historique de la cohorte familiale française E3N-Générations.
 
-
-
 E3N est une étude de cohorte prospective qui suit 98 995 femmes françaises nées entre 1925 et 1950. 
-
-
 
 Elle s’intéresse à l’impact du mode de vie, de l’alimentation, de l’environnement et des traitements sur la santé des femmes. Les grandes pathologies chroniques que sont le cancer, le diabète, les maladies cardiovasculaires sont particulièrement étudiées.
 
-
-
  Depuis 1990, les femmes E3N remplissent et renvoient des questionnaires papier, tous les 3 ans environ. Elles sont interrogées sur leur mode de vie (alimentation, activité physique, sédentarité, tabac, alcool, prise de médicaments, de traitements hormonaux, etc.), leur environnement et sur l'évolution de leur état de santé physique et mental.
-
-
 
 Les traitements médicaux sont enrichis par les données de remboursement de la MGEN. Les pathologies auto-rapportées sont validées et détaillées grâce à la collaboration des médecins traitants, des laboratoires d'anatomo-pathologie et des établissements d'hospitalisation.
 
-
-
  Les informations de leurs questionnaires sont complétées par des données biologiques : 25 000 femmes E3N ont effectué un prélèvement sanguin et 47 000 ont fourni un prélèvement salivaire.
 
-
-
 Grâce à la fidélité et à la constance des femmes E3N, la participation à l’étude continue d’être très élevée, même 35 ans après l’inclusion. Les données de l’étude, régulièrement actualisées, détaillées, précises et validées, permettent à l’équipe de recherche de mener des travaux d’une excellente qualité scientifique. 
-
-
 
 La cohorte E3N constitue le socle historique de la cohorte familiale E3N-Générations, qui la prolonge en invitant les enfants, les pères de ces enfants et les petits-enfants des femmes E3N à participer à leur tour.</Summary>
             <Keyword>exposome</Keyword>
@@ -504,11 +490,8 @@ Inserm, Université Paris-Saclay, Institut Gustave Roussy</ContactPointLabo>
         </ObservationalStudy>
         <Outcomes>
             <PrimaryOutcomes>Événements de santé/morbidité
-
 Événements de santé/mortalité
-
 Consommation de soins/services de santé
-
 Qualité de vie/santé perçue</PrimaryOutcomes>
         </Outcomes>
     </StudyMethodology>

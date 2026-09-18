@@ -633,5 +633,13 @@ class FReSHXMLBuilder:
             ET.indent(root_element, space="    ", level=0)
             
         tree = ET.ElementTree(root_element)
-        tree.write(output_path, encoding='utf-8', xml_declaration=True)
+        # Ecriture en binaire, et non via le nom de fichier : ElementTree ferait
+        # alors open(chemin, "w") sans preciser newline, donc Python traduirait
+        # chaque saut de ligne selon le systeme. Les champs libres de la source
+        # contiennent des retours chariot encodes (&#13;) ; sous Windows ils se
+        # retrouvaient doubles, et le meme corpus donnait deux sorties differentes
+        # selon la machine qui l'executait. Avec un objet binaire, ElementTree
+        # impose newline="\n" et la sortie devient reproductible partout.
+        with open(output_path, "wb") as f:
+            tree.write(f, encoding='utf-8', xml_declaration=True)
         # print(f"Successfully saved FReSH XML to: {output_path}") # Ligne optionnelle

@@ -30,31 +30,17 @@
             <Purpose>Detecting risk factors of cancer and chronic pathologies in women</Purpose>
             <Summary>The E3N cohort forms the historical foundation of the French family cohort E3N-Générations.
 
-
-
 E3N is a prospective cohort study that follows 98,995 French women born between 1925 and 1950.
-
-
 
 She is interested in the impact of lifestyle, diet, the environment, and medical treatments on women's health. She focuses particularly on major chronic conditions such as cancer, diabetes, and cardiovascular disease.
 
-
-
 Since 1990, women in the E3N study have been completing and returning paper questionnaires approximately every three years. They are asked about their lifestyle (diet, physical activity, sedentary behavior, smoking, alcohol consumption, medication use, hormone therapy, etc.), their environment, and changes in their physical and mental health.
-
-
 
 Medical records are supplemented with reimbursement data from MGEN. Self-reported medical conditions are validated and detailed through collaboration with primary care physicians, pathology laboratories, and hospitals.
 
-
-
 The information from their questionnaires is supplemented by biological data: 25,000 E3N women provided a blood sample, and 47,000 provided a saliva sample.
 
-
-
 Thanks to the loyalty and consistency of the E3N women, participation in the study remains very high, even 35 years after enrollment. The study data—which are regularly updated, detailed, accurate, and validated—enable the research team to conduct work of excellent scientific quality.
-
-
 
 The E3N cohort forms the historical foundation of the E3N-Générations family cohort, which builds on it by inviting the children, the fathers of those children, and the grandchildren of the E3N women to participate in turn.</Summary>
             <Keyword>exposome</Keyword>
@@ -502,11 +488,8 @@ Inserm, Paris-Saclay University, Gustave Roussy Institute</ContactPointLabo>
         </ObservationalStudy>
         <Outcomes>
             <PrimaryOutcomes>Health event/morbidity
-
 Health event/mortality
-
 Health care consumption and services
-
 Quality of life/health perception</PrimaryOutcomes>
         </Outcomes>
     </StudyMethodology>

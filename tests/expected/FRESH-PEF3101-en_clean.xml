@@ -30,8 +30,6 @@
             <Purpose>The familial E3N-Generations study purpose is to study health in relation to the modern way of life in people of the same family over three generations. The E3N-Generations study aims to extend the E3N study by following the descendants of women who participated in the E3N study. The objective is to better understand the onset of major diseases, from genetics, family environment and the environment outside the family. As well as gathering a large amount of prospective epidemiological data, E3N-Generations cohort permit the collection of important information concerning phenotypes and genetics.</Purpose>
             <Summary>The E3N-Generations family study aims to examine health in relation to modern lifestyles among members of the same family across three generations. The E3N-Generations study builds on the E3N study by following the family members of the women who participated in the E3N cohort: the fathers of their children, their children, and their grandchildren.
 
-
-
 Study website: www.e3n-generations.fr</Summary>
             <Keyword>family environment</Keyword>
             <Keyword>Lifestyle and behaviour</Keyword>
@@ -591,11 +589,8 @@ Study website: www.e3n-generations.fr</Summary>
         </ObservationalStudy>
         <Outcomes>
             <PrimaryOutcomes>Health event/morbidity
-
 Health event/mortality
-
 Health care consumption and services
-
 Quality of life/health perception</PrimaryOutcomes>
         </Outcomes>
     </StudyMethodology>

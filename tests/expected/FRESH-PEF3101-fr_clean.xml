@@ -30,8 +30,6 @@
             <Purpose>L’objectif de la cohorte familiale E3N-Générations est de mieux comprendre, dans l’apparition des maladies, ce qui relève de la génétique, du mode de vie et de l’environnement. En plus d'un grand nombre de données épidémiologiques prospectives, la cohorte E3N-Générations collecte de précieuses informations phénotypiques, biologiques et génétiques.</Purpose>
             <Summary>L'étude familiale E3N-Générations a pour but d'étudier la santé en relation avec le mode de vie moderne chez des personnes d'une même famille, sur trois générations. L’étude E3N-Générations prolonge l’étude E3N en suivant les membres de la famille des femmes ayant participé à la cohorte E3N : les pères de leurs enfants, leurs enfants et leurs petits-enfants. 
 
-
-
 site web de l'étude : www.e3n-generations.fr</Summary>
             <Keyword>Famille</Keyword>
             <Keyword>mode de vie</Keyword>
@@ -246,11 +244,8 @@ site web de l'étude : www.e3n-generations.fr</Summary>
             </DemographicInfo>
             <OtherClusion>
                 <InclusionCriterion>Femmes de la cohorte E3N (Femmes G1) : 98 995 femmes françaises résidant en France métropolitaine en 1990, nées entre 1925 et 1950 et affiliées à la MGEN.
-
 Pères des enfants des femmes G1 (Hommes G1) 
-
 Fils et filles des femmes G1 ( Génération 2 dite G2) 
-
 Petits-enfants des femmes G1 (Génération 3 dite G3)</InclusionCriterion>
             </OtherClusion>
             <GeographicalCoverage>
@@ -597,11 +592,8 @@ Petits-enfants des femmes G1 (Génération 3 dite G3)</InclusionCriterion>
         </ObservationalStudy>
         <Outcomes>
             <PrimaryOutcomes>Evénements de santé/morbidité
-
 Evénements de santé/mortalité
-
 Consommation de soins/services de santé
-
 Qualité de vie/santé perçue</PrimaryOutcomes>
         </Outcomes>
     </StudyMethodology>

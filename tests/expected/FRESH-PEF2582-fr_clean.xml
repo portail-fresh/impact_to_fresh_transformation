@@ -28,21 +28,13 @@
             </StudyStatus>
             <Purpose>Surveillance épidémiologique d'indicateurs de santé (surveillances clinique et virologique) et études épidémiologiques en soins de premier recours</Purpose>
             <Summary>Créé en 1984, le réseau Sentinelles a pour objectifs principaux :
-
 - la constitution de grandes bases de données en médecine générale et en pédiatrie, à des fins de veille sanitaire et de recherche ;
-
 - le développement d’outils de détection et de prévision épidémique ;
-
 - la mise en place d’études cliniques et épidémiologiques.
 
-
-
 Les médecins membres sont dits « médecins Sentinelles » (médecins généralistes et pédiatres) et participent à une ou plusieurs activités :
-
 - une surveillance continue d'indicateurs de santé : les médecins généralistes Sentinelles transmettent le nombre des cas vus en consultation pour les indicateurs suivis permettant d'estimer le taux d'incidence hebdomadaire pour chaque indicateur et de suivre son évolution dans le temps et dans l'espace
-
 - une surveillance virologique des infections respiratoires aiguës et des oreillons
-
 - des études ponctuelles épidémiologiques réalisées en partenariat avec différents organismes sur des thématiques variées.</Summary>
             <Keyword>sentinelles</Keyword>
             <Keyword>médecins généralistes</Keyword>
@@ -372,7 +364,6 @@ Les médecins membres sont dits « médecins Sentinelles » (médecins général
         </ObservationalStudy>
         <Outcomes>
             <PrimaryOutcomes>Evénements de santé/morbidité
-
 Consommation de soins/services de santé</PrimaryOutcomes>
         </Outcomes>
     </StudyMethodology>
