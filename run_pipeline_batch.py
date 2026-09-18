@@ -73,30 +73,34 @@ def run_batch(data_dir, output_dir, logs_dir, mapping_csv_path, xsd_schema_path,
     
 
 if __name__ == "__main__":
-    # /!\ MODIFY PATHS HERE AS NEEDED /!\
-    # These are hardcoded to one machine/user -- update data_dir, output_dir and
-    # logs_dir to match your own setup before running (e.g. point data_dir at
-    # this repo's own data/input if that's where your source files are).
-    # data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_from_IH_API"
-    # output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
-    # logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
-    
-    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\input"
-    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\output"
-    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\logs"
+    # Les chemins etaient ecrits en dur vers le poste d'un collegue, donc le
+    # script ne demarrait chez personne d'autre sans etre edite. Ils pointent
+    # desormais par defaut sur les dossiers du depot, et chacun peut les changer
+    # en ligne de commande sans toucher au fichier.
+    import argparse
 
-    # Leave as None to process every study (both '-fr' and '-en') found in
-    # data_dir. 
-    # To run only a subset, list the ids to include instead, e.g.:
-    # study_ids = ["43597", "PEF3476", "PEF60139", "PEF73375", "PEF74055"]
-    study_ids = None
+    parser = argparse.ArgumentParser(
+        description="Convertit toutes les fiches d'un dossier (fr et en) du format "
+                    "source vers le format FReSH.")
+    parser.add_argument("--data-dir", default=os.path.join(BASE_DIR, "data", "input"),
+                        help="dossier des fiches source (defaut : data/input)")
+    parser.add_argument("--output-dir", default=os.path.join(BASE_DIR, "data", "output"),
+                        help="dossier des XML produits (defaut : data/output)")
+    parser.add_argument("--logs-dir", default=os.path.join(BASE_DIR, "data", "logs"),
+                        help="dossier des journaux et rapports (defaut : data/logs)")
+    parser.add_argument("--study-ids", nargs="*", default=None,
+                        help="ne traiter que ces etudes, p.ex. --study-ids 43597 PEF3476 ; "
+                             "sans cette option, tout le dossier est traite")
+    args = parser.parse_args()
+
+    os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(args.logs_dir, exist_ok=True)
 
     run_batch(
-        data_dir=data_dir,
-        output_dir=output_dir,
-        logs_dir=logs_dir,
+        data_dir=args.data_dir,
+        output_dir=args.output_dir,
+        logs_dir=args.logs_dir,
         mapping_csv_path=os.path.join(BASE_DIR, "mappings", "entity_wise_corres_table.csv"),
         xsd_schema_path=os.path.join(BASE_DIR, "mappings", "fresh-schema_v6.xsd"),
-        study_ids=study_ids,
+        study_ids=args.study_ids,
     )
-# %%
