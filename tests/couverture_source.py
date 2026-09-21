@@ -297,6 +297,13 @@ def afficher(stats, regles, regle_a_du_contenu, regle_invalide, nb_lus, echecs, 
         print("  %s" % chemin)
         print("      %d fiche(s), %d occurrence(s), %d valeur(s) distincte(s)"
               % (len(s["fiches"]), s["non_lues"], len(s["valeurs"])))
+        # Un champ presque toujours duplique est un quasi-doublon : ce n'est pas
+        # lui qui est interessant, c'est l'occurrence ou les deux sources
+        # divergent. Le ratio le dit d'un coup d'oeil.
+        if s["doublons"]:
+            print("      dont %d/%d identique(s) a un champ lu -- quasi-doublon,"
+                  " %d divergence(s)"
+                  % (s["doublons"], s["non_lues"], s["non_lues"] - s["doublons"]))
         for valeur, n in s["valeurs"].most_common(exemples):
             print("          %4d  %s" % (n, valeur[:62].replace("\n", " ")))
         if len(s["valeurs"]) > exemples:
