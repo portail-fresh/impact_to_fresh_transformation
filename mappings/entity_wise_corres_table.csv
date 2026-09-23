@@ -218,6 +218,7 @@ ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,Data
 /xml/dataset/metadata/additional/collectionProcess/collectionModeDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeDetails,"Mode de collecte, précisions (texte libre). Champ du même nom dans la source et le XSD, jamais relié jusqu'ici : trouvé par tests/couverture_source.py."
 
 /xml/dataset/metadata/study_desc/method/data_collection/sample_frame/frame_unit/unit_type,DataCollectionAccess/DataCollectionIntegration/DataCollection/RecruitmentSourceRaw,"Source recrutement (Liste parsée)"
+/xml/dataset/metadata/additional/dataCollection/recruitmentSourceOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/RecruitmentSourceOther,"Autre source de recrutement, précisions (texte libre). Champ du même nom dans la source et le XSD, jamais relié jusqu'ici : trouvé par tests/couverture_source.py."
 
 /xml/dataset/metadata/additional/activeFollowUp/isActiveFollowUp,DataCollectionAccess/DataCollectionIntegration/DataCollection/ActiveFollowUp/IsActiveFollowUp,"Chaîne booléenne (0/1)."
 

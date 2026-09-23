@@ -131,6 +131,26 @@ disparaît ni ne change de place.
 
 ---
 
+## Cas 4 de l'arbitrage — `RecruitmentSourceOther` enfin rempli
+
+| | |
+|---|---|
+| **XML produit** | modifié : un élément **ajouté**, rien de retiré |
+| **fiches concernées** | 2 sur les 21 fiches de test (FRESH-PEF3101, fr et en) |
+| **conformité XSD** | inchangée |
+
+**Ce qui change.** Dans `DataCollection`, un élément `<RecruitmentSourceOther>`
+apparaît juste après `RecruitmentSource`, avec le texte libre de la source
+`additional/dataCollection/recruitmentSourceOther`.
+
+**Pourquoi.** Même motif que le cas 3 : champ du même nom dans la source et le
+XSD, aucune règle entre les deux.
+
+**À vérifier côté consommateur.** Un nouvel élément de texte libre, rare. Rien ne
+disparaît ni ne change de place.
+
+---
+
 ## À venir
 
 Les corrections de mapping en attente de décision sont décrites dans

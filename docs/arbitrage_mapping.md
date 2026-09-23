@@ -169,7 +169,10 @@ exactement à la documentation du XSD.
 
 ---
 
-## Cas 4 — `RecruitmentSourceOther` n'est jamais rempli
+## Cas 4 — `RecruitmentSourceOther` n'est jamais rempli — ✅ APPLIQUÉ
+
+*Décision : appliqué le 23 septembre. Voir `journal_des_changements.md`. Sur les
+21 fiches de test : 2 gagnent l'élément, aucune ne change de conformité.*
 
 **Constat.** Même motif que le cas 3. L'élément existe dans le XSD, le builder
 connaît sa place, la source a un champ du même nom
@@ -189,7 +192,7 @@ Rempli dans **2 fiches sur 21** — l'étude familiale E3N-Générations
 **Confiance.** Élevée sur le constat, faible sur l'enjeu. Le volume réel se
 lira sur le corpus.
 
-> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+> **Décision** : ☒ appliquer ☐ ne pas appliquer ☐ à revoir
 
 ---
 

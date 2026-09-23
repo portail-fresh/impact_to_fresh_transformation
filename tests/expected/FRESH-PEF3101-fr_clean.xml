@@ -625,6 +625,7 @@ Qualité de vie/santé perçue</PrimaryOutcomes>
                 <RecruitmentSource>
                     <value>Autre</value>
                 </RecruitmentSource>
+                <RecruitmentSourceOther>Pour constituer cette cohorte familiale, recueil des coordonnées des membres de la famille des femmes de la cohorte E3N auprès de ces femmes elles-mêmes puis des membres  E3N-Générations, une fois inclus dans la cohorte, pour poursuivre l'inclusion des générations 2 et 3.</RecruitmentSourceOther>
                 <ActiveFollowUp>
                     <IsActiveFollowUp>1</IsActiveFollowUp>
                     <FollowUpMode>

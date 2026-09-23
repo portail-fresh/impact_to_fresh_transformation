@@ -622,6 +622,7 @@ Quality of life/health perception</PrimaryOutcomes>
                 <RecruitmentSource>
                     <value>Other</value>
                 </RecruitmentSource>
+                <RecruitmentSourceOther>To establish this family cohort, contact information for the family members of the women in the E3N cohort was collected directly from the women themselves and then from the E3N-Générations participants once they were included in the cohort, in order to continue including the second and third generations.</RecruitmentSourceOther>
                 <ActiveFollowUp>
                     <IsActiveFollowUp>1</IsActiveFollowUp>
                     <FollowUpMode>
