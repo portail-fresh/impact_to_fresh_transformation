@@ -115,10 +115,15 @@ class HierarchicalExtractor:
                 v_stripped = resolve_vocab_term(_vocab_field_name(target_xpath), v_stripped, self.lang, self.unmatched_vocab)
 
 
-                if any(b in target_xpath for b in bool_fields):
+                # Comparaison sur le NOM EXACT du champ, pas sur une sous-chaine du
+                # chemin : "CommitteeDetail" contient "Committee", et le jour ou une
+                # regle alimenterait CommitteeDetail (element du XSD, dont la source
+                # existe et n'est pas lue), son texte libre aurait ete force en 0/1.
+                champ = _vocab_field_name(target_xpath)
+                if champ in bool_fields:
                     return "1" if v_stripped.lower() in ["oui", "yes", "1", "true"] else "0"
                 
-                if any(d in target_xpath for d in date_fields):
+                if champ in date_fields:
                     if "T" in v_stripped: return v_stripped.split("T")[0]
                     try: return datetime.datetime.strptime(v_stripped, "%Y-%m-%d").strftime("%Y-%m-%d")
                     except ValueError: 
