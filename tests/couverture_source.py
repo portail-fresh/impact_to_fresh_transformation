@@ -171,6 +171,58 @@ def champs_filtres(regles):
     return noms
 
 
+# La meme information s'ecrit souvent de deux facons dans une meme fiche : un
+# resume d'affichage ("Clinical data") et un champ structure sous forme de fausse
+# liste Python ("['Clinical data', 'Biological data']"), parfois avec une
+# ponctuation differente ("determinants: Addiction" / "determinants : Addiction").
+# Comparer les chaines a l'identique classait ces doublons comme donnee perdue.
+# On compare donc des ATOMES normalises, avec la normalisation que le pipeline
+# applique deja pour resoudre les vocabulaires -- ainsi le detecteur juge
+# l'equivalence exactement comme le pipeline.
+_FAUSSE_LISTE = re.compile(r"^\s*\[(.*)\]\s*$", re.S)
+
+# Valeurs de remplissage : le formulaire les ecrit quand le champ n'a pas ete
+# renseigne. Elles ne portent aucune information, donc un champ non lu qui ne
+# contient qu'elles ne fait rien perdre.
+_REMPLISSAGE_BRUT = (
+    "Non renseigné", "Not specified", "Non applicable", "Not applicable",
+    "NA", "N/A", "Non précisé", "Unknown", "Inconnu",
+)
+
+
+def _atomes(texte):
+    m = _FAUSSE_LISTE.match(texte)
+    if m:
+        morceaux = re.split(r"'\s*,\s*'|\"\s*,\s*\"", m.group(1))
+        morceaux = [x.strip().strip("'\"") for x in morceaux]
+    else:
+        morceaux = re.split(r"[\r\n]+", texte)
+    return [x.strip() for x in morceaux if x.strip()]
+
+
+# Les champs booleens sortent en 0/1 cote FReSH alors que les resumes d'affichage
+# de la source ecrivent Oui/Non, Yes/No. Meme information : sans cette
+# equivalence, additional/rareDiseases ("Non") passait pour perdu alors que
+# <RareDiseases> vaut bien 0.
+_BOOLEENS = {"oui": "1", "yes": "1", "true": "1", "non": "0", "no": "0", "false": "0"}
+
+
+def _cle(atome):
+    from src.vocabularies import _normalize
+    k = _normalize(atome)
+    return _BOOLEENS.get(k, k)
+
+
+_REMPLISSAGE = None
+
+
+def _est_remplissage(cle):
+    global _REMPLISSAGE
+    if _REMPLISSAGE is None:
+        _REMPLISSAGE = {_cle(v) for v in _REMPLISSAGE_BRUT}
+    return cle in _REMPLISSAGE
+
+
 def _generalise(chemin):
     return _INDICE.sub("", chemin)
 
@@ -198,7 +250,7 @@ def analyser(data_dir, limite=None, garder_technique=False):
     # lu dont la valeur n'existe nulle part ailleurs, si.
     stats = collections.defaultdict(
         lambda: {"lues": 0, "non_lues": 0, "fiches": set(),
-                 "valeurs": collections.Counter(), "doublons": 0})
+                 "valeurs": collections.Counter(), "doublons": 0, "remplissage": 0})
     # par regle : a-t-elle ramene au moins un contenu ?
     regle_a_du_contenu = collections.defaultdict(bool)
     regle_invalide = set()
@@ -222,9 +274,12 @@ def analyser(data_dir, limite=None, garder_technique=False):
                 if (e.text or "").strip():
                     regle_a_du_contenu[numero] = True
 
-        # Valeurs effectivement recuperees par le mapping dans CETTE fiche.
-        valeurs_lues = {(e.text or "").strip() for e in tree.iter()
-                        if id(e) in lus and (e.text or "").strip()}
+        # Atomes effectivement recuperes par le mapping dans CETTE fiche, sous
+        # leur forme normalisee.
+        cles_lues = set()
+        for e in tree.iter():
+            if id(e) in lus and (e.text or "").strip():
+                cles_lues.update(_cle(a) for a in _atomes(e.text.strip()))
 
         for el in tree.iter():
             texte = (el.text or "").strip()
@@ -240,7 +295,10 @@ def analyser(data_dir, limite=None, garder_technique=False):
                 s["lues"] += 1
             else:
                 s["non_lues"] += 1
-                if texte in valeurs_lues:
+                cles = [_cle(a) for a in _atomes(texte)]
+                if cles and all(_est_remplissage(k) for k in cles):
+                    s["remplissage"] += 1
+                elif cles and all(k in cles_lues or _est_remplissage(k) for k in cles):
                     s["doublons"] += 1
 
     return stats, regles, regle_a_du_contenu, regle_invalide, len(fichiers), echecs
@@ -254,7 +312,7 @@ def afficher(stats, regles, regle_a_du_contenu, regle_invalide, nb_lus, echecs, 
             feuille = chemin.rsplit("/", 1)[-1]
             # Un chemin dont TOUTES les occurrences non lues sont des doublons ne
             # fait rien perdre : l'information part par un autre chemin.
-            if s["doublons"] >= s["non_lues"]:
+            if s["doublons"] + s["remplissage"] >= s["non_lues"]:
                 doublons.append((chemin, s))
             elif feuille in filtres:
                 sert_de_filtre.append((chemin, s))
@@ -300,10 +358,12 @@ def afficher(stats, regles, regle_a_du_contenu, regle_invalide, nb_lus, echecs, 
         # Un champ presque toujours duplique est un quasi-doublon : ce n'est pas
         # lui qui est interessant, c'est l'occurrence ou les deux sources
         # divergent. Le ratio le dit d'un coup d'oeil.
-        if s["doublons"]:
-            print("      dont %d/%d identique(s) a un champ lu -- quasi-doublon,"
-                  " %d divergence(s)"
-                  % (s["doublons"], s["non_lues"], s["non_lues"] - s["doublons"]))
+        sans_perte = s["doublons"] + s["remplissage"]
+        if sans_perte:
+            print("      dont %d/%d sans perte (%d doublon(s), %d valeur(s) de"
+                  " remplissage) -- %d occurrence(s) a examiner"
+                  % (sans_perte, s["non_lues"], s["doublons"], s["remplissage"],
+                     s["non_lues"] - sans_perte))
         for valeur, n in s["valeurs"].most_common(exemples):
             print("          %4d  %s" % (n, valeur[:62].replace("\n", " ")))
         if len(s["valeurs"]) > exemples:
