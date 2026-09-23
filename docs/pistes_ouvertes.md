@@ -1,4 +1,4 @@
-# Pistes ouvertes — état au 18 septembre 2026
+# Pistes ouvertes — état au 23 septembre 2026
 
 Ce document existe pour qu'on reprenne sur des faits et non sur des souvenirs.
 Chaque piste dit ce qui est **mesuré**, ce qui est **supposé**, et la commande
@@ -12,56 +12,18 @@ la commande de vérification sur les 2 154 fiches est donnée à chaque fois.
 
 ## 1. Les noms de personnes sortent avec un point-virgule
 
-**Statut : mesuré, non corrigé. Décision attendue.**
+**Statut : cause trouvée, correction décrite. Voir `arbitrage_mapping.md`, cas 1.**
 
-Quatre champs publient `Prénom;NOM` au lieu de `Prénom NOM` :
+Quatre champs publient `Prénom;NOM` au lieu de `Prénom NOM` (100 % des valeurs
+observées), alors que le XSD documente « Prénom NOM ».
 
-| champ | occurrences | avec point-virgule |
-|---|---|---|
-| ContactName | 42 | **100 %** |
-| PIName | 23 | **100 %** |
-| TeamMemberName | 12 | **100 %** |
-| DIContactName | 10 | **100 %** |
-| ContributorName | 21 | 0 % |
+La cause n'est pas dans le pipeline qui assemblerait mal les noms : **les règles
+lisent le mauvais champ.** La source fournit `<firstname>` et `<lastname>`
+séparés, et la table de mapping lit `<name>`, leur concaténation par l'API.
 
-Exemple réel : `Elodie;SPEYER`, `Christel;LECLERC-ZWIRN`.
-
-**Pourquoi c'est un défaut et pas une convention.** Le XSD documente
-explicitement le format attendu :
-
-> `ContactName` — *Prénom NOM du contact* / *First name LAST NAME of the contact*
-
-Une espace, pas un point-virgule. Le champ est typé `xsd:string`, donc la
-validation passe : c'est exactement le genre de défaut qu'un schéma ne peut pas
-attraper.
-
-**D'où ça vient.** L'API source joint prénom et nom avec un `;`. Le pipeline
-connaît déjà cet artefact — l'étape 0 de `_enforce_mandatory_dummy_nodes()`
-détecte le cas dégénéré `<name>;</name>` (les deux parties vides) pour supprimer
-le membre d'équipe fantôme. Mais quand les deux parties sont remplies, la chaîne
-passe telle quelle. `ContributorName` y échappe parce qu'il vient d'un autre
-chemin source (`doc_desc/producers/producer/name`), déjà correctement formaté.
-
-**Ce qui a été vérifié.** Sur 87 valeurs, **toutes** contiennent exactement un
-point-virgule, toujours entre prénom et nom. Aucune ne sépare deux personnes.
-
-**Ce qui reste à vérifier avant de corriger.** Le corpus complet contient-il des
-valeurs à 0 ou à 2 points-virgules ? S'il existe des valeurs où le `;` sépare
-deux personnes, la correction devrait les traiter autrement.
-
-```
-python tests/inspect_field.py --data-dir data/input \
-  --xpath "/xml/dataset/metadata/additional/contactPoint/contact/name"
-```
-
-**Correction envisagée.** Dans `builder.py`, à l'endroit où l'étape 0 traite
-déjà le cas vide : remplacer le `;` par une espace **uniquement** quand il y en
-a exactement un et que les deux côtés sont non vides. Laisser tout le reste
-intact et le signaler au rapport qualité.
-
-**Portée.** Cela modifierait la sortie de pratiquement toutes les fiches du
-catalogue. C'est pour ça que ce n'est pas fait : le harnais montrera exactement
-l'ampleur avant qu'on décide.
+*(Une première version de ce document proposait de remplacer le point-virgule
+par une espace dans la chaîne collée. C'est abandonné : on travaillerait sur une
+donnée dégradée alors que la source fournit la donnée propre.)*
 
 ---
 

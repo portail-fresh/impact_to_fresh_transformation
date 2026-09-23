@@ -164,10 +164,34 @@ between records. Booleans, dates, e-mails and identifiers are excluded. It
 yields candidates to check, not a verdict — read its docstring for the
 thresholds.
 
-### The two documents in `docs/`
+### `couverture_source.py` — source data the mapping never reads
 
-Neither is a tool.
+```bash
+python tests/couverture_source.py --data-dir data/input --exemples 3
+```
 
+The existing audit starts from the mapping table and asks whether each rule
+finds something. That misses the costliest defect: a rule pointing to a wrong
+but *existing* path looks alive, while the right source field is read by
+nobody. This tool starts from the source record instead and asks, for every
+populated field, whether any rule reads it.
+
+It replays the four branches of `HierarchicalExtractor.process()` and collects
+the *nodes* returned — not path strings, which would be wrong as soon as a rule
+carries a predicate. Fields whose information leaves by another path
+(duplicates, compared on normalised values), fields used as predicate criteria,
+and placeholder values ("Non renseigné") are classified apart, so what remains
+is data that genuinely never reaches FReSH. Its output is a list of candidates
+for `docs/arbitrage_mapping.md`, not a verdict.
+
+### The documents in `docs/`
+
+None is a tool.
+
+- `docs/arbitrage_mapping.md` — mapping defects found by `couverture_source.py`,
+  each with its evidence, proposed fix, output impact and a decision box.
+- `docs/journal_des_changements.md` — every commit that changes what the pipeline
+  *produces*, with what a downstream consumer should check. Read before merging.
 - `docs/arbitrage_vocabulaires.md` — the decision document for the ~1,900 values
   that resolve to no controlled-vocabulary term, sorted by what deciding costs
   rather than by volume. Addressed to whoever owns the vocabularies.
@@ -229,6 +253,7 @@ don't change it; see section 4 for how to use them):
 - `tests/inspect_field.py` — distinct values of one source XPath, with counts.
 - `tests/detecter_listes_aplaties.py` — text fields that in fact carry a
   closed list.
+- `tests/couverture_source.py` — populated source fields no mapping rule reads.
 
 **Not live — leftover from an earlier, flatter version of the pipeline.**
 Nothing in `run_pipeline*.py` or `src/builder.py` imports these; don't lose

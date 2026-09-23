@@ -71,14 +71,18 @@ def charger_regles():
     """Renvoie la table telle que l'extracteur la lit : une liste ordonnee de
     (numero de ligne, source, cible). L'ordre est porteur de sens -- une ligne
     './' se rattache au dernier ROOT: ou ARRAY: rencontre."""
-    with io.open(MAPPING_CSV, encoding="utf-8-sig") as f:
-        lignes = list(csv.DictReader(f))
     regles = []
-    for i, row in enumerate(lignes, start=2):  # +2 : en-tete + base 1
-        source = (row.get("source_xpath") or "").strip()
-        cible = (row.get("target_xpath") or "").strip()
-        if source and cible and source.lower() != "nan":
-            regles.append((i, source, cible))
+    with io.open(MAPPING_CSV, encoding="utf-8-sig") as f:
+        lecteur = csv.DictReader(f)
+        for row in lecteur:
+            # line_num compte les lignes PHYSIQUES du fichier : c'est le numero
+            # que l'on voit en ouvrant la table dans un editeur. Enumerer les
+            # enregistrements donnait un numero decale des qu'une ligne vide
+            # separe deux blocs -- inutilisable pour aller corriger.
+            source = (row.get("source_xpath") or "").strip()
+            cible = (row.get("target_xpath") or "").strip()
+            if source and cible and source.lower() != "nan":
+                regles.append((lecteur.line_num, source, cible))
     return regles
 
 
