@@ -111,6 +111,14 @@ permettrait de répondre à la question laissée ouverte dans
 `pistes_ouvertes.md` : le passif de vocabulaire est-il propre aux fiches
 importées de PEF ?
 
+**Point d'attention pour l'implémentation.** L'étape 11 du builder re-trie
+`TechnicalInfo` avec sa propre liste (`ti_order`), qui **ne contient pas
+`Provenance`** — alors que `schema_hierarchy` le contient. Ajouter la règle seule
+rangerait l'élément en fin de bloc, là où le XSD le refuse. Il faudra aligner les
+deux listes (et au passage, `ti_order` contient `DatasetPersistentID`, absent de
+`schema_hierarchy` : deux listes d'ordre pour le même élément finissent toujours
+par diverger).
+
 **Confiance.** Élevée sur le constat. **Une question de sens à confirmer** : en
 DDI, `prodPlace` désigne le lieu de production de l'étude. Ici ses valeurs sont
 manifestement le catalogue d'origine de la fiche — mais c'est une lecture des
@@ -120,7 +128,10 @@ données, pas une définition.
 
 ---
 
-## Cas 3 — `CollectionModeDetails` n'est jamais rempli
+## Cas 3 — `CollectionModeDetails` n'est jamais rempli — ✅ APPLIQUÉ
+
+*Décision : appliqué le 23 septembre. Voir `journal_des_changements.md`. Sur les
+21 fiches de test : 15 gagnent l'élément, aucune ne change de conformité.*
 
 **Constat.** Le XSD prévoit dans `CollectionProcess` un élément
 `CollectionModeDetails` — *« Mode de collecte, précisions »*. La source a un
@@ -154,7 +165,7 @@ trois fiches sur quatre (proportion à confirmer sur le corpus).
 **Confiance.** Élevée. Même nom de part et d'autre, contenu qui correspond
 exactement à la documentation du XSD.
 
-> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+> **Décision** : ☒ appliquer ☐ ne pas appliquer ☐ à revoir
 
 ---
 

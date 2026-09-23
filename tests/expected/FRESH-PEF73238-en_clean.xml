@@ -142,6 +142,7 @@
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/6311ae1</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Local software</CollectionModeDetails>
                     <SamplingMode>
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

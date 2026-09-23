@@ -812,6 +812,7 @@ By bringing together the multidisciplinary expertise of Imagine’s research tea
                         <value>Converting or copying information into a structured record</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Transfer of data from healthcare databases, followed by manual entry of patient data by ARCs into the REDCap database</CollectionModeDetails>
                     <SamplingMode>
                         <value>Non-probability</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/4d8364f</URI>

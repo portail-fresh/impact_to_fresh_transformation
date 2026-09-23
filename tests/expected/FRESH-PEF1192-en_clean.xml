@@ -188,6 +188,7 @@ Others</PrimaryOutcomes>
                         <value>Converting or copying information into a structured record</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Data collection makes use of the information systems in place in the specialist structures (computerised management of patient files). The OFDT merges of all of the information collected by the centres using files that the centres send electronically in the first quarter of year n+1.</CollectionModeDetails>
                     <SamplingMode>
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

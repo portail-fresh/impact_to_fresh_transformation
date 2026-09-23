@@ -386,6 +386,7 @@ Consommation de soins/services de santé</PrimaryOutcomes>
                         <value>Questionnaire auto-administré</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Collecte du nombre de cas observé via un site web et collecte des kits de prélèvements virologique par voie postale.</CollectionModeDetails>
                     <SamplingMode>
                         <value>Autre</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

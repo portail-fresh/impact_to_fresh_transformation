@@ -260,6 +260,7 @@ Evénements de santé/mortalité</PrimaryOutcomes>
                         <value>Mesures physiques/biologiques (tension artérielle, poids, biochimie, imagerie...)</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/c2a25a6</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>L’ensemble des prélèvements de la cohorte sont pris en charge par l’Allergobiotec (Responsable Aurore Rozieres, Inserm U1111-CIRI/HCL)</CollectionModeDetails>
                     <SamplingMode>
                         <value>Autre</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

@@ -516,6 +516,7 @@ Quality of life/health perception</PrimaryOutcomes>
                         <value>Self-administered questionnaire</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Self-questionnaire at inclusion and then every three years during follow-up: Collection of data on the state of health, lifestyle, plus specific questionnaires under the responsibility of a researcher or for another project (on sub-samples).- Clinical examination at inclusion for a sub-sample of 25,000 women in the cohort: pulse, blood pressure, weight, height. Data collected between 1994 and 1998 when blood samples were taken.- Questionnaire with the general practitioners in the case of a pathology declared by the woman: confirmation and anatomopathological report for more than 80 % of cancers.</CollectionModeDetails>
                     <SamplingMode>
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

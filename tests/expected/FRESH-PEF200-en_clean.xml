@@ -225,6 +225,7 @@
                         <value>Converting or copying information into a structured record</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Encrypted data collection (active or passive) for eligible cases in anatomic pathology and cytopathology facilities; medical information departments within healthcare establishments (PMSI); national health insurance medical services (ALD). Data collection (active) from records within the Poitou-Charentes Cancer Treatment Network. Active collection (return to medical record) within healthcare establishments (clinical or archiving departments). Collection to identify extra-regional data breaches and to check completeness of data from the regional PMSI base. Passive encrypted data collection from cases recorded by the permanent cancer survey (EPC).</CollectionModeDetails>
                     <SamplingMode>
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

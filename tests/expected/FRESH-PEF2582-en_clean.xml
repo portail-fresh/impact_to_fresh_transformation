@@ -382,6 +382,7 @@ Health care consumption and services</PrimaryOutcomes>
                         <value>Self-administered questionnaire</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Minitel (until 1999), Website and ad-hoc software. Collection of the number of observed cases and a clinical sheet for each case (specific sheet for each indicator monitored).</CollectionModeDetails>
                     <SamplingMode>
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

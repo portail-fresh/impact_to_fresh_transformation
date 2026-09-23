@@ -613,6 +613,7 @@ Quality of life/health perception</PrimaryOutcomes>
                         <value>Self-administered questionnaire</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>For G1: paper self-questionnaires ; For G2 and G3: webquestionnaires, sms, trackers of physical activity; For all: contacts with doctors</CollectionModeDetails>
                     <SamplingMode>
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

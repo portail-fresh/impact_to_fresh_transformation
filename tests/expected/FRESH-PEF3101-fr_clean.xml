@@ -616,6 +616,7 @@ Qualité de vie/santé perçue</PrimaryOutcomes>
                         <value>Questionnaire auto-administré</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Pour G1 : auto-questionnaires papier ; Pour G2 et G3 : auto-questionnaires en ligne, traqueurs d'activité physique ; Pour tous : contacts avec médecins</CollectionModeDetails>
                     <SamplingMode>
                         <value>Autre</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

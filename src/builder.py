@@ -587,6 +587,18 @@ class FReSHXMLBuilder:
             children.sort(key=lambda x: dq_order.index(x.tag) if x.tag in dq_order else 999)
             dq[:] = children
 
+        # Ordre CollectionProcess. Sans cette etape, l'ordre de ses enfants
+        # dependait de l'ordre des lignes dans la table de mapping : CollectionMode
+        # et SamplingMode sont reconstruits a la position de leur noeud brut, et
+        # CollectionProcess n'a pas d'entree dans schema_hierarchy. Ajouter une
+        # regle au mauvais endroit du CSV aurait suffi a rendre la fiche invalide.
+        cp_order = ['CollectionMode', 'CollectionModeOther', 'CollectionModeDetails',
+                    'SamplingMode', 'SamplingModeOther']
+        for cp_el in root.iter('CollectionProcess'):
+            children = list(cp_el)
+            children.sort(key=lambda x: cp_order.index(x.tag) if x.tag in cp_order else 999)
+            cp_el[:] = children
+
         # Ordre DataCollection (RecruitmentSource est reconstruit après ActiveFollowUp/DataTypes, il faut le replacer)
         dc_order = self.schema_hierarchy["DataCollection"]
         for dc_el in root.iter('DataCollection'):

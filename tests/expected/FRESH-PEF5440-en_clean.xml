@@ -253,6 +253,7 @@ Health event/mortality</PrimaryOutcomes>
                         <value>Physical/biological measurements (blood pressure, weight, biochemistry, imaging, etc.)</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/c2a25a6</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Allergobiotec is responsible for cohort sample collection (Head Dr. Aurore Rozieres, INSERM U1111-CIRI/HCL).</CollectionModeDetails>
                     <SamplingMode>
                         <value>Other</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

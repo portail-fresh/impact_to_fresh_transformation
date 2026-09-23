@@ -105,6 +105,32 @@ chemins doit désormais les passer en option plutôt que d'éditer le fichier.
 
 ---
 
+## Cas 3 de l'arbitrage — `CollectionModeDetails` enfin rempli
+
+| | |
+|---|---|
+| **XML produit** | modifié : un élément **ajouté**, rien de retiré |
+| **fiches concernées** | 15 sur les 21 fiches de test (proportion du corpus à mesurer) |
+| **conformité XSD** | inchangée |
+
+**Ce qui change.** Dans `DataCollection/CollectionProcess`, un élément
+`<CollectionModeDetails>` apparaît entre `CollectionMode` et `SamplingMode`,
+avec le texte libre de la source `additional/collectionProcess/collectionModeDetails`
+— souvent un paragraphe entier décrivant la procédure de collecte de l'étude.
+
+**Pourquoi.** Le champ source et l'élément du XSD portent le même nom ; aucune
+règle ne les reliait. Trouvé par `tests/couverture_source.py`.
+
+**Changement associé dans le builder.** `CollectionProcess` est désormais re-trié
+explicitement à l'étape 11. Jusqu'ici l'ordre de ses enfants dépendait de l'ordre
+des lignes dans la table de mapping : ajouter une règle au mauvais endroit du CSV
+aurait suffi à rendre des fiches invalides.
+
+**À vérifier côté consommateur.** Un nouvel élément de texte libre. Rien ne
+disparaît ni ne change de place.
+
+---
+
 ## À venir
 
 Les corrections de mapping en attente de décision sont décrites dans

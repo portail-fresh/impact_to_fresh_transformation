@@ -215,6 +215,7 @@ ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,Data
 
 /xml/dataset/metadata/study_desc/method/data_collection/coll_mode/item,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeRaw,"JSON brut des modes de collecte"
 /xml/dataset/metadata/study_desc/method/data_collection/sampling_procedure,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/SamplingModeRaw,"JSON brut d'échantillonnage"
+/xml/dataset/metadata/additional/collectionProcess/collectionModeDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeDetails,"Mode de collecte, précisions (texte libre). Champ du même nom dans la source et le XSD, jamais relié jusqu'ici : trouvé par tests/couverture_source.py."
 
 /xml/dataset/metadata/study_desc/method/data_collection/sample_frame/frame_unit/unit_type,DataCollectionAccess/DataCollectionIntegration/DataCollection/RecruitmentSourceRaw,"Source recrutement (Liste parsée)"
 

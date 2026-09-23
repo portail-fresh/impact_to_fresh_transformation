@@ -236,6 +236,7 @@
                         <value>Transcription et saisie d’informations dans un enregistrement structuré</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Recueil informatique crypté (actif ou passif) des cas éligibles dans les Structures d’anatomie et de cytologies pathologiques, les Services d’information médicale des établissements de santé (PMSI), les Services médicaux de l’Assurance Maladie (ALD).Recueil informatique (actif) des fiches du Réseau de Cancérologie Onco Poitou-CharentesRecueil actif (retour au dossier médical) dans les établissements de santé (services cliniques ou archives)Recueil pour identification des fuites extrarégionales et contrôle de l’exhaustivité des données de la Base régionale PMSI domiciliéeRecueil informatique crypté passif des cas enregistrés par l’EPC (Enquête Permanente Cancer)</CollectionModeDetails>
                     <SamplingMode>
                         <value>Autre</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>

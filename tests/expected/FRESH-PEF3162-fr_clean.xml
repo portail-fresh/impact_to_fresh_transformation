@@ -518,6 +518,7 @@ Qualité de vie/santé perçue</PrimaryOutcomes>
                         <value>Questionnaire auto-administré</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
                     </CollectionMode>
+                    <CollectionModeDetails>Auto questionnaire à l'inclusion puis tous les trois ans au cours du suivi : recueil de données sur l'état de santé et le mode de vie, plus des questionnaires spécifiques sous la responsabilité d'un chercheur ou pour un projet ancillaires (sur des sous échantillons).- Examen clinique pour un sous-échantillon de 25 000 femmes de la cohorte: pouls, pression artérielle, poids, taille : données recueillies entre 1994 et 1998 lors de la prise de sang.- Questionnaire au médecin traitant en cas de pathologie déclarée par la femme: confirmation et compte-rendu anatomopathologique pour plus de 80% des cancers.</CollectionModeDetails>
                     <SamplingMode>
                         <value>Autre</value>
                         <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
