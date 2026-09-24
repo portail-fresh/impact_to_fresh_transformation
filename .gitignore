@@ -19,6 +19,7 @@ audit_*.txt
 fichiers_non_conformes.txt
 rapport_qualite.txt
 vocabs_*.txt
+couverture*.txt
 
 # Ancienne version du schema, conservee hors depot.
 mappings/fresh-schema_v4.xsd
