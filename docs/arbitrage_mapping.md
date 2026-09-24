@@ -196,6 +196,107 @@ lira sur le corpus.
 
 ---
 
+## Cas 5 — `CreationDate` porte la date d'import, pas celle du premier enregistrement
+
+**Constat (corpus complet).** La règle ligne 7 lit `/xml/dataset/created`, qui est
+l'horodatage d'entrée de la fiche dans NADA. Pour les fiches importées de PEF,
+c'est la date de l'**import en masse** — le 18 février 2026 :
+
+| fiche | lu aujourd'hui (`created`) | `additional/creationDate` (non lu) |
+|---|---|---|
+| FRESH-PEF152 | 2026-02-18T18:21:38 | 14-12-2010 |
+| FRESH-PEF200 | 2026-02-18T18:21:52 | 20-12-2010 |
+| FRESH-PEF1192 | 2026-02-18T18:21:23 | 15-02-2011 |
+
+Or le XSD documente `CreationDate` comme **« Date du 1er enregistrement / First
+record date »**. Une étude enregistrée sur PEF en 2010 affiche aujourd'hui une
+création en 2026.
+
+**Ampleur.** `additional/creationDate` est rempli dans **2132 fiches sur 2154**.
+Il est absent des 22 fiches nativement créées dans FReSH, pour lesquelles
+`created` est bien la vraie date.
+
+**Correction proposée.** Lire `additional/creationDate` quand il existe, et
+retomber sur `created` sinon. Deux précautions : le format source est `JJ-MM-AAAA`
+(à convertir en `AAAA-MM-JJ`), et **70 occurrences valent `----`** (à traiter
+comme absentes, donc repli sur `created`).
+
+**Ce qui change en sortie.** La date de création de ~2130 fiches recule de 2026
+à leur vraie date, entre 2010 et 2013 pour l'essentiel.
+
+**Question de sens à trancher.** Est-ce que FReSH veut la date de création de la
+fiche d'origine (PEF), ou la date à laquelle la fiche est entrée dans FReSH ? La
+documentation du XSD dit la première. Mais c'est une décision d'équipe : elle
+change ce que « récent » veut dire dans le catalogue.
+
+> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+
+---
+
+## Cas 6 — `CommitteeDetail` n'est jamais rempli
+
+**Constat (corpus).** Même motif que les cas 3 et 4. L'élément existe
+(*« Comité, précisions »*), la source `study_desc/study_info/quality_statement/standards/standard/committee`
+est remplie dans **10 fiches**, aucune règle :
+
+> « Steering Committee », « Comité de pilotage », « The Institutional Committee
+> brings together the founding partners… »
+
+**Déjà sécurisé.** C'est précisément le champ que le test booléen par
+sous-chaîne aurait écrasé en `0`/`1` (« CommitteeDetail » contient
+« Committee »). Le piège a été désamorcé au commit `fbf88c4`, la règle peut
+être ajoutée sans risque.
+
+> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+
+---
+
+## Cas 7 — Trois champs « Autre, précisions » jamais remplis
+
+**Constat (corpus).** Même motif, trois champs rares :
+
+| source (`additional/…`) | cible XSD | fiches |
+|---|---|---|
+| `dataCollection/samplingModeOther` | `SamplingModeOther` | 4 |
+| `collectionProcess/collectionModeOther` | `CollectionModeOther` | 2 |
+| `fundingAgent/otherFundingAgentType/otherfundingagenttype` | `OtherFundingAgentType` | 2 (4 occurrences) |
+
+Exemples : « Invitation totalité population éligible », « Données
+administratives, SNDS », « Organisme protection sociale ».
+
+**Point d'attention.** `OtherFundingAgentType` appartient à un financeur précis :
+la source range les financeurs et leurs types dans des listes parallèles,
+appariées par position (étape 2.5 du builder). La précision devra suivre le même
+appariement, sinon elle serait rattachée au mauvais financeur. Les deux autres
+sont de simples règles, et `CollectionProcess` est déjà re-trié depuis le cas 3.
+
+> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+
+---
+
+## Ce que le corpus complet a appris
+
+**Le catalogue est presque entièrement issu de l'import PEF.**
+`additional/prodPlace` vaut « Portail Epidémiologie France (PEF) » dans 2150
+fiches sur 2154, soit **1075 études sur 1077**. La question « le passif de
+vocabulaire est-il propre aux fiches importées ? » (`pistes_ouvertes.md`) perd
+donc beaucoup de son sens : à ce stade, le catalogue *est* l'import PEF.
+
+**Le cas 1 touche ~2070 fiches** : `authoring_entity` (investigateurs) est rempli
+dans 2068 fiches, `distribution_statement/contact` dans 1890.
+
+**Restent à examiner, sans conclusion pour l'instant :**
+- `study_info/universe` (2154 fiches) : un bloc JSON des critères de sexe et d'âge,
+  avec leurs URI MeSH. Probablement un doublon, sous une autre forme, de `Sex` et
+  `Age` — à vérifier, notamment si les URI MeSH y sont les seules disponibles ;
+- `additional/avlStatus` (2154 fiches) : « Accès réservé », « To be defined »… un
+  statut de disponibilité des données dont le rapport avec `IndividualDataAccess`
+  reste à établir ;
+- `additional/contributorName` : identique au contributeur lu dans 452 fiches sur
+  556, **différent dans 104**. À regarder de près.
+
+---
+
 ## Écartés après vérification
 
 Pour que personne ne les redécouvre et ne perde de temps dessus. Chacun avait été

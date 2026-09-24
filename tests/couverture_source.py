@@ -64,7 +64,20 @@ _INDICE = re.compile(r"\[\d+\]")
 # ne sont pas censees etre mappees ; les signaler noierait le reste.
 BRANCHES_TECHNIQUES = (
     "/xml/dataset/metadata/doc_desc/",
+    "/xml/status",
+    "/xml/dataset/metadata/schematype",
+    # Identifiant de la fiche elle-meme (FRESH-PEF100-en) : StudyId est lu dans
+    # link_study, qui ne varie pas entre les deux langues.
+    "/xml/dataset/metadata/study_desc/title_statement/idno",
 )
+
+# Resume de catalogue : les enfants directs de /xml/dataset/ autres que
+# metadata/ sont une vue calculee par NADA (compteur de vues, dates de
+# modification, noms et courriels recopies du bloc DDI). Mesure sur les 2154
+# fiches : ils n'apportaient que du bruit a la liste des candidats. Les champs
+# de ce bloc que le mapping lit (title, created, link_study...) restent lus ;
+# on ne les ecarte que de l'analyse des champs non lus.
+_RESUME_CATALOGUE = "/xml/dataset/"
 
 
 def charger_regles():
@@ -232,7 +245,10 @@ def _generalise(chemin):
 
 
 def _est_technique(chemin):
-    return any(chemin.startswith(b) for b in BRANCHES_TECHNIQUES)
+    if any(chemin.startswith(b) for b in BRANCHES_TECHNIQUES):
+        return True
+    reste = chemin[len(_RESUME_CATALOGUE):] if chemin.startswith(_RESUME_CATALOGUE) else None
+    return reste is not None and not reste.startswith("metadata/")
 
 
 def analyser(data_dir, limite=None, garder_technique=False):
