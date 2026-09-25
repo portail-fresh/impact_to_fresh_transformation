@@ -253,7 +253,9 @@ sous-chaîne aurait écrasé en `0`/`1` (« CommitteeDetail » contient
 
 ---
 
-## Cas 7 — Trois champs « Autre, précisions » jamais remplis
+## Cas 7 — Trois champs « Autre, précisions » jamais remplis — ✅ APPLIQUÉ
+
+*Décision : appliqué le 25 septembre. Aucune fiche de test ne les contient : vérifié sur une fiche injectée ; les vraies fiches restent à ajouter aux tests.*
 
 **Constat (corpus).** Même motif, trois champs rares :
 
@@ -272,7 +274,7 @@ appariées par position (étape 2.5 du builder). La précision devra suivre le m
 appariement, sinon elle serait rattachée au mauvais financeur. Les deux autres
 sont de simples règles, et `CollectionProcess` est déjà re-trié depuis le cas 3.
 
-> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+> **Décision** : ☒ appliquer ☐ ne pas appliquer ☐ à revoir
 
 ---
 

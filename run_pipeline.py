@@ -18,7 +18,8 @@ import json
 # entries must be preserved (not dropped) on both sides so the two lists stay
 # index-aligned -- see HierarchicalExtractor._extract_text_keep_blanks and the
 # matching exception in FReSHXMLBuilder._dict_to_xml.
-POSITIONAL_RAW_FIELDS = {"AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw", "OtherSourceTypeRaw"}
+# Liste definie une seule fois, dans le builder : voir src/builder.py.
+from src.builder import POSITIONAL_RAW_FIELDS
 
 
 def _vocab_field_name(target_xpath):

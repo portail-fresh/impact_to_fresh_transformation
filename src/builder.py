@@ -4,6 +4,20 @@ import copy
 import xml.etree.ElementTree as ET
 from src.vocabularies import resolve_vocab_term, resolve_vocab_uri
 
+# Champs "*Raw" apparies PAR POSITION avec une liste soeur (financeurs et leurs
+# types, promoteurs et leurs types...) : une case par element source, vides
+# comprises. Une case vide supprimee decale toutes les suivantes et rattache les
+# valeurs au mauvais element. Liste UNIQUE, lue a la fois par l'extraction
+# (run_pipeline.py, qui garde les cases vides) et par _dict_to_xml ci-dessous
+# (qui les materialise) : elle existait en deux copies, et un champ ajoute a une
+# seule des deux voyait ses precisions rattachees au premier financeur venu.
+POSITIONAL_RAW_FIELDS = frozenset({
+    "AgencyRaw", "OtherAgencyRaw",
+    "FundingAgentTypeRaw", "OtherFundingAgentTypeRaw",
+    "SponsorTypeRaw", "OtherSourceTypeRaw",
+})
+
+
 class FReSHXMLBuilder:
     def __init__(self, lang="fr"):
         self.lang = lang
@@ -132,7 +146,7 @@ class FReSHXMLBuilder:
                         # These "*Raw" fields keep blank placeholders: they're paired
                         # by position (enumerate) further down, so dropping an empty
                         # entry here would desync it from its sibling list.
-                        if item == "" and key not in ("AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw", "OtherSourceTypeRaw"):
+                        if item == "" and key not in POSITIONAL_RAW_FIELDS:
                             continue
                         child = ET.SubElement(parent_element, key)
                         self._dict_to_xml(child, item, key)
@@ -191,6 +205,22 @@ class FReSHXMLBuilder:
                     ET.SubElement(el, 'value').text = type_val
                     funder.insert(idx, el)
             for raw in type_raws:
+                admin_info.remove(raw)
+
+            # Precision "autre type de financeur" : meme liste parallele que le type
+            # (une case par financeur, vides comprises), donc meme appariement par
+            # position. Placee apres FundingAgentType, comme l'impose le XSD.
+            other_raws = admin_info.findall('OtherFundingAgentTypeRaw')
+            for i, funder in enumerate(funders):
+                if i < len(other_raws) and other_raws[i].text and other_raws[i].text.strip():
+                    anchor = funder.find('FundingAgentType')
+                    if anchor is None:
+                        anchor = funder.find('FundingAgentName')
+                    idx = list(funder).index(anchor) + 1 if anchor is not None else 0
+                    el = ET.Element('OtherFundingAgentType')
+                    el.text = other_raws[i].text.strip()
+                    funder.insert(idx, el)
+            for raw in other_raws:
                 admin_info.remove(raw)
 
             for governance in admin_info.iter('OrganisationGovernance'):

@@ -107,6 +107,7 @@ ARRAY:./extlink/item,AdministrativeInformation/FundingAgent/FundingAgentPID,"---
 ./uri,AdministrativeInformation/FundingAgent/FundingAgentPID/URI,"URI PID"
 
 /xml/dataset/metadata/additional/fundingAgent/fundingAgentType/fundingagenttype,AdministrativeInformation/FundingAgentTypeRaw,"Types Financeur - liste PARALLELE à FundingAgent, appariée par position dans builder.py (chemin séparé dans le XML source, pas nichée sous funding_agency)"
+/xml/dataset/metadata/additional/fundingAgent/otherFundingAgentType/otherfundingagenttype,AdministrativeInformation/OtherFundingAgentTypeRaw,"Autre type de financeur, précisions - liste PARALLELE à FundingAgent comme FundingAgentTypeRaw, une case par financeur, vides comprises ; appariée par position à l'étape 2.5 du builder. Trouvé par tests/couverture_source.py."
 
 ROOT:/xml/dataset/metadata/study_desc/production_statement/producers/producer,AdministrativeInformation/OrganisationGovernance/Sponsor,"--- DEBUT BOUCLE PROMOTEURS ---"
 ./name,AdministrativeInformation/OrganisationGovernance/Sponsor/SponsorName,"Nom Sponsor"
@@ -217,6 +218,8 @@ ROOT:/xml/dataset/metadata/study_desc/method/data_collection/sources/source,Data
 /xml/dataset/metadata/study_desc/method/data_collection/coll_mode/item,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeRaw,"JSON brut des modes de collecte"
 /xml/dataset/metadata/study_desc/method/data_collection/sampling_procedure,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/SamplingModeRaw,"JSON brut d'échantillonnage"
 /xml/dataset/metadata/additional/collectionProcess/collectionModeDetails,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeDetails,"Mode de collecte, précisions (texte libre). Champ du même nom dans la source et le XSD, jamais relié jusqu'ici : trouvé par tests/couverture_source.py."
+/xml/dataset/metadata/additional/collectionProcess/collectionModeOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/CollectionModeOther,"Autre mode de collecte, précisions (texte libre). Trouvé par tests/couverture_source.py."
+/xml/dataset/metadata/additional/dataCollection/samplingModeOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/CollectionProcess/SamplingModeOther,"Autre procédure d'échantillonnage, précisions (texte libre). Trouvé par tests/couverture_source.py."
 
 /xml/dataset/metadata/study_desc/method/data_collection/sample_frame/frame_unit/unit_type,DataCollectionAccess/DataCollectionIntegration/DataCollection/RecruitmentSourceRaw,"Source recrutement (Liste parsée)"
 /xml/dataset/metadata/additional/dataCollection/recruitmentSourceOther,DataCollectionAccess/DataCollectionIntegration/DataCollection/RecruitmentSourceOther,"Autre source de recrutement, précisions (texte libre). Champ du même nom dans la source et le XSD, jamais relié jusqu'ici : trouvé par tests/couverture_source.py."

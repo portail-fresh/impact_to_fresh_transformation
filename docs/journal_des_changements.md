@@ -174,6 +174,37 @@ booléen par sous-chaîne aurait remplacé ce texte par 0 ou 1.
 
 ---
 
+## Cas 7 de l'arbitrage — trois champs « Autre, précisions » enfin remplis
+
+| | |
+|---|---|
+| **XML produit** | modifié : éléments **ajoutés**, rien de retiré |
+| **fiches concernées** | aucune des 21 fiches de test ; 2 à 4 fiches par champ sur le corpus |
+| **conformité XSD** | inchangée sur les fiches de test, vérifiée conforme sur une fiche injectée |
+
+**Ce qui change.**
+- `CollectionProcess/CollectionModeOther` ← `additional/collectionProcess/collectionModeOther` (2 fiches)
+- `CollectionProcess/SamplingModeOther` ← `additional/dataCollection/samplingModeOther` (4 fiches)
+- `FundingAgent/OtherFundingAgentType` ← `additional/fundingAgent/otherFundingAgentType` (2 fiches),
+  rattaché **au financeur de même rang** et placé après son `FundingAgentType`.
+
+**Changement associé dans le code — sans effet sur la sortie existante.** La liste
+des champs appariés par position existait en **deux copies**, l'une dans
+`run_pipeline.py` (extraction), l'autre écrite en dur dans `builder.py`
+(construction). En ajoutant le nouveau champ à une seule des deux, la précision
+se retrouvait rattachée au **premier** financeur au lieu du bon. Il n'y a plus
+qu'une liste, dans `src/builder.py`, que `run_pipeline.py` importe.
+
+**Comment c'est vérifié.** Aucune fiche de test ne contient ces champs. La
+vérification a été faite sur une copie de FRESH-PEF3101 où la précision a été
+placée dans la case du 4ᵉ financeur sur 7 : elle arrive bien sur le 4ᵉ. **Les
+vraies fiches concernées doivent encore être ajoutées aux tests** pour que le
+harnais couvre ces champs durablement.
+
+**À vérifier côté consommateur.** Trois éléments de texte libre, rares.
+
+---
+
 ## À venir
 
 Les corrections de mapping en attente de décision sont décrites dans
