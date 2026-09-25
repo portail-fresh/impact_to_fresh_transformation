@@ -308,6 +308,91 @@ dans 2068 fiches, `distribution_statement/contact` dans 1890.
 
 ---
 
+## Cas 8 — Des caractères Windows mal encodés sont supprimés du texte
+
+*Trouvé le 25 septembre en analysant `universe` sur le corpus complet.*
+
+**Constat.** Dans 18 fiches (14 études), le texte source contient des caractères
+Windows mal encodés : ils arrivent sous la forme de caractères de contrôle
+(`\x95`, `\x96`, `\x93`…). Le pipeline supprime tous les caractères de
+contrôle, donc **il les efface au lieu de les rendre** :
+
+| dans la source | ce que c'était | ce que FReSH publie |
+|---|---|---|
+| `Age : 18 ans \x96 70 ans` | « 18 ans – 70 ans » | `Age : 18 ans 70 ans` |
+| `\x9cdème maculaire` | « œdème maculaire » | `dème maculaire` |
+| `\x93Elfe\x94` | « “Elfe” » | `Elfe` |
+| `\x95 Male or female adult` | « • Male or female… » | `Male or female…` |
+
+81 caractères au total : puces (32), tirets (19), guillemets (26), `œ` (2),
+points de suspension (2). Surtout dans les objectifs, les critères d'inclusion
+et les titres.
+
+Études : FRESH-PEF3406, 73441, 73499, 73553, 73814, 73841, 73865, 73904, 73915,
+73972, 74089, 74114, 74127, 74134.
+
+**Correction proposée.** Dans `_clean_value` (`run_pipeline.py`), traduire ces
+caractères vers leur valeur Windows (`\x96` → `–`, `\x9c` → `œ`…) **avant** de
+supprimer les vrais caractères de contrôle. Une ligne. Les rares codes qui n'ont
+aucune valeur Windows restent supprimés comme aujourd'hui.
+
+**Ce qui change en sortie.** 18 fiches retrouvent leurs tirets, puces, guillemets
+et `œ`. Rien d'autre.
+
+> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+
+---
+
+## Cas 9 — Deux études perdent toutes leurs régions
+
+*Trouvé le 25 septembre en analysant `geog_coverage` sur le corpus complet.*
+
+**Constat.** Les régions (`FranceRegion`) sont lues dans un champ de résumé,
+`additional/geogCoverage`. Sur 706 fiches où le champ détaillé
+`study_info/geog_coverage` est aussi rempli, 702 concordent. Dans **4 fiches (2
+études)**, le résumé vaut « Non renseigné » alors que le champ détaillé liste les
+régions — et FReSH publie **aucune région** :
+
+| étude | champ lu (résumé) | champ détaillé, non lu |
+|---|---|---|
+| FRESH-PEF73379 (fr + en) | Non renseigné | 6 régions |
+| FRESH-PEF74055 (fr + en) | Non renseigné | 16 régions, DOM compris |
+
+*(Une première hypothèse — l'apostrophe de « Côte d'Azur » qui casserait la
+lecture — est fausse : 38 fiches citant PACA sortent correctement.)*
+
+**Correction proposée.** Lire le champ détaillé **seulement quand le résumé ne
+donne aucune région**. Les 702 fiches concordantes ne bougent pas.
+
+**Ce qui change en sortie.** 4 fiches gagnent leurs régions.
+
+> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+
+---
+
+## Cas 10 — Deux contributeurs différents pour une même fiche (question)
+
+*Trouvé le 25 septembre.*
+
+**Constat.** Le contributeur des métadonnées est lu dans
+`doc_desc/producers/producer`. Un second champ, `additional/contributorName`, le
+donne aussi dans 556 fiches. **Dans 104 d'entre elles, ce n'est pas la même
+personne** (ex. « Véronique MILLET » d'un côté, « Isabelle PITHOIS-MERLI » de
+l'autre) ; l'affiliation diffère dans 56 (ex. AstraZeneca / Ferring).
+
+**Ce n'est pas un bug, c'est une question de définition** : l'un des champs
+désigne probablement l'auteur d'origine de la fiche sur PEF, l'autre la personne
+qui l'a complétée sur le portail. Les données ne permettent pas de trancher.
+
+**Question pour l'équipe** : qui FReSH veut-il afficher comme contributeur ?
+
+*(Ce second champ ne permet pas non plus de remplacer les 68 contributeurs
+« Inconnu » : il est vide dans ces fiches-là aussi.)*
+
+> **Décision** : ☐ garder l'actuel ☐ prendre `additional/contributorName` ☐ à revoir
+
+---
+
 ## Écartés après vérification
 
 Pour que personne ne les redécouvre et ne perde de temps dessus. Chacun avait été
@@ -330,7 +415,24 @@ il ne permet pas de conclure que ces champs sont « à ne pas exporter ».
 **`rareDiseases`**. La source dit « Non », FReSH sort `0`. Même information en
 booléen.
 
-**`topicsHealthTheme`** — écarté du mapping, **mais signalé à la curation**. Le
+**`universe`** (2154 fiches) — un bloc JSON qui duplique des champs déjà lus :
+sexe identique dans 2154 fiches sur 2154, âge dans 2150 (les 4 autres ne
+diffèrent que d'une espace parasite corrigée par le pipeline), type de population
+dans 2154, critères d'inclusion dans 2104 sur 2110 et de non-inclusion dans 221
+sur 221. Les 6 écarts d'inclusion sont le cas 8.
+
+**`avlStatus`** (2154 fiches) — doublon de `IndividualDataAccess` : 1077 fiches
+françaises sur 1077 concordent.
+
+**`topicsHealthTheme`** — écarté du mapping, **mais signalé à la curation**.
+Mesure sur le corpus : 112 fiches disent « pas de spécialité médicale » ; 50 sont
+cohérentes ; **16 listent pourtant des spécialités** ; et dans **44 autres**, la
+source indique `isHealthTheme = 1` (« l'étude porte sur des spécialités ») sans en
+lister aucune — FReSH reproduit fidèlement cette incohérence. Au passage, la
+fiche FRESH-PEF2582 liste « Paediatrics » en anglais et « Psychiatrie » en
+français : une divergence fr/en de plus pour le chantier prévu plus tard.
+
+**Ancienne note —**  Le
 pipeline lit le bon champ (le champ structuré, plus précis). En revanche la
 fiche se contredit elle-même : sur FRESH-PEF2582 et FReSH-43597, le résumé dit
 « No specific medical speciality » alors que le champ structuré liste deux

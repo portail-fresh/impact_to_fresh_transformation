@@ -1,4 +1,4 @@
-# Pistes ouvertes — état au 23 septembre 2026
+# Pistes ouvertes — état au 25 septembre 2026
 
 Ce document existe pour qu'on reprenne sur des faits et non sur des souvenirs.
 Chaque piste dit ce qui est **mesuré**, ce qui est **supposé**, et la commande
@@ -7,6 +7,30 @@ qui tranche.
 Toutes les mesures ci-dessous portent sur les **21 fiches de `tests/fixtures/`**,
 sauf mention contraire. C'est assez pour repérer un motif, pas pour le chiffrer :
 la commande de vérification sur les 2 154 fiches est donnée à chaque fois.
+
+---
+
+## Pour reprendre lundi — à lire en premier
+
+**La chasse aux erreurs de mapping est pratiquement terminée.** Sur le catalogue
+complet, `tests/couverture_source.py` ne trouve plus que 11 champs source jamais
+lus, et **chacun correspond à une décision déjà rédigée** dans
+`arbitrage_mapping.md` :
+
+| cas | sujet | ampleur | proposition |
+|---|---|---|---|
+| **8** | caractères Windows mal encodés, effacés au lieu d'être rendus (« œdème » → « dème ») | 18 fiches | appliquer — une ligne |
+| **9** | deux études perdent toutes leurs régions | 4 fiches | appliquer — lire le champ détaillé en repli |
+| **10** | deux contributeurs différents selon le champ | 104 fiches | **question d'équipe** |
+| **1** | noms `Prénom;NOM` | ~2000 fiches | reporté, à voir avec Rémy |
+
+Écartés après vérification sur le corpus : `universe` et `avlStatus` (doublons de
+champs déjà lus), `topicsHealthTheme` (incohérences de saisie, à signaler à la
+curation).
+
+**Le catalogue complet** a été fourni en zip et analysé dans l'environnement de
+travail, qui n'est pas permanent : il faudra le renvoyer pour de nouveaux audits,
+ou ouvrir l'accès réseau au portail NADA.
 
 ---
 

@@ -82,6 +82,14 @@ ECARTES_PAR_DECISION = {
         "meme information que additional/prodPlace ; arbitrage_mapping.md, cas 2",
     "/xml/dataset/metadata/additional/creationDate":
         "date de creation d'origine -- jugee sans enjeu ; arbitrage_mapping.md, cas 5",
+    # Doublons verifies sur le corpus complet le 25/09 (arbitrage_mapping.md,
+    # section "Ecartes apres verification").
+    "/xml/dataset/metadata/study_desc/study_info/universe":
+        "JSON qui duplique Sex, Age, PopulationType et les criteres d'inclusion",
+    "/xml/dataset/metadata/additional/avlStatus/values":
+        "doublon de IndividualDataAccess, 1077/1077",
+    "/xml/dataset/metadata/additional/topicsHealthTheme/values":
+        "resume contradictoire du champ structure ; relève de la curation",
 }
 
 # Resume de catalogue : les enfants directs de /xml/dataset/ autres que
