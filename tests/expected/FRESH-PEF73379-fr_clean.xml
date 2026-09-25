@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="fr">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF73379</Identifier>
+        </StudyId>
+        <VersionLang>fr</VersionLang>
+        <OriginLang>
+            <value>Français</value>
+        </OriginLang>
+        <CreationDate>2026-07-28</CreationDate>
+        <LastUpdatedAuto>2026-09-08</LastUpdatedAuto>
+        <LastUpdatedManual>2026-09-08</LastUpdatedManual>
+        <AutoTranslation>1</AutoTranslation>
+        <Status>
+            <value>Envoyée pour publication</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Sonia GUEGUEN</ContributorName>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>Dyskinésies ciliaires primitives : Identification de critères de sévérité spécifiques et recherche de corrélation génotype-phénotype</Title>
+            <Acronym>RaDiCo-DCP</Acronym>
+            <StudyStatus>
+                <value>Étude en cours</value>
+            </StudyStatus>
+            <Purpose>La cohorte a pour objectif d'identifier les facteurs qui permettent de repérer précocement les patients susceptibles de développer une forme plus sévère de la dyskinésie ciliaire primitive (DCP). Mieux connaître ces facteurs permettra de mieux prévoir l'évolution de la maladie et de proposer un suivi ainsi que des traitements plus personnalisés dès les premiers stades. La cohorte vise également à identifier de nouveaux gènes impliqués dans la DCP afin d'améliorer le diagnostic génétique et d'enrichir les connaissances sur les mécanismes de la maladie.
+
+L'étude s'intéresse également aux conséquences de la DCP sur la qualité de vie des patients, notamment aux atteintes ORL (nez, sinus et oreilles), qui peuvent entraîner des infections répétées, des troubles de l'audition, des retards de langage chez les enfants ou encore des sinusites chroniques chez les adultes, ainsi qu'aux difficultés de fertilité pouvant nécessiter un recours à l'assistance médicale à la procréation, en particulier chez les hommes. Enfin, elle cherche à mieux comprendre les liens entre les symptômes, les anomalies des cils et les caractéristiques génétiques afin d'expliquer pourquoi la maladie se manifeste différemment d'une personne à l'autre et de contribuer au développement d'une médecine plus personnalisée.</Purpose>
+            <Summary>RaDiCo-DCP est une cohorte nationale française consacrée à la dyskinésie ciliaire primitive (DCP), une maladie respiratoire rare d’origine génétique récessive autosomique. Elle résulte d’anomalies de structure ou de fonction des cils, de minuscules structures présentes notamment dans les voies respiratoires, qui permettent normalement d’éliminer le mucus. Ce dysfonctionnement provoque des infections récidivantes des voies aériennes hautes et basses dès la petite enfance, pouvant évoluer vers une polypose nasale, des dilatations des bronches, voire une insuffisance respiratoire chez environ un tiers des patients. La moitié des cas s’accompagne d’un défaut de latéralisation des organes (syndrome de Kartagener), et une infertilité est plus fréquemment observée, notamment chez les hommes. Une trentaine de gènes sont aujourd’hui identifiés, expliquant environ la moitié des cas. La sévérité de la maladie est très variable d’une personne à l’autre et ses causes restent encore incomplètement comprises. 
+L'objectif principal de cette cohorte est de mieux comprendre les facteurs qui influencent l'évolution de la DCP afin d'identifier, le plus tôt possible, les patients susceptibles de développer une forme plus sévère de la maladie. Ces connaissances permettront d'améliorer le suivi médical et de proposer une prise en charge plus personnalisée. L'étude vise également à identifier de nouveaux gènes impliqués dans la DCP, à mieux comprendre les liens entre les caractéristiques génétiques, les anomalies des cils et les manifestations de la maladie, ainsi qu'à évaluer l'impact de la DCP sur la qualité de vie des patients, en particulier concernant les atteintes ORL et les difficultés de fertilité.
+La cohorte rassemble des enfants et des adultes atteints d'une DCP confirmée dans plusieurs centres hospitaliers en France. Les participants sont suivis régulièrement dans le cadre de leur prise en charge habituelle. Les chercheurs recueillent des données médicales, des résultats d'examens, des informations sur la qualité de vie ainsi que, lorsque cela est disponible, des données issues d'analyses génétiques et de collections biologiques. Les données sont pseudonymisées et analysées de manière sécurisée afin de garantir la confidentialité des participants.
+En réunissant ces informations sur plusieurs années, la cohorte RaDiCo-DCP contribue à améliorer les connaissances sur cette maladie rare, à optimiser la prise en charge des patients et à favoriser le développement d'une médecine plus personnalisée.</Summary>
+            <Keyword>Maladies rares</Keyword>
+            <Keyword>Dyskinésie ciliaire primitive</Keyword>
+            <Keyword>DCP</Keyword>
+            <Keyword>Pneumologie</Keyword>
+            <Keyword>Génétique</Keyword>
+            <Keyword>Qualité de vie</Keyword>
+            <Keyword>Cohorte</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>1</IsHealthTheme>
+            <HealthTheme>
+                <value>Chirurgie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/432746d6-998b-431f-b22f-d3abe0e8aada</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Génétique médicale</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/8e2d297f-5880-4d7a-969d-79026aa0779c</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Infectiologie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/fa2ceeab-3b2f-45e9-9243-e5a8005b98de</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Médecine générale</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/4b9f8efb-68dd-45a1-b04c-d23d457d6898</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Oto-rhino-laryngologie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/9c3a57c5-68bd-4ee7-a9cc-aa8ba07bde94</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Pneumologie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/f6e18c52-6087-4662-904c-5c4b8174e40e</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Pédiatrie</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/bf8aaaac-ddee-41cd-bb8a-c5a63de3fcbd</URI>
+            </HealthTheme>
+            <HealthTheme>
+                <value>Santé publique, environnementale et du travail</value>
+                <URI>http://data.europa.eu/8mn/euroscivoc/b533acc2-aff1-4c65-80ca-5d5bee865ba9</URI>
+                <URI>D004778</URI>
+            </HealthTheme>
+            <HealthDeterminant>
+                <value>Déterminants socio-démographiques et économiques</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants socio-démographiques et économiques : Age</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants environnementaux</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants environnementaux : Autre</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants comportementaux</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants comportementaux : Addiction</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants biologiques</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants biologiques : Prédisposition génétique</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Déterminants biologiques : Sexe</value>
+            </HealthDeterminant>
+            <OtherEnvironmentalDeterminant>Lieu de vie, expositions professionnelles</OtherEnvironmentalDeterminant>
+            <Pathology>
+                <value>Dyskinésie ciliaire primaire</value>
+                <URI>http://id.who.int/icd/entity/1713839459</URI>
+            </Pathology>
+            <RareDiseases>1</RareDiseases>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>Patients</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Féminin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Sex>
+                    <value>Masculin</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Age>
+                    <value>Nouveau-né (naissance à 28j)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007231</URI>
+                </Age>
+                <Age>
+                    <value>Nourrisson (28j à 2 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D007223</URI>
+                </Age>
+                <Age>
+                    <value>Petite enfance (2 à 5 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002675</URI>
+                </Age>
+                <Age>
+                    <value>Enfance (6 à 12 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D002648</URI>
+                </Age>
+                <Age>
+                    <value>Adolescence (13 à 18 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000293</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (19 à 24 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D055815</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (25 à 44 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Adulte (45 à 64 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+                <Age>
+                    <value>Personne âgée (65 à 79 ans)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>Tous les patients prévalents et incidents inclus dans la cohorte RaDiCo-DCP doivent : 
+Avoir un diagnostic confirmé de DCP basé sur au moins un des critères de diagnostic objectif suivant : syndrome de Kartagener (association de sinusites chroniques, de bronchiectasie et d’un situs inversus), et/ou mise en évidence d’anomalies spécifiques de l’ultrastructure ciliaire, et/ou identification de mutations non ambiguës dans un gène de DCP. 
+Avoir au minimum une visite annuelle de suivi conformément à la pratique courante.</InclusionCriterion>
+                <ExclusionCriterion>Les patients correspondants aux critères suivants, ne pourront être inclus : 
+Patient avec un diagnostic de DCP non confirmé. 
+Patient avec une pathologie concomitante évolutive pouvant interférer avec l’évaluation des manifestations liées à la DCP.</ExclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <GeoDetail>Couverture complète du territoire français par les Centres de Référence et de Compétence Maladies Pulmonaires Rares. Les régions indiquées sont celles où des centres sont ouverts.</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <RegulatoryRequirements>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CNIL</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CESREES</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>Autre</value>
+                </AuthorizingAgency>
+                <OtherAuthorizingAgency>CEEI</OtherAuthorizingAgency>
+            </ObtainedAuthorization>
+        </RegulatoryRequirements>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Bernard;MAITRE</PIName>
+            <PIMail>bm.maitre@gmail.com</PIMail>
+            <PIORCID>0000-0002-8061-1252</PIORCID>
+            <PIIdRef>097642460</PIIdRef>
+            <PIAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <PILabo>French National Institute for Health and Medical Research (Inserm) / Inserm U 955</PILabo>
+                <PILaboId>200919261B</PILaboId>
+            </PIAffiliation>
+            <IsPIContact>0</IsPIContact>
+        </PrimaryInvestigator>
+        <AddTeamMember>1</AddTeamMember>
+        <TeamMember>
+            <TeamMemberName>Sonia;GUEGUEN</TeamMemberName>
+            <TeamMemberORCID>0000-0003-4730-2949</TeamMemberORCID>
+            <TeamMemberIdRef>070367418</TeamMemberIdRef>
+            <TeamMemberAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <TeamMemberLabo>U933, RaDiCo : Rare Disease Cohorts</TeamMemberLabo>
+            </TeamMemberAffiliation>
+            <IsTeamMemberContact>0</IsTeamMemberContact>
+        </TeamMember>
+        <ContactPoint>
+            <ContactName>Juliette;CARTON</ContactName>
+            <EMail>juliette.carton@radico.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <ContactPointLabo>U933, RaDiCo : Rare Disease Cohorts</ContactPointLabo>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Sonia;GUEGUEN</ContactName>
+            <EMail>sonia.gueguen@radico.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <ContactPointLabo>U933, RaDiCo : Rare Disease Cohorts</ContactPointLabo>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>AGENCE NATIONALE DE LA RECHERCHE (ANR)</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/00rbzpz17</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>130002504</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>MINISTERE DE L’ENSEIGNEMENT SUPERIEUR, DE LA RECHERCHE ET DE L’ESPACE</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>SIREN</value>
+                </PIDSchema>
+                <URI>110044013</URI>
+            </FundingAgentPID>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/03sjk9a61</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Governance>
+                <Committee>1</Committee>
+                <CommitteeDetail>Comité de Pilotage : 
+Bernard MAITRE, Marie LEGENDRE, Aline TAMALET, Guillaume THOUVENIN, Nicole BEYDON, Katia BESSACI, Isabelle HONORE, Rola ABOU TAAM, Muriel LEBOURGEOIS, Caroline THUMERELLE, Jean-François PAPON, Equipe Projet RaDiCo + DSO
+
+Comité Scientifique : 
+Bernard MAITRE, Marie LEGENDRE, Aline TAMALET, Guillaume THOUVENIN, Nicole BEYDON, Harriet CORVOL, Marc KOSKAS, Katia BESSACI, Isabelle HONORE, Bruno CRESTANI, Rola ABOU TAAM, Muriel LEBOURGEOIS, Caroline THUMERELLE, Jean-Christophe DUBUS, Jean-François PAPON, Philippe REIX, Katel BERG, Natalie BOURDON, Bruno LOUIS, Equipe Projet RaDiCo + DSO</CommitteeDetail>
+            </Governance>
+            <Collaborations>
+                <NetworkConsortium>1</NetworkConsortium>
+                <CollaborationsDetails>Filière Maladies Rares pulmonaires RespiFil / European Reference Network ERN-LUNG</CollaborationsDetails>
+            </Collaborations>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>73379</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF73379</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>National Library of Medicine ; clinicaltrial.gov</IDSchema>
+            <Identifier>NCT05951478</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individus</AnalysisUnit>
+        <ResearchType>
+            <value>Etude observationnelle</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Cohorte</value>
+            </ObservationalStudyDesign>
+            <TimePerspective>
+                <value>Autre</value>
+            </TimePerspective>
+            <IsInclusionGroups>0</IsInclusionGroups>
+            <Intervention>
+                <InterventionName>Soins courants</InterventionName>
+                <InterventionType>
+                    <value>Autre</value>
+                </InterventionType>
+                <InterventionTypeOther>Récolte des données cliniques des patients dans le cadre de leurs soins courants sans facteur ni exposition particulier.</InterventionTypeOther>
+            </Intervention>
+            <Intervention>
+                <InterventionName>Soins courants</InterventionName>
+                <InterventionType>
+                    <value>Génétique</value>
+                </InterventionType>
+            </Intervention>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Evénements de santé/morbidité
+Evénements de santé/mortalité
+Qualité de vie/santé perçue</PrimaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&lt; 500 individus</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>321</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>2017-05-02</CollectionStart>
+                <CollectionEnd>2027-12-31</CollectionEnd>
+                <CollectionFrequency>Annuelle pendant 5 ans.</CollectionFrequency>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Entretien avec le participant (dont clinique)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/cb20d17</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Examens et tests</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/38ceaa4</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Mesures physiques/biologiques (tension artérielle, poids, biochimie, imagerie...)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/c2a25a6</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Tests psychologiques/échelles cliniques (dépression, cognition, qualité de vie...)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/27daf03</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Observation (clinique ou comportementale)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/c680d43</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Questionnaire auto-administré</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Transcription et saisie d’informations dans un enregistrement structuré</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/df9aac3</URI>
+                    </CollectionMode>
+                    <CollectionModeDetails>Le mode de collecte est réalisé sur un eCRF en accès sécurisé web, cloud sécurisé et hébergement HDS</CollectionModeDetails>
+                    <SamplingMode>
+                        <value>Autre</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                    <SamplingModeOther>Il n’y en a pas.</SamplingModeOther>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Via des structures (services ou établissements de santé, écoles, entreprises…)</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                    <FollowUpMode>
+                        <value>Suivi par visite du participant au centre investigateur</value>
+                    </FollowUpMode>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Données cliniques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données paracliniques (hors biologiques)</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données paracliniques (hors biologiques) : Imagerie</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données paracliniques (hors biologiques) : Anthropométrie</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données paracliniques (hors biologiques) : Exploration fonctionnelle</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données biologiques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données environnementales / d'exposition</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données génétiques / génomiques</value>
+                    </DataType>
+                    <DataType>
+                        <value>Données de santé rapportées par les participants de l'étude</value>
+                    </DataType>
+                    <ClinicalDataDetails>Données démographiques ; Evaluations générale, respiratoire et ORL ; Fertilité ; Génétique ; Thérapeutiques</ClinicalDataDetails>
+                    <BiologicalDataDetails>Evaluation bactériologique</BiologicalDataDetails>
+                    <isDataInBiobank>0</isDataInBiobank>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>0</IsDataIntegration>
+            <DataIntegration />
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataQuality>
+                <UsedStandards>HPO, ICD10, Snomed CT, Orpha Codes et ORDO, dictionnaire Thériaque des médicaments</UsedStandards>
+                <QualityProcedure>Plan de Data Management et Plan de Validation des Données. Management des données en continu (règles de contrôle automatiques et système de « querie »)</QualityProcedure>
+            </DataQuality>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Accès réservé</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Accès restreint sur projet spécifique</AggregatedDataAccess>
+                <DataAccessRequestTool>
+                    <DataAccessRequestToolAvailable>0</DataAccessRequestToolAvailable>
+                </DataAccessRequestTool>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Selon la charte d'Accès aux ressources de la cohorte, les demandes sont à soumettre sous forme d'un synopsis de projet de recherche à l'adresse dcp@radico.fr (sera examinée sous 1 mois par le Comité Scientifique de la cohorte RaDiCo-DCP). Les demandes d'accès aux données RaDiCo-DCP (agrégées ou individuelles) seront examinées par le Comité Scientifique suite à la soumission d'un résumé de Projet de Recherche Spécifique (PRS), tel que défini dans la Charte d'accès aux ressources.</AccessConditions>
+                <DataInformationContact>
+                    <DIContactName>Juliette;CARTON</DIContactName>
+                    <DIContactMail>juliette.carton@radico.fr</DIContactMail>
+                </DataInformationContact>
+            </UseStatement>
+            <DataCitation>
+                <DataCitationRequirement>Les publications sont soumises avant leur publication à l’avis préalable du comité compétent du Projet. L’Utilisateur qui souhaite publier prend en considération l’ensemble des remarques faites par le comité compétent dès lors qu’elles présentent un caractère bien fondé et non arbitraire. Les modalités de publication et de communication sont précisées dans le Contrat PRS.</DataCitationRequirement>
+                <DataCitationStatement>Préalablement à toute publication, le Porteur du PRS, le cas échéant en lien avec le Responsable du PRS, détermine d’un commun accord avec le comité compétent du Projet en fonction des contributions intellectuelles respectives de chacun le rang de signature et le nombre d’auteurs issus de chaque entité participant au projet. Les publications doivent comporter au minimum parmi les auteurs un auteur issu du Promoteur. Pour autant que cette pratique soit acceptée par les éditeurs de ces publications scientifiques, RaDiCo sera cité comme co-auteur de la publication. En cas de refus de l’éditeur, les membres de l’Accord de consortium RaDiCo fourniront au Responsable du PRS ou au Porteur du PRS la liste des co-auteurs.</DataCitationStatement>
+            </DataCitation>
+            <VariableDictionnary>
+                <VariableDictionnaryAvailable>0</VariableDictionnaryAvailable>
+            </VariableDictionnary>
+            <MockSample>
+                <MockSampleAvailable>0</MockSampleAvailable>
+            </MockSample>
+        </DataAccess>
+    </DataCollectionAccess>
+</FreshSchema>

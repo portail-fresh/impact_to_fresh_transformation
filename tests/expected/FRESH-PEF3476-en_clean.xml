@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FreshSchema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xml:lang="en">
+    <TechnicalInfo>
+        <StudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>PEF3476</Identifier>
+        </StudyId>
+        <VersionLang>en</VersionLang>
+        <OriginLang>
+            <value>English</value>
+        </OriginLang>
+        <CreationDate>2026-05-08</CreationDate>
+        <LastUpdatedAuto>2026-05-13</LastUpdatedAuto>
+        <LastUpdatedManual>2026-05-13</LastUpdatedManual>
+        <AutoTranslation>0</AutoTranslation>
+        <Status>
+            <value>Awaiting validation</value>
+        </Status>
+        <MetadataContributor>
+            <ContributorName>Marcel Goldberg</ContributorName>
+            <ContributorAffiliation>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</ContributorAffiliation>
+        </MetadataContributor>
+    </TechnicalInfo>
+    <StudyRelatedInfo>
+        <StudyOverview>
+            <Title>20,000 Volunteers for Medical Research</Title>
+            <Acronym>GAZEL</Acronym>
+            <StudyStatus>
+                <value>Ongoing study</value>
+            </StudyStatus>
+            <Purpose>GAZEL was set up in 1989 among workers of Électricité de France-Gaz de France (EDF-GDF). It was designed as an “open epidemiologic laboratory” characterized by a broad coverage of health problems and determinants and accessible to the community of researchers. At study inception in 1989, the GAZEL Cohort Study included 20,625 volunteers (15,011 men and 5,614 women) then aged from 35 to 50 years. The data routinely collected cover diverse dimensions and come from different sources: annual self-administered questionnaire (morbidity, lifestyles, life events, etc.); personnel department of EDF-GDF for social, demographic, and occupational characteristics; EDF-GDF special social insurance fund (for sickness absences and cancer and ischemic heart disease registries), occupational medicine (occupational exposure and working conditions), Social Action Fund (healthcare utilization), Health Screening Centres for standardized health examination and the National Death Register (causes of death); a biobank including more than 8,000 blood samples was also set up. Today, more than 40 ancillary projects on diversified themes have been set up in the GAZEL Cohort Study by some 30 French and foreign teams from Denmark, Germany, Belgium, Canada, Great Britain, Sweden, Finland, and USA. Health problems as diverse as migraine, postmenopausal osteoporosis, ischemic heart disease, depression, musculoskeletal diseases, or traffic accidents have been the object of research projects in this cohort. They take into account risk factors that are behavioural, social, psychological, occupational, and medical. A substantial proportion of the research work has focused on the problem of social inequalities in health and their occupational, personal, and social determinants using a life course perspective.</Purpose>
+            <Summary>The GAZEL cohort was established in 1989 among employees of Électricité de France-Gaz de France (EDF-GDF). In 1989, GAZEL recruited 20,625 volunteers working at EDF-GDF who were then between the ages of 35 and 50 (15,011 men and 5,614 women). The cohort is diverse in terms of social, economic, and occupational status, health, and health-related behaviors. The collected data cover various dimensions and come from different sources: an annual self-administered questionnaire (morbidity, lifestyle, life events, etc.); EDF-GDF human resources department for social, demographic, and occupational characteristics; special social security scheme, occupational medicine, SNDS (outpatient and inpatient care, causes of death), and Social Security Health Examination Centers. A biobank is associated with the cohort.</Summary>
+            <Keyword>adults</Keyword>
+            <Keyword>occupational health</Keyword>
+            <Keyword>social determinants</Keyword>
+            <Keyword>aging</Keyword>
+            <Keyword>General-purpose cohort</Keyword>
+        </StudyOverview>
+        <Theme>
+            <IsHealthTheme>0</IsHealthTheme>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants: Employment</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants: Income</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants: Housing</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants: Education level</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants: Family situation</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants: Gender</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Socio-demographic and economic determinants: Age</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Environmental determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Environmental determinants: Air quality</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Environmental determinants: Other</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Healthcare system determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Healthcare system determinants: Use of care</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Behavioral determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Behavioral determinants: Addiction</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Behavioral determinants: Eating habits</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Behavioral determinants: Physical activity</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Behavioral determinants: Risk behavior</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Biological determinants</value>
+            </HealthDeterminant>
+            <HealthDeterminant>
+                <value>Biological determinants: Genetic predisposition</value>
+            </HealthDeterminant>
+            <OtherEnvironmentalDeterminant>Occupational exposures</OtherEnvironmentalDeterminant>
+            <Pathology>
+                <value>COVID-19</value>
+                <URI>http://id.who.int/icd/entity/1730556128</URI>
+            </Pathology>
+            <Pathology>
+                <value>Neoplasm, malignant</value>
+                <URI>http://id.who.int/icd/entity/50574435</URI>
+            </Pathology>
+            <Pathology>
+                <value>Diseases of the musculoskeletal system or connective tissue</value>
+                <URI>http://id.who.int/icd/entity/1473673350</URI>
+            </Pathology>
+            <Pathology>
+                <value>Depressive disorders</value>
+                <URI>http://id.who.int/icd/entity/1563440232</URI>
+            </Pathology>
+            <Pathology>
+                <value>Acute myocardial infarction</value>
+                <URI>http://id.who.int/icd/entity/1334938734</URI>
+            </Pathology>
+            <Pathology>
+                <value>Stroke not known if ischaemic or haemorrhagic</value>
+                <URI>http://id.who.int/icd/entity/1442995018</URI>
+            </Pathology>
+            <RareDiseases>0</RareDiseases>
+        </Theme>
+        <Population>
+            <PopulationType>
+                <value>General population</value>
+            </PopulationType>
+            <DemographicInfo>
+                <Sex>
+                    <value>Female</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D005260</URI>
+                </Sex>
+                <Sex>
+                    <value>Male</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008297</URI>
+                </Sex>
+                <Age>
+                    <value>Adult (25 to 44 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000328</URI>
+                </Age>
+                <Age>
+                    <value>Middle Aged (45 to 64 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D008875</URI>
+                </Age>
+                <Age>
+                    <value>Aged (65 to 79 years)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000368</URI>
+                </Age>
+                <Age>
+                    <value>Aged, 80 and over (80 years and more)</value>
+                    <URI>http://id.nlm.nih.gov/mesh/D000369</URI>
+                </Age>
+            </DemographicInfo>
+            <OtherClusion>
+                <InclusionCriterion>EDF-GDF workers aged 35-50 at inception.</InclusionCriterion>
+            </OtherClusion>
+            <GeographicalCoverage>
+                <Nation>
+                    <value>France</value>
+                    <URI>https://www.iso.org/obp/ui/#iso:code:3166:FR</URI>
+                </Nation>
+                <GeoDetail>All France</GeoDetail>
+            </GeographicalCoverage>
+        </Population>
+    </StudyRelatedInfo>
+    <AdministrativeInformation>
+        <RegulatoryRequirements>
+            <ObtainedAuthorization>
+                <AuthorizingAgency>
+                    <value>CNIL</value>
+                </AuthorizingAgency>
+            </ObtainedAuthorization>
+        </RegulatoryRequirements>
+        <IsContributorPI>0</IsContributorPI>
+        <PrimaryInvestigator>
+            <PIName>Marie;ZINS</PIName>
+            <PIMail>marie.zins@inserm.fr</PIMail>
+            <PIORCID>0000-0002-4540-4282</PIORCID>
+            <PIIdRef>074613324</PIIdRef>
+            <PIAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <PILabo>Paris Cité University
+ INSERM / UMS 011 : Cohortes épidémiologiques en population</PILabo>
+                <PILaboId>201322808P</PILaboId>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <PrimaryInvestigator>
+            <PIName>Marcel;GOLDBERG</PIName>
+            <PIMail>marcel.goldberg@inserm.fr</PIMail>
+            <PIORCID>0000-0002-6161-5880</PIORCID>
+            <PIIdRef>028740637</PIIdRef>
+            <PIAffiliation>
+                <OrganisationName>Univesité Paris Cité</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03xjwb503</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>130026024</URI>
+                </OrganisationPID>
+                <PILabo>Inserm UMS 11</PILabo>
+                <PILaboId>201322808P</PILaboId>
+            </PIAffiliation>
+            <IsPIContact>1</IsPIContact>
+        </PrimaryInvestigator>
+        <ContactPoint>
+            <ContactName>Marie;ZINS</ContactName>
+            <EMail>marie.zins@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </OrganisationPID>
+                <ContactPointLabo>Paris Cité University
+ INSERM / UMS 011 : Cohortes épidémiologiques en population</ContactPointLabo>
+                <ContactPointLaboId>201322808P</ContactPointLaboId>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <ContactPoint>
+            <ContactName>Marcel;GOLDBERG</ContactName>
+            <EMail>marcel.goldberg@inserm.fr</EMail>
+            <ContactPointAffiliation>
+                <OrganisationName>Univesité Paris Cité</OrganisationName>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/03xjwb503</URI>
+                </OrganisationPID>
+                <OrganisationPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>130026024</URI>
+                </OrganisationPID>
+                <ContactPointLabo>Inserm UMS 11</ContactPointLabo>
+                <ContactPointLaboId>201322808P</ContactPointLaboId>
+            </ContactPointAffiliation>
+        </ContactPoint>
+        <FundingAgent>
+            <FundingAgentName>Camieg</FundingAgentName>
+            <FundingAgentType>
+                <value>Public (France)</value>
+            </FundingAgentType>
+            <FundingAgentPID>
+                <PIDSchema>
+                    <value>ROR</value>
+                </PIDSchema>
+                <URI>https://ror.org/05fw72335</URI>
+            </FundingAgentPID>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>CCAS</FundingAgentName>
+            <FundingAgentType>
+                <value>Other</value>
+            </FundingAgentType>
+            <OtherFundingAgentType>Organisme protection sociale</OtherFundingAgentType>
+        </FundingAgent>
+        <FundingAgent>
+            <FundingAgentName>CMCAS</FundingAgentName>
+            <FundingAgentType>
+                <value>Other</value>
+            </FundingAgentType>
+            <OtherFundingAgentType>Organisme protection sociale</OtherFundingAgentType>
+        </FundingAgent>
+        <OrganisationGovernance>
+            <Sponsor>
+                <SponsorName>INSTITUT NATIONAL DE LA SANTE ET DE LA RECHERCHE MEDICALE (INSERM)</SponsorName>
+                <SponsorType>
+                    <value>Public (France)</value>
+                </SponsorType>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>ROR</value>
+                    </PIDSchema>
+                    <URI>https://ror.org/02vjkv261</URI>
+                </SponsorPID>
+                <SponsorPID>
+                    <PIDSchema>
+                        <value>SIREN</value>
+                    </PIDSchema>
+                    <URI>180036048</URI>
+                </SponsorPID>
+            </Sponsor>
+            <Governance>
+                <Committee>1</Committee>
+                <CommitteeDetail>Shared with CS de Constances (https://www.constances.fr/espace-scientifique/csi/)</CommitteeDetail>
+            </Governance>
+            <Collaborations>
+                <NetworkConsortium>1</NetworkConsortium>
+                <CollaborationsDetails>Consortiums and collaborations :- Sickness Absence Research Collaboration (SARC) : http://ucl-sarc.org/index.html - IDEAR (Integrated Datasets across Europe for Ageing Research)- BBMRI-LPC- P3G</CollaborationsDetails>
+            </Collaborations>
+        </OrganisationGovernance>
+        <OtherStudyId>
+            <IDSchema>PEF</IDSchema>
+            <Identifier>3476</Identifier>
+        </OtherStudyId>
+        <OtherStudyId>
+            <IDSchema>FReSH</IDSchema>
+            <Identifier>FRESH-PEF3476</Identifier>
+        </OtherStudyId>
+    </AdministrativeInformation>
+    <StudyMethodology>
+        <AnalysisUnit>Individus</AnalysisUnit>
+        <ResearchType>
+            <value>Observational Study</value>
+        </ResearchType>
+        <ObservationalStudy>
+            <ObservationalStudyDesign>
+                <value>Cohort study</value>
+            </ObservationalStudyDesign>
+            <TimePerspective>
+                <value>Prospective longitudinal</value>
+            </TimePerspective>
+            <IsInclusionGroups>0</IsInclusionGroups>
+            <Intervention>
+                <InterventionName>Multiple exposures</InterventionName>
+                <InterventionType>
+                    <value>Combination Product</value>
+                </InterventionType>
+            </Intervention>
+        </ObservationalStudy>
+        <Outcomes>
+            <PrimaryOutcomes>Health event/morbidity
+Health event/mortality
+Health care consumption and services
+Quality of life/health perception</PrimaryOutcomes>
+            <SecondaryOutcomes>Well being  Quality of Life</SecondaryOutcomes>
+        </Outcomes>
+    </StudyMethodology>
+    <DataCollectionAccess>
+        <DataCollectionIntegration>
+            <SampleSize>
+                <PlannedSampleSize>
+                    <value>&gt;= 20000 individuals</value>
+                </PlannedSampleSize>
+                <FinalSampleSize>20,625</FinalSampleSize>
+            </SampleSize>
+            <CollectionChronology>
+                <CollectionStart>1989-01-01</CollectionStart>
+                <CollectionEnd>2025-12-31</CollectionEnd>
+                <CollectionFrequency>Annual</CollectionFrequency>
+            </CollectionChronology>
+            <DataCollection>
+                <CollectionProcess>
+                    <CollectionMode>
+                        <value>Self-administered questionnaire</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/35e4248</URI>
+                    </CollectionMode>
+                    <CollectionMode>
+                        <value>Other</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/4.0.3/6311ae1</URI>
+                    </CollectionMode>
+                    <CollectionModeOther>Administrative data, SNDS</CollectionModeOther>
+                    <CollectionModeDetails>Yearly self-questionnaire. Follow-up also through national health and socioeconomic administrative databases.</CollectionModeDetails>
+                    <SamplingMode>
+                        <value>Complete enumeration (including consecutive recruitment)</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/885b553</URI>
+                    </SamplingMode>
+                    <SamplingMode>
+                        <value>Other</value>
+                        <URI>http://rdf-vocabulary.ddialliance.org/cv/SamplingProcedure/1.1.4/6311ae1</URI>
+                    </SamplingMode>
+                    <SamplingModeOther>Invitation to the entire eligible population</SamplingModeOther>
+                </CollectionProcess>
+                <RecruitmentSource>
+                    <value>Administrative database (employees, pupils, students, etc.)</value>
+                </RecruitmentSource>
+                <ActiveFollowUp>
+                    <IsActiveFollowUp>1</IsActiveFollowUp>
+                    <FollowUpMode>
+                        <value>Monitoring by contact with the participant (mail, e-mail, telephone etc.)</value>
+                    </FollowUpMode>
+                </ActiveFollowUp>
+                <DataTypes>
+                    <DataType>
+                        <value>Biological data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Socio-demographic data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Environmental / exposure data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Behavioral data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Geospatial data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Economic data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Genetic / genomic data</value>
+                    </DataType>
+                    <DataType>
+                        <value>Participant-reported health data</value>
+                    </DataType>
+                    <BiologicalDataDetails>Blood count, glucose, total cholesterol, HDL cholesterol, ALT, creatinine, triglycerides, micro albumin, Gamma GT</BiologicalDataDetails>
+                    <isDataInBiobank>1</isDataInBiobank>
+                    <BiobankContent>
+                        <value>Plasma</value>
+                        <URI>http://id.nlm.nih.gov/mesh/D010949</URI>
+                    </BiobankContent>
+                    <BiobankContent>
+                        <value>Serum</value>
+                        <URI>http://id.nlm.nih.gov/mesh/D044967</URI>
+                    </BiobankContent>
+                </DataTypes>
+            </DataCollection>
+            <IsDataIntegration>1</IsDataIntegration>
+            <DataIntegration>
+                <ThirdPartySource>
+                    <SourceName>Medical and Administrative Office</SourceName>
+                    <SourceId>SNDS</SourceId>
+                    <SourceType>
+                        <value>Administrative database</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Data enrichment through cross-referencing</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+                <ThirdPartySource>
+                    <SourceName>Medical and Administrative Office</SourceName>
+                    <SourceId>SNDS</SourceId>
+                    <SourceType>
+                        <value>Medico-administrative database</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Data enrichment through cross-referencing</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+                <ThirdPartySource>
+                    <SourceName>Administrative files</SourceName>
+                    <SourceId>EDF-GDF Files</SourceId>
+                    <SourceType>
+                        <value>Administrative database</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Data enrichment through cross-referencing</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+                <ThirdPartySource>
+                    <SourceName>Administrative files</SourceName>
+                    <SourceId>EDF-GDF Files</SourceId>
+                    <SourceType>
+                        <value>Medico-administrative database</value>
+                    </SourceType>
+                    <SourcePurpose>
+                        <value>Data enrichment through cross-referencing</value>
+                    </SourcePurpose>
+                </ThirdPartySource>
+            </DataIntegration>
+        </DataCollectionIntegration>
+        <DataAccess>
+            <DataQuality>
+                <UsedStandards>ICD-10, CCAM, ATC</UsedStandards>
+                <QualityProcedure>Internal controls</QualityProcedure>
+            </DataQuality>
+            <DataAvailability>
+                <IndividualDataAccess>
+                    <value>Restricted access</value>
+                    <URI>http://purl.org/coar/access_right/c_16ec</URI>
+                </IndividualDataAccess>
+                <AggregatedDataAccess>Free access</AggregatedDataAccess>
+                <DataAccessRequestTool>
+                    <DataAccessRequestToolAvailable>1</DataAccessRequestToolAvailable>
+                    <DataAccessRequestToolLocation>https://www.gazel.inserm.fr/index.php/fr/projets/proposer-un-projet-de-recherche</DataAccessRequestToolLocation>
+                </DataAccessRequestTool>
+                <DataLocation>CASD</DataLocation>
+            </DataAvailability>
+            <UseStatement>
+                <AccessConditions>Scientific Reports, MR04</AccessConditions>
+                <AccessRestrictions>Access via aCASD only</AccessRestrictions>
+                <AdditionalDataAccessLink>Permanent call for research projects Data catalogue available on dedicated website</AdditionalDataAccessLink>
+                <DataInformationContact>
+                    <DIContactName>Marcel;GOLDBERG</DIContactName>
+                    <DIContactMail>marcel.goldberg@inserm.fr</DIContactMail>
+                </DataInformationContact>
+            </UseStatement>
+            <DataCitation>
+                <DataCitationRequirement>Requirement to publish results</DataCitationRequirement>
+            </DataCitation>
+            <VariableDictionnary>
+                <VariableDictionnaryAvailable>1</VariableDictionnaryAvailable>
+                <VariableDictionnaryLink>https://www.gazel.inserm.fr/documentation/catalogue-des-donnees</VariableDictionnaryLink>
+            </VariableDictionnary>
+            <MockSample>
+                <MockSampleAvailable>0</MockSampleAvailable>
+            </MockSample>
+        </DataAccess>
+        <RelatedDocument>
+            <DocumentType>
+                <value>Publication defining the database and/or its collection protocol  (data paper, cohort profile, method/protocol paper, resource paper, data note, registered report...)</value>
+            </DocumentType>
+            <DocumentTitle>Cohort profile update: the GAZEL Cohort Study</DocumentTitle>
+            <DocumentLink>doi: 10.1093/ije/dyu224</DocumentLink>
+        </RelatedDocument>
+    </DataCollectionAccess>
+</FreshSchema>

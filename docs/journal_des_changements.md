@@ -197,9 +197,10 @@ qu'une liste, dans `src/builder.py`, que `run_pipeline.py` importe.
 
 **Comment c'est vérifié.** Aucune fiche de test ne contient ces champs. La
 vérification a été faite sur une copie de FRESH-PEF3101 où la précision a été
-placée dans la case du 4ᵉ financeur sur 7 : elle arrive bien sur le 4ᵉ. **Les
-vraies fiches concernées doivent encore être ajoutées aux tests** pour que le
-harnais couvre ces champs durablement.
+placée dans la case du 4ᵉ financeur sur 7 : elle arrive bien sur le 4ᵉ. Depuis, **les vraies fiches ont été ajoutées aux tests** (FRESH-PEF3476 et
+FRESH-PEF73379, fr et en) : dans PEF3476, la CCAS et la CMCAS — 2ᵉ et 3ᵉ
+financeurs sur 3 — reçoivent chacune « Organisme protection sociale », le 1ᵉʳ
+rien. Les quatre fiches sont conformes.
 
 **À vérifier côté consommateur.** Trois éléments de texte libre, rares.
 
