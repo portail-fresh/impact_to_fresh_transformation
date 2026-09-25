@@ -224,8 +224,9 @@ if you're tracing a bug, it's in one of these):
   `run_transformation()` (orchestrates extract → build → validate → write
   logs). Also runnable standalone for one study (edit `fresh_id`/`lang` at
   the bottom).
-- `src/builder.py` — `FReSHXMLBuilder`: dict → XML, in strict XSD child
-  order (`schema_hierarchy`), plus a long post-processing pass — see below.
+- `src/builder.py` — `FReSHXMLBuilder`: dict → XML, in the child order read
+  from the XSD itself (`ordre_depuis_xsd`), plus a long post-processing pass —
+  see below.
 - `src/validator.py` — thin wrapper around `xmlschema.XMLSchema11`.
 - `src/vocabularies.py` — the controlled-vocabulary resolver, used by both
   of the above. See "Controlled-vocabulary resolution" below.
@@ -309,6 +310,19 @@ nodes the source doesn't always provide (e.g. `MetadataContributor`,
 empty `OrganisationPID`s), and — last, so it overrides anything set earlier —
 injects the ground-truth `exactMatch` URI next to every resolved `<value>`
 via `_inject_vocab_uris()`.
+
+**Element order comes from the XSD, and only from there.** Every complex
+element's child order is read from `mappings/fresh-schema_v6.xsd` when the
+builder starts (`ordre_depuis_xsd`, cached, ~25 ms), used when the dict is
+turned into XML and again by one generic sort over the whole tree just before
+the URI injection. `run_transformation()` hands the builder the same XSD path it
+validates against, so ordering and validation can never disagree. Earlier
+versions kept two hand-written copies of this order — a `schema_hierarchy`
+dict and ten lists in a final "step 11" — that had drifted apart across schema
+versions (13 and 6 divergences from the XSD respectively); output was valid
+only because their errors happened to fall on elements the other copy ordered
+correctly. A new schema version is now picked up with no code change; a missing
+or unreadable XSD stops the builder with an explicit error.
 
 ### Controlled-vocabulary resolution
 

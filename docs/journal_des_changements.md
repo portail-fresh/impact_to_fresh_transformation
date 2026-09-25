@@ -206,6 +206,53 @@ rien. Les quatre fiches sont conformes.
 
 ---
 
+## L'ordre des éléments est désormais lu dans le schéma XSD
+
+| | |
+|---|---|
+| **XML produit** | **inchangé** — vérifié sur les 2154 fiches du catalogue, à l'octet près |
+| **conformité XSD** | inchangée : 2153 / 2154 |
+| **code** | `src/builder.py` : 143 lignes retirées, 49 ajoutées ; `run_pipeline.py` : 2 lignes |
+
+**Ce qui change.** Rien dans ce que le programme produit. Ce qui change, c'est
+*pourquoi* les éléments sont dans le bon ordre.
+
+Le builder rangeait les éléments à partir de **deux listes écrites à la main** :
+le dictionnaire `schema_hierarchy`, et dix listes à l'étape 11. Au fil des
+versions du schéma (v4, v5, v6), une seule des deux avait été mise à jour à
+chaque fois : comparées au XSD, 13 entrées du dictionnaire et 6 listes de
+l'étape 11 étaient fausses. Les fiches sortaient conformes parce que les erreurs
+de l'une tombaient sur des éléments que l'autre rangeait bien, ou sur des
+éléments rangés « en dernier par défaut » qui se trouvaient être les derniers
+dans le schéma. Démonstration : avec un élément `Provenance`, l'ancienne version
+produisait une fiche **rejetée** ; la nouvelle, une fiche conforme.
+
+Les deux listes sont supprimées. L'ordre est lu au démarrage dans le fichier XSD
+(`ordre_depuis_xsd`) — le même fichier que celui qui sert à valider, transmis
+par `run_transformation()`. Une nouvelle version du schéma sera prise en compte
+sans modifier le code.
+
+**Vérifications faites avant d'appliquer.**
+- 2154 fiches produites à l'identique par l'ancienne et la nouvelle version,
+  rapports de vocabulaire et de qualité compris ; conformité 2153 / 2154.
+- Test du désordre : chaque fiche du catalogue mélangée trois fois, puis triée —
+  6462 fois sur 6462 remise exactement en place.
+- Le schéma ne contient que des séquences (pas de choix, d'héritage ni de
+  références) et aucun élément dont le contenu varie selon l'endroit ; les 190
+  balises présentes dans le catalogue y sont toutes décrites.
+- Même vitesse ; lecture du schéma : 25 ms, une fois par lancement.
+
+**Nouvelle dépendance.** Le builder a besoin du fichier XSD. S'il manque, il
+s'arrête avec une erreur explicite au lieu de produire des fiches.
+
+**Revenir en arrière.** Ce changement tient dans un seul commit :
+`git revert` de ce commit restaure l'ancien builder sans toucher aux autres
+corrections.
+
+**À vérifier côté consommateur.** Rien : la sortie est identique.
+
+---
+
 ## À venir
 
 Une seule correction de mapping reste en suspens, décrite dans

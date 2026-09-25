@@ -1,6 +1,7 @@
 import os
 import re
 import copy
+import functools
 import xml.etree.ElementTree as ET
 from src.vocabularies import resolve_vocab_term, resolve_vocab_uri
 
@@ -18,8 +19,43 @@ POSITIONAL_RAW_FIELDS = frozenset({
 })
 
 
+DEFAULT_XSD_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                "mappings", "fresh-schema_v6.xsd")
+_XSD_NS = {"xsd": "http://www.w3.org/2001/XMLSchema"}
+
+
+@functools.lru_cache(maxsize=None)
+def ordre_depuis_xsd(xsd_path):
+    """{balise: [enfants dans l'ordre du XSD]} pour chaque element complexe."""
+    from lxml import etree
+    x = etree.parse(xsd_path)
+    types = {c.get("name"): c for c in x.xpath("//xsd:complexType[@name]", namespaces=_XSD_NS)}
+    ordre = {}
+
+    def contenu(decl):
+        ct = decl.find("xsd:complexType", _XSD_NS)
+        if ct is None:
+            ct = types.get(decl.get("type"))
+        return None if ct is None else ct.xpath("./xsd:sequence/xsd:element", namespaces=_XSD_NS)
+
+    def visite(decl):
+        enfants = contenu(decl)
+        if enfants is None:
+            return
+        noms = [e.get("name") for e in enfants]
+        deja = ordre.setdefault(decl.get("name"), noms)
+        if deja != noms:
+            raise ValueError("%s a deux contenus differents dans %s" % (decl.get("name"), xsd_path))
+        for e in enfants:
+            visite(e)
+
+    for racine in x.xpath("/xsd:schema/xsd:element", namespaces=_XSD_NS):
+        visite(racine)
+    return ordre
+
+
 class FReSHXMLBuilder:
-    def __init__(self, lang="fr"):
+    def __init__(self, lang="fr", xsd_path=DEFAULT_XSD_PATH):
         self.lang = lang
         self.unmatched_vocab = []
         # Registre des reparations faites faute de mieux : (code, element, detail).
@@ -33,67 +69,9 @@ class FReSHXMLBuilder:
             "xmlns:vc": "http://www.w3.org/2007/XMLSchema-versioning"
         }
         
-        # --- THE MASTER SORTING DICTIONARY ---
-        # Garantit l'ordre strict des balises imposé par le XSD
-        self.schema_hierarchy = {
-            "FreshSchema": ["TechnicalInfo", "StudyRelatedInfo", "AdministrativeInformation", "StudyMethodology", "DataCollectionAccess"],
-            "TechnicalInfo": ["StudyId", "Provenance", "VersionLang", "OriginLang", "CreationDate", "LastUpdatedAuto", "LastUpdatedManual", "RespValidation", "AutoTranslation", "Status", "MetadataContributor"],
-            "MetadataContributor": ["ContributorName", "ContributorAffiliation"],
-            "StudyRelatedInfo": ["StudyOverview", "Theme", "Population"],
-            "StudyOverview": ["Title", "Acronym", "StudyStatus", "Purpose", "Summary", "Keyword"],
-            "Theme": ["IsHealthTheme", "HealthTheme", "OtherHealthTheme", "HealthDeterminant", "OtherSocioDemoDeterminant", "OtherEnvironmentalDeterminant", "OtherHealthcareSystemDeterminant", "OtherBehavioralDeterminant", "OtherBiologicalDeterminant", "OtherDeterminant", "Pathology", "RareDiseases"],
-            "Population": ["PopulationType", "OtherPopulationType", "DemographicInfo", "OtherClusion", "GeographicalCoverage"],
-            "DemographicInfo": ["Sex", "Age"],
-            "GeographicalCoverage": ["Nation", "FranceRegion", "GeoDetail"],
-            "AdministrativeInformation": ["RegulatoryRequirements", "IsContributorPI", "PrimaryInvestigator", "AddTeamMember", "TeamMember", "ContactPoint", "FundingAgent", "OrganisationGovernance", "OtherStudyId"],
-            "RegulatoryRequirements": ["ObtainedAuthorization"],
-            "ObtainedAuthorization": ["AuthorizingAgency", "OtherAuthorizingAgency"],
-            "PrimaryInvestigator": ["PIName", "PIMail", "PIORCID", "PIIdRef", "PIAffiliation", "IsPIContact"],
-            "PIAffiliation": ["OrganisationName", "OrganisationPID", "PILabo", "PILaboId"],
-            "TeamMember": ["TeamMemberName", "TeamMemberORCID", "TeamMemberIdRef", "TeamMemberAffiliation", "TeamMemberLabo", "TeamMemberLaboId", "IsTeamMemberContact"],
-            "TeamMemberAffiliation": ["OrganisationName", "OrganisationPID"],
-            "ContactPoint": ["ContactName", "EMail", "ContactPointAffiliation"],
-            "ContactPointAffiliation": ["OrganisationName", "OrganisationPID", "ContactPointLabo", "ContactPointLaboId"],
-            "FundingAgent": ["FundingAgentName", "FundingAgentType", "OtherFundingAgentType", "FundingAgentPID"],
-            "OrganisationGovernance": ["Sponsor", "Governance", "Collaborations"],
-            "Sponsor": ["SponsorName", "SponsorType", "OtherSponsorType", "SponsorPID"],
-            "Governance": ["Committee", "CommitteeDetail", "OtherGovernance"],
-            "Collaborations": ["NetworkConsortium", "CollaborationsDetails"],
-            "StudyMethodology": ["AnalysisUnit", "ResearchType", "InterventionalStudy", "ObservationalStudy"],
-            "InterventionalStudy": ["IsClinicalTrial", "TrialPhase", "ResearchPurpose", "OtherResearchPurpose", "IsInclusionGroups", "InclusionGroup", "InterventionalStudyModel", "Allocation", "Masking", "Arm", "Intervention"],
-            "Arm": ["ArmName", "ArmType", "ArmTypeOther", "ArmDescription"],
-            "ObservationalStudy": ["ObservationalStudyDesign", "OtherResearchTypeDetails", "TimePerspective", "IsInclusionGroups", "InclusionGroup", "Intervention"],
-            "InclusionGroup": ["GroupName", "GroupDescription"],
-            "Intervention": ["InterventionName", "InterventionType", "InterventionTypeOther", "InterventionDescritption"],
-            "DataCollectionAccess": ["DataCollectionIntegration", "DataAccess"],
-            "DataCollectionIntegration": ["SampleSize", "CollectionChronology", "DataCollection", "IsDataIntegration", "DataIntegration"],
-            "DataIntegration": ["ConformityDeclaration", "ThirdPartySource"],
-            "ThirdPartySource": ["SourceName", "SourceId", "SourceType", "SourcePurpose", "OtherSourceType"],
-            "SampleSize": ["PlannedSampleSize", "FinalSampleSize"],
-            "CollectionChronology": ["CollectionStart", "CollectionEnd", "CollectionFrequency"],
-            "DataCollection": ["CollectionProcess", "RecruitmentSource", "RecruitmentSourceOther", "ActiveFollowUp", "DataTypes", "InclusionStrategy", "InclusionStrategyOther", "SamplingMode", "SamplingModeOther"],
-            "ActiveFollowUp": ["IsActiveFollowUp", "FollowUpMode", "FollowUpModeOther"],
-            "DataTypes": ["DataType", "ClinicalDataDetails", "ParaclinicalDataOther", "BiologicalDataDetails", "isDataInBiobank", "BiobankContent", "BiobankContentOther", "OtherLiquidsDetails"],
-            "DataAccess": ["DataQuality", "DataAvailability", "UseStatement", "DataInformationContact", "DataCitation", "VariableDictionnary", "MockSample", "OtherDocumentation", "DatasetPID"],
-            "DataQuality": ["UsedStandards", "QualityProcedure"],
-            "DataAvailability": ["IndividualDataAccess", "AggregatedDataAccess", "DataAccessRequestTool", "DataAccessRequestToolLocation"],
-            "UseStatement": ["AccessConditions", "AccessRestrictions", "AdditionalDataAccessLink", "NonDisclosureAgreement"],
-            "DataInformationContact": ["DIContactName", "DIContactMail"],
-            "DataCitation": ["DataCitationRequirement", "DataCitationStatement"],
-            "VariableDictionnary": ["VariableDictionnaryAvailable", "VariableDictionnaryLink"],
-            "MockSample": ["MockSampleAvailable", "MockSampleLocation"],
-            "DatasetIDType": ["IDSchema", "Identifier"],
-            
-            # Formats stricts (Value TOUJOURS avant URI)
-            "Pathology": ["value", "URI"],
-            "Sex": ["value", "URI"],
-            "Age": ["value", "URI"],
-            "Status": ["value", "URI"],
-            "OrganisationPID": ["PIDSchema", "value", "URI"],
-            "FundingAgentPID": ["PIDSchema", "value", "URI"],
-            "SponsorPID": ["PIDSchema", "value", "URI"],
-            "Nation": ["value", "URI"]
-        }
+        # Ordre des elements : lu dans le XSD, qui est aussi ce qui juge la
+        # validite. Voir ordre_depuis_xsd.
+        self.schema_hierarchy = ordre_depuis_xsd(xsd_path)
 
     def _signaler(self, code, element, detail=""):
         """Enregistre une reparation faite faute de mieux (voir self.corrections).
@@ -583,86 +561,12 @@ class FReSHXMLBuilder:
                     dc.append(new_node)
                 dc.remove(raw)
                                     
-        # 11. Réorganisation stricte (XSD Sorter) globale
-        
-        # Ordre TechnicalInfo
-        ti_order = ['StudyId', 'VersionLang', 'OriginLang', 'CreationDate', 'LastUpdatedAuto', 'LastUpdatedManual', 'RespValidation', 'AutoTranslation', 'Status', 'DatasetPersistentID', 'MetadataContributor']
-        for ti in root.iter('TechnicalInfo'):
-            children = list(ti)
-            children.sort(key=lambda x: ti_order.index(x.tag) if x.tag in ti_order else 999)
-            ti[:] = children
-
-        # Ordre StudyOverview
-        so_order = ['Title', 'Acronym', 'StudyStatus', 'Purpose', 'Summary', 'Keyword', 'RelatedDocument']
-        for so in root.iter('StudyOverview'):
-            children = list(so)
-            children.sort(key=lambda x: so_order.index(x.tag) if x.tag in so_order else 999)
-            so[:] = children
-
-        # Ordre DataTypes (avec correction de la majuscule "isDataInBiobank")
-        dt_order = [
-            'DataType', 'DataTypeOther', 'ClinicalDataDetails', 'ParaclinicalDataOther', 'BiologicalDataDetails',
-            'isDataInBiobank', 'BiobankContent', 'BiobankContentOther',
-            'OtherLiquidsDetails'
-        ]
-        for dt in root.iter('DataTypes'):
-            children = list(dt)
-            children.sort(key=lambda x: dt_order.index(x.tag) if x.tag in dt_order else 999)
-            dt[:] = children
-
-        # Ordre DataQuality
-        dq_order = ['UsedStandards', 'QualityProcedure']
-        for dq in root.iter('DataQuality'):
-            children = list(dq)
-            children.sort(key=lambda x: dq_order.index(x.tag) if x.tag in dq_order else 999)
-            dq[:] = children
-
-        # Ordre CollectionProcess. Sans cette etape, l'ordre de ses enfants
-        # dependait de l'ordre des lignes dans la table de mapping : CollectionMode
-        # et SamplingMode sont reconstruits a la position de leur noeud brut, et
-        # CollectionProcess n'a pas d'entree dans schema_hierarchy. Ajouter une
-        # regle au mauvais endroit du CSV aurait suffi a rendre la fiche invalide.
-        cp_order = ['CollectionMode', 'CollectionModeOther', 'CollectionModeDetails',
-                    'SamplingMode', 'SamplingModeOther']
-        for cp_el in root.iter('CollectionProcess'):
-            children = list(cp_el)
-            children.sort(key=lambda x: cp_order.index(x.tag) if x.tag in cp_order else 999)
-            cp_el[:] = children
-
-        # Ordre DataCollection (RecruitmentSource est reconstruit après ActiveFollowUp/DataTypes, il faut le replacer)
-        dc_order = self.schema_hierarchy["DataCollection"]
-        for dc_el in root.iter('DataCollection'):
-            children = list(dc_el)
-            children.sort(key=lambda x: dc_order.index(x.tag) if x.tag in dc_order else 999)
-            dc_el[:] = children
-
-        # Ordre DataAvailability
-        dav_order = ['IndividualDataAccess', 'AggregatedDataAccess', 'DataAccessRequestTool', 'DataFileCompleteness', 'DataLocation']
-        for dav in root.iter('DataAvailability'):
-            children = list(dav)
-            children.sort(key=lambda x: dav_order.index(x.tag) if x.tag in dav_order else 999)
-            dav[:] = children
-
-        # Ordre UseStatement (avec AdditionalDataAccessLink)
-        us_order = ['AccessConditions', 'AccessRestrictions', 'AdditionalDataAccessLink', 'NonDisclosureAgreement', 'DataInformationContact']
-        for us in root.iter('UseStatement'):
-            children = list(us)
-            children.sort(key=lambda x: us_order.index(x.tag) if x.tag in us_order else 999)
-            us[:] = children
-
-        # Ordre DataAccess (avec DataCitation correctement placé)
-        da_order = ['DataQuality', 'DataAvailability', 'UseStatement', 'DataCitation', 'VariableDictionnary', 'MockSample', 'OtherDocumentation', 'DatasetPID']
-        for da in root.iter('DataAccess'):
-            children = list(da)
-            children.sort(key=lambda x: da_order.index(x.tag) if x.tag in da_order else 999)
-            da[:] = children
-
-        # Ordre RelatedDocument (Le XSD veut le Titre, puis le Lien, puis le Type)
-        rd_order = ['DocumentType', 'DocumentTitle', 'DocumentLink']
-        for rd in root.iter('RelatedDocument'):
-            children = list(rd)
-            children.sort(key=lambda x: rd_order.index(x.tag) if x.tag in rd_order else 999)
-            rd[:] = children
+        # 11. Tri final de tout l'arbre dans l'ordre du XSD.
+        for el in root.iter():
+            ordre = self.schema_hierarchy.get(el.tag)
+            if ordre and len(el) > 1:
+                rang = {t: i for i, t in enumerate(ordre)}
+                el[:] = sorted(el, key=lambda c: rang.get(c.tag, len(ordre)))
 
         # 12. Injection des URI du vocabulaire contrôlé (ground truth), en dernier
         # pour prendre le pas sur toute URI déjà posée plus haut (Nation,

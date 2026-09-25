@@ -277,7 +277,9 @@ def run_transformation(input_xml_path, mapping_csv_path, xsd_schema_path, output
     nested_data = extractor.process()
     
     print("2. Building and Saving Target XML...")
-    builder = FReSHXMLBuilder(lang=extractor.lang)
+    # Le builder range les elements dans l'ordre du schema qui sert ensuite a
+    # valider : un seul fichier fait foi pour les deux.
+    builder = FReSHXMLBuilder(lang=extractor.lang, xsd_path=xsd_schema_path)
     xml_root = builder.build_tree(nested_data)
     
     os.makedirs(os.path.dirname(output_xml_path), exist_ok=True)

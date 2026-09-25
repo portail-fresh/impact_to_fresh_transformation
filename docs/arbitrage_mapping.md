@@ -115,7 +115,8 @@ permettrait de répondre à la question laissée ouverte dans
 `pistes_ouvertes.md` : le passif de vocabulaire est-il propre aux fiches
 importées de PEF ?
 
-**Point d'attention pour l'implémentation.** L'étape 11 du builder re-trie
+**Point d'attention pour l'implémentation** *(résolu depuis : l'ordre est
+désormais lu dans le XSD, voir `journal_des_changements.md`)*. L'étape 11 du builder re-trie
 `TechnicalInfo` avec sa propre liste (`ti_order`), qui **ne contient pas
 `Provenance`** — alors que `schema_hierarchy` le contient. Ajouter la règle seule
 rangerait l'élément en fin de bloc, là où le XSD le refuse. Il faudra aligner les
