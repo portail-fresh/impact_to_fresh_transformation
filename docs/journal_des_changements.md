@@ -208,10 +208,11 @@ rien. Les quatre fiches sont conformes.
 
 ## À venir
 
-Les corrections de mapping en attente de décision sont décrites dans
-`arbitrage_mapping.md`. Chacune, une fois appliquée, fera l'objet d'une entrée
-ici. Les deux qui modifieront le plus la sortie :
+Une seule correction de mapping reste en suspens, décrite dans
+`arbitrage_mapping.md` : **les noms de personnes** (`Gianluca;SEVERI` deviendrait
+`Gianluca SEVERI`, sur environ 2000 fiches). Elle est volontairement reportée à la
+discussion de fusion, parce qu'elle touche directement ce que lit le mapping
+HealthDCAT-AP.
 
-- **les noms de personnes** — `Gianluca;SEVERI` deviendrait `Gianluca SEVERI`,
-  sur pratiquement toutes les fiches ;
-- **`Provenance`** — un élément nouveau apparaîtrait dans toutes les fiches.
+Écartés par décision, et donc **sans effet sur la sortie** : `Provenance` (l'origine
+se lit déjà dans l'identifiant) et la date de création (jugée sans enjeu).

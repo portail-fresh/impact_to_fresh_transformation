@@ -71,6 +71,19 @@ BRANCHES_TECHNIQUES = (
     "/xml/dataset/metadata/study_desc/title_statement/idno",
 )
 
+# Champs que l'equipe a decide de NE PAS mapper, apres examen. Sans cette liste,
+# le detecteur les signalerait a chaque lancement et noierait les vraies
+# nouveautes. Chaque entree dit pourquoi : si la raison tombe, on la retire.
+ECARTES_PAR_DECISION = {
+    "/xml/dataset/metadata/additional/prodPlace/values":
+        "origine de la fiche -- deja lisible dans l'identifiant (PEF1523 / 43597) ; "
+        "arbitrage_mapping.md, cas 2",
+    "/xml/dataset/metadata/study_desc/production_statement/prod_place":
+        "meme information que additional/prodPlace ; arbitrage_mapping.md, cas 2",
+    "/xml/dataset/metadata/additional/creationDate":
+        "date de creation d'origine -- jugee sans enjeu ; arbitrage_mapping.md, cas 5",
+}
+
 # Resume de catalogue : les enfants directs de /xml/dataset/ autres que
 # metadata/ sont une vue calculee par NADA (compteur de vues, dates de
 # modification, noms et courriels recopies du bloc DDI). Mesure sur les 2154
@@ -245,6 +258,8 @@ def _generalise(chemin):
 
 
 def _est_technique(chemin):
+    if chemin in ECARTES_PAR_DECISION:
+        return True
     if any(chemin.startswith(b) for b in BRANCHES_TECHNIQUES):
         return True
     reste = chemin[len(_RESUME_CATALOGUE):] if chemin.startswith(_RESUME_CATALOGUE) else None

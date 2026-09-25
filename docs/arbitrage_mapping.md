@@ -29,7 +29,9 @@ sortie produite ne le contient, et le contenu source a été lu à la main.
 
 ---
 
-## Cas 1 — Les noms de personnes sont lus dans le mauvais champ
+## Cas 1 — Les noms de personnes sont lus dans le mauvais champ — ⏸ REPORTÉ
+
+*Décision du 25 septembre : on ne touche à rien pour l'instant. À traiter avant la fusion, après discussion avec Rémy, dont le mapping HealthDCAT-AP lit ces noms.*
 
 **Constat.** Quatre règles lisent `./name`, qui vaut `Prénom;NOM` :
 
@@ -75,11 +77,13 @@ les fiches. `Gianluca;SEVERI` → `Gianluca SEVERI`.
 aucune des 87 valeurs observées ne contient autre chose qu'un point-virgule
 unique entre prénom et nom.
 
-> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+> **Décision** : ☐ appliquer ☐ ne pas appliquer ☒ à revoir — avant la fusion, avec Rémy
 
 ---
 
-## Cas 2 — `Provenance` n'est jamais rempli
+## Cas 2 — `Provenance` n'est jamais rempli — ✗ ÉCARTÉ
+
+*Décision du 25 septembre : ne pas appliquer. L'origine se lit déjà dans l'identifiant de l'étude : le programme conserve `PEF1523` pour une fiche importée de PEF, et le seul numéro (`43597`) pour une fiche créée dans FReSH. Le champ n'apporterait aucune information.*
 
 **Constat.** Tout est en place, sauf le branchement :
 
@@ -124,7 +128,7 @@ DDI, `prodPlace` désigne le lieu de production de l'étude. Ici ses valeurs son
 manifestement le catalogue d'origine de la fiche — mais c'est une lecture des
 données, pas une définition.
 
-> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+> **Décision** : ☐ appliquer ☒ ne pas appliquer ☐ à revoir
 
 ---
 
@@ -196,7 +200,9 @@ lira sur le corpus.
 
 ---
 
-## Cas 5 — `CreationDate` porte la date d'import, pas celle du premier enregistrement
+## Cas 5 — `CreationDate` porte la date d'import, pas celle du premier enregistrement — ✗ ÉCARTÉ
+
+*Décision du 25 septembre : ne pas appliquer, jugé sans enjeu. La date publiée reste celle d'entrée dans le système.*
 
 **Constat (corpus complet).** La règle ligne 7 lit `/xml/dataset/created`, qui est
 l'horodatage d'entrée de la fiche dans NADA. Pour les fiches importées de PEF,
@@ -229,7 +235,7 @@ fiche d'origine (PEF), ou la date à laquelle la fiche est entrée dans FReSH ? 
 documentation du XSD dit la première. Mais c'est une décision d'équipe : elle
 change ce que « récent » veut dire dans le catalogue.
 
-> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+> **Décision** : ☐ appliquer ☒ ne pas appliquer ☐ à revoir
 
 ---
 
