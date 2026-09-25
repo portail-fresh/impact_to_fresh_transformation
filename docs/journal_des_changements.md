@@ -151,6 +151,29 @@ disparaît ni ne change de place.
 
 ---
 
+## Cas 6 de l'arbitrage — `CommitteeDetail` enfin rempli
+
+| | |
+|---|---|
+| **XML produit** | modifié : un élément **ajouté**, rien de retiré |
+| **fiches concernées** | 6 sur 21 fiches de test ; 10 sur le corpus complet |
+| **conformité XSD** | inchangée |
+
+**Ce qui change.** Dans `OrganisationGovernance/Governance`, un élément
+`<CommitteeDetail>` apparaît juste après `<Committee>` : « Comité de pilotage »,
+« Steering Committee », « Le comité institutionnel réunit les partenaires
+fondateurs… ».
+
+**Pourquoi.** La règle voisine lisait `standards/standard/governance` ; son jumeau
+`standards/standard/committee` n'était relié à rien. Dans toutes les fiches de
+test concernées, le booléen `Committee` vaut 1 et un seul comité est décrit —
+cohérent avec le schéma, qui n'en accepte qu'un.
+
+**Prérequis.** Ce champ n'était reliable qu'après `fbf88c4` : l'ancien test
+booléen par sous-chaîne aurait remplacé ce texte par 0 ou 1.
+
+---
+
 ## À venir
 
 Les corrections de mapping en attente de décision sont décrites dans

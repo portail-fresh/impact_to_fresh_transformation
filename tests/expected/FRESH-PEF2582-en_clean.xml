@@ -328,6 +328,7 @@ Participating physicians are known as “Sentinel Physicians” (general practit
             </Sponsor>
             <Governance>
                 <Committee>1</Committee>
+                <CommitteeDetail>Steering Committee</CommitteeDetail>
             </Governance>
             <Collaborations>
                 <NetworkConsortium>1</NetworkConsortium>

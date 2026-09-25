@@ -332,6 +332,7 @@ Les médecins membres sont dits « médecins Sentinelles » (médecins général
             </Sponsor>
             <Governance>
                 <Committee>1</Committee>
+                <CommitteeDetail>Comité de pilotage</CommitteeDetail>
             </Governance>
             <Collaborations>
                 <NetworkConsortium>1</NetworkConsortium>

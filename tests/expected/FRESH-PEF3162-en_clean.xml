@@ -421,6 +421,7 @@ Inserm, Paris-Saclay University, Gustave Roussy Institute</ContactPointLabo>
             </Sponsor>
             <Governance>
                 <Committee>1</Committee>
+                <CommitteeDetail>The Institutional Committee brings together the cohort’s founding partners: Paris-Saclay University, Inserm, Gustave Roussy, the National League Against Cancer, and MGEN. Its main responsibilities are: to validate strategic directions; to monitor the cohort’s progress and its budgetary status; to approve budget management, financial statements, and annual activity reports; to establish the procedures for evaluating the cohort and decide on its potential termination or extension; and to adopt a Charter governing access to the cohort’s data and samples. The Scientific Advisory Board, composed of international experts, ensures the relevance and scientific quality of research conducted using the cohort’s data and samples; it fosters collaborations by identifying expertise and know-how, and it provides input on the Data Access Charter.</CommitteeDetail>
             </Governance>
             <Collaborations>
                 <NetworkConsortium>1</NetworkConsortium>

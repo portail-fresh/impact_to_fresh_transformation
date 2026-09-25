@@ -118,6 +118,7 @@ ARRAY:./extlink/item[role='sponsor id'],AdministrativeInformation/OrganisationGo
 
 /xml/dataset/metadata/additional/governance/committee,AdministrativeInformation/OrganisationGovernance/Governance/Committee,"Chaîne booléenne (0/1) -- valeur brute 'Autre' retombe sur 0, le détail va dans OtherGovernance ci-dessous."
 /xml/dataset/metadata/study_desc/study_info/quality_statement/standards/standard/governance,AdministrativeInformation/OrganisationGovernance/Governance/OtherGovernance,"Autre modalité de gouvernance, précisions"
+/xml/dataset/metadata/study_desc/study_info/quality_statement/standards/standard/committee,AdministrativeInformation/OrganisationGovernance/Governance/CommitteeDetail,"Comité, précisions (texte libre). Voisin de standard/governance (ligne précédente), jamais relié jusqu'ici : trouvé par tests/couverture_source.py. Le booléen Committee est traité par nom exact depuis fbf88c4, sans quoi ce texte aurait été forcé en 0/1."
 /xml/dataset/metadata/additional/collaborations/networkConsortium,AdministrativeInformation/OrganisationGovernance/Collaborations/NetworkConsortium,"Chaîne booléenne (0/1)."
 /xml/dataset/metadata/study_desc/oth_id/item[type='collaboration']/name,AdministrativeInformation/OrganisationGovernance/Collaborations/CollaborationsDetails,"Collaboration(s) impliquée(s), précisions"
 

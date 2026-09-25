@@ -423,6 +423,7 @@ Inserm, Université Paris-Saclay, Institut Gustave Roussy</ContactPointLabo>
             </Sponsor>
             <Governance>
                 <Committee>1</Committee>
+                <CommitteeDetail>Le comité institutionnel réunit les partenaires fondateurs de la cohorte : Université Paris-Saclay, Inserm, Gustave Roussy, Ligue Nationale contre le Cancer et la MGEN. Il a pour missions principales de : valider les orientations stratégiques, suivre l'avancement de la cohorte et sa situation budgétaire / approuver la gestion budgétaire, les comptes et les rapports annuels d’activité / prévoir les modalités d'évaluation de la cohorte et décider son éventuelle interruption ou sa prorogation / adopter une Charte d’accès aux données et aux échantillons de la cohorte. Le conseil scientifique, composé d'experts internationaux, veille quant à lui à la pertinence et à la qualité scientifique des recherches réalisées à partir des données et des échantillons de la cohorte ; il incite à des collaborations en recensant les compétences et les savoirs-faire, et il donne un avis sur la Charte d'accès aux données.</CommitteeDetail>
             </Governance>
             <Collaborations>
                 <NetworkConsortium>1</NetworkConsortium>

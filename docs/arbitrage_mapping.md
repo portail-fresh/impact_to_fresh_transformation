@@ -233,7 +233,9 @@ change ce que « récent » veut dire dans le catalogue.
 
 ---
 
-## Cas 6 — `CommitteeDetail` n'est jamais rempli
+## Cas 6 — `CommitteeDetail` n'est jamais rempli — ✅ APPLIQUÉ
+
+*Décision : appliqué le 25 septembre. 6 fiches de test gagnent l'élément, conformité inchangée.*
 
 **Constat (corpus).** Même motif que les cas 3 et 4. L'élément existe
 (*« Comité, précisions »*), la source `study_desc/study_info/quality_statement/standards/standard/committee`
@@ -247,7 +249,7 @@ sous-chaîne aurait écrasé en `0`/`1` (« CommitteeDetail » contient
 « Committee »). Le piège a été désamorcé au commit `fbf88c4`, la règle peut
 être ajoutée sans risque.
 
-> **Décision** : ☐ appliquer ☐ ne pas appliquer ☐ à revoir
+> **Décision** : ☒ appliquer ☐ ne pas appliquer ☐ à revoir
 
 ---
 
