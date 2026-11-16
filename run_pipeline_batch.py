@@ -43,13 +43,17 @@ def run_batch(data_dir, output_dir, logs_dir, mapping_csv_path, xsd_schema_path,
 
     print(f"Found {len(files)} file(s) in {data_dir}\n")
 
-    succeeded, failed = [], []
+    # "succeeded" only means the transformation ran to the end without raising --
+    # run_transformation() still writes an output file when the XSD rejects it,
+    # so XSD-invalid files are tracked separately (they used to be counted as
+    # successes, hiding a whole batch of invalid output).
+    succeeded, failed, xsd_invalid = [], [], []
     warnings_count = 0
     for input_xml_path in files:
         file_name = os.path.splitext(os.path.basename(input_xml_path))[0]
         print(f"=== {file_name} ===")
         try:
-            run_transformation(
+            is_valid = run_transformation(
                 input_xml_path=input_xml_path,
                 mapping_csv_path=mapping_csv_path,
                 xsd_schema_path=xsd_schema_path,
@@ -57,15 +61,21 @@ def run_batch(data_dir, output_dir, logs_dir, mapping_csv_path, xsd_schema_path,
                 logs_path=logs_dir,
             )
             succeeded.append(file_name)
+            if not is_valid:
+                xsd_invalid.append(file_name)
         except Exception as e:
             print(f"   [ERROR] {e}")
             failed.append(file_name)
         print()
 
-    print(f"Done: {len(succeeded)} succeeded, {len(failed)} failed.")
+    print(f"Done: {len(succeeded)} processed, {len(failed)} crashed, {len(xsd_invalid)} failed XSD validation.")
     if failed:
-        print("Failed files:")
+        print("Crashed files:")
         for name in failed:
+            print(f"   - {name}")
+    if xsd_invalid:
+        print("Files failing XSD validation (see their *_validation_report.txt):")
+        for name in xsd_invalid:
             print(f"   - {name}")
 
     # count warnings
@@ -81,9 +91,14 @@ if __name__ == "__main__":
     # output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\xml_files_out_IH_to_FRESH"
     # logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\IH_to_FRESH_logs"
     
-    data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\input"
-    output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\output"
-    logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\logs"
+    # data_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\input"
+    # output_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\output"
+    # logs_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\impact_to_fresh_transformation\\data\\logs"
+
+    snapshot_dir = "C:\\Users\\remy.ben-messaoud\\Documents\\python_projects\\xml_processing_home\\data\\2026_11_16_snapshot"
+    data_dir = snapshot_dir + "\\input"
+    output_dir = snapshot_dir + "\\output"
+    logs_dir = snapshot_dir + "\\logs"
 
     # Leave as None to process every study (both '-fr' and '-en') found in
     # data_dir. 

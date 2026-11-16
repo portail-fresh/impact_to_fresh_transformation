@@ -71,7 +71,16 @@ python run_pipeline_batch.py
 
 Each study's converted XML lands in `output_dir`, and a per-file validation
 report + unmatched-vocabulary report is written to `logs_dir`. The batch run
-prints a final summary of how many studies succeeded vs failed.
+prints a final summary: how many files were processed, how many **crashed**
+(an exception), and how many **failed XSD validation** — a file that fails the
+XSD is still written to `output_dir`, so "processed" alone does not mean "valid".
+Check the XSD-invalid count (and the list under it) after every run.
+
+When a new export of the source data arrives, don't trust the XSD result alone:
+it only catches *missing* elements, not fields that silently went empty or
+changed format. Compare the new outputs against the previous snapshot's outputs
+field by field before accepting them (that is how the Nov. 2026 changes — contributor
+block moved, `isContributorPI` emptied, `HealthTheme` URIs reformatted — were found).
 
 ## 4. How the pipeline works (for whoever takes this over)
 
@@ -145,7 +154,9 @@ time tracing into them:
 ### The extract → build split, and why post-processing is so heavy
 
 `HierarchicalExtractor.process()` isn't a flat XPath-to-XPath copy: the
-mapping CSV has four row "modes" (`ABSOLUTE` source paths, `ROOT:`/`ARRAY:`
+mapping CSV has four row "modes" (`ABSOLUTE` source paths — a `/xml/...` node
+path, or an XPath function such as `concat(...)` when several source nodes feed
+one target, see `ABSOLUTE_SOURCE_PREFIXES`; `ROOT:`/`ARRAY:`
 for repeatable nested groups, and `./`-relative rows for a group's own
 fields) so it can reconstruct loops-within-loops (e.g. funding agencies,
 each with its own PID list) into a nested dict. Every scalar value passes

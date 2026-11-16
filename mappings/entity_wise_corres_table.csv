@@ -9,7 +9,9 @@ source_xpath,target_xpath,comment
 /xml/dataset/metadata/additional/lastUpdatedManual,TechnicalInfo/LastUpdatedManual,"Date ISO brute à nettoyer au format YYYY-MM-DD."
 /xml/dataset/metadata/additional/autoTranslation,TechnicalInfo/AutoTranslation,"Chaîne booléenne (0/1)."
 /xml/dataset/metadata/doc_desc/producers/producer/name,TechnicalInfo/MetadataContributor/ContributorName,"Confirmé par le collègue -- 96.8% des fichiers ont un vrai nom ici, le défaut 'Inconnu' de builder.py ne reste que pour les cas réellement vides."
-/xml/dataset/metadata/doc_desc/producers/producer/affiliation,TechnicalInfo/MetadataContributor/ContributorAffiliation,"Idem ContributorName -- 96.2% des fichiers ont une vraie valeur."
+/xml/dataset/metadata/doc_desc/producers/producer/affiliation,TechnicalInfo/MetadataContributor/ContributorAffiliation,"Idem ContributorName -- 96.2% des fichiers ont une vraie valeur. LEGACY : le bloc doc_desc a disparu de l'export de nov. 2026 (voir les 2 lignes additional/contributor ci-dessous, qui passent après et l'emportent) ; gardé pour pouvoir rejouer le snapshot de sept. 2026."
+"normalize-space(concat(/xml/dataset/metadata/additional/contributor/firstname, ' ', /xml/dataset/metadata/additional/contributor/lastname))",TechnicalInfo/MetadataContributor/ContributorName,"Export de nov. 2026 : le contributeur de la fiche vit dans additional/contributor (firstname + lastname, 1 seul noeud dans 2170/2170 fichiers) au lieu de doc_desc/producers. Source = fonction XPath concat() pour produire 'Prénom NOM' (format attendu par le XSD) ; ABSOLUTE_SOURCE_PREFIXES dans run_pipeline.py. 26 fichiers n'ont que le nom de famille."
+/xml/dataset/metadata/additional/contributor/affiliation,TechnicalInfo/MetadataContributor/ContributorAffiliation,"Idem ContributorName (additional/contributor/affiliation). Souvent vide."
 /xml/dataset/title,StudyRelatedInfo/StudyOverview/Title,"Chaîne brute directe."
 /xml/dataset/metadata/study_desc/title_statement/alternate_title,StudyRelatedInfo/StudyOverview/Acronym,"Chaîne brute directe."
 /xml/dataset/metadata/study_desc/method/study_class,StudyRelatedInfo/StudyOverview/StudyStatus/value,"Statut de l'étude"
@@ -252,7 +254,8 @@ ROOT:/xml/dataset/metadata/additional/dataTypes/biobankContent/biobankcontent,Da
 
 /xml/dataset/metadata/study_desc/data_access/dataset_use/conditions,DataCollectionAccess/DataAccess/UseStatement/AccessConditions,"Conditions d'accès"
 /xml/dataset/metadata/study_desc/data_access/dataset_use/restrictions,DataCollectionAccess/DataAccess/UseStatement/AccessRestrictions,"Restrictions d'accès"
-/xml/dataset/metadata/study_desc/data_access/notes,DataCollectionAccess/DataAccess/UseStatement/AdditionalDataAccessLink,"Lien vers le plan de partage"
+/xml/dataset/metadata/study_desc/data_access/notes,DataCollectionAccess/DataAccess/UseStatement/AdditionalDataAccessLink,"Lien vers le plan de partage. LEGACY : dans l'export de nov. 2026 cet élément n'existe plus (0 fichier sur 2170), la valeur a déménagé sous dataset_availability (ligne suivante, qui l'emporte quand elle est remplie) ; gardé pour rejouer le snapshot de sept. 2026."
+/xml/dataset/metadata/study_desc/data_access/dataset_availability/notes,DataCollectionAccess/DataAccess/UseStatement/AdditionalDataAccessLink,"Nouvel emplacement (export de nov. 2026) de data_access/notes : mêmes valeurs, vérifié sur les 2170 fichiers (111 valeurs avant -> 115 après, déménagement pur). Les valeurs sont du texte libre (conditions d'accès) plus que des liens -- sémantique de la cible inchangée, à revoir si besoin."
 /xml/dataset/metadata/study_desc/data_access/dataset_use/conf_dec/item/txt,DataCollectionAccess/DataAccess/UseStatement/NonDisclosureAgreement,"Accord de confidentialité"
 
 ROOT:/xml/dataset/metadata/study_desc/data_access/dataset_use/contact/item,DataCollectionAccess/DataAccess/UseStatement/DataInformationContact,"Boucle Contacts Données"

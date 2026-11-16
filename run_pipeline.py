@@ -20,6 +20,12 @@ import json
 # matching exception in FReSHXMLBuilder._dict_to_xml.
 POSITIONAL_RAW_FIELDS = {"AgencyRaw", "OtherAgencyRaw", "FundingAgentTypeRaw", "SponsorTypeRaw", "OtherSourceTypeRaw"}
 
+# A source_xpath starting with one of these is evaluated against the document
+# root (ABSOLUTE mode). "/xml/" is a plain node path; "normalize-space(" /
+# "concat(" are XPath functions, used when one target field needs several
+# source nodes joined (e.g. firstname + lastname -> "Prénom NOM").
+ABSOLUTE_SOURCE_PREFIXES = ("/xml/", "normalize-space(", "concat(")
+
 
 def _vocab_field_name(target_xpath):
     """Maps a target_xpath to the FReSH tag its controlled-vocabulary lookup
@@ -32,6 +38,29 @@ def _vocab_field_name(target_xpath):
     if parts[-1] == 'value' and len(parts) >= 2:
         return parts[-2]
     return parts[-1]
+
+
+MESH_BASE_URI = "http://id.nlm.nih.gov/mesh/"
+
+
+def _normalize_health_theme_uris(raw):
+    """Rebuilds clean URIs from one HealthTheme extlink <uri> value.
+
+    The Nov. 2026 export changed that field's format: several URIs of one
+    extlink are now joined into a single string with " | " (the Sept. export
+    had one <extlink> per URI), and MeSH links are a bare descriptor id
+    ("D002309") instead of the full "http://id.nlm.nih.gov/mesh/D002309".
+    Neither breaks the XSD (xsd:anyURI accepts both), so it would slip through
+    silently as garbage. Returns a str for one URI, a list for several."""
+    uris = []
+    for part in raw.split("|"):
+        part = part.strip()
+        if not part:
+            continue
+        if re.fullmatch(r"[DC]\d+", part):  # bare MeSH descriptor / supplementary concept id
+            part = MESH_BASE_URI + part
+        uris.append(part)
+    return uris[0] if len(uris) == 1 else uris
 
 
 class HierarchicalExtractor:
@@ -108,6 +137,12 @@ class HierarchicalExtractor:
                     v_stripped = v_stripped.split("-", 1)[1]
 
 
+                # --- HealthTheme/URI : liens pipe-joints et ids MeSH nus depuis
+                # l'export de nov. 2026 (voir _normalize_health_theme_uris).
+                if target_xpath.strip('/') == "StudyRelatedInfo/Theme/HealthTheme/URI":
+                    return _normalize_health_theme_uris(v_stripped)
+
+
                 v_stripped = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', '', v_stripped)
 
 
@@ -179,9 +214,14 @@ class HierarchicalExtractor:
             source = str(row['source_xpath']).strip()
             target = str(row['target_xpath']).strip()
             
-            if source.startswith('/xml/'):
+            if source.startswith(ABSOLUTE_SOURCE_PREFIXES):
                 mode = "ABSOLUTE"
                 elements = self.tree.xpath(source, namespaces=self.namespaces)
+                # An XPath *function* (concat(...)) evaluates to a bare string,
+                # not a node list -- wrap it so _extract_text sees one value
+                # instead of iterating the string character by character.
+                if isinstance(elements, (str, float, bool)):
+                    elements = [str(elements)]
                 target_leaf = target.strip('/').split('/')[-1]
                 if target_leaf in POSITIONAL_RAW_FIELDS:
                     extracted = self._extract_text_keep_blanks(elements)
@@ -315,6 +355,7 @@ def run_transformation(input_xml_path, mapping_csv_path, xsd_schema_path, output
         writer.writerow(["field", "raw_value"])
         writer.writerows(unmatched_vocab)
     print(f"   Rapport de vocabulaires écrit dans : {report_path}")
+    return is_valid
 
 if __name__ == "__main__":
     # /!\ MODIFY PATHS HERE AS NEEDED /!\
