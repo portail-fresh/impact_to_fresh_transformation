@@ -157,18 +157,9 @@ class FReSHXMLBuilder:
                 idx = list(pop).index(demo_el) + 1 if demo_el is not None else len(pop)
                 pop.insert(idx, ET.Element('OtherClusion'))
 
-        # 2.2 IsContributorPI (obligatoire, xsd:boolean, juste avant PrimaryInvestigator) :
-        # depuis l'export de nov. 2026, additional/isContributorPI est VIDE pour les
-        # fiches importées (2130 fichiers sur 2170) alors que le snapshot de sept.
-        # y mettait '0' -- sans cet élément le XSD rejette le fichier. Vide = "non",
-        # soit exactement la valeur que portait l'ancien export pour ces fiches.
-        for admin_info in root.iter('AdministrativeInformation'):
-            if admin_info.find('IsContributorPI') is None:
-                reg = admin_info.find('RegulatoryRequirements')
-                idx = list(admin_info).index(reg) + 1 if reg is not None else 0
-                is_pi = ET.Element('IsContributorPI')
-                is_pi.text = '0'
-                admin_info.insert(idx, is_pi)
+        # (IsContributorPI n'est plus fabriqué ici : optionnel depuis fresh-schema_v7.xsd.
+        # Vide dans la source = élément absent = "pas répondu", au lieu d'un '0' inventé
+        # qui était faux pour ~2/3 des fiches -- le contributeur y est le PI.)
 
         # 2.5 FundingAgentType / SponsorType : listes PARALLELES (chemin séparé dans le
         # XML source de l'API, sans lien de parenté avec funding_agency/producer),

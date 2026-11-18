@@ -1,7 +1,7 @@
 # IMPACT to FReSH transformation
 
 Converts source study records (IMPACT/API export XML, one file per language per
-study) into FReSH-schema XML, validated against `mappings/fresh-schema_v6.xsd`.
+study) into FReSH-schema XML, validated against `mappings/fresh-schema_v7.xsd`.
 
 ## 1. Requirements
 
@@ -94,7 +94,7 @@ For each source file, `run_transformation()` (bottom of `run_pipeline.py`)
 does three things: **extract** the source XML into a nested Python dict
 (`HierarchicalExtractor`, also in `run_pipeline.py`), **build** a FReSH-shaped
 XML tree from that dict (`FReSHXMLBuilder`, in `src/builder.py`), then
-**validate** the result against `mappings/fresh-schema_v6.xsd`
+**validate** the result against `mappings/fresh-schema_v7.xsd`
 (`src/validator.py`). Two logs come out per input file regardless of outcome:
 a validation report and an unmatched-controlled-vocabulary report (empty file
 if nothing was unmatched).
@@ -118,7 +118,12 @@ if you're tracing a bug, it's in one of these):
   `target_xpath` table `HierarchicalExtractor` walks row by row. This file
   *is* the mapping; there's no mapping logic hardcoded in Python beyond
   interpreting its four row "modes" (see next section).
-- `mappings/fresh-schema_v6.xsd` — current target schema.
+- `mappings/fresh-schema_v7.xsd` — current target schema. v7 = v6 with one change:
+  `IsContributorPI` is optional (it is a form question — "are you the PI?" — that the
+  source leaves empty for ~98% of records; requiring it forced the pipeline to invent
+  a value). v6 is kept untouched: it is exactly what `sync_xsd_vocabularies_cvidtype.py`
+  generates from v5, so v7 is a separate file rather than an edit that a regeneration
+  would silently undo.
 - `mappings/vocabularies/*.csv` — 39 controlled-vocabulary tables
   (`prefLabel_fr`, `prefLabel_en`, `exactMatch`, `identifier`), one per
   FReSH field. These are the ground truth `resolve_vocab_term()` checks

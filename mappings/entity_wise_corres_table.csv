@@ -63,7 +63,7 @@ ROOT:/xml/dataset/metadata/additional/geogCoverage/values/value,StudyRelatedInfo
 
 /xml/dataset/metadata/study_desc/study_authorization/agency/item/name,AdministrativeInformation/RegulatoryRequirements/AgencyRaw,"Agences brutes"
 /xml/dataset/metadata/additional/obtainedAuthorization/otherAuthorizingAgency/otherauthorizingagency,AdministrativeInformation/RegulatoryRequirements/OtherAgencyRaw,"Précisions agences brutes"
-/xml/dataset/metadata/additional/isContributorPI,AdministrativeInformation/IsContributorPI,"Chaîne booléenne (0/1)."
+/xml/dataset/metadata/additional/isContributorPI,AdministrativeInformation/IsContributorPI,"Chaîne booléenne (0/1). Question de formulaire (""êtes-vous le PI ?""), pas une métadonnée d'étude : vide dans 98% des fichiers de l'export de nov. 2026 (le snapshot de sept. y mettait un '0' machine, faux pour 73% des fiches). Optionnel depuis fresh-schema_v7.xsd : vide = élément absent."
 
 ROOT:/xml/dataset/metadata/study_desc/authoring_entity/item,AdministrativeInformation/PrimaryInvestigator,"--- DEBUT BOUCLE INVESTIGATEURS ---"
 ./name,AdministrativeInformation/PrimaryInvestigator/PIName,"Nom PI"
